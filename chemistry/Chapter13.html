@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>第 13 章 States of Matter 物质的三态 · 双语学习手册</title>
+<script>
+window.MathJax = {
+  tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$','$$'], ['\\[','\\]']] },
+  svg: { fontCache: 'global' }
+};
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+:root{
+  --bg:#f7f5ef;--paper:#ffffff;--ink:#232323;--ink-soft:#4a4a4a;
+  --accent:#0f6b5e;--accent-2:#c1543b;--accent-3:#3e5aa8;
+  --hi:#f6e58d;--box-en:#eef4f2;--box-cn:#fff8ec;
+  --box-note:#eaf1fb;--box-warn:#fdecea;--box-key:#fff1d6;--box-example:#eef7ee;--line:#e4dfd2;
+}
+*{box-sizing:border-box}html,body{margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei","Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.75;font-size:16px;}
+.wrap{display:flex;max-width:1400px;margin:0 auto;min-height:100vh}
+aside.toc{position:sticky;top:0;align-self:flex-start;width:280px;height:100vh;overflow-y:auto;background:linear-gradient(180deg,#0f6b5e,#0b4d43);color:#fff;padding:24px 18px;}
+aside.toc h1{font-size:16px;margin:0 0 6px;letter-spacing:1px;color:#f6e58d}
+aside.toc .sub{font-size:12px;opacity:.75;margin-bottom:16px}
+aside.toc a{display:block;color:#f2fbf8;text-decoration:none;padding:8px 10px;border-radius:6px;margin-bottom:2px;font-size:14px;line-height:1.4;border-left:3px solid transparent;}
+aside.toc a:hover{background:rgba(255,255,255,.10)}
+aside.toc a.h2{padding-left:22px;font-size:13px;opacity:.9}
+main{flex:1;padding:36px 44px;background:var(--paper);box-shadow:0 0 30px rgba(0,0,0,.05)}
+h1.title{font-size:32px;margin:0 0 6px;color:var(--accent)}
+.subtitle{color:var(--ink-soft);margin-bottom:24px;font-size:14px}
+h2.section{font-size:24px;color:var(--accent);border-bottom:2px solid var(--accent);padding-bottom:6px;margin-top:56px;margin-bottom:14px;}
+h3{font-size:19px;color:var(--accent-2);margin-top:32px;border-left:5px solid var(--accent-2);padding-left:10px}
+h4{font-size:16px;color:var(--accent-3);margin-top:20px}
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:14px 0}
+.pair .en,.pair .cn{padding:14px 16px;border-radius:10px;font-size:15px;line-height:1.75;}
+.pair .en{background:var(--box-en);border-left:4px solid var(--accent)}
+.pair .cn{background:var(--box-cn);border-left:4px solid var(--accent-2)}
+.pair .en::before{content:"EN 原文";display:block;font-size:11px;letter-spacing:1px;color:var(--accent);font-weight:700;margin-bottom:6px}
+.pair .cn::before{content:"CN 讲解";display:block;font-size:11px;letter-spacing:1px;color:var(--accent-2);font-weight:700;margin-bottom:6px}
+@media(max-width:960px){.pair{grid-template-columns:1fr}}
+.hi{background:linear-gradient(180deg,transparent 55%,var(--hi) 55%);padding:0 2px}
+.term{color:var(--accent-2);font-weight:700}
+.term-en{color:var(--accent);font-style:italic}
+.eq{background:#fafaf5;padding:10px 16px;border-radius:8px;overflow-x:auto;border:1px dashed #cfc9b6;margin:12px 0}
+.box{padding:14px 18px;border-radius:10px;margin:14px 0;position:relative}
+.box::before{content:attr(data-label);position:absolute;top:-10px;left:14px;background:#fff;padding:0 8px;font-size:12px;font-weight:700;letter-spacing:1px;}
+.box-note{background:var(--box-note);border:1px solid #c9d7f0}.box-note::before{content:"讲解 · 知识点";color:var(--accent-3)}
+.box-warn{background:var(--box-warn);border:1px solid #f5c6c0}.box-warn::before{content:"重难点 · 易错点";color:var(--accent-2)}
+.box-key{background:var(--box-key);border:1px solid #f3d78b}.box-key::before{content:"关键要点";color:#a17108}
+.box-example{background:var(--box-example);border:1px solid #b7dab8}.box-example::before{content:"例题详解";color:#2c6e2e}
+.box-vocab{background:#eef4f2;border:1px solid #b8d6cf}.box-vocab::before{content:"术语速查";color:var(--accent)}
+table.vocab{width:100%;border-collapse:collapse;margin:6px 0}
+table.vocab th,table.vocab td{padding:6px 10px;border-bottom:1px solid var(--line);font-size:14px;text-align:left;vertical-align:top}
+table.vocab th{background:#dfeae7;color:var(--accent)}
+.tag{display:inline-block;padding:2px 8px;border-radius:12px;font-size:11px;background:#e8f0ee;color:var(--accent);margin-right:6px;font-weight:600;}
+.tag.warn{background:#fdecea;color:var(--accent-2)}
+.tag.hard{background:#fff1d6;color:#a17108}
+.step{margin:10px 0;padding:10px 14px 10px 42px;background:#fbfaf3;border-radius:8px;position:relative}
+.step .no{position:absolute;left:10px;top:10px;width:24px;height:24px;line-height:24px;text-align:center;background:var(--accent);color:#fff;border-radius:50%;font-weight:700;font-size:13px;}
+ol.practice{padding-left:20px}ol.practice li{margin-bottom:10px}
+.ans{background:#eef7ee;border-left:4px solid #4e9d5c;padding:10px 14px;border-radius:0 8px 8px 0;margin:6px 0;font-size:14.5px}
+.ans::before{content:"参考答案与解析　";color:#2c6e2e;font-weight:700;font-size:12px;letter-spacing:1px}
+details{background:#f4f2ea;border-radius:8px;padding:8px 12px;margin:8px 0}
+details summary{cursor:pointer;font-weight:600;color:var(--accent-3)}
+details[open]{background:#eaf1fb}
+hr.soft{border:none;border-top:1px dashed #cfc9b6;margin:32px 0}
+.page-marker{display:inline-block;font-size:11px;color:#888;background:#f0ede2;padding:1px 8px;border-radius:10px;margin-left:8px;vertical-align:middle;}
+.callout-topic{background:linear-gradient(135deg,#0f6b5e,#3e5aa8);color:#fff;padding:18px 22px;border-radius:12px;margin:20px 0;}
+.callout-topic h3{color:#f6e58d;border:none;padding:0;margin:0 0 8px}
+.callout-topic p{margin:0;opacity:.95}
+.small{font-size:13px;color:var(--ink-soft)}
+</style>
+<link rel="stylesheet" href="theme.css" />
+</head>
+<body>
+<div class="wrap">
+<aside class="toc" id="toc">
+  <h1>第 13 章 STATES OF MATTER</h1>
+  <div class="sub">物质的三态 · Chemistry Matter and Change</div>
+  <a href="#overview">📖 全章导读</a>
+  <a href="#vocab">📚 术语速查表</a>
+  <a href="#s13-1">§13.1 Gases 气体</a>
+  <a href="#s13-2">§13.2 Forces of Attraction 分子间力</a>
+  <a href="#s13-3">§13.3 Liquids and Solids 液体与固体</a>
+  <a href="#s13-4">§13.4 Phase Changes 相变</a>
+  <a href="#study-guide">📝 Study Guide 章节复习</a>
+  <a href="#assessment">🧪 Chapter Assessment</a>
+  <a href="#std-test">🎯 Standardized Test 标测</a>
+  <a href="#cheatsheet">⚡ 一页知识卡</a>
+</aside>
+
+<main>
+<h1 class="title">第 13 章 · States of Matter 物质的三态</h1>
+<div class="subtitle">📕《Chemistry — Matter and Change》第 384–417 页 · 中英对照 + 详细讲解 + 习题解析<br/>面向国际学校 9 年级学生 · 中文精读版</div>
+
+<!-- ============================== 全章导读 ============================== -->
+<section id="overview">
+<h2 class="section">📖 全章导读：从微观解释三态</h2>
+<p>第 3 章你已经认识了物质有<b>固、液、气</b>三态，但只是从宏观层面（形状、体积、能否流动）区分。这一章从<b>微观粒子的运动和作用力</b>入手，回答一系列"为什么"：为什么气体能被压缩而液固几乎不能？为什么冰会浮在水上？为什么水蒸气变冷会凝结？为什么每种物质有独特的熔沸点？为什么高原煮饭不容易熟？</p>
+
+<div class="callout-topic">
+<h3>🌟 本章两条主线</h3>
+<p>① <b>动力学分子理论 (Kinetic-Molecular Theory, KMT)</b>：一切物质由永远在运动的微粒组成，粒子的平均动能只由温度决定。<br/>
+② <b>分子间作用力 (Intermolecular Forces, IMFs)</b>：分子之间的吸引力——决定物质在不同温度/压强下的状态、熔沸点、粘度、表面张力、溶解度等一切宏观性质。</p>
+</div>
+
+<p><b>本章 4 节：</b>§13.1 气体的动力学模型 + 压强 + Graham/Dalton 定律 → §13.2 三种分子间作用力 → §13.3 液体和固体的结构与性质 → §13.4 相变与相图。这些是学第 14 章"气体定律 PV=nRT"和第 15 章"溶液"的前置。</p>
+
+<div class="pair">
+<div class="en">To understand why water is a liquid at room temperature and oxygen is a gas—even though both are composed of small molecules—you need to consider two ideas: (1) the kinetic-molecular theory, which describes the motion of particles, and (2) the intermolecular forces of attraction, which act between particles. The balance between these two factors determines the state of a substance.</div>
+<div class="cn">要理解为什么水在常温下是液体、氧气却是气体（尽管两者分子都不大），必须结合两条思路：(1) <b>动力学分子理论</b>——描述粒子的运动；(2) <b>分子间作用力 IMF</b>——粒子之间的吸引。运动能量（"想飞开"）和吸引力（"想抱团"）的<b>拔河比赛</b>决定物质的状态：动能占上风 → 气体；作用力占上风 → 固体；两者平衡 → 液体。</div>
+</div>
+</section>
+
+<!-- ============================== 术语速查表 ============================== -->
+<section id="vocab">
+<h2 class="section">📚 术语速查表</h2>
+<div class="box box-vocab">
+<table class="vocab">
+<thead><tr><th>English</th><th>中文</th><th>要点</th></tr></thead>
+<tbody>
+<tr><td>kinetic-molecular theory (KMT)</td><td>动力学分子理论</td><td>描述气体微观行为的 5 条假设</td></tr>
+<tr><td>ideal gas</td><td>理想气体</td><td>严格满足 KMT 全部假设的假想气体</td></tr>
+<tr><td>elastic collision</td><td>弹性碰撞</td><td>碰撞前后总动能不变</td></tr>
+<tr><td>temperature</td><td>温度</td><td>反映粒子平均动能的量度</td></tr>
+<tr><td>diffusion</td><td>扩散</td><td>粒子从高浓度向低浓度自然运动混合</td></tr>
+<tr><td>effusion</td><td>逸出</td><td>气体通过极小孔跑出</td></tr>
+<tr><td>Graham's law of effusion</td><td>格雷厄姆逸出定律</td><td>逸出速率 ∝ $1/\sqrt{M}$</td></tr>
+<tr><td>pressure</td><td>压强</td><td>单位面积上的力；SI 单位 Pascal (Pa)</td></tr>
+<tr><td>atmosphere (atm)</td><td>大气压</td><td>1 atm = 101.325 kPa = 760 mmHg = 760 torr</td></tr>
+<tr><td>barometer</td><td>气压计</td><td>测量大气压（Torricelli 汞柱气压计）</td></tr>
+<tr><td>Dalton's law of partial pressures</td><td>道尔顿分压定律</td><td>$P_{\text{total}} = P_1 + P_2 + \ldots$</td></tr>
+<tr><td>intermolecular force (IMF)</td><td>分子间作用力</td><td>分子与分子之间的吸引</td></tr>
+<tr><td>dispersion (London) force</td><td>色散力 / 伦敦力</td><td>瞬时偶极；最普遍最弱</td></tr>
+<tr><td>dipole-dipole force</td><td>偶极-偶极力</td><td>极性分子之间</td></tr>
+<tr><td>hydrogen bond</td><td>氢键</td><td>H 直接连 F/O/N 时的特殊 IMF；最强</td></tr>
+<tr><td>viscosity</td><td>黏度</td><td>液体流动阻力</td></tr>
+<tr><td>surface tension</td><td>表面张力</td><td>液体表面收缩趋势产生的力</td></tr>
+<tr><td>surfactant</td><td>表面活性剂</td><td>降低表面张力的物质（如肥皂）</td></tr>
+<tr><td>capillary action</td><td>毛细现象</td><td>液体沿细管上升 / 下降</td></tr>
+<tr><td>crystalline solid</td><td>晶体</td><td>粒子按规则周期排列（长程有序）</td></tr>
+<tr><td>amorphous solid</td><td>非晶体</td><td>无长程有序（玻璃、橡胶、塑料）</td></tr>
+<tr><td>unit cell</td><td>晶胞</td><td>晶体最小重复单元</td></tr>
+<tr><td>phase change</td><td>相变</td><td>物质在固/液/气三态之间的转变</td></tr>
+<tr><td>melting / freezing point</td><td>熔点 / 凝固点</td><td>固 ↔ 液</td></tr>
+<tr><td>vaporization / evaporation</td><td>汽化 / 蒸发</td><td>液 → 气；蒸发是表面缓慢汽化</td></tr>
+<tr><td>condensation</td><td>冷凝</td><td>气 → 液</td></tr>
+<tr><td>sublimation / deposition</td><td>升华 / 凝华</td><td>固 ↔ 气（直接转变）</td></tr>
+<tr><td>vapor pressure</td><td>蒸气压</td><td>密闭容器液面上方蒸气的分压</td></tr>
+<tr><td>boiling point</td><td>沸点</td><td>蒸气压 = 外压时的温度</td></tr>
+<tr><td>triple point</td><td>三相点</td><td>固/液/气三相共存的 (T, P)</td></tr>
+<tr><td>critical point</td><td>临界点</td><td>液气边界终止；超临界流体的起点</td></tr>
+<tr><td>phase diagram</td><td>相图</td><td>用 (T, P) 描述物质相态的图</td></tr>
+</tbody>
+</table>
+</div>
+</section>
+
+<!-- ============================== §13.1 ============================== -->
+<section id="s13-1">
+<h2 class="section">§13.1 Gases 气体<span class="page-marker">P.385–392</span></h2>
+
+<h3>1. 动力学分子理论 (KMT) 5 条假设</h3>
+<div class="pair">
+<div class="en">The kinetic-molecular theory (KMT) describes the behavior of matter in terms of the particles that make up the substance. The KMT for gases makes the following assumptions:<br/>
+① A sample of gas consists of a large number of small particles that are far apart.<br/>
+② Gas particles are in constant, rapid, random motion.<br/>
+③ There are no forces of attraction or repulsion between gas particles.<br/>
+④ Collisions between gas particles are elastic—no net loss of kinetic energy.<br/>
+⑤ All gases have the same average kinetic energy at a given temperature.</div>
+<div class="cn"><b>KMT 5 条基本假设：</b><br/>
+① 气体由<b>大量、微小</b>的粒子组成，粒子间相距很远（粒子体积相对容器体积可忽略）。<br/>
+② 粒子做<b>永不停止、快速、随机</b>的直线运动。<br/>
+③ 粒子间<b>没有</b>吸引也没有排斥（无分子间力）。<br/>
+④ 粒子与器壁及彼此之间的碰撞是<b>弹性碰撞</b>——总动能不损失。<br/>
+⑤ 在同一温度下，<b>所有气体</b>粒子的<b>平均动能相同</b>：$\bar{E}_k = \dfrac{3}{2} kT$，只与温度有关。</div>
+</div>
+
+<div class="box box-key" data-label="KMT 关键结论">
+<b>温度 T 就是粒子平均动能的量度。</b>Kelvin 温度 = 0 时，粒子理论上停止运动（绝对零度，$T = 0$ K = $-273.15$ ℃，无法真正达到）。<br/>
+<b>推论：</b>H₂ 和 O₂ 在同一温度下平均动能相同，但因 $E_k = \tfrac{1}{2}mv^2$，H₂（质量小）的<b>平均速率</b>要大得多——这是 Graham 定律的基础。
+</div>
+
+<h3>2. 气体的 4 大宏观性质</h3>
+<div class="pair">
+<div class="en">KMT explains many observable properties of gases:<br/>
+<b>Low density:</b> particles are far apart.<br/>
+<b>Compression &amp; expansion:</b> the huge empty space between particles can be squeezed or expanded easily.<br/>
+<b>Diffusion &amp; effusion:</b> because particles are in constant motion and there are no attractions, gases spread out and mix spontaneously.<br/>
+<b>Pressure:</b> the total force of collisions of gas particles with container walls per unit area.</div>
+<div class="cn">KMT 解释气体的四大宏观性质：<br/>
+<b>① 低密度：</b>粒子间距远，单位体积内粒子少 → 密度小。<br/>
+<b>② 可压缩、可膨胀：</b>粒子间大量空隙 → 可以被挤到更小体积，也可以自由扩展。<br/>
+<b>③ 扩散 diffusion & 逸出 effusion：</b>粒子高速随机运动 → 气体自动混合；也能通过小孔跑出。<br/>
+<b>④ 压强 pressure：</b>大量粒子撞击器壁产生的总力除以面积。</div>
+</div>
+
+<h3>3. Graham 定律（逸出速率）</h3>
+<div class="box box-key" data-label="Graham 定律">
+$$\frac{\text{Rate}_A}{\text{Rate}_B} = \sqrt{\frac{M_B}{M_A}}$$
+在同温同压下，两种气体的<b>逸出速率之比等于它们摩尔质量之比的平方根的倒数</b>——即分子量小的跑得快。
+</div>
+
+<div class="box box-example" data-label="例题 · Graham 定律">
+<b>题：</b>H₂ (M = 2.02) 与 O₂ (M = 32.00) 从同一小孔逸出，速率之比？<br/>
+<b>解：</b>$\dfrac{r_{\text{H}_2}}{r_{\text{O}_2}} = \sqrt{\dfrac{32.00}{2.02}} = \sqrt{15.84} = <b>3.98</b>$。<br/>
+即 H₂ 逸出速率约是 O₂ 的 4 倍。这也是"氢气球比空气球飞得快、跑气也快"的原因。
+</div>
+
+<h3>4. 压强单位换算</h3>
+<div class="box box-note">
+<b>压强的定义：</b>$P = F/A$（单位面积上的力）。SI 单位是 <b>Pascal (Pa) = N/m²</b>，但化学更常用 atm、mmHg、torr、kPa。<br/><br/>
+<b>换算表（必背）：</b><br/>
+$1 \text{ atm} = 101.325 \text{ kPa} = 760 \text{ mmHg} = 760 \text{ torr} = 14.7 \text{ psi}$<br/><br/>
+<b>STP（标准状况）：</b>0 ℃ (273.15 K)、1 atm；气体摩尔体积 = 22.4 L/mol。<br/>
+<b>SATP：</b>25 ℃、100 kPa；气体摩尔体积 ≈ 24.8 L/mol。
+</div>
+
+<div class="box box-example" data-label="例题 · 压强换算">
+<b>题：</b>Denver（丹佛）大气压约 84.0 kPa。换算为 atm 和 torr。<br/>
+<b>解：</b>$84.0 \text{ kPa} \times \dfrac{1 \text{ atm}}{101.325 \text{ kPa}} = <b>0.829 \text{ atm}</b>$；<br/>
+$0.829 \text{ atm} \times \dfrac{760 \text{ torr}}{1 \text{ atm}} = <b>630 \text{ torr}</b>$。（比海平面 760 torr 小，因为丹佛海拔高。）
+</div>
+
+<h3>5. Dalton 分压定律</h3>
+<div class="box box-key" data-label="Dalton's Law">
+$$P_{\text{total}} = P_1 + P_2 + P_3 + \ldots + P_n$$
+一个混合气体的总压强等于各组分气体<b>分压</b>之和。分压是"如果这种气体独占容器时的压强"。因为 KMT 假定分子间无作用力，所以各组分互不"打扰"，只贡献自己的那份压强。
+</div>
+
+<div class="box box-example" data-label="例题 · 分压">
+<b>题：</b>空气中 $P_{\text{N}_2} = 0.79$ atm，$P_{\text{O}_2} = 0.20$ atm，$P_{\text{其他}} = 0.0044$ atm。求水蒸气的分压使总压 = 1.00 atm？<br/>
+<b>解：</b>$P_{\text{H}_2\text{O}} = 1.00 - 0.79 - 0.20 - 0.0044 = <b>0.006 \text{ atm}</b>$（约 4.5 torr，代表相对湿度低）。
+</div>
+
+<h3>6. 气压计 barometer</h3>
+<div class="box box-note">
+Torricelli（托里拆利）1643 年发明了汞柱气压计：把一根装满汞的玻璃管倒插入汞槽中，管内汞柱下降到某个高度后停止——大气压推着汞液不让它全部掉下来。<br/>
+在海平面标准大气压下，汞柱高度<b>正好 760 mm</b>——所以 1 atm = 760 mmHg 就是这样定义出来的。
+</div>
+</section>
+
+<!-- ============================== §13.2 ============================== -->
+<section id="s13-2">
+<h2 class="section">§13.2 Forces of Attraction 分子间作用力（重难点！）<span class="page-marker">P.393–395</span></h2>
+
+<h3>1. 化学键 vs 分子间力：别混淆！</h3>
+<div class="pair">
+<div class="en">A chemical bond (intramolecular force) holds atoms together within a molecule—for example, the covalent bond that holds H and O together in H2O. In contrast, intermolecular forces (IMFs) act between different molecules. IMFs are generally 100–1000 times weaker than chemical bonds. When water boils, IMFs are broken; the H–O bonds within H2O molecules remain intact.</div>
+<div class="cn"><b>化学键 (intramolecular)：</b>分子<b>内部</b>的作用力（离子键 / 共价键 / 金属键），把原子拉在一起。键能约 100–1000 kJ/mol。<br/>
+<b>分子间力 (intermolecular, IMF)：</b>分子<b>与分子之间</b>的吸引力，约 1–40 kJ/mol，比化学键弱得多。<br/><br/>
+<b>关键：</b>水烧开时，破坏的是<b>水分子之间</b>的氢键（IMF），不是水分子内部的 O—H 键——所以蒸气仍然是 H₂O 分子，不会变 H₂ + O₂。<br/>
+如果去打破 O—H 键，需要电解或极高温（&gt; 2000 ℃）。</div>
+</div>
+
+<div class="box box-warn" data-label="经典易错">
+<b>"水沸腾了，水分子被拆开了" ← 错！</b><br/>
+沸腾破坏的只是氢键，H₂O 分子本身完整。这是 IMF 与化学键最大的区别。
+</div>
+
+<h3>2. 三种主要分子间力（由弱到强）</h3>
+
+<h4>① 色散力 (Dispersion / London force)</h4>
+<div class="box box-key" data-label="色散力">
+<b>本质：</b>电子在轨道上分布是<b>瞬时不均匀</b>的——某一时刻可能"左边多、右边少"，形成<b>瞬时偶极 (temporary dipole)</b>。这个瞬时偶极会<b>感应</b>邻近分子的电子分布也变不均匀，两个"瞬时偶极"相互吸引。<br/><br/>
+<b>特点：</b>
+① 存在于<b>所有</b>分子之间（极性、非极性都有）；<br/>
+② 是<b>非极性分子之间</b>的<b>唯一</b>吸引力（因此重要）；<br/>
+③ <b>分子越大、电子越多 → 色散力越强</b>（因为电子多、可极化性大）。
+</div>
+
+<div class="box box-example" data-label="卤素分子的色散力">
+所有卤素 X₂ 都是非极性分子，只有色散力。分子量越大 → 色散力越强 → 沸点越高：<br/>
+$\text{F}_2$（38 g/mol，沸 −188 ℃，气）&lt; $\text{Cl}_2$（71，−34 ℃，气）&lt; $\text{Br}_2$（160，59 ℃，液）&lt; $\text{I}_2$（254，184 ℃，固）。<br/>
+这就是为什么常温下 F₂/Cl₂ 是气体、Br₂ 是液体、I₂ 是固体。
+</div>
+
+<h4>② 偶极-偶极力 (Dipole-Dipole force)</h4>
+<div class="box box-key" data-label="偶极-偶极力">
+<b>本质：</b>存在于<b>永久极性分子 (permanent dipole)</b> 之间——分子有固定的正负端，正端吸引邻近分子的负端。<br/>
+<b>例子：</b>HCl、HBr、CO、SO₂ 等。<br/>
+$\text{H}(\delta^+) \to \text{Cl}(\delta^-) \cdots \text{H}(\delta^+) \to \text{Cl}(\delta^-)$<br/>
+比色散力强，但比氢键弱。
+</div>
+
+<h4>③ 氢键 (Hydrogen bond)</h4>
+<div class="box box-key" data-label="氢键（最强 IMF）">
+<b>发生条件（严格）：</b>
+① H 原子必须<b>直接共价连接</b>在 <b>F、O 或 N</b> 上（"FON 三字诀"）；<br/>
+② 邻近分子上有一个 <b>F、O 或 N</b> 提供一对<b>孤对电子</b>与 H 相互作用。<br/><br/>
+<b>为什么这么强？</b>F、O、N 电负性极大 → H 原子几乎全部电子被拉走 → H 变成<b>裸露的质子</b>（超小、带 δ⁺）→ 强烈吸引邻近 F/O/N 的孤对电子。<br/><br/>
+<b>典型例子：</b>H₂O、HF、NH₃、乙醇 CH₃CH₂OH、DNA 双螺旋（配对碱基靠氢键）、蛋白质二级结构（α螺旋、β折叠）。
+</div>
+
+<div class="box box-example" data-label="水与甲烷、氨的对比">
+<b>三种小分子摩尔质量相近，为什么沸点相差极大？</b>
+<table class="vocab">
+<thead><tr><th>化合物</th><th>M (g/mol)</th><th>沸点 (℃)</th><th>解释</th></tr></thead>
+<tbody>
+<tr><td>CH₄ 甲烷</td><td>16.0</td><td>−164</td><td>非极性；只有色散力，最弱 → 气体</td></tr>
+<tr><td>NH₃ 氨气</td><td>17.0</td><td>−33.4</td><td>有氢键；N-H 极性比 O-H 弱一些 → 氢键较弱 → 仍是气体</td></tr>
+<tr><td>H₂O 水</td><td>18.0</td><td>100</td><td>强氢键；O 电负性大 → O-H 更极性 → 强 IMF → 液体</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="pair">
+<div class="en">Hydrogen bonds explain why water is a liquid at room temperature while compounds of comparable mass are gases. Because oxygen atoms are more electronegative than nitrogen atoms, the O–H bonds in water are more polar than the N–H bonds in ammonia. As a result, the hydrogen bonds between water molecules are stronger than those between ammonia molecules.</div>
+<div class="cn">氢键解释了为什么水在常温下是液体，而同分子量的化合物却是气体。因为 O 的电负性 (3.44) 比 N (3.04) 大，O—H 键比 N—H 键更极性 → 水的氢键比氨的氢键强 → 水沸点比氨高得多（100 ℃ vs. −33 ℃）。</div>
+</div>
+
+<h3>3. IMF 强度比较 & 应用</h3>
+<div class="box box-note">
+<b>强度大致顺序：</b>色散力 &lt; 偶极-偶极力 &lt; 氢键 &lt; 离子键（非 IMF，属于化学键）。<br/>
+但注意：<b>极大的非极性分子（如烷烃 C₄₀）的色散力累积起来，可能比小极性分子的氢键还强</b>。所以石蜡（C₂₀-C₃₀）是固体，而甲醇（有氢键）是液体。
+</div>
+
+<div class="box box-warn" data-label="识别氢键的常见易错">
+问：下列哪些能形成氢键？H₂O、HF、NaF、NO、H₂O₂、NH₃、H₂、CH₄。<br/>
+答：<b>H₂O、HF、H₂O₂、NH₃</b> 能——它们都有 H 直连 F/O/N。<br/>
+NaF 是离子化合物；NO 无 H；H₂ 无 F/O/N；CH₄ 中 H 连 C（不算）。
+</div>
+</section>
+
+<!-- ============================== §13.3 ============================== -->
+<section id="s13-3">
+<h2 class="section">§13.3 Liquids and Solids 液体与固体<span class="page-marker">P.396–404</span></h2>
+
+<h3>1. 液体的性质</h3>
+<div class="pair">
+<div class="en">Liquid particles are in constant motion but are held closely together by intermolecular forces. As a result, liquids have a fixed volume but take the shape of their container. Liquids are much denser than gases (water is ~1250× denser than water vapor at 25 °C and 1 atm) and are only slightly compressible.</div>
+<div class="cn">液体粒子做连续运动，但被 IMF 拉在一起，所以：<br/>
+① 有固定体积（不像气体那样能膨胀充满容器），但<b>能随容器改变形状</b>；<br/>
+② 密度比气体大得多（25 ℃、1 atm 下，液态水密度是水蒸气的 <b>~1250 倍</b>）；<br/>
+③ 几乎不可压缩（粒子已经很紧密）；<br/>
+④ 可以流动 (fluidity)，但比气体慢——因为 IMF 拖慢分子。</div>
+</div>
+
+<h4>1.1 黏度 Viscosity</h4>
+<div class="box box-key">
+<b>黏度</b>是液体流动阻力的量度。<br/>
+决定因素：<br/>
+① <b>IMF 越强 → 黏度越大</b>：如甘油 (glycerol) 分子有 3 个 OH，可形成 3 个氢键 → 很粘。<br/>
+② <b>分子越大越长（如长链烷烃）→ 黏度越大</b>：分子容易缠绕。食用油、机油都是长分子。<br/>
+③ <b>温度越高 → 黏度越低</b>：动能大，克服 IMF 更容易 → 液体变稀。（生活经验：加热蜂蜜、机油会变稀。）
+</div>
+
+<h4>1.2 表面张力 Surface Tension</h4>
+<div class="pair">
+<div class="en">Particles at the surface of a liquid experience a net inward pull because there are no molecules above them to balance the attractions from below. This causes the surface to behave like a stretched membrane. Surface tension is the energy required to increase the surface area of a liquid.</div>
+<div class="cn">液体内部的分子受各方向的力平衡；<b>表面</b>的分子上方没有分子拉住 → 只能被下方分子往内拉 → 表面像被拉紧的薄膜。<br/>
+<b>表面张力</b>就是"增加单位面积液面所需的能量"。IMF 越强 → 表面张力越大。<br/>
+水的表面张力大（氢键），水滴倾向于变成球形（球的表面积最小）；水黾 (spider) 才能在水面走。<br/>
+<b>Surfactant 表面活性剂：</b>如肥皂、洗涤剂——能<b>降低表面张力</b>，让水更容易浸润衣物、皮肤。</div>
+</div>
+
+<h4>1.3 毛细现象 Capillary Action</h4>
+<div class="box box-note">
+液体在细管中"上升"或"下降"的现象。取决于两种力的相对大小：<br/>
+<b>Adhesion 粘附力：</b>液体与管壁的吸引力。<br/>
+<b>Cohesion 内聚力：</b>液体分子之间的 IMF。<br/><br/>
+① <b>Adhesion &gt; Cohesion</b>：水在玻璃管内<b>上升</b>，形成<b>凹液面</b>（如量筒读数从凹面底部读）。<br/>
+② <b>Cohesion &gt; Adhesion</b>：汞在玻璃管内<b>下降</b>，形成<b>凸液面</b>（汞比玻璃"抱得紧"）。<br/><br/>
+生活应用：植物靠木质部毛细上升把水从根输送到叶；纸巾吸水；蜡烛芯吸油。
+</div>
+
+<h3>2. 固体：晶体 vs 非晶体</h3>
+<div class="pair">
+<div class="en">In a crystalline solid, particles are arranged in a definite geometric pattern with long-range order. The smallest repeating unit is called a unit cell. Amorphous solids (glass, rubber, plastics) lack long-range order—they have no fixed melting point but soften over a range of temperature. Some scientists consider amorphous solids "supercooled liquids".</div>
+<div class="cn"><b>晶体 crystalline solid：</b>粒子按严格、周期性的<b>几何图案</b>排列（长程有序）。有固定熔点、清脆的解理面。<br/>
+&emsp;<b>晶胞 (unit cell)：</b>晶体的<b>最小重复单元</b>——像积木一样堆叠起来构成整块晶体。<br/><br/>
+<b>非晶体 amorphous solid：</b>粒子只有短程有序，无长程规则排列。加热时<b>没有固定熔点</b>，只是慢慢<b>软化</b>（如玻璃、橡胶、塑料、沥青）。有科学家称之为<b>"过冷液体" (supercooled liquid)</b>。</div>
+</div>
+
+<h4>2.1 7 大晶系（Bravais 晶系）</h4>
+<div class="box box-note">
+根据晶胞的三边长（a, b, c）和三个夹角（α, β, γ）分类：<br/>
+<b>Cubic 立方</b>：a = b = c, α = β = γ = 90°（NaCl、Cu、金刚石）<br/>
+<b>Tetragonal 四方</b>：a = b ≠ c, α = β = γ = 90°<br/>
+<b>Orthorhombic 正交</b>：a ≠ b ≠ c, 全 90°<br/>
+<b>Monoclinic 单斜</b>：a ≠ b ≠ c, α = γ = 90°, β ≠ 90°<br/>
+<b>Triclinic 三斜</b>：全部 ≠<br/>
+<b>Hexagonal 六方</b>：a = b ≠ c, α = β = 90°, γ = 120°（冰、石墨）<br/>
+<b>Rhombohedral / trigonal 菱方</b>：a = b = c, α = β = γ ≠ 90°<br/>
+立方最对称，三斜最不对称。
+</div>
+
+<h4>2.2 4 种晶体类型（重点！）</h4>
+<table class="vocab">
+<thead><tr><th>类型</th><th>粒子</th><th>作用力</th><th>典型性质</th><th>例子</th></tr></thead>
+<tbody>
+<tr><td><b>Ionic 离子晶体</b></td><td>阳/阴离子</td><td>离子键</td><td>硬而脆、高熔点、固不导电熔融/溶液导电</td><td>NaCl, MgO, CaF₂</td></tr>
+<tr><td><b>Molecular 分子晶体</b></td><td>分子</td><td>色散/偶极/氢键</td><td>软、低熔点、不导电</td><td>冰、干冰 CO₂、蔗糖、I₂</td></tr>
+<tr><td><b>Covalent network 共价网状</b></td><td>原子（共价链接）</td><td>共价键</td><td>极硬、极高熔点、多为绝缘（石墨例外）</td><td>金刚石、石墨、SiO₂ 石英、SiC</td></tr>
+<tr><td><b>Metallic 金属晶体</b></td><td>金属阳离子 + 电子海</td><td>金属键</td><td>导电导热、延展、光泽</td><td>Fe, Cu, Al, 合金</td></tr>
+</tbody>
+</table>
+
+<div class="box box-example" data-label="判断题练习">
+判断下列物质属于哪种晶体：<br/>
+① 干冰 (CO₂)　② 石英 (SiO₂)　③ 铁 (Fe)　④ CaCl₂　⑤ 金刚石 (C)<br/>
+<b>答：</b>① 分子（CO₂ 分子间弱作用）；② 共价网状（Si-O 共价大网络）；③ 金属；④ 离子；⑤ 共价网状。
+</div>
+
+<div class="box box-warn" data-label="金属 vs 离子的关键差别">
+金属能<b>延展</b>而离子晶体<b>脆</b>——为什么？<br/>
+金属受力时，阳离子层滑动，电子海跟着调整，仍能维持金属键（不断裂） → 能被锤扁拉丝。<br/>
+离子晶体受力时，阳离子和阴离子层滑动后，同性离子相邻 → 强斥力 → 晶体碎裂。
+</div>
+</section>
+
+<!-- ============================== §13.4 ============================== -->
+<section id="s13-4">
+<h2 class="section">§13.4 Phase Changes 相变<span class="page-marker">P.405–409</span></h2>
+
+<h3>1. 六种基本相变</h3>
+<div class="box box-key">
+<b>吸能（吸热）过程：</b><br/>
+① Melting 熔化：固 → 液<br/>
+② Vaporization 汽化：液 → 气（含表面 Evaporation 蒸发 + 内部 Boiling 沸腾）<br/>
+③ Sublimation 升华：固 → 气（如干冰、樟脑丸）<br/><br/>
+<b>放能（放热）过程：</b><br/>
+④ Freezing 凝固：液 → 固<br/>
+⑤ Condensation 冷凝：气 → 液<br/>
+⑥ Deposition 凝华：气 → 固（如霜、雪的形成）
+</div>
+
+<div class="pair">
+<div class="en">Evaporation is the process by which molecules escape from the surface of a liquid to become a gas. It happens at all temperatures. Boiling occurs when the vapor pressure of a liquid equals the external atmospheric pressure—it happens throughout the liquid, forming bubbles. The temperature at which this occurs is the boiling point.</div>
+<div class="cn"><b>Vaporization</b> 有两种方式：<br/>
+① <b>Evaporation 蒸发</b>：<b>只发生在表面</b>，<b>任何温度</b>都在悄悄发生（如晾干衣服、湿地慢慢干）；<br/>
+② <b>Boiling 沸腾</b>：液体<b>内部形成气泡</b>并逸出，发生在<b>沸点温度</b>——这时液体的蒸气压恰好等于外界大气压。<br/><br/>
+<b>沸点定义：</b>液体蒸气压 = 外压 时的温度。<br/>
+海拔越高，大气压越低，水的沸点越低。<b>拉萨（3600 m）水的沸点约 88 ℃</b>——所以高原煮饭要用高压锅。</div>
+</div>
+
+<h3>2. 加热曲线（Heating Curve）</h3>
+<div class="box box-example" data-label="从 −20 ℃ 冰加热到 120 ℃ 蒸气">
+温度 T vs 时间 t 曲线呈"阶梯"形，五段：<br/>
+<div class="step"><span class="no">1</span><b>冰升温 (−20 → 0 ℃)</b>：温度线性上升；吸热 = m × c(冰) × ΔT，c(冰) = 2.09 J/(g·℃)。</div>
+<div class="step"><span class="no">2</span><b>冰熔化平台 (0 ℃)</b>：温度<b>不变</b>！吸的热全部用于破坏水分子之间的氢键网络。吸热 = m × <b>ΔH_fus 熔化热</b> = 334 J/g（冰）。</div>
+<div class="step"><span class="no">3</span><b>水升温 (0 → 100 ℃)</b>：线性上升；c(水液) = 4.18 J/(g·℃)。</div>
+<div class="step"><span class="no">4</span><b>水沸腾平台 (100 ℃)</b>：温度不变！吸热 = m × <b>ΔH_vap 汽化热</b> = 2260 J/g（水）。</div>
+<div class="step"><span class="no">5</span><b>蒸气升温 (100 → 120 ℃)</b>：线性上升；c(水蒸气) ≈ 2.0 J/(g·℃)。</div>
+</div>
+
+<div class="box box-warn" data-label="易错点：为什么平台温度不变？">
+"加热却不升温"——因为吸的能量全部用于<b>克服 IMF</b>（把分子从紧密的液/固状态"拆开"），而不是增加动能。这就是<b>为什么烫伤时蒸汽比开水更严重</b>：蒸汽冷凝时释放大量汽化热（2260 J/g），加上液态水冷却热，能量比同温度的开水多得多。
+</div>
+
+<h3>3. 蒸气压 Vapor Pressure</h3>
+<div class="pair">
+<div class="en">In a closed container, some liquid molecules continually escape into the gas phase (evaporation), while some vapor molecules return to the liquid (condensation). At dynamic equilibrium, the two rates are equal, and the pressure exerted by the vapor is called vapor pressure. Vapor pressure increases with temperature; boiling occurs when vapor pressure equals atmospheric pressure.</div>
+<div class="cn">密闭容器中，液面上不断有分子跑到气相（蒸发），同时气相分子也不断回到液相（冷凝）。当两个速率相等时，达到<b>动态平衡</b>——此时液面上方蒸气的压强就是<b>蒸气压 (vapor pressure)</b>。<br/><br/>
+<b>关键规律：</b>
+① 温度越高 → 蒸发越快 → 蒸气压越大（指数式增加，Clausius-Clapeyron 关系）。<br/>
+② <b>沸点 = 蒸气压达到外压时的温度</b>。降低外压 → 沸点降低；升高外压 → 沸点升高（高压锅、蒸汽机原理）。<br/>
+③ IMF 越强 → 蒸气压越低 → 沸点越高。所以水的沸点比乙醚高很多。</div>
+</div>
+
+<h3>4. 相图 Phase Diagram</h3>
+<div class="box box-note">
+相图以温度 T 为横轴、压强 P 为纵轴，显示每种 (T, P) 下物质的稳定相态。三条曲线：<br/>
+① <b>熔化线</b>（固-液分界）；<br/>
+② <b>汽化线</b>（液-气分界，与蒸气压曲线一致）；<br/>
+③ <b>升华线</b>（固-气分界）。<br/>
+<b>三条线的交点 = 三相点 triple point</b>：固/液/气三相同时共存的唯一 (T, P)。<br/>
+<b>汽化线的终点 = 临界点 critical point</b>：超过临界温度和临界压强后，液气不可区分，成为<b>超临界流体 (supercritical fluid)</b>——既有气体的扩散性又有液体的密度，用于咖啡因萃取、绿色化学。
+</div>
+
+<h4>4.1 水的相图 vs 二氧化碳的相图</h4>
+<div class="box box-key" data-label="H₂O 相图 · 反常之处">
+① 水的三相点：T = 0.01 ℃, P = 0.006 atm（4.58 mmHg）。<br/>
+② 水的正常沸点 = 100 ℃（1 atm 时的汽化线上）。<br/>
+③ 水的正常冰点 = 0 ℃。<br/>
+④ 临界点：T = 373.99 ℃, P = 217.75 atm。<br/>
+⑤ <b>水的熔化线向左倾（负斜率）——反常！</b>加压反而<b>使冰变液</b>。多数物质相反。<br/>
+　解释：冰的晶格因氢键呈六角形疏松结构，密度反而<b>比液态水小</b>；加压压缩晶格 → 转为更密的液态。<br/>
+　（滑冰："冰刀刃压强大 → 熔化一层水"是老说法，现代认为主要是摩擦热。）
+</div>
+
+<div class="box box-key" data-label="CO₂ 相图">
+① 三相点：T = −56.6 ℃, P = 5.11 atm。<br/>
+② <b>在 1 atm 下，CO₂ 没有液态！</b>固态 CO₂（干冰）直接<b>升华</b>成气态。<br/>
+③ 只有加压到 5 atm 以上，CO₂ 才有液态；这就是为什么"干冰不化成水"——大气压下不存在液态 CO₂。<br/>
+④ 液态 CO₂ 用于灭火器、冷冻运输、超临界萃取。
+</div>
+
+<div class="box box-warn" data-label="生活中的相变">
+① 冷天从室外进屋眼镜起雾：室内水蒸气遇到冷眼镜表面 → <b>冷凝</b>。<br/>
+② 冬天窗户上结冰花：水蒸气直接 → 固态冰晶（<b>凝华 deposition</b>）。<br/>
+③ 雪堆虽然温度低于 0 ℃ 也慢慢变小：<b>升华</b>——水直接从固态跳到气态。<br/>
+④ 高原煮饭夹生：沸点低，米中的淀粉未完全熟化 → 用高压锅提高沸点。<br/>
+⑤ 加热喷雾罐会爆炸：内部液态压强 = 蒸气压随温度指数增加 → 危险。
+</div>
+</section>
+
+<!-- ============================== Study Guide ============================== -->
+<section id="study-guide">
+<h2 class="section">📝 Study Guide 章节复习</h2>
+
+<div class="box box-key" data-label="全章公式与要点">
+<b>§13.1 气体</b>：<br/>
+　KMT 5 条；平均动能 $\bar{E}_k = \tfrac{3}{2}kT$ 只由 T 决定；<br/>
+　Graham 定律 $\dfrac{r_A}{r_B} = \sqrt{\dfrac{M_B}{M_A}}$；<br/>
+　Dalton 分压：$P_{\text{total}} = P_1 + P_2 + \ldots$；<br/>
+　1 atm = 101.325 kPa = 760 mmHg = 760 torr。<br/><br/>
+<b>§13.2 分子间力：</b>色散 &lt; 偶极-偶极 &lt; 氢键。<br/>
+　氢键条件：H 直连 F / O / N。<br/><br/>
+<b>§13.3 液体 & 固体：</b><br/>
+　黏度、表面张力、毛细现象都由 IMF 决定；<br/>
+　晶体 vs 非晶体；7 大晶系；<b>4 种晶体类型</b>：离子、分子、共价网状、金属。<br/><br/>
+<b>§13.4 相变：</b>6 种；加热曲线两个"温度平台"分别吸熔化热 / 汽化热；<br/>
+　相图 3 条线 + 三相点 + 临界点；水的相图"反常"（负斜率熔化线）。
+</div>
+
+<div class="box box-note" data-label="全章思维导图">
+物质三态<br/>
+　├─ 气体：KMT + Graham + Dalton （§13.1）<br/>
+　├─ IMF：色散 / 偶极 / 氢键 （§13.2）——决定后面所有性质<br/>
+　├─ 液体：黏度、表面张力、毛细（§13.3）<br/>
+　├─ 固体：晶体 4 类（§13.3）<br/>
+　└─ 相变：加热曲线、蒸气压、相图（§13.4）
+</div>
+</section>
+
+<!-- ============================== Chapter Assessment ============================== -->
+<section id="assessment">
+<h2 class="section">🧪 Chapter Assessment 章末测评</h2>
+
+<h3>Section 13.1 气体与 KMT</h3>
+<ol class="practice">
+<li><b>[Q30]</b> 什么是弹性碰撞？
+<div class="ans">碰撞前后<b>总动能不变</b>的碰撞。气体粒子之间和与器壁的碰撞被 KMT 视为弹性——否则气体温度会自发下降，与观察不符。</div></li>
+
+<li><b>[Q31]</b> 粒子动能与温度的关系？
+<div class="ans">同一温度下所有气体分子的<b>平均动能相同</b>，且 $\bar{E}_k = \tfrac{3}{2}kT$（k 为玻尔兹曼常数），只由绝对温度 T 决定。T 越高，动能越大。</div></li>
+
+<li><b>[Q32]</b> 用 KMT 解释气体的压缩性和膨胀性。
+<div class="ans">气体粒子间距远大于粒子本身（大量空隙）。外压增大→挤压空隙→体积减小（压缩）；外压减小→粒子自动向四周扩散→体积增大（膨胀）。因粒子间无 IMF，改变几乎不消耗能量。</div></li>
+
+<li><b>[Q33]</b> 扩散和逸出的区别？与摩尔质量的关系？
+<div class="ans"><b>扩散 diffusion：</b>气体在开放空间自由混合（如香水味传遍房间）。<br/>
+<b>逸出 effusion：</b>气体通过极小孔（如气球破洞）跑出。<br/>
+两者速率都遵循 Graham 定律：$r \propto \dfrac{1}{\sqrt{M}}$——分子量越小，速率越快。</div></li>
+
+<li><b>[Q35]</b> 为什么蛋糕说明书上写：高海拔和低海拔烘烤条件不同？
+<div class="ans">高海拔大气压低 → 水的沸点降低（可能只有 90 ℃）→ 烤箱内水汽逸出更快，蛋糕容易干；且蛋糕内水的沸点低，膨胀速率不同。所以高海拔要增加液体、缩短时间或降温烘烤。相反，海拔低时正常。</div></li>
+
+<li><b>[Q39]</b> 用电负性差判断下列分子的偶极方向：a) HF；b) NO；c) HBr；d) CO。
+<div class="ans">电负性大的端为 δ⁻：<br/>
+a) H(δ⁺)—F(δ⁻)；b) N(δ⁺)—O(δ⁻)；c) H(δ⁺)—Br(δ⁻)；d) C(δ⁺)—O(δ⁻)。</div></li>
+
+<li><b>[Q41]</b> 下列哪些能形成氢键？a) H₂O b) HF c) NaF d) NO e) H₂O₂ f) NH₃ g) H₂ h) CH₄
+<div class="ans">能形成氢键：<b>a) H₂O、b) HF、e) H₂O₂、f) NH₃</b>——都有 H 直连 F/O/N。<br/>
+不能：c) NaF 是离子；d) NO 无 H；g) H₂ 无 F/O/N；h) CH₄ 中 H 连 C。</div></li>
+</ol>
+
+<h3>Graham 定律</h3>
+<ol class="practice">
+<li><b>[Q62]</b> 某气体的逸出时间是氦气的 3 倍，求其摩尔质量。
+<div class="ans">逸出时间是速率的倒数：$r_{\text{He}}/r_X = 3$。Graham 定律：$3 = \sqrt{M_X/M_{\text{He}}} = \sqrt{M_X/4.003}$；解得 $M_X = 4.003 \times 9 = <b>36.0 g/mol</b>$。</div></li>
+
+<li><b>[Q63]</b> 求 Kr 与 Ne 逸出速率之比。
+<div class="ans">$\dfrac{r_{\text{Kr}}}{r_{\text{Ne}}} = \sqrt{\dfrac{M_{\text{Ne}}}{M_{\text{Kr}}}} = \sqrt{\dfrac{20.18}{83.80}} = \sqrt{0.2408} = <b>0.491</b>$。Kr 比 Ne 慢约一半。</div></li>
+
+<li><b>[Q64]</b> 某气体扩散速率是 O₂ 的 3 倍，求其摩尔质量。
+<div class="ans">$3 = \sqrt{M_{\text{O}_2}/M_X}$；$M_X = M_{\text{O}_2}/9 = 32.00/9 = <b>3.56 g/mol</b>$（比氦稍轻，实际不存在这么轻的稳定气体，题目仅练习公式）。</div></li>
+</ol>
+
+<h3>Dalton 分压定律</h3>
+<ol class="practice">
+<li><b>[Q65]</b> 空气总压 1.00 atm，$P_{\text{N}_2} = 0.79$、$P_{\text{O}_2} = 0.20$、$P_{\text{其他}} = 0.0044$，求水蒸气分压。
+<div class="ans">$P_{\text{H}_2\text{O}} = 1.00 − 0.79 − 0.20 − 0.0044 = <b>0.006 atm</b>$。</div></li>
+
+<li><b>[Q66]</b> 密闭瓶中 $P_{\text{O}_2} = 0.41$ atm，$P_{\text{H}_2\text{O}} = 0.58$ atm，求总压。
+<div class="ans">$P_{\text{total}} = 0.41 + 0.58 = <b>0.99 atm</b>$。</div></li>
+
+<li><b>[Q67]</b> $P_{\text{total}} = 2.6$ atm，含 CO₂ 1.3 atm、He 0.22 atm，求 O₂ 分压。
+<div class="ans">$P_{\text{O}_2} = 2.6 − 1.3 − 0.22 = <b>1.08 atm</b>$。</div></li>
+</ol>
+
+<h3>压强单位换算</h3>
+<ol class="practice">
+<li><b>[Q68]</b> 三种气体分压 12.0、35.6、22.2 kPa，总压 (atm)？
+<div class="ans">$P_{\text{total}} = 12.0 + 35.6 + 22.2 = 69.8$ kPa；$69.8 / 101.325 = <b>0.689 atm</b>$。</div></li>
+
+<li><b>[Q69]</b> 珠峰顶大气压约 33.6 kPa，换成 atm，并与海平面比较。
+<div class="ans">$33.6/101.325 = <b>0.332 atm</b>$，约为海平面 1 atm 的 <b>1/3</b>。这就是为什么珠峰上必须携带氧气瓶。</div></li>
+
+<li><b>[Q71]</b> 250 英尺深海压 8.4 atm，换成 mmHg 和 kPa。
+<div class="ans">$8.4 \times 760 = <b>6384 mmHg</b> ≈ 6.4 \times 10^3$ mmHg；$8.4 \times 101.325 = <b>851 kPa</b>$。深海压超高，潜水员必须逐步减压避免"减压病"。</div></li>
+</ol>
+
+<h3>Section 13.2/13.3 IMF 与液固性质</h3>
+<ol class="practice">
+<li><b>[Q42]</b> 为什么长的非极性分子间作用比同组成的球形分子强？
+<div class="ans">长链分子接触面积大，色散力沿整条链累积，作用更强；球形分子接触面积小，累积色散力弱。这就是"烷烃 n 越大，沸点越高"的原因。</div></li>
+
+<li><b>[Q43]</b> 什么是表面张力？何种条件下出现？
+<div class="ans">液体表面分子受<b>净向内的力</b>（表面上方无邻近分子），导致液面像被拉紧的膜。表面张力就是"增加单位面积液面所需能量"。IMF 越强，表面张力越大。液体处于气液界面时出现。</div></li>
+
+<li><b>[Q44]</b> 为什么水在量筒中形成凹液面？
+<div class="ans">水与玻璃（含 Si-OH）之间的<b>粘附力</b>比水分子之间的<b>内聚力</b>大 → 水沿玻璃壁上爬 → 中间凹陷形成凹液面。读数应取凹面底部。</div></li>
+
+<li><b>[Q45]</b> 水与糖浆常温哪个更粘？为什么？
+<div class="ans"><b>糖浆更粘</b>。糖浆含蔗糖等大分子，且含多个 OH 可形成大量氢键，IMF 强，同时分子大 → 黏度高。水虽有氢键但分子小，黏度低。</div></li>
+
+<li><b>[Q47]</b> 共价网状固体与离子固体的区别？
+<div class="ans">
+共价网状：原子之间以<b>共价键</b>连成三维网络（如金刚石、SiO₂），拆解需破坏共价键 → 极硬、极高熔点、多为绝缘。<br/>
+离子晶体：<b>阳/阴离子</b>以静电力（离子键）排列（如 NaCl），拆解需破坏离子键 → 硬而脆、高熔点、熔融导电。<br/>
+本质区别：连接的是"原子 vs 离子"，作用力是"共价键 vs 离子键"。
+</div></li>
+
+<li><b>[Q48]</b> 为什么大多数金属能弯而离子固体易碎？
+<div class="ans">见 §13.3 讲解：金属受力时阳离子层滑动、电子海跟着调整仍维持金属键 → 延展；离子晶体层滑动后同性离子相邻 → 强斥力 → 碎裂。</div></li>
+
+<li><b>[Q50]</b> 通常导电又导热良好的晶体是哪一类？
+<div class="ans"><b>金属晶体</b>（自由电子海）。石墨是特殊的共价网状固体，也导电（层内 π 电子），但普遍性不如金属。</div></li>
+
+<li><b>[Q52]</b> 为什么水的表面张力比苯（非极性）大？
+<div class="ans">水分子间有<b>氢键</b>（强 IMF），需要更大的能量把内部分子拉到表面。苯只有色散力，IMF 弱，表面张力低。所以水滴几乎呈球形，苯的表面则较扁。</div></li>
+</ol>
+
+<h3>Section 13.4 相变 · 相图</h3>
+<ol class="practice">
+<li><b>[Q53]</b> 升华和凝华的区别？
+<div class="ans"><b>Sublimation 升华</b>：固 → 气（吸热）；<br/>
+<b>Deposition 凝华</b>：气 → 固（放热）。<br/>
+互为逆过程。例：干冰升华、冬天窗户上结霜是凝华。</div></li>
+
+<li><b>[Q54]</b> 沸腾与蒸发的区别？
+<div class="ans">
+<b>蒸发 (evaporation)：</b>只在<b>液面</b>发生；任何温度下都在悄悄进行；速率慢，取决于温度和 IMF。<br/>
+<b>沸腾 (boiling)：</b><b>液体内部形成气泡</b>；只在沸点及以上发生；速率快，剧烈冒泡。<br/>
+沸腾要求"液体的蒸气压 = 外界大气压"。
+</div></li>
+
+<li><b>[Q56]</b> 蒸气压、大气压、沸点三者关系？
+<div class="ans"><b>沸腾条件：液体的蒸气压 = 外界大气压</b>。温度升高时蒸气压增大，当增大到等于外压时开始沸腾。<br/>
+所以大气压越低（如高原），液体的沸点越低；反之在高压锅内水的沸点可达 120 ℃ 以上。</div></li>
+
+<li><b>[Q57]</b> 为什么秋冬清晨会有露水？
+<div class="ans">夜间气温降低，空气中的水蒸气达到饱和；接触较冷的物体表面（如叶片）后<b>冷凝</b>形成液态水滴——就是露水。若温度进一步降到 0 ℃ 以下，则直接凝华成霜。</div></li>
+
+<li><b>[Q59]</b> 为什么把 10 g 水沸腾需要的能量比熔化 10 g 冰还多？
+<div class="ans">熔化只是打破部分氢键让分子能相对滑动（$\Delta H_{\text{fus}} = 334$ J/g）；<br/>
+沸腾要把液态分子完全拆散成蒸气分子，需破坏<b>几乎全部</b>氢键（$\Delta H_{\text{vap}} = 2260$ J/g）。<br/>
+汽化热 &gt; 熔化热，约 6.8 倍。</div></li>
+
+<li><b>[Q60]</b> 为什么气温未升到 0 ℃ 以上，雪堆也会变小？
+<div class="ans">因为发生了<b>升华 (sublimation)</b>——冰在低温下也有微弱蒸气压，表面分子直接跑成蒸气。即使气温低于 0 ℃，只要空气不饱和，雪堆就会慢慢升华消失。（这也是"晒衣物在冬天也能干"的原因。）</div></li>
+
+<li><b>[Q61]</b> CO₂ 相图：1 atm 下固态直接升华；高压下会发生什么？
+<div class="ans">加压到 CO₂ 三相点（5.11 atm、−56.6 ℃）以上时，CO₂ 才会以液态形式存在。工业上液态 CO₂ 用于灭火器、冷冻运输和超临界萃取。继续加压超过临界点（73 atm, 31 ℃）后进入<b>超临界流体</b>，用于咖啡因脱除工艺。</div></li>
+
+<li><b>[Q78]</b> 熔化过程中温度不变，热能到哪去了？
+<div class="ans">吸收的热能全部用来<b>破坏晶格中固体分子之间的 IMF</b>——粒子从固定位置解放出来能相互滑动。这部分能量称为<b>熔化热 (ΔH_fus)</b>，属于位能变化，不改变粒子动能，因此温度不变。</div></li>
+
+<li><b>[Q80]</b> 预测下列需求最适合哪种晶体：
+a) 能低温熔化并重塑；b) 能被拉成长细丝；c) 熔融时导电；d) 极硬且不导电。
+<div class="ans">a) <b>分子晶体</b>（低熔点，如塑料、蜡）；b) <b>金属晶体</b>（延展性）；c) <b>离子晶体</b>（固态不导电，熔融时导电）；d) <b>共价网状晶体</b>（如金刚石）。</div></li>
+
+<li><b>[Q81]</b> 隔着房间闻到香水，是扩散还是逸出？
+<div class="ans"><b>扩散 (diffusion)</b>。香水分子在开放空间的空气中通过随机运动传播开来。逸出特指气体通过小孔跑出。</div></li>
+
+<li><b>[Q82]</b> 溴蒸气倒入空气瓶后先下沉再均匀弥漫。<br/>
+(a) 溴蒸气比空气密度大还是小？(b) 液态溴扩散比气态快还是慢？
+<div class="ans">(a) <b>大</b>（M(Br₂) = 160 g/mol &gt; 空气 ~29 g/mol）；下沉说明密度更大。<br/>
+(b) <b>慢得多</b>。液态分子密度大，IMF 强，扩散比气态慢好几个数量级。</div></li>
+</ol>
+</section>
+
+<!-- ============================== Standardized Test ============================== -->
+<section id="std-test">
+<h2 class="section">🎯 Standardized Test Practice 标准化测试</h2>
+
+<ol class="practice">
+<li><b>[Q1]</b> 与相近摩尔质量的化合物相比，水的沸点极高，原因是（　　）？<br/>
+a) 氢键；b) 粘附力；c) 共价键；d) 色散力。
+<div class="ans">选 <b>a</b>。水分子之间形成强氢键（O—H···O），需要极多能量才能拆开，所以沸点高（100 ℃），远高于同分子量的 CH₄ (−164 ℃) 和 H₂S (−60 ℃)。</div></li>
+
+<li><b>[Q2]</b> NO (M = 30.01) 与 N₂O₄ (M = 92.02) 逸出速率之比？
+<div class="ans">$\dfrac{r_{\text{NO}}}{r_{\text{N}_2\text{O}_4}} = \sqrt{\dfrac{92.02}{30.01}} = \sqrt{3.066} ≈ <b>1.751</b>$。选 <b>c</b>。</div></li>
+
+<li><b>[Q3]</b> 下面哪一项<b>不属于</b> KMT 的假设？<br/>
+a) 粒子碰撞是弹性；b) 同一样品中所有粒子速率相同；c) 粒子间无吸引/排斥；d) 同温下各气体平均动能相同。
+<div class="ans">选 <b>b</b>。KMT 假定的是<b>粒子速率分布</b>（Maxwell-Boltzmann 分布），而不是"所有粒子速率相同"；只是<b>平均</b>动能相同。</div></li>
+
+<li><b>[Q4]</b> 下列哪个描述<b>不符合</b>沸腾过程？<br/>
+a) 系统温度上升；b) 系统吸能；c) 液体蒸气压 = 大气压；d) 液体进入气相。
+<div class="ans">选 <b>a</b>。沸腾时温度<b>不变</b>（相变平台），吸的热全部用于把液体拆成气体，其余选项都正确。</div></li>
+
+<li><b>[Q5]</b> 固相有固定形状和体积的原因？<br/>
+a) 粒子不运动；b) 粒子比液态排得更紧；c) 粒子只能围绕固定点<b>振动</b>；d) 粒子被"分子内"力锁住。
+<div class="ans">选 <b>c</b>。固体中粒子仍在运动，但只能围绕平衡位置<b>振动</b>而无法自由平动或旋转。所以有固定形状和体积。选项 a、b、d 都有错。</div></li>
+
+<li><b>[Q6]</b> 密闭瓶总压 3.782 atm，$P_{\text{Ne}}=0.435$、$P_{\text{Kr}}=1.613$，求 $P_{\text{Ar}}$（torr）？
+<div class="ans">$P_{\text{Ar}} = 3.782 − 0.435 − 1.613 = 1.734$ atm；$1.734 \times 760 = <b>1318 torr</b>$。选 <b>d</b>。</div></li>
+
+<li><b>[Q7]</b> 下列哪项<b>不影响</b>液体黏度？<br/>
+a) IMF；b) 分子大小和形状；c) 温度；d) 毛细现象。
+<div class="ans">选 <b>d</b>。毛细现象是液体在细管中的表现，本身<b>不是</b>黏度的决定因素；黏度取决于 IMF、分子形状、温度。</div></li>
+
+<li><b>[Q8-10]</b> 参考碳的相图（金刚石区、石墨区、液碳区），判断：<br/>
+(Q8) 金刚石最可能在什么条件下形成？<br/>
+(Q9) 三相点（石墨 / 金刚石 / 液碳共存）在？<br/>
+(Q10) 6000 K, 75 GPa 时碳以什么形式存在？
+<div class="ans">
+Q8：<b>低温（&lt; 5000 K）+ 高压（&gt; 25 GPa）</b>——落入金刚石稳定区。选 <b>a</b>。<br/>
+Q9：由碳相图，三相点约为 <b>5100 K, 50 GPa</b>。选 <b>c</b>。<br/>
+Q10：这个高温高压条件应处于"金刚石 + 液碳"共存区。选 <b>c</b>。<br/>
+（这也说明为什么天然金刚石只在地幔深处形成——那里高压低温。）
+</div></li>
+</ol>
+</section>
+
+<!-- ============================== Cheat Sheet ============================== -->
+<section id="cheatsheet">
+<h2 class="section">⚡ 一页知识卡</h2>
+
+<div class="callout-topic">
+<h3>三态微观特征速查</h3>
+<p>
+　　　　　　　粒子间距　　运动方式　　　形状 / 体积<br/>
+<b>Solid</b>　　　　紧密　　　振动　　　　　固 / 固<br/>
+<b>Liquid</b>　　较紧密　　　滑动 + 振动　随容器 / 固<br/>
+<b>Gas</b>　　　　远　　　　高速直线　　　随容器 / 随容器</p>
+</div>
+
+<div class="box box-key" data-label="§13.1 公式速查">
+① Graham 定律：$\dfrac{r_A}{r_B} = \sqrt{\dfrac{M_B}{M_A}}$（分子量小的跑得快）<br/>
+② Dalton 分压：$P_{\text{total}} = \sum P_i$<br/>
+③ 压强换算：1 atm = 101.325 kPa = 760 mmHg = 760 torr<br/>
+④ STP：0 ℃、1 atm；气体摩尔体积 22.4 L/mol
+</div>
+
+<div class="box box-note" data-label="§13.2 IMF 强度序">
+色散 (London) &lt; 偶极-偶极 &lt; <b>氢键</b> &lt;&lt; 化学键<br/><br/>
+氢键条件：<b>H 直连 F、O、N</b>（FON 三字诀）<br/>
+分子越大 → 色散力越强（累积效应）<br/>
+IMF 决定：熔沸点、黏度、表面张力、蒸气压、溶解度
+</div>
+
+<div class="box box-key" data-label="§13.3 · 4 种晶体">
+<b>Ionic 离子</b>：硬脆、高熔、熔融导电（NaCl, MgO）<br/>
+<b>Molecular 分子</b>：软、低熔、不导电（冰、干冰）<br/>
+<b>Covalent network 共价网状</b>：极硬、极高熔、多绝缘（金刚石、SiO₂）<br/>
+<b>Metallic 金属</b>：导电导热、延展、光泽（Fe, Cu）
+</div>
+
+<div class="box box-note" data-label="§13.4 · 6 种相变">
+<b>吸热：</b>Melting 熔化 · Vaporization 汽化 · Sublimation 升华<br/>
+<b>放热：</b>Freezing 凝固 · Condensation 冷凝 · Deposition 凝华<br/><br/>
+加热曲线：升温 → 熔化平台 (ΔH_fus) → 升温 → 沸腾平台 (ΔH_vap) → 升温<br/>
+平台阶段：<b>温度不变但持续吸热</b>，能量用于破坏 IMF。<br/>
+沸点：蒸气压 = 外压。<br/>
+相图：三条曲线、三相点、临界点；水的熔化线负斜率（反常）。
+</div>
+
+<div class="box box-warn" data-label="全章 8 大易错点">
+① IMF ≠ 化学键；沸腾破坏 IMF，不破坏共价键。<br/>
+② H₂S 没有氢键（S 不在 FON）。<br/>
+③ 稀有气体没有偶极-偶极，只有色散。<br/>
+④ CO₂ 有极性键，但因直线形对称，是<b>非极性分子</b>——但液态 CO₂ 分子间仍有偶极诱导 & 色散。<br/>
+⑤ 相变平台温度不变但持续吸/放热。<br/>
+⑥ 水结冰体积变大（氢键晶格松散），密度反常。<br/>
+⑦ 22.4 L/mol 仅在 STP 用；其他条件用 PV=nRT（第 14 章）。<br/>
+⑧ 大气压下 CO₂ 无液态，直接升华（干冰）。
+</div>
+
+<div class="box box-example" data-label="速记口诀">
+"<b>粒子运动看动能，作用吸引靠 IMF；<br/>
+FON 三字识氢键，晶体四类记类型；<br/>
+相变六种成一环，平台不变有原因；<br/>
+相图三线一交点，临界超越无液气。</b>"
+</div>
+</section>
+
+<hr class="soft"/>
+<p class="small" style="text-align:center;color:#888">© 中文自学手册 · 与《Chemistry — Matter and Change》第 13 章配套 · 与 Chapter 11 手册同一风格深度</p>
+</main>
+</div>
+<script src="theme.js"></script>
+</body>
+</html>

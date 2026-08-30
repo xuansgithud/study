@@ -1,0 +1,2173 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>第 11 章 The Mole 摩尔 · 双语学习手册（308–361 页）</title>
+<script>
+window.MathJax = {
+  tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$','$$'], ['\\[','\\]']] },
+  svg: { fontCache: 'global' }
+};
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+:root{
+  --bg:#f7f5ef;
+  --paper:#ffffff;
+  --ink:#232323;
+  --ink-soft:#4a4a4a;
+  --accent:#0f6b5e;         /* 主色（青绿） */
+  --accent-2:#c1543b;       /* 强调色（砖红） */
+  --accent-3:#3e5aa8;       /* 副色（靛蓝） */
+  --hi:#f6e58d;             /* 高亮荧光 */
+  --box-en:#eef4f2;
+  --box-cn:#fff8ec;
+  --box-note:#eaf1fb;
+  --box-warn:#fdecea;
+  --box-key:#fff1d6;
+  --box-example:#eef7ee;
+  --line:#e4dfd2;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei","Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  background:var(--bg);
+  color:var(--ink);
+  line-height:1.75;
+  font-size:16px;
+}
+.wrap{display:flex;max-width:1400px;margin:0 auto;min-height:100vh}
+/* 侧栏 */
+aside.toc{
+  position:sticky; top:0; align-self:flex-start;
+  width:280px; height:100vh; overflow-y:auto;
+  background:linear-gradient(180deg,#0f6b5e,#0b4d43);
+  color:#fff; padding:24px 18px;
+}
+aside.toc h1{font-size:16px;margin:0 0 6px;letter-spacing:1px;color:#f6e58d}
+aside.toc .sub{font-size:12px;opacity:.75;margin-bottom:16px}
+aside.toc a{
+  display:block; color:#f2fbf8; text-decoration:none; padding:8px 10px;
+  border-radius:6px; margin-bottom:2px; font-size:14px; line-height:1.4;
+  border-left:3px solid transparent;
+}
+aside.toc a:hover{background:rgba(255,255,255,.10)}
+aside.toc a.h2{padding-left:22px; font-size:13px; opacity:.9}
+aside.toc a.active{background:rgba(255,255,255,.14); border-left-color:#f6e58d}
+
+main{flex:1;padding:36px 44px;background:var(--paper); box-shadow:0 0 30px rgba(0,0,0,.05)}
+
+h1.title{font-size:32px; margin:0 0 6px; color:var(--accent)}
+.subtitle{color:var(--ink-soft); margin-bottom:24px; font-size:14px}
+h2.section{
+  font-size:24px; color:var(--accent); border-bottom:2px solid var(--accent);
+  padding-bottom:6px; margin-top:56px; margin-bottom:14px;
+}
+h3{font-size:19px; color:var(--accent-2); margin-top:32px; border-left:5px solid var(--accent-2); padding-left:10px}
+h4{font-size:16px; color:var(--accent-3); margin-top:20px}
+
+/* 中英对照卡片 */
+.pair{display:grid; grid-template-columns:1fr 1fr; gap:14px; margin:14px 0}
+.pair .en, .pair .cn{
+  padding:14px 16px; border-radius:10px; font-size:15px; line-height:1.75;
+}
+.pair .en{background:var(--box-en); border-left:4px solid var(--accent)}
+.pair .cn{background:var(--box-cn); border-left:4px solid var(--accent-2)}
+.pair .en::before{content:"EN 原文"; display:block; font-size:11px; letter-spacing:1px; color:var(--accent); font-weight:700; margin-bottom:6px}
+.pair .cn::before{content:"CN 翻译"; display:block; font-size:11px; letter-spacing:1px; color:var(--accent-2); font-weight:700; margin-bottom:6px}
+@media(max-width:960px){.pair{grid-template-columns:1fr}}
+
+.hi{background:linear-gradient(180deg,transparent 55%, var(--hi) 55%); padding:0 2px}
+.term{color:var(--accent-2); font-weight:700}
+.term-en{color:var(--accent); font-style:italic}
+.eq{background:#fafaf5; padding:10px 16px; border-radius:8px; overflow-x:auto; border:1px dashed #cfc9b6; margin:12px 0}
+.eq-center{text-align:center}
+
+/* 各类信息框 */
+.box{padding:14px 18px; border-radius:10px; margin:14px 0; position:relative}
+.box::before{
+  content:attr(data-label); position:absolute; top:-10px; left:14px;
+  background:#fff; padding:0 8px; font-size:12px; font-weight:700; letter-spacing:1px;
+}
+.box-note{background:var(--box-note); border:1px solid #c9d7f0}
+.box-note::before{content:"讲解 · 知识点"; color:var(--accent-3)}
+.box-warn{background:var(--box-warn); border:1px solid #f5c6c0}
+.box-warn::before{content:"重难点 · 易错点"; color:var(--accent-2)}
+.box-key{background:var(--box-key); border:1px solid #f3d78b}
+.box-key::before{content:"关键公式"; color:#a17108}
+.box-example{background:var(--box-example); border:1px solid #b7dab8}
+.box-example::before{content:"例题详解"; color:#2c6e2e}
+.box-vocab{background:#eef4f2; border:1px solid #b8d6cf}
+.box-vocab::before{content:"术语速查"; color:var(--accent)}
+
+table.vocab{width:100%; border-collapse:collapse; margin:6px 0}
+table.vocab th, table.vocab td{padding:6px 10px; border-bottom:1px solid var(--line); font-size:14px; text-align:left; vertical-align:top}
+table.vocab th{background:#dfeae7; color:var(--accent)}
+
+.tag{
+  display:inline-block; padding:2px 8px; border-radius:12px; font-size:11px;
+  background:#e8f0ee; color:var(--accent); margin-right:6px; font-weight:600;
+}
+.tag.warn{background:#fdecea; color:var(--accent-2)}
+.tag.hard{background:#fff1d6; color:#a17108}
+
+.step{margin:10px 0 10px 0; padding:10px 14px 10px 42px; background:#fbfaf3; border-radius:8px; position:relative}
+.step .no{
+  position:absolute; left:10px; top:10px;
+  width:24px; height:24px; line-height:24px; text-align:center;
+  background:var(--accent); color:#fff; border-radius:50%; font-weight:700; font-size:13px;
+}
+
+ol.practice{padding-left:20px}
+ol.practice li{margin-bottom:10px}
+.ans{background:#eef7ee; border-left:4px solid #4e9d5c; padding:10px 14px; border-radius:0 8px 8px 0; margin:6px 0; font-size:14.5px}
+.ans::before{content:"参考答案与解析　"; color:#2c6e2e; font-weight:700; font-size:12px; letter-spacing:1px}
+
+details{background:#f4f2ea; border-radius:8px; padding:8px 12px; margin:8px 0}
+details summary{cursor:pointer; font-weight:600; color:var(--accent-3)}
+details[open]{background:#eaf1fb}
+
+hr.soft{border:none; border-top:1px dashed #cfc9b6; margin:32px 0}
+
+sup.foot{color:var(--accent-3)}
+
+.page-marker{
+  display:inline-block; font-size:11px; color:#888;
+  background:#f0ede2; padding:1px 8px; border-radius:10px; margin-left:8px; vertical-align:middle;
+}
+
+.figure-note{background:#faf7ee; border:1px dashed #d8ce9d; padding:10px 14px; border-radius:8px; margin:12px 0; font-size:14px; color:#665a2c}
+.figure-note strong{color:#a17108}
+
+.callout-topic{
+  background:linear-gradient(135deg,#0f6b5e,#3e5aa8); color:#fff;
+  padding:18px 22px; border-radius:12px; margin:20px 0;
+}
+.callout-topic h3{color:#f6e58d; border:none; padding:0; margin:0 0 8px}
+.callout-topic p{margin:0; opacity:.95}
+
+.small{font-size:13px; color:var(--ink-soft)}
+kbd{background:#eee; padding:1px 6px; border-radius:4px; border:1px solid #ccc; font-family:monospace; font-size:13px}
+</style>
+<link rel="stylesheet" href="theme.css" />
+</head>
+<body>
+<div class="wrap">
+<aside class="toc" id="toc">
+  <h1>第 11 章 THE MOLE</h1>
+  <div class="sub">Chemistry · Matter and Change<br/>P.308 – P.361</div>
+  <a href="#overview">📖 全章导读</a>
+  <a href="#vocab">📚 术语速查表</a>
+  <a href="#s11-1">§11.1 Measuring Matter 测量物质</a>
+  <a href="#s11-2">§11.2 Mass and the Mole 质量与摩尔</a>
+  <a href="#s11-3">§11.3 Moles of Compounds 化合物的摩尔</a>
+  <a href="#s11-4">§11.4 Empirical & Molecular Formulas 实验式与分子式</a>
+  <a href="#s11-5">§11.5 The Formula for a Hydrate 水合物化学式</a>
+  <a href="#study-guide">📝 Study Guide 章节复习</a>
+  <a href="#assessment">🧪 Chapter Assessment 章末测评</a>
+  <a href="#std-test">🎯 Standardized Test 标准化测试</a>
+  <a href="#cheatsheet">⚡ 一页知识卡</a>
+</aside>
+
+<main>
+<h1 class="title">第 11 章 · The Mole 摩尔</h1>
+<div class="subtitle">📕《Chemistry — Matter and Change》第 308–361 页 · 中英对照 + 详细讲解 + 习题解析<br/>面向国际学校 9 年级学生 · 中文精读版</div>
+
+<!-- ============================================================ -->
+<!-- 全章导读 -->
+<!-- ============================================================ -->
+<section id="overview">
+<h2 class="section">📖 全章导读：为什么要学"摩尔"？</h2>
+
+<p>化学家研究的是<span class="term">原子、分子</span>，可它们太小、数量太多了，谁也没法一个一个数。就像面包师不会一粒一粒数面粉颗粒，而是"按袋买"，化学家发明了自己的"计数单位"—— <span class="term">摩尔 (mole, mol)</span>。</p>
+
+<p>本章要解决 <strong>5 个核心问题</strong>：</p>
+
+<div class="box box-note">
+<ol>
+<li><b>什么是摩尔？</b>1 摩尔 = 6.02 × 10²³ 个粒子（阿伏伽德罗常数 <em>N</em><sub>A</sub>）。</li>
+<li><b>怎么在"摩尔数"与"粒子数"之间换算？</b>（§11.1）</li>
+<li><b>怎么在"摩尔数"与"质量 (g)"之间换算？</b>—— 引入 <span class="term">摩尔质量 (molar mass)</span>（§11.2、§11.3）</li>
+<li><b>怎么根据实验数据求化学式？</b>—— 百分组成、实验式、分子式（§11.4）</li>
+<li><b>水合物的化学式怎么确定？</b>—— 结晶水（§11.5）</li>
+</ol>
+</div>
+
+<div class="callout-topic">
+<h3>🌟 一条主线贯穿全章</h3>
+<p>粒子数 ⇄ <b>摩尔数 (mol)</b> ⇄ 质量 (g) ⇄ 化学式（元素百分含量）—— 摩尔是连接微观粒子和宏观质量的"桥梁"，也是所有化学计算的"通用货币"。</p>
+</div>
+</section>
+
+<!-- ============================================================ -->
+<!-- 术语速查表 -->
+<!-- ============================================================ -->
+<section id="vocab">
+<h2 class="section">📚 术语速查表（Vocabulary）</h2>
+
+<div class="box box-vocab">
+<table class="vocab">
+<thead><tr><th style="width:28%">英文术语</th><th style="width:22%">中文翻译</th><th>含义解释</th></tr></thead>
+<tbody>
+<tr><td>mole (mol)</td><td>摩尔</td><td>SI 基本单位之一，表示"物质的量"；1 mol = 6.02×10²³ 个代表性粒子</td></tr>
+<tr><td>Avogadro's number</td><td>阿伏伽德罗常数</td><td>6.022 136 7 × 10²³（本书简写 6.02×10²³）</td></tr>
+<tr><td>representative particle</td><td>代表性粒子</td><td>原子、分子、离子或"式量单位"（要看物质是什么）</td></tr>
+<tr><td>molar mass</td><td>摩尔质量</td><td>1 mol 物质的质量，单位 g/mol；数值上等于相对原子/分子质量</td></tr>
+<tr><td>formula unit</td><td>式量单位（化学式单位）</td><td>离子化合物没有分子，用化学式代表一个"最小整数比结构单元"（如 NaCl）</td></tr>
+<tr><td>percent composition</td><td>百分组成</td><td>化合物中每种元素占总质量的百分比</td></tr>
+<tr><td>empirical formula</td><td>实验式（最简式）</td><td>化合物中各元素原子的最简整数比化学式</td></tr>
+<tr><td>molecular formula</td><td>分子式</td><td>真实反映一个分子中各元素原子实际个数的化学式</td></tr>
+<tr><td>hydrate</td><td>水合物</td><td>晶体中含有一定比例结晶水的化合物（如 CuSO₄·5H₂O）</td></tr>
+<tr><td>anhydrous</td><td>无水的</td><td>失去结晶水后的化合物</td></tr>
+<tr><td>hygroscopic</td><td>吸湿性</td><td>能从空气中吸收水分</td></tr>
+<tr><td>deliquescent</td><td>潮解性</td><td>吸水多到能溶解自身形成溶液</td></tr>
+<tr><td>efflorescent</td><td>风化性</td><td>水合物在空气中自发失去结晶水</td></tr>
+</tbody>
+</table>
+</div>
+</section>
+
+<!-- ============================================================ -->
+<!-- §11.1 Measuring Matter -->
+<!-- ============================================================ -->
+<section id="s11-1">
+<h2 class="section">§11.1 Measuring Matter · 测量物质 <span class="page-marker">P.309 – P.312</span></h2>
+
+<div class="box box-vocab">
+<b>本节目标 (Objectives)</b>
+<ol style="margin:6px 0">
+<li>描述"摩尔"如何在化学中使用；</li>
+<li>把摩尔与常见的计数单位（打、罗等）作类比；</li>
+<li>能在"摩尔数 ↔ 代表性粒子数"之间进行换算。</li>
+</ol>
+<b>词汇 (Vocabulary)：</b> mole 摩尔 · Avogadro's number 阿伏伽德罗常数
+</div>
+
+<!-- Discovery Lab -->
+<h3>🔬 Discovery Lab：How much is a mole? 一摩尔到底有多多？</h3>
+
+<div class="pair">
+<div class="en">Counting large numbers of items is easier when you use counting units like the dozen. Chemists use a counting unit called the mole.<br/><br/>
+<b>Procedure:</b> 1) Measure the length of a paper clip to the nearest 0.1 cm. 2) If a mole is 6.02×10²³ items, how far will a mole of paper clips, placed end to end lengthwise, reach into space?<br/><br/>
+<b>Analysis:</b> How many light-years (ly) would the paper clips extend into space? (1 ly = 9.46×10¹⁵ m). Compare with: nearest star = 4.3 ly, center of our galaxy = 30 000 ly, nearest galaxy = 2×10⁶ ly.</div>
+<div class="cn">大数量的物品用"计数单位"（如"打"）来数会更方便。化学家用一个叫做"摩尔 (mole)"的计数单位。<br/><br/>
+<b>操作：</b>① 用刻度尺量一枚回形针的长度（精确到 0.1 cm）；② 如果 1 mol = 6.02×10²³ 件物品，把 1 摩尔回形针首尾相接排列，能延伸多远？<br/><br/>
+<b>分析：</b>算算这条"回形针链"能延伸多少<b>光年 (ly)</b>？（1 ly = 9.46×10¹⁵ m）与下列天文距离比较：最近的恒星 4.3 ly；银河系中心 30 000 ly；最近的星系 2×10⁶ ly。</div>
+</div>
+
+<div class="box box-note">
+<b>直觉建立：</b> 一枚回形针约 3 cm ≈ 0.03 m。1 mol ≈ 6.02×10²³ 枚 → 总长约 <b>1.8×10²² m</b>；除以 9.46×10¹⁵ m/ly ≈ <b>1.9×10⁶ 光年</b>。<br/>
+👉 这个距离已经超出了银河系，几乎能到达"最近的星系"！这告诉我们：<span class="hi">摩尔是个天文级的巨大数</span>，正因为原子极小、极多，才需要这么大的计数单位。
+</div>
+
+<!-- Counting Particles -->
+<h3>Counting Particles · 数粒子</h3>
+
+<div class="pair">
+<div class="en">If you were buying a bouquet of roses for a special occasion, you probably wouldn't ask for 12 or 24; you'd ask for one or two dozen. Similarly, you might buy a pair of gloves, a ream of paper, or a gross of pencils. Each of the units — a pair (2), a dozen (12), a gross (144), and a ream (500) — represents a specific number of items. These units make counting objects easier.</div>
+<div class="cn">买玫瑰你不会说"12 朵"或"24 朵"，而是说"一打"或"两打"。同样，你会说"一双手套 (pair = 2)"、"一令纸 (ream = 500)"、"一罗铅笔 (gross = 144)"。每个单位都代表<b>固定的个数</b>，这样计数更方便。</div>
+</div>
+
+<div class="pair">
+<div class="en">Chemists also need a convenient method for counting accurately the number of atoms, molecules, or formula units in a sample of a substance. Atoms and molecules are extremely small — impossible to count individually. That's why chemists created their own counting unit called the mole.</div>
+<div class="cn">化学家也需要一种方便的方法来精确地数样品中<b>原子、分子或式量单位</b>的个数。原子和分子非常小，即使是最小的样品中它们的数目也大到无法真的一个个去数。所以化学家发明了自己的计数单位—— <span class="term">摩尔 (mole)</span>。</div>
+</div>
+
+<div class="box box-key" data-label="核心定义">
+<b>Mole 摩尔（缩写 mol）</b><br/>
+1 mol 是<b>正好 12 g 纯 ¹²C 中所含碳原子的数量</b>。经过多年实验测定，这个数为：
+<div class="eq eq-center">$1\ \text{mol} = 6.022\,136\,7 \times 10^{23} \approx 6.02 \times 10^{23}\ \text{个代表性粒子}$</div>
+这个数称为 <span class="term">阿伏伽德罗常数 (Avogadro's number)</span>，用符号 <em>N</em><sub>A</sub> 表示，为纪念意大利物理学家 Amedeo Avogadro（1811 年提出气体假说）。<br/>
+<b>写出来是这样一个天文数字：</b>602 000 000 000 000 000 000 000 —— 如果用它来数弹珠，能把整个地球表面盖上 <b>6 千米深</b> 的弹珠！
+</div>
+
+<div class="figure-note">
+<strong>Figure 11-2 · 关键图示：</strong>1 mol 水 (H₂O)、1 mol 铜 (Cu)、1 mol 氯化钠 (NaCl)——都含 6.02×10²³ 个"代表性粒子"，但代表性粒子不同：<br/>
+· 水的代表粒子 = <b>分子 (molecule)</b> H₂O<br/>
+· 铜的代表粒子 = <b>原子 (atom)</b> Cu<br/>
+· 氯化钠的代表粒子 = <b>式量单位 (formula unit)</b> NaCl<br/>
+👉 <span class="hi">离子化合物没有分子</span>，用"式量单位"表示最小整数比。
+</div>
+
+<!-- Conversions -->
+<h3>Converting Moles ⇄ Particles · 摩尔与粒子数换算</h3>
+
+<div class="pair">
+<div class="en">Suppose you buy 3.5 dozen roses. Using the conversion factor "12 roses / 1 dozen":<br/>
+$3.5\ \text{dozen} \times \dfrac{12\ \text{roses}}{1\ \text{dozen}} = 42\ \text{roses}$<br/><br/>
+Similarly, to convert moles → particles, use Avogadro's number as a conversion factor:<br/>
+$\dfrac{6.02 \times 10^{23}\ \text{particles}}{1\ \text{mol}}$
+</div>
+<div class="cn">买 3.5 打玫瑰有多少支？用"换算因子"（conversion factor）"12 支 / 1 打"：<br/>
+$3.5\ \text{打} \times \dfrac{12\ \text{支}}{1\ \text{打}} = 42\ \text{支}$<br/><br/>
+同理，把"摩尔"换成"粒子数"，用 <em>N</em><sub>A</sub> 作为换算因子：<br/>
+$\dfrac{6.02 \times 10^{23}\ \text{个粒子}}{1\ \text{mol}}$
+</div>
+</div>
+
+<div class="box box-key" data-label="两条核心公式">
+<b>公式 1（摩尔 → 粒子数）：</b>
+<div class="eq eq-center">$\text{粒子数} = \text{摩尔数} \times 6.02 \times 10^{23}$</div>
+<b>公式 2（粒子数 → 摩尔）：</b>
+<div class="eq eq-center">$\text{摩尔数} = \text{粒子数} \times \dfrac{1\ \text{mol}}{6.02 \times 10^{23}}$</div>
+<div class="small">👉 这两条公式互为逆运算，是"乘除 <em>N</em><sub>A</sub>"的两种方向。</div>
+</div>
+
+<!-- 演示 -->
+<div class="box box-example">
+<b>教材演示 · 3.50 mol 蔗糖中含多少个分子？</b>
+<div class="eq">$3.50\ \text{mol sucrose} \times \dfrac{6.02\times10^{23}\ \text{molecules}}{1\ \text{mol sucrose}} = 2.11\times10^{24}\ \text{molecules}$</div>
+即 3.50 mol 蔗糖含 <b>2.11×10²⁴ 个</b> 蔗糖分子。
+</div>
+
+<!-- Example Problem 11-1 -->
+<div class="box box-example">
+<b>EXAMPLE PROBLEM 11-1 · 例题 11-1：将粒子数换算为摩尔</b><br/>
+<span class="tag">摩尔换算</span><span class="tag hard">四步解题法</span><br/>
+<b>题目：</b>锌被用作钢铁表面的防腐涂层，也是人体所需的必需微量元素。请计算含有 4.50×10²⁴ 个锌原子的样品中含有多少摩尔的锌？<br/><br/>
+
+<div class="step"><span class="no">1</span><b>Analyze 分析：</b>已知原子数 4.50×10²⁴，比一摩尔 (6.02×10²³) 大约 10 倍，所以答案应小于 10 mol。<br/>
+已知：4.50×10²⁴ atoms Zn，1 mol Zn = 6.02×10²³ atoms Zn<br/>未知：mol Zn = ？</div>
+
+<div class="step"><span class="no">2</span><b>Solve 求解：</b>用 <em>N</em><sub>A</sub> 的倒数作换算因子：
+<div class="eq">$4.50\times10^{24}\ \text{atoms Zn} \times \dfrac{1\ \text{mol Zn}}{6.02\times10^{23}\ \text{atoms Zn}} = 7.48\ \text{mol Zn}$</div></div>
+
+<div class="step"><span class="no">3</span><b>Evaluate 评估：</b>已知量有 3 位有效数字，答案也应保留 3 位。答案 7.48 mol < 10 mol，与预测一致，单位正确。✅</div>
+</div>
+
+<!-- 讲解框：解题思路 -->
+<div class="box box-note">
+<b>💡 一定要掌握的"四步解题法"（书里反复出现）</b>
+<ol>
+<li><b>Analyze the Problem</b> · 分析：明确已知/未知，估算数量级；</li>
+<li><b>Set Up 已知/未知列表</b>：列出全部已知数值及单位；</li>
+<li><b>Solve for the Unknown</b> · 求解：写换算因子，让不需要的单位互相约掉；</li>
+<li><b>Evaluate the Answer</b> · 评估：有效数字、单位、数量级是否合理。</li>
+</ol>
+掌握这套方法，本章 90% 的题都能顺利拿分！
+</div>
+
+<!-- Practice Problems 11.1 -->
+<h3>PRACTICE PROBLEMS · 练习题 11.1</h3>
+
+<ol class="practice">
+<li><b>Determine the number of atoms in 2.50 mol Zn.</b><br/>
+<i>求 2.50 mol Zn 中含多少个 Zn 原子。</i>
+<div class="ans">$2.50\ \text{mol}\times 6.02\times10^{23}\ \text{atoms/mol} = \mathbf{1.51\times10^{24}\ \text{atoms Zn}}$</div>
+</li>
+
+<li><b>Given 3.25 mol AgNO₃, determine the number of formula units.</b><br/>
+<i>3.25 mol 硝酸银 (AgNO₃) 含多少个式量单位？</i>
+<div class="ans">$3.25 \times 6.02\times10^{23} = \mathbf{1.96\times10^{24}\ \text{formula units AgNO}_3}$<br/>
+<span class="small">🔎 AgNO₃ 是离子化合物，代表粒子是"式量单位"而不是"分子"。</span></div>
+</li>
+
+<li><b>Calculate the number of molecules in 11.5 mol H₂O.</b><br/>
+<i>11.5 mol 水中含多少个水分子？</i>
+<div class="ans">$11.5 \times 6.02\times10^{23} = \mathbf{6.92\times10^{24}\ \text{molecules H}_2\text{O}}$</div>
+</li>
+
+<li><b>How many moles contain each of the following?</b> 求下列物质各含多少摩尔：
+<ol type="a">
+<li>5.75×10²⁴ atoms Al</li>
+<li>3.75×10²⁴ molecules CO₂</li>
+<li>3.58×10²³ formula units ZnCl₂</li>
+<li>2.50×10²⁰ atoms Fe</li>
+</ol>
+<div class="ans">
+a) $5.75\times10^{24}\div6.02\times10^{23} = \mathbf{9.55\ mol\ Al}$<br/>
+b) $3.75\times10^{24}\div6.02\times10^{23} = \mathbf{6.23\ mol\ CO_2}$<br/>
+c) $3.58\times10^{23}\div6.02\times10^{23} = \mathbf{0.595\ mol\ ZnCl_2}$<br/>
+d) $2.50\times10^{20}\div6.02\times10^{23} = \mathbf{4.15\times10^{-4}\ mol\ Fe}$<br/>
+<span class="small">🔎 d 题结果很小，因为 2.50×10²⁰ 远小于阿伏伽德罗常数。</span>
+</div>
+</li>
+</ol>
+
+<!-- Section 11.1 Assessment -->
+<h3>§11.1 Assessment · 小节自测</h3>
+<ol class="practice" start="5">
+<li><b>How is a mole similar to a dozen?</b><br/>
+<i>摩尔和"打"有什么相似之处？</i>
+<div class="ans">两者都是<b>计数单位</b>，都代表某个"固定的个数"：1 打 = 12 个；1 摩尔 = 6.02×10²³ 个。区别只在数量级不同——摩尔要用来数极小的原子分子，所以数值大得惊人。</div>
+</li>
+
+<li><b>What is the relationship between Avogadro's number and one mole?</b><br/>
+<i>阿伏伽德罗常数与 1 摩尔的关系？</i>
+<div class="ans">1 mol 任何物质都恰好包含 <b>6.02×10²³</b> 个代表性粒子，这个数就叫阿伏伽德罗常数 <em>N</em><sub>A</sub>。</div>
+</li>
+
+<li><b>Explain how you can convert from the number of representative particles to moles.</b><br/>
+<i>如何把"粒子数"换算为"摩尔"？</i>
+<div class="ans">用 <em>N</em><sub>A</sub> 的<b>倒数</b>作换算因子：$\text{mol} = \text{粒子数}\times\dfrac{1\ \text{mol}}{6.02\times10^{23}}$。让粒子数"个"这个单位约掉，只剩 mol。</div>
+</li>
+
+<li><b>Explain why chemists use the mole.</b><br/>
+<i>为什么化学家要用摩尔？</i>
+<div class="ans">原子分子极小、极多，无法一个个数。摩尔提供了一个方便的<b>宏观计量方式</b>：只要称出一定质量的物质，就等于间接数出了 6.02×10²³ 的整数倍粒子——这样把"看不见的微观世界"和"能称量的宏观世界"连接起来。</div>
+</li>
+
+<li><b>Thinking Critically 排序：</b>把下列三者按"代表性粒子数从少到多"排序：<br/>
+1.25×10²⁵ atoms Zn；3.56 mol Fe；6.78×10²² molecules glucose (C₆H₁₂O₆)。
+<div class="ans">
+先把三项都换成"粒子数"再比较：<br/>
+· Zn：1.25×10²⁵ atoms（本来就是粒子数）<br/>
+· Fe：3.56 mol × 6.02×10²³ = 2.14×10²⁴ atoms<br/>
+· Glucose：6.78×10²² molecules<br/>
+<b>从少到多：</b>6.78×10²² molecules glucose &lt; 2.14×10²⁴ atoms Fe &lt; 1.25×10²⁵ atoms Zn。
+</div>
+</li>
+
+<li><b>Using Numbers：</b>求下列各含多少代表性粒子，并说明代表粒子类型：11.5 mol Ag；18.0 mol H₂O；0.150 mol NaCl。
+<div class="ans">
+· Ag（银，金属单质，代表粒子=原子 atom）：11.5×6.02×10²³ = <b>6.92×10²⁴ atoms Ag</b><br/>
+· H₂O（分子化合物，代表粒子=分子 molecule）：18.0×6.02×10²³ = <b>1.08×10²⁵ molecules H₂O</b><br/>
+· NaCl（离子化合物，代表粒子=式量单位 formula unit）：0.150×6.02×10²³ = <b>9.03×10²² formula units NaCl</b>
+</div>
+</li>
+</ol>
+
+<!-- 重难点 -->
+<div class="box box-warn">
+<b>⚠ §11.1 重难点·易错点</b>
+<ul>
+<li><b>代表粒子的类型要看物质：</b>金属/惰性气体 → 原子；共价化合物 → 分子；离子化合物 → 式量单位（不是"分子"！）。答题时用错单位很常见。</li>
+<li><b>换算方向别搞反：</b>"摩尔 → 粒子数"是<b>乘</b> 6.02×10²³；"粒子数 → 摩尔"是<b>除</b> 6.02×10²³（或乘 1/N<sub>A</sub>）。</li>
+<li><b>有效数字：</b>N<sub>A</sub> 在本书取 3 位有效数字 (6.02×10²³)，最终答案的有效数字要跟已知数据中最少的那一项保持一致。</li>
+<li><b>科学计数法计算：</b>用计算器时用 EE 或 EXP 键输入 10 的幂，别打成 6.02×10^23（容易漏乘）。</li>
+</ul>
+</div>
+
+</section>
+<hr class="soft"/>
+
+
+<!-- ============================================================ -->
+<!-- §11.2 Mass and the Mole -->
+<!-- ============================================================ -->
+<section id="s11-2">
+<h2 class="section">§11.2 Mass and the Mole · 质量与摩尔 <span class="page-marker">P.313 – P.319</span></h2>
+
+<div class="box box-vocab">
+<b>本节目标 (Objectives)</b>
+<ol style="margin:6px 0">
+<li>把"一个原子的质量"与"一摩尔原子的质量"关联起来；</li>
+<li>已知元素的质量求摩尔数；已知摩尔数求质量；</li>
+<li>已知元素的原子数求摩尔数；已知摩尔数求原子数；</li>
+<li>综合运用 <b>质量 ⇄ 摩尔 ⇄ 原子数</b> 的换算。</li>
+</ol>
+<b>词汇：</b> molar mass 摩尔质量
+</div>
+
+<!-- 引子 -->
+<div class="pair">
+<div class="en">You wouldn't expect a dozen limes to have the same mass as a dozen eggs. Eggs and limes differ in size and composition, so they have different masses. Similarly, moles of different substances have different masses because the substances have different compositions. A mole of 6.02×10²³ carbon atoms does not equal the mass of a mole of copper atoms. How do you determine the mass of a mole?</div>
+<div class="cn">"一打青柠"和"一打鸡蛋"的质量当然不一样，因为它们的大小、成分都不同。同理，不同物质的"1 摩尔"质量也不同，因为原子种类不同。1 mol 碳原子的质量 ≠ 1 mol 铜原子的质量。<b>那我们怎么确定"1 摩尔"的质量呢？</b></div>
+</div>
+
+<!-- The Mass of a Mole -->
+<h3>The Mass of a Mole · 一摩尔的质量</h3>
+
+<div class="pair">
+<div class="en">The relative scale of atomic masses uses the isotope carbon-12 as the standard. Each atom of ¹²C has a mass of 12 atomic mass units (amu). The masses of all other elements are established relative to ¹²C. E.g. a ¹H atom has a mass of 1 amu (1/12 of ¹²C); a ⁴He atom has a mass of 4 amu.<br/><br/>
+Atomic masses on the periodic table are not exact integers (C = 12.011 amu, H = 1.008 amu, He = 4.003 amu) because these are weighted averages of all naturally-occurring isotopes.</div>
+<div class="cn">原子质量的相对标度以 <b>碳-12 (¹²C)</b> 为标准：每个 ¹²C 原子的质量定为 <b>12 amu</b>（原子质量单位）。其他元素的质量都是相对于 ¹²C 建立的：¹H 原子 = 1 amu（约为 ¹²C 的 1/12）；⁴He 原子 = 4 amu（约为 ¹²C 的 1/3）。<br/><br/>
+周期表上写的原子质量不是整数（C = 12.011、H = 1.008、He = 4.003），这是因为这些数是元素<b>各种天然同位素的加权平均值</b>。</div>
+</div>
+
+<div class="box box-key" data-label="核心定义 · 摩尔质量">
+<b>Molar Mass 摩尔质量</b>：1 摩尔纯物质的质量，单位为 <b>g/mol</b>。<br/>
+<span class="hi">对于元素，摩尔质量的数值 = 相对原子质量的数值，只是单位从 amu 换成 g/mol。</span><br/>
+例：Mn 的相对原子质量 = 54.94 amu → <b>摩尔质量 = 54.94 g/mol</b>。<br/>
+👉 当你在天平上称出 54.94 g Mn，就相当于间接数出了 6.02×10²³ 个锰原子。
+</div>
+
+<div class="figure-note">
+<strong>Figure 11-4：</strong>一袋"1 mol 锰"含 <em>N</em><sub>A</sub> 个锰原子，质量等于锰的原子质量（以 g 为单位）。这个规律对所有元素都成立。
+</div>
+
+<!-- 类比 -->
+<div class="box box-note">
+<b>🍬 糖豆类比（Jellybeans）：</b>1 打糖豆质量 35 g。如果顾客要 5 打，你怎么称？
+<div class="eq">$5\ \text{dozen} \times \dfrac{35\ \text{g}}{1\ \text{dozen}} = 175\ \text{g}$</div>
+同理，实验室要 3.00 mol Mn，用摩尔质量作换算因子：
+<div class="eq">$3.00\ \text{mol Mn}\times\dfrac{54.9\ \text{g}}{1\ \text{mol Mn}} = 165\ \text{g Mn}$</div>
+称 165 g Mn 就等于取了 3.00 mol。
+</div>
+
+<div class="box box-key" data-label="§11.2 三条核心公式">
+① <b>摩尔 → 质量：</b> $m = n \times M$（<em>M</em> = 摩尔质量 g/mol）<br/>
+② <b>质量 → 摩尔：</b> $n = \dfrac{m}{M}$<br/>
+③ <b>质量 ↔ 原子数：</b>必须"经过摩尔"两步走：
+<div class="eq eq-center">质量 (g) $\xrightarrow{\div M}$ 摩尔 (mol) $\xrightarrow{\times N_A}$ 原子数</div>
+<div class="eq eq-center">原子数 $\xrightarrow{\div N_A}$ 摩尔 (mol) $\xrightarrow{\times M}$ 质量 (g)</div>
+</div>
+
+<div class="figure-note">
+<strong>Figure 11-5 · 核心图：</strong>摩尔 (mol) 处于换算的<b>中心</b>。质量 (mass) 和粒子数 (particles) 之间不能直接换算，都必须经过 mol！
+</div>
+
+<!-- Example 11-2 -->
+<div class="box box-example">
+<b>EXAMPLE PROBLEM 11-2 · 例题 11-2：摩尔 → 质量</b><br/>
+<span class="tag">摩尔 → 质量</span><br/>
+铬（Cr）是过渡金属，常用作金属涂层和不锈钢合金的成分以防腐。求 0.0450 mol Cr 的质量（g）？<br/>
+
+<div class="step"><span class="no">1</span><b>分析：</b>已知 0.0450 mol < 0.1 mol，答案应小于 Cr 摩尔质量的 1/10。<br/>
+已知：0.0450 mol Cr；M(Cr) = 52.00 g/mol<br/>未知：m = ?</div>
+
+<div class="step"><span class="no">2</span><b>求解：</b>
+<div class="eq">$0.0450\ \text{mol Cr}\times\dfrac{52.00\ \text{g Cr}}{1\ \text{mol Cr}} = \mathbf{2.34\ g\ Cr}$</div></div>
+
+<div class="step"><span class="no">3</span><b>评估：</b>3 位有效数字，答案 < 5.2 g（1/10 摩尔质量），单位正确 ✅</div>
+</div>
+
+<!-- Example 11-3 -->
+<div class="box box-example">
+<b>EXAMPLE PROBLEM 11-3 · 例题 11-3：质量 → 摩尔</b><br/>
+<span class="tag">质量 → 摩尔</span><br/>
+钙 (Ca) 是地壳中含量第五多的元素。求 525 g Ca 含多少摩尔？<br/>
+
+<div class="step"><span class="no">1</span><b>分析：</b>525 g 是 Ca 摩尔质量 (40.08 g/mol) 的 13 倍多，答案应 > 10 mol。</div>
+
+<div class="step"><span class="no">2</span><b>求解：</b>
+<div class="eq">$525\ \text{g Ca}\times\dfrac{1\ \text{mol Ca}}{40.08\ \text{g Ca}} = \mathbf{13.1\ mol\ Ca}$</div></div>
+
+<div class="step"><span class="no">3</span><b>评估：</b>3 位有效数字，答案 > 10 mol，单位正确 ✅</div>
+</div>
+
+<!-- Example 11-4 -->
+<div class="box box-example">
+<b>EXAMPLE PROBLEM 11-4 · 例题 11-4：质量 → 原子数（两步）</b><br/>
+<span class="tag">质量 → 摩尔 → 原子数</span> <span class="tag hard">综合题</span><br/>
+金是"贵金属"之一。一块质量 25.0 g 的纯金块中含多少个金原子？<br/>
+
+<div class="step"><span class="no">1</span><b>分析：</b>不能直接从"质量"到"原子数"，要先算摩尔。25.0 g ≈ Au 摩尔质量 (196.97 g/mol) 的 1/8，因此原子数 ≈ N<sub>A</sub>/8。</div>
+
+<div class="step"><span class="no">2</span><b>求解：</b>
+<b>第 1 步：g → mol</b>
+<div class="eq">$25.0\ \text{g Au}\times\dfrac{1\ \text{mol Au}}{196.97\ \text{g Au}} = 0.127\ \text{mol Au}$</div>
+<b>第 2 步：mol → atoms</b>
+<div class="eq">$0.127\ \text{mol Au}\times\dfrac{6.02\times10^{23}\ \text{atoms}}{1\ \text{mol Au}} = \mathbf{7.65\times10^{22}\ atoms\ Au}$</div></div>
+
+<div class="step"><span class="no">3</span><b>评估：</b>3 位有效数字；≈ N<sub>A</sub>/8 (7.5×10²²)，符合预测 ✅</div>
+</div>
+
+<!-- Example 11-5 -->
+<div class="box box-example">
+<b>EXAMPLE PROBLEM 11-5 · 例题 11-5：原子数 → 质量（两步）</b><br/>
+<span class="tag">原子数 → 摩尔 → 质量</span><br/>
+派对气球里含 5.50×10²² 个氦 (He) 原子，气体的质量（g）？<br/>
+
+<div class="step"><span class="no">1</span><b>分析：</b>已知原子数，先转成摩尔，再乘摩尔质量。M(He) = 4.00 g/mol。</div>
+
+<div class="step"><span class="no">2</span><b>求解：</b>
+<div class="eq">$5.50\times10^{22}\ \text{atoms}\times\dfrac{1\ \text{mol}}{6.02\times10^{23}\ \text{atoms}} = 0.0914\ \text{mol He}$</div>
+<div class="eq">$0.0914\ \text{mol He}\times\dfrac{4.00\ \text{g He}}{1\ \text{mol He}} = \mathbf{0.366\ g\ He}$</div></div>
+
+<div class="step"><span class="no">3</span><b>评估：</b>3 位有效数字，单位正确 ✅</div>
+</div>
+
+<!-- 一步计算演示 -->
+<div class="box box-note">
+<b>💡 进阶：把两步合并成一步计算</b><br/>
+例如"1.00 g 水中含多少个 H₂O 分子？"
+<div class="eq">$1.00\ \text{g H}_2\text{O}\times\dfrac{1\ \text{mol}}{18.02\ \text{g}}\times\dfrac{6.02\times10^{23}\ \text{molecules}}{1\ \text{mol}} = 3.34\times10^{22}\ \text{molecules H}_2\text{O}$</div>
+只要各换算因子的单位能"链式约掉"，就可以一次写完。<br/>
+<b>反向练一下：</b>3.34×10²² 个 H₂O 分子的质量是多少？（答：约 1.00 g，正好互为逆过程）
+</div>
+
+<!-- Practice Problems -->
+<h3>PRACTICE PROBLEMS · §11.2 练习题详解</h3>
+
+<ol class="practice">
+<li><b>Determine the mass in grams of each:</b> 求下列各物质的质量（g）：
+<ol type="a">
+<li>3.57 mol Al</li>
+<li>42.6 mol Si</li>
+<li>3.45 mol Co</li>
+<li>2.45 mol Zn</li>
+</ol>
+<div class="ans">
+公式：$m = n \times M$，摩尔质量查周期表。<br/>
+a) 3.57 × 26.98 = <b>96.3 g Al</b><br/>
+b) 42.6 × 28.09 = <b>1.20 × 10³ g Si</b>（即 1196 g）<br/>
+c) 3.45 × 58.93 = <b>203 g Co</b><br/>
+d) 2.45 × 65.39 = <b>160 g Zn</b>（159.7）
+</div>
+</li>
+
+<li><b>Determine the number of moles in each:</b> 求下列各物质的摩尔数：
+<ol type="a">
+<li>25.5 g Ag</li>
+<li>300.0 g S</li>
+<li>125 g Zn</li>
+<li>1.00 kg Fe</li>
+</ol>
+<div class="ans">
+公式：$n = m / M$。d 题注意 1.00 kg = 1000 g。<br/>
+a) 25.5 ÷ 107.87 = <b>0.236 mol Ag</b><br/>
+b) 300.0 ÷ 32.07 = <b>9.354 mol S</b>（4 位有效数字）<br/>
+c) 125 ÷ 65.39 = <b>1.91 mol Zn</b><br/>
+d) 1000 ÷ 55.85 = <b>17.9 mol Fe</b>
+</div>
+</li>
+
+<li><b>How many atoms are in each sample?</b> 求下列各样品中的原子数：
+<ol type="a">
+<li>55.2 g Li</li>
+<li>0.230 g Pb</li>
+<li>11.5 g Hg</li>
+<li>45.6 g Si</li>
+<li>0.120 kg Ti</li>
+</ol>
+<div class="ans">
+步骤：g → mol (÷ M) → atoms (× 6.02×10²³)。<br/>
+a) 55.2 ÷ 6.94 = 7.95 mol → ×6.02×10²³ = <b>4.79×10²⁴ atoms Li</b><br/>
+b) 0.230 ÷ 207.2 = 1.110×10⁻³ mol → <b>6.68×10²⁰ atoms Pb</b><br/>
+c) 11.5 ÷ 200.59 = 5.73×10⁻² mol → <b>3.45×10²² atoms Hg</b><br/>
+d) 45.6 ÷ 28.09 = 1.623 mol → <b>9.77×10²³ atoms Si</b><br/>
+e) 120 ÷ 47.87 = 2.507 mol → <b>1.51×10²⁴ atoms Ti</b>
+</div>
+</li>
+
+<li><b>What is the mass in grams of each?</b> 求下列各样品的质量（g）：
+<ol type="a">
+<li>6.02×10²⁴ atoms Bi</li>
+<li>1.00×10²⁴ atoms Mn</li>
+<li>3.40×10²² atoms He</li>
+<li>1.50×10¹⁵ atoms N</li>
+<li>1.50×10¹⁵ atoms U</li>
+</ol>
+<div class="ans">
+步骤：atoms ÷ N<sub>A</sub> = mol；mol × M = g。<br/>
+a) 6.02×10²⁴/6.02×10²³ = 10.0 mol → 10.0×208.98 = <b>2.09×10³ g Bi</b><br/>
+b) 1.00×10²⁴/6.02×10²³ = 1.66 mol → 1.66×54.94 = <b>91.3 g Mn</b><br/>
+c) 3.40×10²²/6.02×10²³ = 5.65×10⁻² mol → 5.65×10⁻²×4.00 = <b>0.226 g He</b><br/>
+d) 1.50×10¹⁵/6.02×10²³ = 2.49×10⁻⁹ mol → ×14.01 = <b>3.49×10⁻⁸ g N</b><br/>
+e) 1.50×10¹⁵/6.02×10²³ = 2.49×10⁻⁹ mol → ×238.03 = <b>5.93×10⁻⁷ g U</b><br/>
+<span class="small">🔎 d、e 摩尔数相同（都是 2.49×10⁻⁹ mol），但由于 U 摩尔质量远大于 N，所以质量差 17 倍。</span>
+</div>
+</li>
+</ol>
+
+<!-- Section Assessment 11.2 -->
+<h3>§11.2 Assessment · 小节自测</h3>
+<ol class="practice" start="15">
+<li><b>Explain what is meant by molar mass.</b>
+<div class="ans">摩尔质量指 1 mol 某纯物质的质量，单位 g/mol。对元素，其数值等于该元素的相对原子质量（原子质量数值以 amu 表示时的数值）。</div>
+</li>
+
+<li><b>What conversion factor should be used to convert mass ⇄ moles?</b>
+<div class="ans">
+· mass → moles：用 <b>1/M</b>（摩尔质量的倒数），即 $\dfrac{1\ \text{mol}}{M\ \text{g}}$<br/>
+· moles → mass：用 <b>M</b>，即 $\dfrac{M\ \text{g}}{1\ \text{mol}}$
+</div>
+</li>
+
+<li><b>Explain the steps to convert mass of an element to number of atoms.</b>
+<div class="ans">
+两步走：<br/>
+① 质量 → 摩尔：$n = m \div M$<br/>
+② 摩尔 → 原子数：$N = n \times 6.02\times10^{23}$<br/>
+中间必须"经过摩尔"，不能直接从 g 跳到 atoms。
+</div>
+</li>
+
+<li><b>Thinking Critically：能否用 g 表达单个原子的质量？</b>
+<div class="ans">
+可以。由 $1\ \text{amu}=1\ \text{mol}\div N_A =\dfrac{1\ \text{g}}{6.02\times10^{23}}\approx 1.66\times10^{-24}\ \text{g}$，把 amu 换算成 g 即可。例如 1 个 He 原子 = 4.00 amu ≈ 6.64×10⁻²⁴ g。<br/>
+只是这样表示极不方便，所以化学家更习惯用 amu 表述单个原子。
+</div>
+</li>
+
+<li><b>Sequencing：把下列样品按质量从小到大排列：</b><br/>
+1.0 mol Ar；3.0×10²⁴ atoms Ne；20 g Kr。
+<div class="ans">
+逐一算成质量：<br/>
+· 1.0 mol Ar × 39.95 g/mol = <b>40.0 g</b><br/>
+· 3.0×10²⁴ atoms Ne ÷ N<sub>A</sub> = 4.98 mol → ×20.18 = <b>100.5 g</b><br/>
+· Kr = <b>20 g</b>（题目直接给了）<br/>
+<b>从小到大：</b>20 g Kr &lt; 1.0 mol Ar (40 g) &lt; 3.0×10²⁴ atoms Ne (100 g)
+</div>
+</li>
+</ol>
+
+<div class="box box-warn">
+<b>⚠ §11.2 重难点·易错点</b>
+<ul>
+<li><b>周期表用错元素质量：</b>做题时看清元素符号，别把 Co 看成 Cu，Zn 看成 Zr。</li>
+<li><b>单位换算：</b>1 kg = 1000 g；1 mg = 10⁻³ g，做题前先统一为 g。</li>
+<li><b>不能直接 g ↔ atoms：</b>永远经过 mol！这是本章最常见的错误。</li>
+<li><b>有效数字：</b>摩尔质量取到小数点后 2–3 位；最终答案保留和已知数据"最少的位数"一致。</li>
+<li><b>科学计数法：</b>非常大或非常小的数一定要用科学计数法表达（如 4.15×10⁻⁴ 而不是 0.000415），否则可能扣分。</li>
+</ul>
+</div>
+
+</section>
+<hr class="soft"/>
+
+
+<!-- ============================================================ -->
+<!-- §11.3 Moles of Compounds -->
+<!-- ============================================================ -->
+<section id="s11-3">
+<h2 class="section">§11.3 Moles of Compounds · 化合物的摩尔 <span class="page-marker">P.320 – P.327</span></h2>
+
+<div class="box box-vocab">
+<b>本节目标 (Objectives)</b>
+<ol style="margin:6px 0">
+<li>识别化学式所给出的"摩尔关系"（例如 1 mol Al₂O₃ 含 2 mol Al³⁺ 和 3 mol O²⁻）；</li>
+<li>计算化合物的<b>摩尔质量</b>；</li>
+<li>已知化合物的质量或摩尔数，能互相换算；</li>
+<li>已知质量，求化合物中的<b>原子数或离子数</b>。</li>
+</ol>
+</div>
+
+<!-- Chemical Formulas and the Mole -->
+<h3>Chemical Formulas and the Mole · 化学式与摩尔关系</h3>
+
+<div class="pair">
+<div class="en">A chemical formula indicates the types of atoms and the number of each in one unit of the compound. Freon has the formula CCl₂F₂ — one molecule contains 1 C, 2 Cl, 2 F atoms. In a <b>mole</b> of freon, you have Avogadro's number of freon molecules → 1 mol C + 2 mol Cl + 2 mol F, in the same 1 : 2 : 2 ratio.</div>
+<div class="cn">化学式告诉我们"1 个单元"中各元素的原子数。氟利昂 CCl₂F₂：1 个分子 = 1 C + 2 Cl + 2 F。如果是 <b>1 mol</b> 氟利昂，就相当于 1 mol C 原子 + 2 mol Cl 原子 + 2 mol F 原子，比例仍是 1:2:2。<br/><span class="hi">化学式既表示 1 个分子，也表示 1 mol 该物质。</span></div>
+</div>
+
+<div class="box box-key" data-label="换算因子的写法">
+以 CCl₂F₂ 为例，可以从化学式写出如下换算因子：
+<div class="eq">
+$\dfrac{1\ \text{mol C atoms}}{1\ \text{mol CCl}_2\text{F}_2}$ ,
+$\dfrac{2\ \text{mol Cl atoms}}{1\ \text{mol CCl}_2\text{F}_2}$ ,
+$\dfrac{2\ \text{mol F atoms}}{1\ \text{mol CCl}_2\text{F}_2}$
+</div>
+<b>规则：</b>下标 = 分子里那种元素的原子数 = 1 mol 化合物含该元素的 mol 数。<br/>
+例：5.50 mol CCl₂F₂ 含多少 mol F 原子？
+<div class="eq">$5.50\ \text{mol}\times\dfrac{2\ \text{mol F}}{1\ \text{mol CCl}_2\text{F}_2}=11.0\ \text{mol F}$</div>
+</div>
+
+<div class="box box-example">
+<b>EXAMPLE PROBLEM 11-6 · 例题 11-6：根据化学式求元素的摩尔数</b><br/>
+氧化铝 Al₂O₃ 是生产铝的主要原料。求 1.25 mol Al₂O₃ 中含多少 mol Al³⁺ 离子？<br/>
+
+<div class="step"><span class="no">1</span><b>分析：</b>1 mol Al₂O₃ 含 2 mol Al³⁺，答案 = 2 × 1.25 = 2.50 mol。</div>
+
+<div class="step"><span class="no">2</span><b>求解：</b>
+<div class="eq">$1.25\ \text{mol Al}_2\text{O}_3\times\dfrac{2\ \text{mol Al}^{3+}}{1\ \text{mol Al}_2\text{O}_3}=\mathbf{2.50\ \text{mol Al}^{3+}}$</div></div>
+
+<div class="step"><span class="no">3</span><b>评估：</b>3 位有效数字，答案正好是原来的 2 倍 ✅</div>
+</div>
+
+<!-- Molar Mass of Compounds -->
+<h3>The Molar Mass of Compounds · 化合物的摩尔质量</h3>
+
+<div class="pair">
+<div class="en">The mass of a mole of a compound equals the sum of the masses of every particle that makes up the compound. Determine the molar mass of each element using the periodic table, multiply by the number of moles of that element in the formula, and add them all up.</div>
+<div class="cn">1 mol 化合物的质量 = 各元素质量之和。就像书包总质量 = 书本+文具+午餐+等等的质量之和。<br/>
+<b>计算步骤：</b>① 查每种元素的摩尔质量；② 乘以化学式中该元素的下标（即 mol 数）；③ 加起来。</div>
+</div>
+
+<div class="box box-example">
+<b>教材演示 · 计算 K₂CrO₄（铬酸钾）的摩尔质量：</b>
+<table class="vocab">
+<tr><th>元素</th><th>摩尔数（=下标）</th><th>× 原子质量 (g/mol)</th><th>= 质量 (g)</th></tr>
+<tr><td>K</td><td>2</td><td>× 39.10</td><td>78.20</td></tr>
+<tr><td>Cr</td><td>1</td><td>× 52.00</td><td>52.00</td></tr>
+<tr><td>O</td><td>4</td><td>× 16.00</td><td>64.00</td></tr>
+<tr><td colspan="3"><b>总和：M(K₂CrO₄) =</b></td><td><b>194.20 g/mol</b></td></tr>
+</table>
+👉 这也验证了<b>质量守恒定律</b>——反应生成 K₂CrO₄ 的元素总质量正好等于化合物的质量。
+</div>
+
+<!-- Example Problem 11-7 -->
+<div class="box box-example">
+<b>EXAMPLE PROBLEM 11-7 · 例题 11-7：化合物"mol → 质量"换算</b><br/>
+大蒜味来自烯丙基硫醚 (allyl sulfide) (C₃H₅)₂S。求 2.50 mol 该化合物的质量？<br/>
+
+<div class="step"><span class="no">1</span><b>分析：</b>先求 (C₃H₅)₂S 的摩尔质量。分子里有 6 C + 10 H + 1 S。</div>
+<div class="step"><span class="no">2</span><b>求解：</b>
+· 6 C × 12.01 = 72.06 g<br/>
+· 10 H × 1.008 = 10.08 g<br/>
+· 1 S × 32.07 = 32.07 g<br/>
+<b>M = 114.21 g/mol</b><br/>
+<div class="eq">$2.50\ \text{mol}\times\dfrac{114.21\ \text{g}}{1\ \text{mol}}=\mathbf{286\ g}$</div></div>
+<div class="step"><span class="no">3</span><b>评估：</b>3 位有效数字，单位 g 正确 ✅</div>
+</div>
+
+<!-- Example Problem 11-8 -->
+<div class="box box-example">
+<b>EXAMPLE PROBLEM 11-8 · 例题 11-8：化合物"质量 → mol"换算</b><br/>
+氢氧化钙 Ca(OH)₂ 用于脱除燃煤发电厂尾气中的 SO₂ 及水的软化。求 325 g Ca(OH)₂ 含多少 mol？<br/>
+
+<div class="step"><span class="no">1</span><b>分析：</b>先求 M(Ca(OH)₂)。</div>
+<div class="step"><span class="no">2</span><b>求解：</b>
+· 1 Ca × 40.08 = 40.08<br/>
+· 2 O × 16.00 = 32.00<br/>
+· 2 H × 1.008 = 2.016<br/>
+<b>M = 74.10 g/mol</b><br/>
+<div class="eq">$325\ \text{g}\times\dfrac{1\ \text{mol}}{74.10\ \text{g}}=\mathbf{4.39\ mol\ Ca(OH)}_2$</div></div>
+<div class="step"><span class="no">3</span><b>评估：</b>用 300/75 ≈ 4 心算验证，合理 ✅</div>
+</div>
+
+<!-- Example Problem 11-9 -->
+<div class="box box-example">
+<b>EXAMPLE PROBLEM 11-9 · 例题 11-9（综合题！非常重要）</b><br/>
+<span class="tag hard">综合大题</span> <span class="tag warn">重点</span><br/>
+氯化铝 AlCl₃ 用于石油精炼、橡胶和润滑油制造。35.6 g AlCl₃ 样品：<br/>
+a) 含多少个 Al³⁺ 离子？b) 含多少个 Cl⁻ 离子？c) 一个 AlCl₃ 式量单位的质量（g）？<br/>
+
+<div class="step"><span class="no">1</span><b>分析：</b>用"质量 → mol → 式量单位 → 各种离子"链式换算；Al³⁺:Cl⁻ 应该 = 1:3。</div>
+
+<div class="step"><span class="no">2</span><b>求解：</b>
+先求 M(AlCl₃) = 26.98 + 3×35.45 = 133.33 g/mol<br/>
+① 质量 → mol：$35.6 \div 133.33 = 0.267\ \text{mol}$<br/>
+② mol → 式量单位：$0.267 \times 6.02\times10^{23} = 1.61\times10^{23}\ \text{formula units}$<br/>
+③ Al³⁺ 数：每 1 式量单位 = 1 个 Al³⁺，故 <b>= 1.61×10²³ Al³⁺ 离子</b><br/>
+④ Cl⁻ 数：每 1 式量单位 = 3 个 Cl⁻，故 <b>= 4.83×10²³ Cl⁻ 离子</b><br/>
+⑤ 1 个式量单位的质量：
+<div class="eq">$\dfrac{133.33\ \text{g/mol}}{6.02\times10^{23}\ \text{formula units/mol}}=\mathbf{2.21\times10^{-22}\ g/formula\ unit}$</div>
+</div>
+
+<div class="step"><span class="no">3</span><b>评估：</b>Cl⁻ 是 Al³⁺ 的 3 倍 ✓；用 35.6 ÷ 1.61×10²³ ≈ 2.21×10⁻²² 验证一致 ✅</div>
+</div>
+
+<div class="figure-note">
+<strong>Figure 11-8 · §11.3 综合换算图（超级重要！）</strong><br/>
+&nbsp;&nbsp;&nbsp;&nbsp; 化合物质量 (g) ⇄ <b>化合物 mol</b> ⇄ 代表性粒子（分子/式量单位）<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ↕（利用化学式下标做换算）<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; 原子/离子 mol<br/>
+👉 <b>所有换算都要经过"mol"！</b>不管你在哪里出发、想去哪里，"mol"是必经的枢纽。
+</div>
+
+<!-- Practice Problems 11.3 -->
+<h3>PRACTICE PROBLEMS · §11.3 练习题详解</h3>
+
+<ol class="practice">
+<li><b>Determine the number of moles of chloride ions in 2.50 mol ZnCl₂.</b>
+<div class="ans">1 mol ZnCl₂ 含 2 mol Cl⁻ → 2.50 × 2 = <b>5.00 mol Cl⁻</b></div>
+</li>
+
+<li><b>Calculate the number of moles of each element in 1.25 mol glucose C₆H₁₂O₆.</b>
+<div class="ans">
+· C：1.25 × 6 = <b>7.50 mol C</b><br/>
+· H：1.25 × 12 = <b>15.0 mol H</b><br/>
+· O：1.25 × 6 = <b>7.50 mol O</b>
+</div>
+</li>
+
+<li><b>Number of moles of sulfate ions in 3.00 mol iron(III) sulfate Fe₂(SO₄)₃.</b>
+<div class="ans">1 mol Fe₂(SO₄)₃ 含 3 mol SO₄²⁻ → 3.00 × 3 = <b>9.00 mol SO₄²⁻</b></div>
+</li>
+
+<li><b>How many moles of O atoms in 5.00 mol P₂O₅?</b>
+<div class="ans">1 mol P₂O₅ 含 5 mol O → 5.00 × 5 = <b>25.0 mol O</b></div>
+</li>
+
+<li><b>Moles of H atoms in 11.5 mol H₂O?</b>
+<div class="ans">1 mol H₂O 含 2 mol H → 11.5 × 2 = <b>23.0 mol H</b></div>
+</li>
+
+<li><b>Molar mass of each ionic compound:</b> NaOH, CaCl₂, KC₂H₃O₂, Sr(NO₃)₂, (NH₄)₃PO₄
+<div class="ans">
+· NaOH：22.99 + 16.00 + 1.008 = <b>40.00 g/mol</b><br/>
+· CaCl₂：40.08 + 2×35.45 = <b>110.98 g/mol</b><br/>
+· KC₂H₃O₂（醋酸钾）：39.10 + 2×12.01 + 3×1.008 + 2×16.00 = <b>98.14 g/mol</b><br/>
+· Sr(NO₃)₂：87.62 + 2×(14.01+3×16.00) = 87.62 + 2×62.01 = <b>211.64 g/mol</b><br/>
+· (NH₄)₃PO₄：3×(14.01+4×1.008) + 30.97 + 4×16.00 = 3×18.04 + 30.97 + 64.00 = <b>149.09 g/mol</b>
+</div>
+</li>
+
+<li><b>Molar mass of each molecular compound:</b> C₂H₅OH, C₁₂H₂₂O₁₁, HCN, CCl₄, H₂O
+<div class="ans">
+· C₂H₅OH（乙醇）：2×12.01 + 6×1.008 + 16.00 = 24.02 + 6.048 + 16.00 = <b>46.07 g/mol</b><br/>
+· C₁₂H₂₂O₁₁（蔗糖）：12×12.01 + 22×1.008 + 11×16.00 = 144.12 + 22.18 + 176.00 = <b>342.30 g/mol</b><br/>
+· HCN：1.008 + 12.01 + 14.01 = <b>27.03 g/mol</b><br/>
+· CCl₄：12.01 + 4×35.45 = <b>153.81 g/mol</b><br/>
+· H₂O：2×1.008 + 16.00 = <b>18.02 g/mol</b>
+</div>
+</li>
+
+<li><b>Mass of 3.25 mol H₂SO₄?</b>
+<div class="ans">M(H₂SO₄) = 2×1.008 + 32.07 + 4×16.00 = 98.09 g/mol → 3.25 × 98.09 = <b>319 g</b></div>
+</li>
+
+<li><b>Mass of 4.35×10⁻² mol ZnCl₂?</b>
+<div class="ans">M(ZnCl₂) = 65.39 + 2×35.45 = 136.29 g/mol → 4.35×10⁻² × 136.29 = <b>5.93 g</b></div>
+</li>
+
+<li><b>Mass of 2.55 mol KMnO₄?</b>
+<div class="ans">M(KMnO₄) = 39.10 + 54.94 + 4×16.00 = 158.04 g/mol → 2.55 × 158.04 = <b>403 g</b></div>
+</li>
+
+<li><b>Moles present in each:</b>
+<ol type="a">
+<li>22.6 g AgNO₃</li>
+<li>6.50 g ZnSO₄</li>
+<li>35.0 g HCl</li>
+<li>25.0 g Fe₂O₃</li>
+<li>254 g PbCl₄</li>
+</ol>
+<div class="ans">
+a) M(AgNO₃) = 107.87 + 14.01 + 48.00 = 169.88 → 22.6/169.88 = <b>0.133 mol</b><br/>
+b) M(ZnSO₄) = 65.39 + 32.07 + 64.00 = 161.46 → 6.50/161.46 = <b>0.0403 mol</b><br/>
+c) M(HCl) = 36.46 → 35.0/36.46 = <b>0.960 mol</b><br/>
+d) M(Fe₂O₃) = 2×55.85 + 48.00 = 159.70 → 25.0/159.70 = <b>0.157 mol</b><br/>
+e) M(PbCl₄) = 207.2 + 4×35.45 = 349.0 → 254/349.0 = <b>0.728 mol</b>
+</div>
+</li>
+
+<li><b>Silver chromate (Ag₂CrO₄) 25.8 g 中：</b> a) Ag⁺ 数？b) CrO₄²⁻ 数？c) 一个式量单位质量？
+<div class="ans">
+M(Ag₂CrO₄) = 2×107.87 + 52.00 + 4×16.00 = 331.74 g/mol<br/>
+mol = 25.8/331.74 = 0.0778 mol → 式量单位数 = 4.68×10²²<br/>
+a) Ag⁺：每式量单位 2 个 → <b>2×4.68×10²² = 9.36×10²² Ag⁺</b><br/>
+b) CrO₄²⁻：每式量单位 1 个 → <b>4.68×10²² CrO₄²⁻</b><br/>
+c) 1 式量单位质量 = 331.74/6.02×10²³ = <b>5.51×10⁻²² g</b>
+</div>
+</li>
+
+<li><b>NaCl 中含 4.59×10²⁴ 式量单位的质量？</b>
+<div class="ans">mol = 4.59×10²⁴/6.02×10²³ = 7.62 mol → ×58.44 g/mol = <b>446 g NaCl</b></div>
+</li>
+
+<li><b>45.6 g 乙醇 C₂H₅OH 中：</b> a) C 原子数？b) H 原子数？c) O 原子数？
+<div class="ans">
+M(C₂H₅OH) = 46.07 → mol = 45.6/46.07 = 0.990 mol → 分子数 = 0.990×6.02×10²³ = 5.96×10²³<br/>
+a) C 每分子 2 个 → <b>1.19×10²⁴ C 原子</b><br/>
+b) H 每分子 6 个 → <b>3.58×10²⁴ H 原子</b><br/>
+c) O 每分子 1 个 → <b>5.96×10²³ O 原子</b>
+</div>
+</li>
+
+<li><b>2.25 g Na₂SO₃ 中：</b> a) Na⁺ 数？b) SO₃²⁻ 数？c) 一个式量单位质量？
+<div class="ans">
+M(Na₂SO₃) = 2×22.99 + 32.07 + 3×16.00 = 126.05 g/mol<br/>
+mol = 2.25/126.05 = 1.785×10⁻² mol → 式量单位数 = 1.075×10²²<br/>
+a) <b>2.15×10²² Na⁺</b>（×2）<br/>
+b) <b>1.07×10²² SO₃²⁻</b>（×1）<br/>
+c) 126.05/6.02×10²³ = <b>2.09×10⁻²² g</b>
+</div>
+</li>
+
+<li><b>52.0 g CO₂ 中：</b> a) C 原子数？b) O 原子数？c) 1 个分子质量？
+<div class="ans">
+M(CO₂) = 12.01 + 32.00 = 44.01 → mol = 52.0/44.01 = 1.181 mol → 分子数 = 7.11×10²³<br/>
+a) <b>7.11×10²³ C 原子</b>（每分子 1 个）<br/>
+b) <b>1.42×10²⁴ O 原子</b>（每分子 2 个）<br/>
+c) 44.01/6.02×10²³ = <b>7.31×10⁻²³ g/分子</b>
+</div>
+</li>
+</ol>
+
+<!-- Section 11.3 Assessment -->
+<h3>§11.3 Assessment · 小节自测</h3>
+<ol class="practice" start="36">
+<li><b>如何求化合物的摩尔质量？</b>
+<div class="ans">按化学式：每种元素的原子质量 × 该元素下标，然后所有元素相加。例如 M(K₂CrO₄) = 2×39.10 + 52.00 + 4×16.00 = 194.20 g/mol。</div>
+</li>
+<li><b>摩尔换算常用的三个换算因子？</b>
+<div class="ans">
+① <b>摩尔质量</b> (g/mol)：质量 ⇄ 摩尔<br/>
+② <b>阿伏伽德罗常数</b> N<sub>A</sub>：摩尔 ⇄ 粒子数<br/>
+③ <b>化学式下标比</b>：化合物 mol ⇄ 元素/离子 mol
+</div>
+</li>
+<li><b>如何由化合物质量求其中原子/离子数？</b>
+<div class="ans">
+四步：g → mol(化合物) → 分子/式量单位数 → 用下标比乘出各原子/离子数。
+</div>
+</li>
+<li><b>如果知道一个分子的质量，能不能求 1 mol 该物质的质量？</b>
+<div class="ans">可以。1 mol 质量 = 单个分子质量 × N<sub>A</sub>（6.02×10²³）。</div>
+</li>
+<li><b>Thinking Critically：设计一张柱状图显示 500 g 二噁英 C₁₂H₄Cl₄O₂ 中各元素的摩尔数。</b>
+<div class="ans">
+M(C₁₂H₄Cl₄O₂) = 12×12.01 + 4×1.008 + 4×35.45 + 2×16.00 = 144.12 + 4.032 + 141.80 + 32.00 = 321.95 g/mol<br/>
+mol 二噁英 = 500/321.95 = 1.553 mol<br/>
+· C：1.553×12 = <b>18.63 mol</b><br/>
+· H：1.553×4 = <b>6.21 mol</b><br/>
+· Cl：1.553×4 = <b>6.21 mol</b><br/>
+· O：1.553×2 = <b>3.11 mol</b><br/>
+柱状图：横轴元素 (C/H/Cl/O)，纵轴 mol 数，柱高按上述数据。
+</div>
+</li>
+<li><b>Applying Concepts：钙的每日推荐摄入量 1000 mg（Ca²⁺）。若用碳酸钙 CaCO₃ 补充，需要多少 mol Ca²⁺？多少 mol CaCO₃？CaCO₃ 质量应为多少？</b>
+<div class="ans">
+1000 mg = 1.000 g Ca²⁺；mol Ca²⁺ = 1.000/40.08 = <b>0.02495 mol Ca²⁺</b><br/>
+1 mol CaCO₃ 提供 1 mol Ca²⁺，所以 <b>0.02495 mol CaCO₃</b><br/>
+M(CaCO₃) = 40.08 + 12.01 + 48.00 = 100.09 g/mol → 质量 = 0.02495 × 100.09 = <b>2.50 g CaCO₃</b><br/>
+👉 每片药 2.5 g（≈ 2500 mg）才能提供 1000 mg 钙。
+</div>
+</li>
+</ol>
+
+<div class="box box-warn">
+<b>⚠ §11.3 重难点·易错点</b>
+<ul>
+<li><b>括号里也有下标：</b>Fe₂(SO₄)₃ 里 S 原子数 = 1×3 = 3 个；O 原子数 = 4×3 = 12 个；不是 1 个 S 和 4 个 O！</li>
+<li><b>离子化合物没有"分子"：</b>用 formula unit（式量单位）表述，NaCl、CaCl₂、AgNO₃ 都是。</li>
+<li><b>不要漏乘/漏加元素：</b>算 (NH₄)₃PO₄ 时，N 有 3 个（3×1），H 有 12 个（3×4），别漏。</li>
+<li><b>换算方向要正确：</b>始终画个"mol 中心图"确认方向，防止把摩尔质量乘反。</li>
+<li><b>有效数字：</b>整数下标（如 2、3、5）视作精确数不参与有效数字判断，答案位数由数据中最少那个决定。</li>
+</ul>
+</div>
+
+</section>
+<hr class="soft"/>
+
+
+<!-- ============================================================ -->
+<!-- §11.4 Empirical and Molecular Formulas -->
+<!-- ============================================================ -->
+<section id="s11-4">
+<h2 class="section">§11.4 Empirical &amp; Molecular Formulas · 实验式与分子式 <span class="page-marker">P.328 – P.337</span></h2>
+
+<div class="box box-vocab">
+<b>本节目标 (Objectives)</b>
+<ol style="margin:6px 0">
+<li>解释什么叫化合物的<b>百分组成 (percent composition)</b>；</li>
+<li>根据"质量百分数"或"实测质量"数据，求<b>实验式 (empirical formula)</b> 与 <b>分子式 (molecular formula)</b>。</li>
+</ol>
+<b>词汇：</b> percent composition 百分组成 · empirical formula 实验式（最简式）· molecular formula 分子式
+</div>
+
+<!-- Percent Composition -->
+<h3>Percent Composition · 百分组成</h3>
+
+<div class="pair">
+<div class="en">Analytical chemists identify the elements in a compound and determine their percent by mass. The percent by mass of an element = (mass of element / mass of compound) × 100. Since percent means "parts per 100", all element percents in a compound must sum to <b>100 %</b>.</div>
+<div class="cn">"分析化学家"的工作就是测出化合物中每种元素的含量。<br/>
+<b>核心公式：</b>
+<div class="eq">$\%\ \text{by mass} = \dfrac{\text{某元素的质量}}{\text{化合物的总质量}}\times 100\%$</div>
+所有元素的百分含量加起来 <b>= 100%</b>（因为"percent 即每 100 份中所占份数"）。
+</div>
+</div>
+
+<div class="box box-note">
+<b>💡 万能小技巧：假设有 100 g 化合物！</b><br/>
+这样"百分数"直接等于"克数"—— 47.5% Cl → 47.5 g Cl。这个方法在求实验式时反复用！
+</div>
+
+<!-- 例子：水的百分组成 -->
+<div class="box box-example">
+<b>教材演示 · 计算水 H₂O 的百分组成</b><br/>
+假设 1 mol 水（18.02 g）：H 有 2 mol × 1.01 = 2.02 g，O 有 1 mol × 16.00 = 16.00 g<br/>
+· % H = 2.02 / 18.02 × 100 = <b>11.2%</b><br/>
+· % O = 16.00 / 18.02 × 100 = <b>88.80%</b><br/>
+合计 100.00% ✓
+</div>
+
+<!-- Example Problem 11-10 -->
+<div class="box box-example">
+<b>EXAMPLE PROBLEM 11-10 · 例题 11-10：NaHCO₃（小苏打）的百分组成</b><br/>
+小苏打是抗酸剂的活性成分。求 NaHCO₃ 的百分组成。<br/>
+
+<div class="step"><span class="no">1</span><b>求 M(NaHCO₃)：</b><br/>
+Na: 22.99 · H: 1.008 · C: 12.01 · 3×O: 48.00 → <b>M = 84.01 g/mol</b></div>
+
+<div class="step"><span class="no">2</span><b>求各元素质量百分数：</b><br/>
+· % Na = 22.99/84.01 × 100 = <b>27.37%</b><br/>
+· % H  =  1.008/84.01 × 100 = <b>1.200%</b><br/>
+· % C  = 12.01/84.01 × 100 = <b>14.30%</b><br/>
+· % O  = 48.00/84.01 × 100 = <b>57.14%</b><br/>
+合计 = 100.00% ✅</div>
+</div>
+
+<!-- Practice 42-45 -->
+<h3>PRACTICE PROBLEMS · 百分组成练习</h3>
+<ol class="practice">
+<li><b>42. 求 CaCl₂ 中各元素的质量百分含量</b>
+<div class="ans">M = 40.08 + 2×35.45 = 110.98<br/>
+· % Ca = 40.08/110.98 × 100 = <b>36.11%</b><br/>
+· % Cl = 70.90/110.98 × 100 = <b>63.89%</b></div>
+</li>
+<li><b>43. 求 Na₂SO₄ 的百分组成</b>
+<div class="ans">M = 2×22.99 + 32.07 + 4×16.00 = 142.05<br/>
+· % Na = 45.98/142.05 × 100 = <b>32.37%</b><br/>
+· % S  = 32.07/142.05 × 100 = <b>22.58%</b><br/>
+· % O  = 64.00/142.05 × 100 = <b>45.06%</b></div>
+</li>
+<li><b>44. H₂SO₃ 和 H₂S₂O₈，哪一个 S 含量更高？</b>
+<div class="ans">
+· M(H₂SO₃) = 2×1.008 + 32.07 + 48.00 = 82.09 → % S = 32.07/82.09 × 100 = <b>39.07%</b><br/>
+· M(H₂S₂O₈) = 2×1.008 + 2×32.07 + 8×16.00 = 194.16 → % S = 64.14/194.16 × 100 = <b>33.03%</b><br/>
+<b>H₂SO₃ 的 S 含量更高</b>（尽管 H₂S₂O₈ 里 S 的原子数多，但 O 的质量占比大得多）。
+</div>
+</li>
+<li><b>45. H₃PO₄ 的百分组成</b>
+<div class="ans">M = 3×1.008 + 30.97 + 4×16.00 = 98.00<br/>
+· % H = 3.024/98.00 × 100 = <b>3.086%</b><br/>
+· % P = 30.97/98.00 × 100 = <b>31.60%</b><br/>
+· % O = 64.00/98.00 × 100 = <b>65.31%</b></div>
+</li>
+</ol>
+
+<!-- Empirical Formula -->
+<h3>Empirical Formula · 实验式（最简式）</h3>
+
+<div class="pair">
+<div class="en">The <b>empirical formula</b> is the formula with the smallest whole-number mole ratio of elements. It may or may not be the same as the actual molecular formula. E.g. hydrogen peroxide: empirical = HO; molecular = H₂O₂. Both have 1:1 ratio of O to H.</div>
+<div class="cn"><b>实验式（empirical formula）</b>：化合物中各元素原子的最简整数比化学式，也叫"最简式"。<br/>
+它可能等于、也可能不等于真正的分子式。<br/>
+例：H₂O₂（过氧化氢）的实验式是 <b>HO</b>；分子式是 H₂O₂。两个式子里 H:O 都是 1:1，但分子式给出真实的原子个数。</div>
+</div>
+
+<div class="box box-key" data-label="求实验式的四步法">
+① <b>假设有 100 g 化合物</b>：把每种元素的"%"直接当"g"。<br/>
+② <b>把每种元素的质量除以其摩尔质量</b>，得到 mol 数。<br/>
+③ <b>各元素 mol 数同除以其中最小的那个 mol 数</b>，得到简单比。<br/>
+④ 如果得到小数（如 1.5、1.33、1.25）：<b>整体乘以最小整数</b>（2、3、4）把它变成整数。<br/>
+最后的整数比就是<b>下标</b>，即实验式。
+</div>
+
+<div class="box box-example">
+<b>教材示范 · 一种硫的氧化物含 40.05% S、59.95% O，求实验式</b>
+<ol>
+<li>假设 100 g 化合物 → 40.05 g S + 59.95 g O</li>
+<li>S: 40.05 ÷ 32.07 = 1.249 mol；O: 59.95 ÷ 16.00 = 3.747 mol</li>
+<li>同除最小值 1.249：S = 1.000；O = 3.000</li>
+<li>整数比 <b>1 : 3</b> → 实验式 <b>SO₃</b> ✅</li>
+</ol>
+</div>
+
+<!-- Example 11-11 -->
+<div class="box box-example">
+<b>EXAMPLE PROBLEM 11-11 · 例题 11-11：由百分组成求实验式（含小数处理）</b><br/>
+乙酸甲酯（一种溶剂）含 48.64% C、8.16% H、43.20% O。求实验式。<br/>
+
+<div class="step"><span class="no">1</span>假设 100 g：C 48.64 g，H 8.16 g，O 43.20 g</div>
+
+<div class="step"><span class="no">2</span>换算成 mol：<br/>
+· C: 48.64/12.01 = 4.050 mol<br/>
+· H: 8.16/1.008 = 8.10 mol<br/>
+· O: 43.20/16.00 = 2.700 mol</div>
+
+<div class="step"><span class="no">3</span>同除最小值 2.700：<br/>
+C: 1.500 · H: 3.00 · O: 1.000 → 出现小数 1.5！</div>
+
+<div class="step"><span class="no">4</span>整体乘 2 → C:H:O = <b>3:6:2</b><br/>
+<b>实验式 C₃H₆O₂</b></div>
+</div>
+
+<div class="box box-warn">
+<b>⚠ 常见小数比对应表（把它变整数的方法）</b>
+<table class="vocab">
+<tr><th>小数末尾</th><th>说明</th><th>乘几</th></tr>
+<tr><td>×.5（如 1.5、2.5）</td><td>差 1/2</td><td>×2</td></tr>
+<tr><td>×.33 或 ×.67（如 1.33、2.67）</td><td>差 1/3</td><td>×3</td></tr>
+<tr><td>×.25 或 ×.75</td><td>差 1/4</td><td>×4</td></tr>
+<tr><td>×.20 / ×.40 / ×.60 / ×.80</td><td>差 1/5</td><td>×5</td></tr>
+<tr><td>×.01 或 ×.99</td><td>因实验误差 ≈ 整数</td><td>直接四舍五入</td></tr>
+</table>
+</div>
+
+<h3>PRACTICE PROBLEMS · 实验式练习</h3>
+<ol class="practice" start="46">
+<li><b>蓝色固体含 36.84% N、63.16% O，求实验式。</b>
+<div class="ans">
+N: 36.84/14.01 = 2.630 mol；O: 63.16/16.00 = 3.948 mol<br/>
+同除 2.630：N = 1.000；O = 1.501（≈ 1.5）→ ×2<br/>
+→ 整数比 <b>N:O = 2:3</b>，实验式 <b>N₂O₃</b>
+</div>
+</li>
+<li><b>35.98% Al、64.02% S，求实验式。</b>
+<div class="ans">
+Al: 35.98/26.98 = 1.334；S: 64.02/32.07 = 1.996<br/>
+同除 1.334：Al=1.000；S=1.496（≈1.5）→ ×2<br/>
+→ <b>Al:S = 2:3</b>，实验式 <b>Al₂S₃</b>
+</div>
+</li>
+<li><b>丙烷 81.82% C、18.18% H，求实验式。</b>
+<div class="ans">
+C: 81.82/12.01 = 6.813；H: 18.18/1.008 = 18.04<br/>
+同除 6.813：C=1.000；H=2.647（≈2.67 = 8/3）→ ×3<br/>
+→ <b>C:H = 3:8</b>，实验式 <b>C₃H₈</b>（正好等于丙烷分子式！）
+</div>
+</li>
+<li><b>阿司匹林 60.00% C、4.44% H、35.56% O，求实验式。</b>
+<div class="ans">
+C: 60.00/12.01 = 4.996；H: 4.44/1.008 = 4.405；O: 35.56/16.00 = 2.223<br/>
+同除 2.223：C=2.247（≈2.25）；H=1.982（≈2）；O=1.000<br/>
+出现 2.25 = 9/4 → ×4<br/>
+→ C:H:O = <b>9:8:4</b>，实验式 <b>C₉H₈O₄</b>（正好等于阿司匹林分子式）
+</div>
+</li>
+<li><b>10.89% Mg、31.77% Cl、57.34% O，求实验式。</b>
+<div class="ans">
+Mg: 10.89/24.31 = 0.4480；Cl: 31.77/35.45 = 0.8962；O: 57.34/16.00 = 3.584<br/>
+同除 0.4480：Mg=1；Cl=2.000；O=8.000<br/>
+→ <b>Mg:Cl:O = 1:2:8</b>，实验式 <b>Mg(ClO₄)₂</b>（高氯酸镁）
+</div>
+</li>
+</ol>
+
+<!-- Molecular Formula -->
+<h3>Molecular Formula · 分子式</h3>
+
+<div class="pair">
+<div class="en">Two very different substances can share the same empirical formula and percent composition! Acetylene (gas, welding) and benzene (liquid) both have empirical formula CH. The <b>molecular formula</b> specifies the ACTUAL number of atoms per molecule. To find it, compare the experimental molar mass with the mass of the empirical formula:<br/>
+$n = \dfrac{\text{molar mass (experimental)}}{\text{empirical formula mass}}$<br/>
+Molecular formula = (Empirical formula)<sub><em>n</em></sub></div>
+<div class="cn">两种性质完全不同的物质可能拥有相同的实验式！乙炔（气体，焊接用）和苯（液体）都是实验式 <b>CH</b>。<br/>
+<b>分子式（molecular formula）</b>：反映一个分子中<b>真实</b>原子个数的化学式。<br/>
+求法：先做实验测出 <b>M（摩尔质量）</b>，再和实验式质量比较：
+<div class="eq eq-center">$n = \dfrac{M_\text{实测}}{M_\text{实验式}}$</div>
+<div class="eq eq-center">分子式 = (实验式)$_n$</div>
+</div>
+</div>
+
+<div class="box box-example">
+<b>演示 · 乙炔与苯</b><br/>
+实验式 CH → M(CH) = 12.01 + 1.008 = 13.02 g/mol<br/>
+· 乙炔实测 M = 26.04 g/mol → n = 26.04/13.02 = <b>2</b> → 分子式 <b>C₂H₂</b><br/>
+· 苯实测 M = 78.12 g/mol → n = 78.12/13.02 = <b>6</b> → 分子式 <b>C₆H₆</b>
+</div>
+
+<!-- Example 11-12 -->
+<div class="box box-example">
+<b>EXAMPLE PROBLEM 11-12 · 例题 11-12：由百分组成 + 摩尔质量求分子式</b><br/>
+琥珀酸（succinic acid）含 40.68% C、5.08% H、54.24% O，M = 118.1 g/mol。求实验式与分子式。<br/>
+
+<div class="step"><span class="no">1</span>100 g 假设 → C 40.68 g、H 5.08 g、O 54.24 g<br/>
+mol：C=3.387；H=5.04；O=3.390</div>
+
+<div class="step"><span class="no">2</span>同除 3.387：C=1.000；H=1.49（≈1.5）；O=1.001 → ×2<br/>
+实验式：<b>C₂H₃O₂</b>；M(实验式) = 24.02+3.024+32.00 = 59.04 g/mol</div>
+
+<div class="step"><span class="no">3</span>n = 118.1/59.04 = <b>2.000</b><br/>
+分子式 = (C₂H₃O₂)₂ = <b>C₄H₆O₄</b> ✅</div>
+</div>
+
+<h3>PRACTICE PROBLEMS · 分子式练习</h3>
+<ol class="practice" start="51">
+<li><b>某显影剂 65.45% C、5.45% H、29.09% O，M = 110.0 g/mol，求分子式。</b>
+<div class="ans">
+mol：C=65.45/12.01=5.450；H=5.45/1.008=5.407；O=29.09/16.00=1.818<br/>
+同除 1.818：C=2.997（≈3）；H=2.974（≈3）；O=1.000<br/>
+实验式 <b>C₃H₃O</b>，M(实验式) = 3×12.01+3×1.008+16.00 = 55.06<br/>
+n = 110.0/55.06 = 2.00 → 分子式 <b>C₆H₆O₂</b>
+</div>
+</li>
+<li><b>含 49.98 g C、10.47 g H（其余没有），M = 58.12 g/mol，求分子式。</b>
+<div class="ans">
+mol：C=49.98/12.01=4.162；H=10.47/1.008=10.39<br/>
+同除 4.162：C=1；H=2.496（≈2.5）→ ×2<br/>
+实验式 <b>C₂H₅</b>，M(实验式) = 24.02+5.04 = 29.06<br/>
+n = 58.12/29.06 = 2.00 → 分子式 <b>C₄H₁₀</b>（丁烷）
+</div>
+</li>
+<li><b>无色液体，46.68% N、53.32% O，M = 60.01 g/mol，求分子式。</b>
+<div class="ans">
+mol：N=46.68/14.01=3.332；O=53.32/16.00=3.333 → 1:1<br/>
+实验式 <b>NO</b>，M(实验式) = 30.01<br/>
+n = 60.01/30.01 = 2.000 → 分子式 <b>N₂O₂</b>
+</div>
+</li>
+</ol>
+
+<!-- Example 11-13 -->
+<div class="box box-example">
+<b>EXAMPLE PROBLEM 11-13 · 例题 11-13：由实测质量数据求实验式</b><br/>
+钛铁矿 (ilmenite) 样品含 5.41 g Fe、4.64 g Ti、4.65 g O。求实验式。<br/>
+
+<div class="step"><span class="no">1</span>换算成 mol：<br/>
+Fe：5.41/55.85 = 0.0969；Ti：4.64/47.88 = 0.0969；O：4.65/16.00 = 0.291</div>
+
+<div class="step"><span class="no">2</span>同除最小值 0.0969：<br/>
+Fe = 1.00；Ti = 1.00；O = 3.00</div>
+
+<div class="step"><span class="no">3</span>整数比 <b>1:1:3</b> → 实验式 <b>FeTiO₃</b> ✅</div>
+</div>
+
+<h3>PRACTICE PROBLEMS · 实测质量法练习</h3>
+<ol class="practice" start="54">
+<li><b>钾的氧化物分解后得到 19.55 g K 和 4.00 g O，求实验式。</b>
+<div class="ans">
+K：19.55/39.10 = 0.5000；O：4.00/16.00 = 0.2500<br/>
+同除 0.2500：K=2.000；O=1.000 → <b>K₂O</b>
+</div>
+</li>
+<li><b>铁的氧化物：174.86 g Fe + 75.14 g O，求实验式。</b>
+<div class="ans">
+Fe：174.86/55.85 = 3.131；O：75.14/16.00 = 4.696<br/>
+同除 3.131：Fe=1；O=1.500 → ×2<br/>
+→ <b>Fe₂O₃</b>
+</div>
+</li>
+<li><b>吗啡 17.900 g C、1.680 g H、4.225 g O、1.228 g N，求实验式。</b>
+<div class="ans">
+C：17.900/12.01 = 1.4904；H：1.680/1.008 = 1.667；O：4.225/16.00 = 0.2641；N：1.228/14.01 = 0.08766<br/>
+同除 0.08766：C=17.00；H=19.02；O=3.013；N=1.000<br/>
+→ 实验式 <b>C₁₇H₁₉NO₃</b>（吗啡分子式即为此）
+</div>
+</li>
+<li><b>0.545 g Al + 0.485 g O 的氧化铝，求实验式。</b>
+<div class="ans">
+Al：0.545/26.98 = 0.02020；O：0.485/16.00 = 0.03031<br/>
+同除 0.02020：Al=1；O=1.500 → ×2<br/>
+→ <b>Al₂O₃</b>
+</div>
+</li>
+</ol>
+
+<!-- Section 11.4 Assessment -->
+<h3>§11.4 Assessment · 小节自测</h3>
+<ol class="practice" start="58">
+<li><b>百分组成数据与化合物中各元素的质量之间是什么关系？</b>
+<div class="ans">百分组成即"每 100 g 化合物含各元素多少 g"。若已知总质量为 <em>m</em>，某元素的质量 = <em>m</em> × (百分数/100)。</div>
+</li>
+<li><b>实验式和分子式的区别？</b>
+<div class="ans">
+· 实验式：元素原子数的<b>最简整数比</b>；<br/>
+· 分子式：分子中<b>真实</b>的原子个数。<br/>
+分子式 = (实验式)×n，n = 实测摩尔质量 ÷ 实验式质量。<br/>
+可能 n=1（两者相等，如 H₂O）；也可能 n>1（如 苯 C₆H₆ 的实验式是 CH）。
+</div>
+</li>
+<li><b>如何求化合物中各元素的 mole 比？</b>
+<div class="ans">用每种元素的质量除以其摩尔质量得 mol 数；再同除最小值即得最简比。</div>
+</li>
+<li><b>Thinking Critically：两块纯固体铜含量分别 43.0% 和 32.0%，是否可能是同一种化合物？</b>
+<div class="ans">
+<b>不可能</b>！同一化合物的百分组成是唯一确定的，只受化学式支配。两块含铜量差别很大，只能是<b>不同的含铜化合物</b>（比如可能一个是 CuO，一个是 Cu₂S 等）。
+</div>
+</li>
+<li><b>Inferring：赤铁矿 Fe₂O₃ 和磁铁矿 Fe₃O₄，哪种矿的 Fe 含量更高？</b>
+<div class="ans">
+· Fe₂O₃：M = 2×55.85 + 3×16.00 = 159.70；% Fe = 111.70/159.70 = <b>69.94%</b><br/>
+· Fe₃O₄：M = 3×55.85 + 4×16.00 = 231.55；% Fe = 167.55/231.55 = <b>72.36%</b><br/>
+<b>磁铁矿 Fe₃O₄ 的 Fe 含量更高</b>（约多 2%）。
+</div>
+</li>
+</ol>
+
+<div class="box box-warn">
+<b>⚠ §11.4 重难点·易错点</b>
+<ul>
+<li><b>百分含量之和 ≠ 100%？</b>通常是四舍五入误差，只要 ±0.1% 内都可以接受；如果差得多，说明数据算错了。</li>
+<li><b>小数别乱四舍五入！</b>1.49 ≈ 1.5，×2 得 3；直接近似成 1 会得到错误的实验式。</li>
+<li><b>题干若已给"元素的质量"</b>（不是百分数），就<b>不用假设 100 g</b>，直接把质量除以摩尔质量。</li>
+<li><b>混淆"实验式质量"和"实际摩尔质量"</b>：n 是它们的<b>比值</b>，不是差值。</li>
+<li><b>四舍五入时机：</b>建议整个换算过程保留 4 位有效数字，只在最后一步取到规定位数。</li>
+</ul>
+</div>
+
+</section>
+<hr class="soft"/>
+
+
+<!-- ============================================================ -->
+<!-- §11.5 The Formula for a Hydrate -->
+<!-- ============================================================ -->
+<section id="s11-5">
+<h2 class="section">§11.5 The Formula for a Hydrate · 水合物的化学式 <span class="page-marker">P.338 – P.341</span></h2>
+
+<div class="box box-vocab">
+<b>本节目标 (Objectives)</b>
+<ol style="margin:6px 0">
+<li>解释什么是"水合物 (hydrate)"，以及其名称如何反映组成；</li>
+<li>根据实验数据求水合物的化学式。</li>
+</ol>
+<b>词汇：</b> hydrate 水合物 · water of hydration 结晶水 · anhydrous 无水的
+</div>
+
+<!-- 引子 -->
+<div class="pair">
+<div class="en">When crystals form from a water solution, water molecules can adhere to the ions and become trapped in the crystal. These water molecules are called <b>water of hydration</b>, and solids containing them are called <b>hydrates</b>. A hydrate is a compound with a specific number of water molecules bound to it. Opal is SiO₂ containing trapped water — its colors are caused by that water.</div>
+<div class="cn">当晶体从水溶液中析出时，水分子会附着在离子上被"锁进"晶格。这些水分子叫做<b>结晶水 (water of hydration)</b>，含有结晶水的固体叫<b>水合物 (hydrate)</b>。<br/>
+水合物是"每个式量单位固定带上若干水分子"的化合物。宝石"欧泊 (opal)"就是 SiO₂ 里包含水而形成的独特色彩。</div>
+</div>
+
+<!-- Naming -->
+<h3>Naming Hydrates · 水合物的命名</h3>
+
+<div class="box box-key" data-label="命名规则">
+水合物写作：<b>化合物式 · <em>n</em>H₂O</b>（中间加一个"点"号）<br/>
+名称：<b>[化合物名] + 前缀-hydrate</b><br/>
+<table class="vocab">
+<tr><th>前缀</th><th>水分子数</th><th>示例化学式</th><th>中文名</th></tr>
+<tr><td>Mono-</td><td>1</td><td>(NH₄)₂C₂O₄·H₂O</td><td>草酸铵一水合物</td></tr>
+<tr><td>Di-</td><td>2</td><td>CaCl₂·2H₂O</td><td>氯化钙二水合物</td></tr>
+<tr><td>Tri-</td><td>3</td><td>NaC₂H₃O₂·3H₂O</td><td>醋酸钠三水合物</td></tr>
+<tr><td>Tetra-</td><td>4</td><td>FePO₄·4H₂O</td><td>磷酸铁(III)四水合物</td></tr>
+<tr><td>Penta-</td><td>5</td><td>CuSO₄·5H₂O</td><td>硫酸铜(II)五水合物（蓝矾）</td></tr>
+<tr><td>Hexa-</td><td>6</td><td>CoCl₂·6H₂O</td><td>氯化钴(II)六水合物</td></tr>
+<tr><td>Hepta-</td><td>7</td><td>MgSO₄·7H₂O</td><td>硫酸镁七水合物（泻盐）</td></tr>
+<tr><td>Octa-</td><td>8</td><td>Ba(OH)₂·8H₂O</td><td>氢氧化钡八水合物</td></tr>
+<tr><td>Deca-</td><td>10</td><td>Na₂CO₃·10H₂O</td><td>碳酸钠十水合物（洗涤苏打）</td></tr>
+</table>
+<b>关键：</b>算摩尔质量时，别忘了加上 <em>n</em>×18.02 g/mol 的水的质量！
+</div>
+
+<!-- Analyzing a Hydrate -->
+<h3>Analyzing a Hydrate · 分析水合物</h3>
+
+<div class="pair">
+<div class="en">To analyze a hydrate, drive off the water by heating. The remaining substance is <b>anhydrous</b> ("without water"). E.g. pink CoCl₂·6H₂O turns deep blue when heated → anhydrous CoCl₂.</div>
+<div class="cn">分析水合物的核心是<b>加热赶水</b>！加热后留下的不含水的部分叫<b>无水物 (anhydrous)</b>。<br/>
+🔵 CoCl₂·6H₂O 是<b>粉红色</b>；加热失水后变成<b>深蓝色</b>的 CoCl₂ —— 这个颜色变化经常作为鉴别水合物的方法。</div>
+</div>
+
+<div class="box box-key" data-label="求水合物化学式的四步法">
+① 加热前称量 <b>hydrate 质量</b>（如 5.00 g BaCl₂·xH₂O）；<br/>
+② 加热后称量 <b>anhydrous 质量</b>（如 4.26 g BaCl₂），差值即水的质量（0.74 g H₂O）；<br/>
+③ 分别把水和无水物质量换成摩尔数；<br/>
+④ 计算 <b>x = mol H₂O ÷ mol anhydrous</b>，取整数。
+</div>
+
+<div class="box box-example">
+<b>教材演示 · BaCl₂ 水合物</b><br/>
+5.00 g 水合物 → 加热 → 4.26 g 无水 BaCl₂；水质量 = 0.74 g<br/>
+· mol BaCl₂ = 4.26/208.23 = 0.0205 mol<br/>
+· mol H₂O = 0.74/18.02 = 0.041 mol<br/>
+· x = 0.041/0.0205 = 2.00<br/>
+→ 化学式 <b>BaCl₂·2H₂O</b>（氯化钡二水合物）
+</div>
+
+<!-- Example 11-14 -->
+<div class="box box-example">
+<b>EXAMPLE PROBLEM 11-14 · 例题 11-14：CuSO₄ 水合物</b><br/>
+2.50 g 蓝色水合硫酸铜 (CuSO₄·xH₂O) 加热后剩 1.59 g 白色 CuSO₄。求化学式和名称。<br/>
+
+<div class="step"><span class="no">1</span>水的质量：2.50 − 1.59 = <b>0.91 g H₂O</b></div>
+<div class="step"><span class="no">2</span>摩尔数：<br/>
+· mol CuSO₄ = 1.59/159.6 = 0.00996 mol<br/>
+· mol H₂O = 0.91/18.02 = 0.050 mol</div>
+<div class="step"><span class="no">3</span>x = 0.050/0.00996 = <b>5.02 ≈ 5</b><br/>
+化学式：<b>CuSO₄·5H₂O</b>，名称：<b>copper(II) sulfate pentahydrate</b>（硫酸铜(II)五水合物，俗称蓝矾）✅</div>
+</div>
+
+<!-- Practice 63, 64 -->
+<h3>PRACTICE PROBLEMS · §11.5 练习题</h3>
+<ol class="practice" start="63">
+<li><b>某水合物 48.8% MgSO₄、51.2% H₂O，求化学式和名称。</b>
+<div class="ans">
+假设 100 g：MgSO₄ 48.8 g，H₂O 51.2 g<br/>
+M(MgSO₄) = 24.31+32.07+64.00 = 120.38 → mol = 48.8/120.38 = 0.4054<br/>
+mol H₂O = 51.2/18.02 = 2.841<br/>
+x = 2.841/0.4054 = 7.01 ≈ <b>7</b><br/>
+化学式：<b>MgSO₄·7H₂O</b>，名称：<b>magnesium sulfate heptahydrate</b>（硫酸镁七水合物，即泻盐 Epsom salts）
+</div>
+</li>
+
+<li><b>11.75 g 氯化钴水合物 加热得 9.25 g 无水 CoCl₂。求化学式与名称。</b>
+<div class="ans">
+水质量 = 11.75 − 9.25 = 2.50 g<br/>
+M(CoCl₂) = 58.93+2×35.45 = 129.83 → mol = 9.25/129.83 = 0.07125<br/>
+mol H₂O = 2.50/18.02 = 0.1387<br/>
+x = 0.1387/0.07125 = 1.947 ≈ <b>2</b>（结果偏低，可能未完全失水；理论上应该是 6，需要更长时间加热）<br/>
+若按 6 水合，理论水：0.07125×6×18.02 = 7.70 g，可发现 6 水合物 (CoCl₂·6H₂O) 才是常见形式。<br/>
+若按实验结果算，得 <b>CoCl₂·2H₂O</b>；若加热到完全失水（理论），应为 <b>CoCl₂·6H₂O</b>（cobalt(II) chloride hexahydrate）。
+</div>
+</li>
+</ol>
+
+<!-- Section 11.5 Assessment -->
+<h3>§11.5 Assessment · 小节自测</h3>
+<ol class="practice" start="65">
+<li><b>什么是水合物？它的名称告诉我们什么？</b>
+<div class="ans">水合物是含固定数目结晶水的化合物；名称中的前缀（mono-, di-, penta- 等）表示每个式量单位所结合的水分子数。</div>
+</li>
+
+<li><b>如何通过实验测定水合物的化学式？</b>
+<div class="ans">
+① 称水合物初始质量；② 加热至失水完全（观察颜色不再变化）；③ 称无水物质量；④ 差值即水的质量；⑤ 分别换算为 mol；⑥ mol H₂O ÷ mol 无水物 → x（取整）。<br/>
+每一步的原因：<b>加热</b>是为了赶走结晶水；<b>差量法</b>直接得到水的质量；<b>摩尔比</b>就是化学式中 H₂O 的下标 x。
+</div>
+</li>
+
+<li><b>SrCl₂·6H₂O 的名称？</b>
+<div class="ans"><b>Strontium chloride hexahydrate</b>（氯化锶六水合物）</div>
+</li>
+
+<li><b>Thinking Critically：如何用 CoCl₂ 大概预测下雨概率？</b>
+<div class="ans">
+无水 CoCl₂ 是<b>蓝色</b>的，吸收水后逐渐变成<b>粉红色</b>（水合形式）。空气湿度越高，颜色越粉。因此可以把 CoCl₂ 制成"晴雨指示卡"：颜色偏蓝 → 干燥，可能晴天；颜色偏粉 → 空气潮湿，可能要下雨。<br/>
+（这就是老式"晴雨花"的原理！）
+</div>
+</li>
+
+<li><b>Sequencing：MgSO₄·7H₂O、Ba(OH)₂·8H₂O、CoCl₂·6H₂O 按含水质量百分数从小到大排序。</b>
+<div class="ans">
+分别计算 %H₂O：<br/>
+· MgSO₄·7H₂O：M = 120.38 + 7×18.02 = 246.52 → %H₂O = 126.14/246.52 = <b>51.17%</b><br/>
+· Ba(OH)₂·8H₂O：M = 171.34 + 8×18.02 = 315.50 → %H₂O = 144.16/315.50 = <b>45.69%</b><br/>
+· CoCl₂·6H₂O：M = 129.83 + 6×18.02 = 237.95 → %H₂O = 108.12/237.95 = <b>45.44%</b><br/>
+<b>从小到大：</b>CoCl₂·6H₂O (45.44%) &lt; Ba(OH)₂·8H₂O (45.69%) &lt; MgSO₄·7H₂O (51.17%)
+</div>
+</li>
+</ol>
+
+<!-- Uses of hydrates -->
+<h3>Uses of Hydrates · 水合物的应用</h3>
+
+<div class="box box-note">
+<b>1. 干燥剂 (Desiccants)：</b>无水 CaCl₂、CaSO₄ 能从空气或液体中吸水，实验室里常放在密闭"干燥器 (desiccator)"底部保持无水环境；乙醇、乙醚 里加 CaSO₄ 就是脱水。<br/>
+<b>2. 电子产品防潮：</b>你打开新买的电子产品时看到的"Silica gel 别吃"小包，就是干燥剂。<br/>
+<b>3. 存储太阳能：</b>Na₂SO₄·10H₂O 在 32°C 以上会溶于其结晶水（吸热储能），温度下降时又重新结晶（放热），可以充当太阳能"电池"。<br/>
+<b>4. 特殊术语：</b><br/>
+· <b>hygroscopic</b> 吸湿性：能从空气吸水（如 CaCl₂）<br/>
+· <b>deliquescent</b> 潮解性：吸水后能溶解自身形成溶液（如 NaOH）<br/>
+· <b>efflorescent</b> 风化性：晶体在空气中自发失水（如 Na₂CO₃·10H₂O 在干燥空气中会掉水皮变成粉末）
+</div>
+
+<div class="box box-warn">
+<b>⚠ §11.5 重难点·易错点</b>
+<ul>
+<li><b>算水合物摩尔质量时别漏水！</b>M(CuSO₄·5H₂O) = 159.6 + 5×18.02 = 249.7 g/mol，不是 159.6！</li>
+<li><b>加热要充分：</b>否则水没赶干净，会得到偏低的 x。</li>
+<li><b>加热过头也不行：</b>某些水合物加热过度会分解为氧化物（如 MgSO₄→MgO），这时质量差就不能全归为水。</li>
+<li><b>命名前缀要记住：</b>mono/di/tri/tetra/penta/hexa/hepta/octa/nona/deca = 1-10。</li>
+</ul>
+</div>
+
+</section>
+<hr class="soft"/>
+
+<!-- ============================================================ -->
+<!-- Study Guide -->
+<!-- ============================================================ -->
+<section id="study-guide">
+<h2 class="section">📝 Study Guide · 章节复习指南 <span class="page-marker">P.345</span></h2>
+
+<div class="callout-topic">
+<h3>🗝 五节精华一图收</h3>
+<p>把整个第 11 章浓缩成一张知识地图。</p>
+</div>
+
+<div class="box box-note">
+<b>11.1 Measuring Matter</b>
+<ul>
+<li>1 摩尔 = 6.02×10²³ 个代表性粒子（原子/分子/式量单位）。</li>
+<li>1 mol ¹²C 原子 = 12 g；即"1 摩尔"的原始定义。</li>
+</ul>
+<b>11.2 Mass and the Mole</b>
+<ul>
+<li>元素摩尔质量的数值 = 原子质量 (amu)，单位 g/mol。</li>
+<li>元素 mol ⇄ 质量：乘或除摩尔质量。</li>
+<li>元素 质量 ⇄ 原子数：必经"mol"两步走。</li>
+</ul>
+<b>11.3 Moles of Compounds</b>
+<ul>
+<li>下标 = 化合物中该元素的 mol 数；括号里的乘法要展开！</li>
+<li>M(化合物) = Σ (元素下标 × 元素摩尔质量)。</li>
+<li>综合换算图 (Fig 11-8)：mol 是中心枢纽。</li>
+</ul>
+<b>11.4 Empirical & Molecular Formulas</b>
+<ul>
+<li>百分组成 = 各元素 g/化合物 g × 100%。</li>
+<li>实验式 = 假设 100 g → 每元素 mol → 同除最小 → 化整数。</li>
+<li>分子式 = 实验式 × n，n = M_实测 / M_实验式。</li>
+</ul>
+<b>11.5 Hydrates</b>
+<ul>
+<li>Formula: 化合物 · <em>n</em>H₂O；命名用希腊语前缀。</li>
+<li>Anhydrous + 结晶水质量差 → 用 mol 比求 x。</li>
+</ul>
+</div>
+
+<div class="box box-key" data-label="必背核心公式一览">
+<table class="vocab">
+<tr><th>公式</th><th>用途</th></tr>
+<tr><td>$N = n \cdot N_A$</td><td>摩尔 → 粒子数</td></tr>
+<tr><td>$n = N / N_A$</td><td>粒子数 → 摩尔</td></tr>
+<tr><td>$m = n \cdot M$</td><td>摩尔 → 质量</td></tr>
+<tr><td>$n = m / M$</td><td>质量 → 摩尔</td></tr>
+<tr><td>$M_\text{化合物} = \sum (\text{下标} \times M_\text{元素})$</td><td>化合物摩尔质量</td></tr>
+<tr><td>$\%\text{元素} = \dfrac{m_\text{元素在 1 mol 化合物}}{M_\text{化合物}}\times 100$</td><td>百分组成</td></tr>
+<tr><td>分子式 = (实验式)$_n$，$n = M_\text{实测}/M_\text{实验式}$</td><td>分子式判定</td></tr>
+<tr><td>$x = \dfrac{n_\text{H₂O}}{n_\text{无水}}$</td><td>水合物 x 值</td></tr>
+</table>
+</div>
+</section>
+<hr class="soft"/>
+
+<!-- ============================================================ -->
+<!-- Chapter Assessment -->
+<!-- ============================================================ -->
+<section id="assessment">
+<h2 class="section">🧪 Chapter 11 Assessment · 章末测评 <span class="page-marker">P.346 – P.350</span></h2>
+
+<div class="box box-note">
+本节精选章末测评中的<b>典型题</b>并给出详细解答。做题时先自己写，再对答案。</div>
+
+<h3>Mastering Concepts · 基础概念（71–88）</h3>
+<ol class="practice" start="71">
+<li><b>为什么摩尔对化学家重要？</b>
+<div class="ans">因为原子分子极小，无法直接数；摩尔提供了"宏观质量"与"微观粒子数"之间的桥梁。</div>
+</li>
+<li><b>摩尔与"打"有何相似？</b>
+<div class="ans">都是计数单位，代表固定的粒子数（12 vs 6.02×10²³）。</div>
+</li>
+<li><b>阿伏伽德罗常数的数值？</b>
+<div class="ans">6.022 136 7 × 10²³ ≈ <b>6.02 × 10²³</b>。</div>
+</li>
+<li><b>什么是摩尔质量？</b>
+<div class="ans">1 mol 纯物质的质量 (g/mol)，元素的摩尔质量数值 = 相对原子质量。</div>
+</li>
+<li><b>1 mol 银 vs 1 mol 金，哪个原子多？</b>
+<div class="ans"><b>一样多</b>！都是 6.02×10²³ 个原子。（陷阱题：不看质量，只看粒子数）</div>
+</li>
+<li><b>1 mol 银 vs 1 mol 金，哪个质量大？</b>
+<div class="ans"><b>金更重</b>：M(Au)=196.97 g；M(Ag)=107.87 g。</div>
+</li>
+<li><b>C₆H₈O₆、C₃H₈O₃、C₈H₈O₃ 中哪个每 mol 化合物含 C 最多？</b>
+<div class="ans">数下标：C 分别 6/3/8。<b>C₈H₈O₃（香草醛）含 C 最多</b>：8 mol C / mol 化合物。</div>
+</li>
+<li><b>把 M/N<sub>A</sub> 得到什么？</b>
+<div class="ans">一个原子的质量（g），即 <b>单个原子的质量</b>。</div>
+</li>
+</ol>
+
+<h3>Mastering Problems · 精选大题</h3>
+
+<ol class="practice" start="89">
+<li><b>89. 求下列各含多少代表性粒子：</b>a) 0.250 mol Ag；b) 8.56×10⁻³ mol NaCl；c) 35.3 mol CO₂；d) 0.425 mol N₂
+<div class="ans">
+a) 0.250×6.02×10²³ = <b>1.51×10²³ atoms Ag</b><br/>
+b) 8.56×10⁻³ × 6.02×10²³ = <b>5.15×10²¹ formula units NaCl</b><br/>
+c) 35.3×6.02×10²³ = <b>2.13×10²⁵ molecules CO₂</b><br/>
+d) 0.425×6.02×10²³ = <b>2.56×10²³ molecules N₂</b>
+</div>
+</li>
+
+<li><b>90. 求各含多少 mol：</b>a) 3.25×10²⁰ atoms Pb；b) 4.96×10²⁴ molecules glucose；c) 1.56×10²³ formula units NaOH；d) 1.25×10²⁵ Cu²⁺
+<div class="ans">
+a) 3.25×10²⁰/6.02×10²³ = <b>5.40×10⁻⁴ mol Pb</b><br/>
+b) 4.96×10²⁴/6.02×10²³ = <b>8.24 mol glucose</b><br/>
+c) 1.56×10²³/6.02×10²³ = <b>0.259 mol NaOH</b><br/>
+d) 1.25×10²⁵/6.02×10²³ = <b>20.8 mol Cu²⁺</b>
+</div>
+</li>
+
+<li><b>94. 手镯含 0.200 mol 金属原子，其中 75% 是金。求金原子数。</b>
+<div class="ans">金 mol = 0.200×0.75 = 0.150 mol → 原子数 = 0.150×6.02×10²³ = <b>9.03×10²² atoms Au</b></div>
+</li>
+
+<li><b>96. 一片雪花含 1.9×10¹⁸ 个水分子，多少 mol？</b>
+<div class="ans">1.9×10¹⁸/6.02×10²³ = <b>3.2×10⁻⁶ mol H₂O</b></div>
+</li>
+
+<li><b>97. 每秒数 2 个原子，数完 1 mol 要多久？</b>
+<div class="ans">
+1 mol/2 个每秒 = 6.02×10²³/2 = 3.01×10²³ 秒<br/>
+换成年：3.01×10²³ ÷ (365×24×3600) = 3.01×10²³/3.156×10⁷ = <b>9.5×10¹⁵ 年</b><br/>
+地球年龄 4.5×10⁹ 年，数完 1 mol 原子需要地球寿命的 <b>约 200 万倍</b>！这就是为什么不能一个一个数。
+</div>
+</li>
+
+<li><b>98. 求下列各质量：</b>a) 5.22 mol He；b) 0.0455 mol Ni；c) 2.22 mol Ti；d) 0.00566 mol Ge
+<div class="ans">
+a) 5.22×4.00 = <b>20.9 g He</b><br/>
+b) 0.0455×58.69 = <b>2.67 g Ni</b><br/>
+c) 2.22×47.88 = <b>106 g Ti</b><br/>
+d) 0.00566×72.61 = <b>0.411 g Ge</b>
+</div>
+</li>
+
+<li><b>103. 求原子数：</b>a) 25.8 g Hg；b) 0.0340 g Zn；c) 150 g Ar；d) 0.124 g Mg
+<div class="ans">
+a) 25.8/200.59 = 0.1286 → ×6.02×10²³ = <b>7.74×10²² atoms Hg</b><br/>
+b) 0.0340/65.39 = 5.20×10⁻⁴ → <b>3.13×10²⁰ atoms Zn</b><br/>
+c) 150/39.95 = 3.755 → <b>2.26×10²⁴ atoms Ar</b><br/>
+d) 0.124/24.31 = 5.10×10⁻³ → <b>3.07×10²¹ atoms Mg</b>
+</div>
+</li>
+
+<li><b>104. 10.0 g C vs 10.0 g Ca，哪个原子多？</b>
+<div class="ans">
+C：10.0/12.01 × N<sub>A</sub> = 0.833 × N<sub>A</sub> = <b>5.01×10²³</b><br/>
+Ca：10.0/40.08 × N<sub>A</sub> = 0.250 × N<sub>A</sub> = <b>1.50×10²³</b><br/>
+<b>碳更多原子</b>（因为原子质量小）
+</div>
+</li>
+
+<li><b>105. 10.0 mol C vs 10.0 mol Ca，谁原子多？</b>
+<div class="ans"><b>一样多</b>！都是 10.0 × 6.02×10²³ = 6.02×10²⁴ atoms（陷阱题：mol 相同意味着粒子数相同）</div>
+</li>
+
+<li><b>111. 求各摩尔质量：</b>a) HNO₃；b) NH₄NO₃；c) ZnO；d) CoCl₂
+<div class="ans">
+a) HNO₃：1.008+14.01+48.00 = <b>63.02 g/mol</b><br/>
+b) NH₄NO₃：14.01+4×1.008+14.01+48.00 = 14.01+4.032+62.01 = <b>80.05 g/mol</b><br/>
+c) ZnO：65.39+16.00 = <b>81.39 g/mol</b><br/>
+d) CoCl₂：58.93+2×35.45 = <b>129.83 g/mol</b>
+</div>
+</li>
+
+<li><b>112. 求各摩尔质量：</b>a) C₆H₈O₆；b) H₂SO₄；c) AgNO₃；d) C₇H₅NO₃S
+<div class="ans">
+a) 6×12.01+8×1.008+6×16.00 = 72.06+8.064+96.00 = <b>176.12 g/mol</b>（维C）<br/>
+b) 2×1.008+32.07+64.00 = <b>98.09 g/mol</b><br/>
+c) 107.87+14.01+48.00 = <b>169.88 g/mol</b><br/>
+d) 7×12.01+5×1.008+14.01+48.00+32.07 = 84.07+5.04+14.01+48.00+32.07 = <b>183.19 g/mol</b>（糖精）
+</div>
+</li>
+
+<li><b>114. 100.0 g 化合物含多少 mol：</b>a) N₂O；b) CH₃OH
+<div class="ans">
+a) M(N₂O) = 28.02+16.00 = 44.02 → 100.0/44.02 = <b>2.272 mol</b><br/>
+b) M(CH₃OH) = 12.01+4×1.008+16.00 = 32.04 → 100.0/32.04 = <b>3.121 mol</b>
+</div>
+</li>
+
+<li><b>119. 45.0 g Al₂O₃ 中含多少 mol Al³⁺？</b>
+<div class="ans">
+M(Al₂O₃) = 2×26.98+48.00 = 101.96 → mol Al₂O₃ = 45.0/101.96 = 0.4413 mol<br/>
+mol Al³⁺ = 0.4413×2 = <b>0.883 mol Al³⁺</b>
+</div>
+</li>
+
+<li><b>124. 3.62×10²⁴ 个葡萄糖 C₆H₁₂O₆ 分子的质量？</b>
+<div class="ans">
+mol = 3.62×10²⁴/6.02×10²³ = 6.014 mol<br/>
+M(C₆H₁₂O₆) = 180.16 → 质量 = 6.014×180.16 = <b>1.08×10³ g</b>
+</div>
+</li>
+
+<li><b>126. 什么质量的 FeCl₃ 含 2.35×10²³ 个 Cl⁻？</b>
+<div class="ans">
+mol Cl⁻ = 2.35×10²³/6.02×10²³ = 0.3904 mol<br/>
+mol FeCl₃ = 0.3904/3 = 0.1301 mol<br/>
+M(FeCl₃) = 55.85+3×35.45 = 162.20 → 质量 = 0.1301×162.20 = <b>21.1 g FeCl₃</b>
+</div>
+</li>
+
+<li><b>127. 100.0 kg Fe₃O₄ 能回收多少 mol Fe？</b>
+<div class="ans">
+100.0 kg = 100 000 g<br/>
+M(Fe₃O₄) = 3×55.85+4×16.00 = 231.55<br/>
+mol Fe₃O₄ = 100000/231.55 = 431.9 mol<br/>
+mol Fe = 431.9×3 = <b>1.30×10³ mol Fe</b>
+</div>
+</li>
+
+<li><b>128. 电子质量 9.11×10⁻²⁸ g，1 mol 电子的质量？</b>
+<div class="ans">9.11×10⁻²⁸ × 6.02×10²³ = <b>5.48×10⁻⁴ g/mol</b>（约 0.55 mg，可见电子极轻）</div>
+</li>
+
+<li><b>130. 铅密度 11.3 g/cm³，求 1 mol 铅的体积。</b>
+<div class="ans">1 mol Pb = 207.2 g → V = 207.2/11.3 = <b>18.3 cm³</b>（约手指头大小）</div>
+</li>
+
+<li><b>133. 泰诺 C₈H₉NO₂ 500 mg 药片中含多少分子？</b>
+<div class="ans">
+M = 8×12.01+9×1.008+14.01+2×16.00 = 96.08+9.072+14.01+32.00 = 151.16 g/mol<br/>
+mol = 0.500/151.16 = 3.308×10⁻³ mol<br/>
+分子数 = 3.308×10⁻³ × 6.02×10²³ = <b>1.99×10²¹ molecules</b>
+</div>
+</li>
+
+<li><b>136. 求百分组成：</b>a) C₁₂H₂₂O₁₁；b) Fe₃O₄；c) Al₂(SO₄)₃
+<div class="ans">
+a) 蔗糖 M=342.30：C:144.12/342.30=<b>42.10%</b>；H:22.18/342.30=<b>6.48%</b>；O:176.00/342.30=<b>51.42%</b><br/>
+b) M(Fe₃O₄)=231.55：Fe:167.55/231.55=<b>72.36%</b>；O:64.00/231.55=<b>27.64%</b><br/>
+c) M(Al₂(SO₄)₃)=2×26.98+3×(32.07+64.00)=53.96+288.21=342.17：Al:53.96/342.17=<b>15.77%</b>；S:96.21/342.17=<b>28.12%</b>；O:192.00/342.17=<b>56.11%</b>
+</div>
+</li>
+
+<li><b>137. FeS₂、Fe₂O₃、FeCO₃ 中 Fe 含量最高的是？</b>
+<div class="ans">
+· FeS₂：M=55.85+64.14=119.99；%Fe=55.85/119.99=<b>46.55%</b><br/>
+· Fe₂O₃：M=159.70；%Fe=111.70/159.70=<b>69.94%</b><br/>
+· FeCO₃：M=55.85+12.01+48.00=115.86；%Fe=55.85/115.86=<b>48.20%</b><br/>
+<b>Fe₂O₃（赤铁矿）含 Fe 最高</b>
+</div>
+</li>
+
+<li><b>138. 求实验式：</b>a) C₂H₄；b) C₆H₈O₆；c) C₁₀H₈
+<div class="ans">
+a) C:H = 2:4 → 1:2 → <b>CH₂</b><br/>
+b) C:H:O = 6:8:6 → 3:4:3 → <b>C₃H₄O₃</b><br/>
+c) C:H = 10:8 → 5:4 → <b>C₅H₄</b>
+</div>
+</li>
+
+<li><b>139. 咖啡因 C₈H₁₀N₄O₂：</b>a) 摩尔质量？b) 百分组成？
+<div class="ans">
+a) M = 8×12.01+10×1.008+4×14.01+2×16.00 = 96.08+10.08+56.04+32.00 = <b>194.20 g/mol</b><br/>
+b) C:96.08/194.20=<b>49.48%</b>；H:10.08/194.20=<b>5.19%</b>；N:56.04/194.20=<b>28.86%</b>；O:32.00/194.20=<b>16.48%</b>
+</div>
+</li>
+
+<li><b>143. 苯乙烯 92.25% C、7.75% H，M=104 g/mol，求分子式。</b>
+<div class="ans">
+mol：C=92.25/12.01=7.681；H=7.75/1.008=7.688<br/>
+比 1:1 → 实验式 <b>CH</b>；M(CH)=13.02<br/>
+n = 104/13.02 = 7.99 ≈ 8 → 分子式 <b>C₈H₈</b>
+</div>
+</li>
+
+<li><b>144. 味精 35.5% C、4.77% H、8.29% N、13.6% Na、37.9% O，求实验式。</b>
+<div class="ans">
+mol：C=35.5/12.01=2.956；H=4.77/1.008=4.732；N=8.29/14.01=0.5917；Na=13.6/22.99=0.5916；O=37.9/16.00=2.369<br/>
+同除 0.5916：C=4.997；H=8.000；N=1.000；Na=1.000；O=4.004<br/>
+→ 整数 5:8:1:1:4 → 实验式 <b>C₅H₈NNaO₄</b>
+</div>
+</li>
+
+<li><b>145. 布洛芬 75.7% C、8.80% H、15.5% O，M=206 g/mol，求分子式。</b>
+<div class="ans">
+mol：C=75.7/12.01=6.303；H=8.80/1.008=8.730；O=15.5/16.00=0.9688<br/>
+同除 0.9688：C=6.506；H=9.011；O=1.000 → C=6.5，×2<br/>
+C:H:O=13:18:2 → 实验式 <b>C₁₃H₁₈O₂</b>；M(C₁₃H₁₈O₂)=13×12.01+18×1.008+32.00=206.28<br/>
+n=206/206.28≈1.00 → 分子式即 <b>C₁₃H₁₈O₂</b>
+</div>
+</li>
+
+<li><b>146. 钒的氧化物 56.0% V、44.0% O，求实验式。</b>
+<div class="ans">
+mol：V=56.0/50.94=1.099；O=44.0/16.00=2.750<br/>
+同除 1.099：V=1.000；O=2.502（≈2.5）→ ×2<br/>
+→ V:O=2:5 → <b>V₂O₅</b>
+</div>
+</li>
+
+<li><b>151. Na₂CO₃·10H₂O 中无水物和水的质量百分数？</b>
+<div class="ans">
+M(Na₂CO₃)=105.99；M(H₂O)=18.02；总 M=105.99+10×18.02=286.19<br/>
+· %Na₂CO₃=105.99/286.19=<b>37.03%</b><br/>
+· %H₂O=180.20/286.19=<b>62.97%</b>
+</div>
+</li>
+
+<li><b>152. 85.3% BaCl₂、14.7% H₂O 的水合物？</b>
+<div class="ans">
+假设 100 g：BaCl₂ 85.3 g，H₂O 14.7 g<br/>
+mol：85.3/208.23=0.4097；14.7/18.02=0.8158<br/>
+x=0.8158/0.4097=1.99≈<b>2</b><br/>
+→ <b>BaCl₂·2H₂O</b>（氯化钡二水合物）
+</div>
+</li>
+
+<li><b>153. 石膏样品 4.89 g 加热得 3.87 g CaSO₄，求化学式和名称。</b>
+<div class="ans">
+水质量 = 4.89−3.87 = 1.02 g<br/>
+M(CaSO₄)=40.08+32.07+64.00=136.15 → mol=3.87/136.15=0.02842<br/>
+mol H₂O=1.02/18.02=0.0566<br/>
+x=0.0566/0.02842=1.99≈<b>2</b> → <b>CaSO₄·2H₂O</b>（gypsum，硫酸钙二水合物，即石膏）
+</div>
+</li>
+
+<li><b>155. 1.628 g MgI₂ 水合物加热得 1.072 g 无水物。求化学式。</b>
+<div class="ans">
+水质量 = 0.556 g<br/>
+M(MgI₂)=24.31+2×126.90=278.11 → mol=1.072/278.11=0.003855<br/>
+mol H₂O=0.556/18.02=0.03086<br/>
+x=0.03086/0.003855=8.00 → <b>MgI₂·8H₂O</b>
+</div>
+</li>
+</ol>
+
+<h3>Mixed Review · 综合复习（157–169）</h3>
+
+<ol class="practice" start="157">
+<li><b>a) 3.75 g Zn 中的原子数？</b>
+<div class="ans">3.75/65.39=0.05734 mol → ×6.02×10²³ = <b>3.45×10²² atoms Zn</b></div>
+</li>
+<li><b>b) 4.32×10²² 个 Ag 原子的质量？</b>
+<div class="ans">4.32×10²²/6.02×10²³=0.07176 mol → ×107.87 = <b>7.74 g Ag</b></div>
+</li>
+<li><b>c) 25.0 g Na₂O 中 Na⁺ 数？</b>
+<div class="ans">M(Na₂O)=2×22.99+16.00=61.98 → mol=25.0/61.98=0.4033<br/>
+Na⁺ mol=0.4033×2=0.8066 → <b>4.86×10²³ Na⁺</b></div>
+</li>
+
+<li><b>158. 哪个含 O 原子最多？</b> a) 17.63 g CO₂；b) 3.21×10²² molecules CH₃OH；c) 0.250 mol C₆H₁₂O₆
+<div class="ans">
+a) mol=17.63/44.01=0.4006 → O mol=0.8012 → <b>4.82×10²³</b><br/>
+b) O 原子数=3.21×10²²×1=<b>3.21×10²²</b><br/>
+c) O mol=0.250×6=1.500 → <b>9.03×10²³</b><br/>
+<b>c 最多</b>（0.250 mol 葡萄糖含 O 原子最多）
+</div>
+</li>
+
+<li><b>159. TiO₂、Fe₂O₃、Al₂O₃ 中 O 含量最高的？</b>
+<div class="ans">
+· TiO₂：M=79.87；%O=32.00/79.87=<b>40.06%</b><br/>
+· Fe₂O₃：M=159.70；%O=48.00/159.70=<b>30.05%</b><br/>
+· Al₂O₃：M=101.96；%O=48.00/101.96=<b>47.08%</b><br/>
+<b>Al₂O₃ 含 O 最高</b>
+</div>
+</li>
+
+<li><b>160. 萘 93.7% C、6.3% H，M=128 g/mol，求实验式与分子式。</b>
+<div class="ans">
+mol：C=93.7/12.01=7.802；H=6.3/1.008=6.250<br/>
+同除 6.250：C=1.248；H=1.000 → C=1.25=5/4 → ×4<br/>
+C:H=5:4 → 实验式 <b>C₅H₄</b>；M=5×12.01+4×1.008=64.09<br/>
+n=128/64.09=2.00 → 分子式 <b>C₁₀H₈</b>
+</div>
+</li>
+
+<li><b>161. 下面哪些分子式同时也是实验式？</b>C₄H₁₀O、C₉H₈O₄、C₄H₈Cl₂、C₆H₁₂O₆
+<div class="ans">
+只要下标没有公因数就是实验式：<br/>
+· C₄H₁₀O：4,10,1 → gcd=1，<b>是</b>；<br/>
+· C₉H₈O₄：9,8,4 → gcd=1，<b>是</b>；<br/>
+· C₄H₈Cl₂：4,8,2 → gcd=2 → 简化为 C₂H₄Cl，<b>不是</b>；<br/>
+· C₆H₁₂O₆：6,12,6 → gcd=6 → 简化为 CH₂O，<b>不是</b>。<br/>
+<b>C₄H₁₀O 和 C₉H₈O₄ 是</b>；C₄H₈Cl₂ 和 C₆H₁₂O₆ 不是。
+</div>
+</li>
+
+<li><b>166. 一个铅原子的质量？</b>
+<div class="ans">207.2 g/mol ÷ 6.02×10²³ = <b>3.44×10⁻²² g/atom</b></div>
+</li>
+
+<li><b>167. 0.25 克拉钻石中含多少个碳原子？（1 carat = 0.200 g）</b>
+<div class="ans">
+质量 = 0.25 × 0.200 = 0.050 g C<br/>
+mol=0.050/12.01=4.163×10⁻³ → 原子数=4.163×10⁻³×6.02×10²³ = <b>2.51×10²¹ atoms C</b>
+</div>
+</li>
+
+<li><b>168. 1.00 L 异辛烷 C₈H₁₈（密度 0.680 g/mL）中含多少分子？</b>
+<div class="ans">
+质量=1000 mL × 0.680 g/mL=680 g<br/>
+M(C₈H₁₈)=8×12.01+18×1.008=114.22<br/>
+mol=680/114.22=5.953 → 分子数=5.953×6.02×10²³ = <b>3.58×10²⁴ molecules</b>
+</div>
+</li>
+
+<li><b>169. 泳池 40 m × 20 m × 5 m（水密度 1.00 g/cm³）含多少个水分子？</b>
+<div class="ans">
+体积=40×20×5=4000 m³ = 4×10⁹ cm³ → 质量=4×10⁹ g<br/>
+mol=4×10⁹/18.02=2.220×10⁸ → 分子数=2.220×10⁸×6.02×10²³ = <b>1.34×10³² molecules H₂O</b><br/>
+👉 这个数比阿伏伽德罗常数还大约 10⁹ 倍！
+</div>
+</li>
+</ol>
+
+<h3>Thinking Critically · 思考题</h3>
+<ol class="practice" start="170">
+<li><b>矿业公司在黄铜矿 CuFeS₂ 和辉铜矿 Cu₂S 中选择哪个能得到更多铜？</b>
+<div class="ans">
+· CuFeS₂：M=63.55+55.85+64.14=183.54；%Cu=63.55/183.54=<b>34.63%</b><br/>
+· Cu₂S：M=127.10+32.07=159.17；%Cu=127.10/159.17=<b>79.85%</b><br/>
+<b>辉铜矿 Cu₂S 含 Cu 更多</b>，每千克矿能获得更多铜。
+</div>
+</li>
+</ol>
+</section>
+<hr class="soft"/>
+
+<!-- ============================================================ -->
+<!-- Standardized Test Practice -->
+<!-- ============================================================ -->
+<section id="std-test">
+<h2 class="section">🎯 Standardized Test Practice · 标准化测试 <span class="page-marker">P.351</span></h2>
+
+<div class="box box-note">
+本节 10 道选择题，每题给出答案 + 解析。做完这套题，第 11 章基本可以拿到高分。
+</div>
+
+<ol class="practice">
+<li><b>1. 乙醛 (acetaldehyde) 和丁酸 (butanoic acid) 必然有相同的：</b>
+<br/>a) 分子式；b) 实验式；c) 摩尔质量；d) 化学性质
+<div class="ans">
+从图表可以看出两者百分组成相同（都是 CH₂O 类），因此有相同的<b>实验式</b>。<br/>
+分子式和摩尔质量不同（butanoic 更大），化学性质完全不同。<br/>
+<b>答案 b) empirical formula</b>
+</div>
+</li>
+
+<li><b>2. 丁酸 M=88.1 g/mol，分子式？</b>
+<br/>a) CH₂O；b) C₂H₄O；c) C₆HO₂；d) C₄H₈O₂
+<div class="ans">
+实验式 CH₂O，M=30.03；n=88.1/30.03=2.93≈3？其实是 88.1/(12.01+2.02+16.00)=88.1/30.03≈2.93。<br/>
+但选项里含 C₄H₈O₂ (M=88.11)，与题设完全吻合 → 分子式 = (CH₂O)×？其实丁酸 CH₃CH₂CH₂COOH = <b>C₄H₈O₂</b>，M=88.11 ✅<br/>
+<b>答案 d) C₄H₈O₂</b>
+</div>
+</li>
+
+<li><b>3. 乙醇的实验式？</b>
+<br/>a) C₄HO₃；b) C₅₂H₁₃O₃₅；c) C₂H₆O；d) C₄H₁₃O₂
+<div class="ans">
+乙醇分子式 C₂H₆O，下标 gcd=1 → 实验式 = 分子式 = <b>C₂H₆O</b><br/>
+<b>答案 c) C₂H₆O</b>
+</div>
+</li>
+
+<li><b>4. 甲醛实验式 = 分子式，2.000 mol 甲醛质量？</b>
+<br/>a) 30.00 g；b) 60.06 g；c) 182.0 g；d) 200.0 g
+<div class="ans">
+甲醛 CH₂O，M=12.01+2.02+16.00=30.03；2.000×30.03=<b>60.06 g</b><br/>
+<b>答案 b) 60.06 g</b>
+</div>
+</li>
+
+<li><b>5. 关于摩尔，下列描述 EXCEPT 错误的是？</b>
+<br/>a) 元素或化合物的原子/摩尔质量；b) 阿伏伽德罗常数个分子；c) 恰好 12 g ¹²C 中的原子数；d) SI 中"物质的量"的单位
+<div class="ans">
+a) 说"mole 是 mass"是错的——mole 是<b>粒子数</b>，不是质量！<br/>
+（b、c、d 都是 mole 的正确定义）<br/>
+<b>答案 a)</b>
+</div>
+</li>
+
+<li><b>6. 0.625 mol Ge（72.59 amu）含多少原子？</b>
+<br/>a) 2.73×10²⁵；b) 6.99×10²⁵；c) 3.76×10²³；d) 9.63×10²³
+<div class="ans">
+0.625×6.02×10²³ = <b>3.76×10²³</b>（不需要用原子质量）<br/>
+<b>答案 c)</b>
+</div>
+</li>
+
+<li><b>7. Ca₅(PO₄)₃F 摩尔质量？</b>
+<br/>a) 314；b) 344；c) 442；d) 504
+<div class="ans">
+M = 5×40.08 + 3×(30.97+4×16.00) + 19.00<br/>
+= 200.40 + 3×94.97 + 19.00<br/>
+= 200.40 + 284.91 + 19.00 = <b>504.31 ≈ 504 g/mol</b><br/>
+<b>答案 d) 504 g/mol</b>
+</div>
+</li>
+
+<li><b>8. 7.13 g Co₂TiO₄ 含多少 mol？</b>
+<br/>a) 2.39×10⁻¹；b) 3.14×10⁻²；c) 3.22×10⁻¹；d) 4.17×10⁻²
+<div class="ans">
+M(Co₂TiO₄) = 2×58.93 + 47.88 + 4×16.00 = 117.86 + 47.88 + 64.00 = 229.74<br/>
+mol = 7.13/229.74 = 0.03103 = <b>3.10×10⁻² mol</b> ≈ 选项 b) 3.14×10⁻²<br/>
+<b>答案 b)</b>
+</div>
+</li>
+
+<li><b>9. MgSO₄·<em>x</em>H₂O，含 13.0% H₂O 和 87.0% MgSO₄，属于哪种水合物？</b>
+<br/>a) monohydrate；b) dihydrate；c) hexahydrate；d) heptahydrate
+<div class="ans">
+假设 100 g：13.0 g H₂O + 87.0 g MgSO₄<br/>
+mol H₂O = 13.0/18.02 = 0.7214<br/>
+mol MgSO₄ = 87.0/120.38 = 0.7227<br/>
+x = 0.7214/0.7227 ≈ 1.00 → <b>monohydrate（一水合物）</b><br/>
+<b>答案 a)</b>
+</div>
+</li>
+
+<li><b>10. 一个 BaSiF₆ 分子的质量？</b>
+<br/>a) 1.68×10⁻²⁶；b) 2.16×10⁻²¹；c) 4.64×10⁻²²；d) 6.02×10⁻²³
+<div class="ans">
+M = 137.33+28.09+6×19.00 = 137.33+28.09+114.00 = 279.42 g/mol<br/>
+每分子质量 = 279.42/6.02×10²³ = <b>4.64×10⁻²² g</b><br/>
+<b>答案 c)</b>
+</div>
+</li>
+</ol>
+
+<div class="box box-warn">
+<b>📝 考试技巧（教材建议）</b>
+<ul>
+<li><b>Your Answers Are Better Than The Test's!</b> 先自己动笔算出答案，再对选项，避免被"陷阱选项"误导。</li>
+<li><b>Interpreting Tables/Graphs：</b>看题前先扫一眼图表标题、坐标、单位。</li>
+<li><b>陷阱题小心：</b>#5 是 EXCEPT 类题目——问"哪一项<b>不</b>是"，容易漏看否定词。</li>
+<li>计算题<b>不要跳过单位</b>：一步步写出来，单位自然会约掉，防止"倒着乘"。</li>
+</ul>
+</div>
+</section>
+
+<hr class="soft"/>
+
+<!-- ============================================================ -->
+<!-- 一页知识卡 -->
+<!-- ============================================================ -->
+<section id="cheatsheet">
+<h2 class="section">⚡ 一页知识卡 · Chapter 11 大总结</h2>
+
+<div class="callout-topic">
+<h3>🌟 全章一句话</h3>
+<p>摩尔是"数原子分子的巨型计数单位"（1 mol = 6.02×10²³），它把"微观粒子数"与"宏观质量"连接起来；掌握它就能自由换算 <b>mol ↔ mass ↔ particle number</b>，并进一步求百分组成、实验式、分子式和水合物的结晶水数。</p>
+</div>
+
+<h3>🧭 换算路线图（贴到笔记本第一页！）</h3>
+
+<div class="box box-key" data-label="mol 中心路线图">
+<pre style="font-family:monospace;font-size:14px;line-height:1.8;background:#fbfaf3;padding:14px;border-radius:8px;overflow-x:auto;">
+                        [× 化学式下标]
+                  ┌─────────────────────┐
+                  ↓                     ↑
+     ÷M    元素/离子 mol           复合物 mol   ×N_A
+  质量 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 粒子数
+       ×M                                       ÷N_A
+        (以复合物为主线)
+</pre>
+<b>三个换算因子</b>（永远牢记）：<br/>
+① 摩尔质量 M（元素/化合物 g/mol）<br/>
+② 阿伏伽德罗常数 N<sub>A</sub> = 6.02×10²³/mol<br/>
+③ 化学式中的下标比（如 Al₂O₃ 中 Al:O = 2:3）
+</div>
+
+<h3>💡 常见易错点 TOP 8</h3>
+<div class="box box-warn">
+<ol>
+<li>把 <b>粒子数</b> 直接除以 <b>质量</b>——错！要先换成 mol。</li>
+<li>算 (NH₄)₃PO₄ 时忘了把括号里的原子数×3。</li>
+<li>把离子化合物（NaCl、AgNO₃）说成"分子"——应该是"式量单位"。</li>
+<li>百分含量之和不等于 100%——如果差得多说明算错了。</li>
+<li>把 1.49 简化成 1（应视为 1.5，×2 得 3）。</li>
+<li>加热水合物时没赶尽水，或加热过度分解——会让 x 偏低。</li>
+<li>算水合物摩尔质量时漏掉水的质量。</li>
+<li>用错单位：kg 没换 g、mg 没换 g、L 没换 mL。</li>
+</ol>
+</div>
+
+<h3>🔥 各种常考题型 → 一句话解法</h3>
+<div class="box box-note">
+<table class="vocab">
+<tr><th>题型</th><th>核心操作</th></tr>
+<tr><td>mol ↔ 粒子数</td><td>×÷ N<sub>A</sub></td></tr>
+<tr><td>mol ↔ 质量（元素）</td><td>×÷ 元素摩尔质量</td></tr>
+<tr><td>mol ↔ 质量（化合物）</td><td>先算 M(化合物) = Σ 下标×原子质量</td></tr>
+<tr><td>质量 → 原子/离子数</td><td>三步：g → mol(化合物) → mol(元素/离子) → 粒子数</td></tr>
+<tr><td>百分组成</td><td>%元素 = (元素质量/化合物质量)×100</td></tr>
+<tr><td>实验式（%数据）</td><td>100 g 假设 → mol → 同除最小 → 化整数</td></tr>
+<tr><td>分子式</td><td>n = M_实测 / M_实验式 → 下标×n</td></tr>
+<tr><td>水合物 x</td><td>x = mol H₂O / mol 无水物</td></tr>
+</table>
+</div>
+
+<h3>📱 记忆口诀</h3>
+<div class="box box-key">
+<b>"摩尔是桥，两边搭：</b><br/>
+&emsp;&emsp;左边质量克 (g)，右边粒子数 (个)；<br/>
+&emsp;&emsp;质量除摩过桥，粒子除阿过桥；<br/>
+&emsp;&emsp;化合物先按式子算摩尔，实验式先化整数，分子式除来看 n。<br/>
+&emsp;&emsp;水合物加热赶水走，剩下是无水，水量除以无水量，整数就是 x。"</b>
+</div>
+
+<h3>📚 学习建议</h3>
+<div class="box box-note">
+<ol>
+<li><b>第一遍：</b>把 §11.1–§11.5 每节的"目标"和"公式"抄一遍在笔记上。</li>
+<li><b>第二遍：</b>做本手册里的每个 Example Problem（自己动笔），对照解析。</li>
+<li><b>第三遍：</b>做 Practice Problems，遇到不会的再回头看讲解。</li>
+<li><b>第四遍：</b>做 Chapter Assessment，特别是综合大题（91、100、103、113、132、149、152 等）。</li>
+<li><b>考前一晚：</b>只看这张"一页知识卡"+"必背核心公式一览"。</li>
+<li><b>记住：</b>本章 90% 的题不是难在概念，而是难在<b>单位换算的方向</b>——先把 mol 中心路线图画在草稿纸上，再动笔！</li>
+</ol>
+</div>
+
+<div class="callout-topic" style="margin-top:30px;">
+<h3>🎉 加油！</h3>
+<p>这一章是化学计算的基石，也是后续 §12 化学计量学 (Stoichiometry)、§14 气体、§15 溶液浓度的必备工具。学好摩尔，后面就一路顺风！有任何具体题目卡住随时可以问我。💪</p>
+</div>
+</section>
+
+</main>
+</div>
+
+<script>
+// 侧栏当前节高亮
+const links = document.querySelectorAll('aside.toc a');
+const secs = [...document.querySelectorAll('main section, main h2.section')];
+window.addEventListener('scroll', ()=>{
+  const y = window.scrollY + 120;
+  let curId = null;
+  document.querySelectorAll('main section').forEach(s=>{
+    if(s.offsetTop <= y) curId = s.id;
+  });
+  links.forEach(a=>a.classList.toggle('active', a.getAttribute('href') === '#'+curId));
+});
+</script>
+<script src="theme.js"></script>
+</body>
+</html>

@@ -1,0 +1,1037 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>第 1 章 Introduction to Chemistry · 中文学习手册</title>
+<script>
+window.MathJax = {
+  tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$','$$'], ['\\[','\\]']] },
+  svg: { fontCache: 'global' }
+};
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+:root{
+  --bg:#f7f5ef;
+  --paper:#ffffff;
+  --ink:#232323;
+  --ink-soft:#4a4a4a;
+  --accent:#0f6b5e;         /* 主色（青绿） */
+  --accent-2:#c1543b;       /* 强调色（砖红） */
+  --accent-3:#3e5aa8;       /* 副色（靛蓝） */
+  --hi:#f6e58d;             /* 高亮荧光 */
+  --box-en:#eef4f2;
+  --box-cn:#fff8ec;
+  --box-note:#eaf1fb;
+  --box-warn:#fdecea;
+  --box-key:#fff1d6;
+  --box-example:#eef7ee;
+  --line:#e4dfd2;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei","Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  background:var(--bg);
+  color:var(--ink);
+  line-height:1.75;
+  font-size:16px;
+}
+.wrap{display:flex;max-width:1400px;margin:0 auto;min-height:100vh}
+/* 侧栏 */
+aside.toc{
+  position:sticky; top:0; align-self:flex-start;
+  width:280px; height:100vh; overflow-y:auto;
+  background:linear-gradient(180deg,#0f6b5e,#0b4d43);
+  color:#fff; padding:24px 18px;
+}
+aside.toc h1{font-size:16px;margin:0 0 6px;letter-spacing:1px;color:#f6e58d}
+aside.toc .sub{font-size:12px;opacity:.75;margin-bottom:16px}
+aside.toc a{
+  display:block; color:#f2fbf8; text-decoration:none; padding:8px 10px;
+  border-radius:6px; margin-bottom:2px; font-size:14px; line-height:1.4;
+  border-left:3px solid transparent;
+}
+aside.toc a:hover{background:rgba(255,255,255,.10)}
+aside.toc a.h2{padding-left:22px; font-size:13px; opacity:.9}
+aside.toc a.active{background:rgba(255,255,255,.14); border-left-color:#f6e58d}
+
+main{flex:1;padding:36px 44px;background:var(--paper); box-shadow:0 0 30px rgba(0,0,0,.05)}
+
+h1.title{font-size:32px; margin:0 0 6px; color:var(--accent)}
+.subtitle{color:var(--ink-soft); margin-bottom:24px; font-size:14px}
+h2.section{
+  font-size:24px; color:var(--accent); border-bottom:2px solid var(--accent);
+  padding-bottom:6px; margin-top:56px; margin-bottom:14px;
+}
+h3{font-size:19px; color:var(--accent-2); margin-top:32px; border-left:5px solid var(--accent-2); padding-left:10px}
+h4{font-size:16px; color:var(--accent-3); margin-top:20px}
+
+/* 中英对照卡片 */
+.pair{display:grid; grid-template-columns:1fr 1fr; gap:14px; margin:14px 0}
+.pair .en, .pair .cn{
+  padding:14px 16px; border-radius:10px; font-size:15px; line-height:1.75;
+}
+.pair .en{background:var(--box-en); border-left:4px solid var(--accent)}
+.pair .cn{background:var(--box-cn); border-left:4px solid var(--accent-2)}
+.pair .en::before{content:"EN 原文"; display:block; font-size:11px; letter-spacing:1px; color:var(--accent); font-weight:700; margin-bottom:6px}
+.pair .cn::before{content:"CN 翻译"; display:block; font-size:11px; letter-spacing:1px; color:var(--accent-2); font-weight:700; margin-bottom:6px}
+@media(max-width:960px){.pair{grid-template-columns:1fr}}
+
+.hi{background:linear-gradient(180deg,transparent 55%, var(--hi) 55%); padding:0 2px}
+.term{color:var(--accent-2); font-weight:700}
+.term-en{color:var(--accent); font-style:italic}
+.eq{background:#fafaf5; padding:10px 16px; border-radius:8px; overflow-x:auto; border:1px dashed #cfc9b6; margin:12px 0}
+.eq-center{text-align:center}
+
+/* 各类信息框 */
+.box{padding:14px 18px; border-radius:10px; margin:14px 0; position:relative}
+.box::before{
+  content:attr(data-label); position:absolute; top:-10px; left:14px;
+  background:#fff; padding:0 8px; font-size:12px; font-weight:700; letter-spacing:1px;
+}
+.box-note{background:var(--box-note); border:1px solid #c9d7f0}
+.box-note::before{content:"讲解 · 知识点"; color:var(--accent-3)}
+.box-warn{background:var(--box-warn); border:1px solid #f5c6c0}
+.box-warn::before{content:"重难点 · 易错点"; color:var(--accent-2)}
+.box-key{background:var(--box-key); border:1px solid #f3d78b}
+.box-key::before{content:"关键公式"; color:#a17108}
+.box-example{background:var(--box-example); border:1px solid #b7dab8}
+.box-example::before{content:"例题详解"; color:#2c6e2e}
+.box-vocab{background:#eef4f2; border:1px solid #b8d6cf}
+.box-vocab::before{content:"术语速查"; color:var(--accent)}
+
+table.vocab{width:100%; border-collapse:collapse; margin:6px 0}
+table.vocab th, table.vocab td{padding:6px 10px; border-bottom:1px solid var(--line); font-size:14px; text-align:left; vertical-align:top}
+table.vocab th{background:#dfeae7; color:var(--accent)}
+
+.tag{
+  display:inline-block; padding:2px 8px; border-radius:12px; font-size:11px;
+  background:#e8f0ee; color:var(--accent); margin-right:6px; font-weight:600;
+}
+.tag.warn{background:#fdecea; color:var(--accent-2)}
+.tag.hard{background:#fff1d6; color:#a17108}
+
+.step{margin:10px 0 10px 0; padding:10px 14px 10px 42px; background:#fbfaf3; border-radius:8px; position:relative}
+.step .no{
+  position:absolute; left:10px; top:10px;
+  width:24px; height:24px; line-height:24px; text-align:center;
+  background:var(--accent); color:#fff; border-radius:50%; font-weight:700; font-size:13px;
+}
+
+ol.practice{padding-left:20px}
+ol.practice li{margin-bottom:10px}
+.ans{background:#eef7ee; border-left:4px solid #4e9d5c; padding:10px 14px; border-radius:0 8px 8px 0; margin:6px 0; font-size:14.5px}
+.ans::before{content:"参考答案与解析　"; color:#2c6e2e; font-weight:700; font-size:12px; letter-spacing:1px}
+
+details{background:#f4f2ea; border-radius:8px; padding:8px 12px; margin:8px 0}
+details summary{cursor:pointer; font-weight:600; color:var(--accent-3)}
+details[open]{background:#eaf1fb}
+
+hr.soft{border:none; border-top:1px dashed #cfc9b6; margin:32px 0}
+
+sup.foot{color:var(--accent-3)}
+
+.page-marker{
+  display:inline-block; font-size:11px; color:#888;
+  background:#f0ede2; padding:1px 8px; border-radius:10px; margin-left:8px; vertical-align:middle;
+}
+
+.figure-note{background:#faf7ee; border:1px dashed #d8ce9d; padding:10px 14px; border-radius:8px; margin:12px 0; font-size:14px; color:#665a2c}
+.figure-note strong{color:#a17108}
+
+.callout-topic{
+  background:linear-gradient(135deg,#0f6b5e,#3e5aa8); color:#fff;
+  padding:18px 22px; border-radius:12px; margin:20px 0;
+}
+.callout-topic h3{color:#f6e58d; border:none; padding:0; margin:0 0 8px}
+.callout-topic p{margin:0; opacity:.95}
+
+.small{font-size:13px; color:var(--ink-soft)}
+kbd{background:#eee; padding:1px 6px; border-radius:4px; border:1px solid #ccc; font-family:monospace; font-size:13px}
+</style>
+<link rel="stylesheet" href="theme.css" />
+</head>
+<body>
+<div class="wrap">
+<aside class="toc" id="toc">
+  <h1>第 1 章 化学导论</h1>
+  <div class="sub">Chemistry · Matter and Change<br/>Introduction to Chemistry</div>
+  <a href="#overview">📖 章导读</a>
+  <a href="#map">🗺️ 章节地图</a>
+  <a href="#vocab">📚 术语速查表</a>
+  <a href="#s1-1">§1.1 两种化学物质的故事</a>
+  <a href="#s1-2">§1.2 化学与物质</a>
+  <a href="#s1-3">§1.3 科学方法</a>
+  <a href="#s1-4">§1.4 科学研究</a>
+  <a href="#chemlab">🧪 ChemLab 橡皮筋实验</a>
+  <a href="#society">🌐 化学与社会：人类基因组</a>
+  <a href="#study-guide">📝 Study Guide 章节复习</a>
+  <a href="#assessment">🎯 Chapter Assessment 章末测评</a>
+  <a href="#cheatsheet">⚡ 一页知识卡</a>
+</aside>
+
+<main>
+<h1 class="title">第 1 章 · Introduction to Chemistry 化学导论</h1>
+<div class="subtitle">📕《Chemistry — Matter and Change》Glencoe · 中文精讲 + 关键英文术语 + 习题解析<br/>面向国际学校 9 年级学生 · 自学专用手册</div>
+
+<!-- ============================================================ -->
+<!-- 章导读 -->
+<!-- ============================================================ -->
+<section id="overview">
+<h2 class="section">📖 章导读：为什么第一章要这样讲？</h2>
+
+<div class="callout-topic">
+<h3>🌟 一句话概括本章</h3>
+<p>第 1 章不是让你"背化学"，而是让你先明白：<b>什么是化学？化学家如何思考问题？</b> 它用<b>臭氧层空洞</b>和<b>氟氯烃 (CFCs)</b> 这两条真实的科学故事，带你走一遍完整的"科学方法"流程 —— 观察 → 假设 → 实验 → 结论 → 理论 / 定律。</p>
+</div>
+
+<p>老师没有讲前十章的话，你可能会疑惑：直接跳到第 11 章"摩尔"是不是漏了什么基础？其实不必焦虑。<b>第 1 章几乎不涉及计算</b>，它是全书的"世界观入门"，主要作用有三点：</p>
+
+<div class="box box-note">
+<ol>
+<li><b>建立"化学 = 研究物质及其变化"这个大定义</b>。你在第 11 章已经用摩尔算过 <span class="term-en">mass</span>、<span class="term-en">molar mass</span>，那时你操作的对象就是"<b>物质 (matter)</b>"。第 1 章告诉你："物质"到底怎么定义 —— <span class="hi">有质量 (mass)、占据空间</span>。</li>
+<li><b>区分"质量 mass"和"重量 weight"</b>。第 11 章反复出现 g/mol，用的其实都是"质量"这个概念。第 1 章会告诉你为什么科学界坚持用 mass 而不用 weight。</li>
+<li><b>教你像科学家一样思考</b>。什么是假设 (hypothesis)？什么是实验中的自变量 / 因变量 / 常量 / 对照 (independent variable / dependent variable / constant / control)？什么是理论 (theory) 与定律 (scientific law)？这一节的语言在后续所有 ChemLab、MiniLab 里都会反复用到。</li>
+</ol>
+</div>
+
+<p>你可以把第 1 章看成是<b>整本教材的"使用说明书"</b>。跟第 11 章的关系是：第 11 章是"操作"，第 1 章是"心法"。学完第 1 章后再回看第 11 章，你会更清楚为什么每次都要"用 mass 而不是 weight"、为什么实验中要设置对照组。</p>
+</section>
+
+<!-- ============================================================ -->
+<!-- 章节地图 -->
+<!-- ============================================================ -->
+<section id="map">
+<h2 class="section">🗺️ 章节地图</h2>
+
+<table class="vocab">
+<thead><tr><th style="width:14%">小节</th><th style="width:30%">标题</th><th style="width:28%">核心问题</th><th>关键结论</th></tr></thead>
+<tbody>
+<tr>
+  <td>§1.1</td>
+  <td>The Stories of Two Chemicals<br/>两种化学物质的故事</td>
+  <td>臭氧层和 CFCs 到底是怎么回事？它们之间可能有什么联系？</td>
+  <td>臭氧 (O₃) 在平流层保护地球；CFCs 稳定、无毒，广泛用作制冷剂，但会漂入平流层 —— 两者之间的联系是本章的悬念。</td>
+</tr>
+<tr>
+  <td>§1.2</td>
+  <td>Chemistry and Matter<br/>化学与物质</td>
+  <td>化学到底研究什么？"物质"怎么定义？质量和重量有什么区别？</td>
+  <td>化学 = 研究物质及其变化。物质 = 有质量并占据空间的东西。宏观现象由微观（原子）行为决定。</td>
+</tr>
+<tr>
+  <td>§1.3</td>
+  <td>Scientific Methods<br/>科学方法</td>
+  <td>科学家是如何解决问题的？</td>
+  <td>标准流程：观察 → 假设 → 实验（含自变量 / 因变量 / 常量 / 对照）→ 结论 → 模型 → 理论 → 定律。</td>
+</tr>
+<tr>
+  <td>§1.4</td>
+  <td>Scientific Research<br/>科学研究</td>
+  <td>纯研究、应用研究和技术是什么关系？在实验室里如何保证安全？</td>
+  <td>纯研究求真、应用研究解决具体问题、技术是科学的实际应用。实验安全是每个人的责任。</td>
+</tr>
+</tbody>
+</table>
+</section>
+
+<!-- ============================================================ -->
+<!-- 术语速查表 -->
+<!-- ============================================================ -->
+<section id="vocab">
+<h2 class="section">📚 术语速查表（Vocabulary）</h2>
+
+<div class="box box-vocab">
+<table class="vocab">
+<thead><tr><th style="width:26%">英文术语</th><th style="width:20%">中文</th><th>含义解释</th></tr></thead>
+<tbody>
+<tr><td>chemical</td><td>化学物质</td><td>任何具有确定组成 (definite composition) 的物质。臭氧、CFCs、水、盐都是化学物质。</td></tr>
+<tr><td>chemistry</td><td>化学</td><td>研究物质 (matter) 及其变化的科学。被称为"中心科学 (central science)"。</td></tr>
+<tr><td>matter</td><td>物质</td><td>凡是<b>有质量</b>并<b>占据空间</b>的东西。空气是物质，但热、光、无线电波、思想都不是。</td></tr>
+<tr><td>mass</td><td>质量</td><td>物质多少的量度。<b>不随位置改变</b>。</td></tr>
+<tr><td>weight</td><td>重量</td><td>物质在重力作用下所受的力。<b>会随位置改变</b>（月球上更轻）。</td></tr>
+<tr><td>model</td><td>模型</td><td>对实验数据的可视化、口头或数学描述；用来解释和预测微观事件。</td></tr>
+<tr><td>scientific method</td><td>科学方法</td><td>科学研究中系统化的工作流程。</td></tr>
+<tr><td>qualitative data</td><td>定性数据</td><td>描述性的（颜色、气味、形状、感觉）—— 不涉及数字。</td></tr>
+<tr><td>quantitative data</td><td>定量数据</td><td>用数字表达（多少、大小、温度、时间）。</td></tr>
+<tr><td>hypothesis</td><td>假设</td><td>对观察到的现象所做的<b>暂定 (tentative)</b> 解释；必须能被实验检验。</td></tr>
+<tr><td>experiment</td><td>实验</td><td>一组受控的观察 (controlled observations)，用来检验假设。</td></tr>
+<tr><td>independent variable</td><td>自变量</td><td>实验中<b>你主动改变</b>的量。</td></tr>
+<tr><td>dependent variable</td><td>因变量</td><td>随自变量而改变的量；你只能"测量"它，不能直接控制。</td></tr>
+<tr><td>constant</td><td>常量 (恒定因素)</td><td>实验中<b>不允许改变</b>的因素，以保证只测试一个变量。</td></tr>
+<tr><td>control</td><td>对照 (对照组)</td><td>用来比较的标准；例如室温下的水就是"温度对溶解速率影响"实验的对照。</td></tr>
+<tr><td>conclusion</td><td>结论</td><td>基于实验数据对假设做出的判断。</td></tr>
+<tr><td>theory</td><td>理论</td><td>经过<b>大量实验反复支持</b>的假设，可以解释广泛现象并做出预测。</td></tr>
+<tr><td>scientific law</td><td>科学定律</td><td>自然界中被大量实验反复证实的<b>关系或规律</b>（描述"是什么"，不解释"为什么"）。</td></tr>
+<tr><td>pure research</td><td>纯研究 / 基础研究</td><td>为了知识本身而做的研究，由好奇心驱动，无特定应用目标。</td></tr>
+<tr><td>applied research</td><td>应用研究</td><td>为了解决具体问题而做的研究。</td></tr>
+<tr><td>technology</td><td>技术</td><td>科学信息的<b>实际应用</b>，用来改善人类生活。</td></tr>
+<tr><td>ozone (O₃)</td><td>臭氧</td><td>由三个氧原子组成的分子；位于平流层，吸收紫外线保护地球生命。</td></tr>
+<tr><td>chlorofluorocarbon (CFC)</td><td>氟氯烃 / 氯氟烃</td><td>由氯 (Cl)、氟 (F)、碳 (C) 组成的合成化学物质；曾大量用作制冷剂和喷雾剂推进剂。</td></tr>
+<tr><td>troposphere</td><td>对流层</td><td>大气最底层，约 0–15 km，天气发生的地方。</td></tr>
+<tr><td>stratosphere</td><td>平流层</td><td>对流层之上，约 15–50 km，臭氧层就在这里。</td></tr>
+<tr><td>macroscopic</td><td>宏观的</td><td>肉眼可见的尺度。</td></tr>
+<tr><td>submicroscopic</td><td>亚微观的</td><td>比显微镜可见还要小 —— 原子级尺度。</td></tr>
+</tbody>
+</table>
+</div>
+</section>
+
+<!-- ============================================================ -->
+<!-- §1.1 -->
+<!-- ============================================================ -->
+<section id="s1-1">
+<h2 class="section">§1.1 The Stories of Two Chemicals · 两种化学物质的故事 <span class="page-marker">P.3 – P.6</span></h2>
+
+<div class="box box-vocab">
+<b>本节目标 (Objectives)</b>
+<ol style="margin:6px 0">
+<li>解释臭氧的形成及其重要性；</li>
+<li>了解 CFCs（氟氯烃）的发展史。</li>
+</ol>
+<b>关键词汇：</b> chemical · ozone · CFC · troposphere · stratosphere
+</div>
+
+<!-- Discovery Lab -->
+<h3>🔬 Discovery Lab：Where is it? 物质去哪儿了？</h3>
+
+<div class="box box-example">
+<b>实验目的：</b> 观察火柴燃烧前后<b>质量</b>的变化，思考"消失的物质"去了哪里。<br/>
+<b>操作要点：</b>
+<ol style="margin:6px 0">
+<li>用天平称一根大号厨房火柴的质量并记录；</li>
+<li>点燃火柴烧 5 秒后吹灭（远离头发和衣物）；</li>
+<li>冷却后再次称量，比较两次数据。</li>
+</ol>
+<b>结论提示：</b> 燃烧后灰烬的质量比原火柴<b>小</b>。这"减少"的部分并没有真的消失，而是变成了<b>看不见的气体</b>（水蒸气、二氧化碳等）飘散到空气里。<br/>
+👉 这个实验为整章埋下伏笔：<span class="hi">看不见 ≠ 不存在</span>，气体也是"物质 (matter)"。这也是接下来讨论"臭氧"和"CFCs"这两种<b>看不见的气体</b>时，你必须建立的观念。
+</div>
+
+<!-- 臭氧层 -->
+<h3>The Ozone Layer · 臭氧层</h3>
+
+<p>晒伤过吗？那就是紫外线 (UV) 的伤害。过量紫外线还会伤害动植物、降低农作物产量、破坏食物链。地球之所以能有生命，是因为大气中一种叫 <span class="term">臭氧 (<span class="term-en">ozone</span>, O₃)</span> 的化学物质吸收了大部分紫外线。</p>
+
+<div class="box box-key" data-label="核心定义">
+<b>Chemical 化学物质：</b> 任何具有<b>确定组成</b>的物质。<br/>
+<b>Ozone 臭氧：</b> 由 <b>3 个氧原子</b>组成的粒子（分子），化学式 O₃。
+</div>
+
+<h4>🌍 地球大气的分层</h4>
+
+<p>大气从下到上依次为：</p>
+
+<div class="step"><span class="no">1</span><b>对流层 (troposphere)</b>：0–15 km。我们呼吸的空气、飞机飞行、云和天气都发生在这里。</div>
+<div class="step"><span class="no">2</span><b>平流层 (stratosphere)</b>：15–50 km。<b>大约 90% 的臭氧就集中在这里</b>，形成保护性的"臭氧层"。</div>
+<div class="step"><span class="no">3</span>再往上：中间层 (mesosphere)、热层 (thermosphere)、外逸层 (exosphere)。</div>
+
+<h4>⚡ 臭氧是如何形成的？</h4>
+
+<div class="box box-note">
+<b>过程（两步循环）：</b>
+<ol>
+<li>紫外线击碎氧气分子：$\ce{O2 ->[\text{UV}] 2\,O}$（两个单原子氧粒子）。</li>
+<li>单原子氧与氧气结合成臭氧：$\ce{O + O2 -> O3}$。</li>
+</ol>
+<b>反向：</b> 臭氧也会吸收紫外线又分解回氧气 —— 因此在平流层里，O₂ 和 O₃ 之间存在一个<b>动态平衡</b>。<br/>
+臭氧最早形成于赤道上空（阳光最强），然后随气流吹向两极。
+</div>
+
+<h4>📉 臭氧层为什么会变薄？</h4>
+
+<p>1920 年代 G.M.B. Dobson 首次测量臭氧含量，测得的值 <b>&gt; 300 Dobson 单位 (DU)</b>，成为后来的比较基准。1981–1983 年英国南极调查队在南极上空发现：南极春季（10 月）臭氧含量低至 <b>160 DU</b>！他们反复检查仪器、重复测量后，1985 年正式公布这一结论 —— 臭氧层<b>正在变薄</b>。</p>
+
+<div class="figure-note">
+<strong>形象比喻：</strong> 教科书用"<b>袜子的脚跟磨薄了</b>"来比喻臭氧层空洞。它并不是真的破了一个"洞"，而是这一层比正常薄了很多。所以英文中"ozone hole 臭氧洞"是个通俗说法。
+</div>
+
+<!-- CFCs -->
+<h3>Chlorofluorocarbons · 氟氯烃 (CFCs)</h3>
+
+<p>故事的另一位主角来自 1920 年代。当时冰箱使用<b>氨气</b>作为制冷剂 —— 但氨气有毒，如果泄漏就会伤害家人。化学家 <b>Thomas Midgley, Jr.</b> 在 1928 年合成了第一种 <span class="term">氟氯烃 (<span class="term-en">chlorofluorocarbon</span>, CFC)</span>。</p>
+
+<div class="box box-key" data-label="定义">
+<b>CFCs 氟氯烃：</b> 由<b>氯 (Cl)、氟 (F)、碳 (C)</b> 三种元素组成的一类合成化学物质。<b>不天然存在</b>；<b>无毒、极稳定</b>，几乎不与其他化学物质反应。
+</div>
+
+<p>因为这些看似完美的特性，CFCs 很快被广泛应用：</p>
+<ul>
+<li>🧊 冰箱、空调的<b>制冷剂</b>（1935 年美国第一台家用空调面世）；</li>
+<li>🥤 泡沫塑料（外卖盒、杯子）；</li>
+<li>💨 喷雾罐推进剂。</li>
+</ul>
+
+<p>1970 年代科学家在大气中<b>探测到 CFCs</b>，而且逐年增加。但由于 CFCs "太稳定了"，人们一开始并<b>不觉得它会伤害环境</b>。</p>
+
+<div class="pair">
+<div class="en">Two separate occurrences had been noticed and measured: the protective ozone layer in the atmosphere was thinning, and increasingly large quantities of useful CFCs were drifting into the atmosphere. Could there be a connection between the two occurrences?</div>
+<div class="cn">两件被观测到的事情各自独立：<b>①</b> 平流层的保护性臭氧层正在变薄；<b>②</b> 大量"有用的" CFCs 正漂入大气。<b>这两件事之间会不会有联系呢？</b>—— 这是本章埋下的<b>核心悬念</b>，答案在 §1.3 揭晓。</div>
+</div>
+
+<div class="box box-warn">
+<b>常见误区：</b>
+<ul>
+<li>臭氧 (O₃) 与氧气 (O₂) 都是"氧"，但性质完全不同 —— 氧气支持呼吸，臭氧有毒但能挡紫外线。</li>
+<li>"稳定"未必"安全"：CFCs 稳定到能一直漂到平流层不分解，反而成了长距离运输麻烦的"元凶"。</li>
+</ul>
+</div>
+
+<div class="box box-example">
+<b>§1.1 Assessment 精要（对应 raw.txt 题 1–5）</b>
+<ol>
+<li>臭氧为什么重要？—— 吸收大部分来自太阳的<b>紫外线</b>，保护地球生命。</li>
+<li>臭氧在哪里形成和储存？—— 在<b>平流层</b>形成（高处）；<b>大部分储存于平流层的下部</b>（便于地面/气球/卫星测量）。</li>
+<li>CFCs 是什么？用途？—— 由 Cl、F、C 组成的<b>合成化合物</b>；用作制冷剂、泡沫塑料、喷雾推进剂。</li>
+<li>为什么臭氧形成在赤道上空？—— 那里<b>阳光最强、紫外线最强</b>，最容易把 O₂ 打散成 O 再合成 O₃。阳光是臭氧形成的能量来源。</li>
+</ol>
+</div>
+</section>
+
+<!-- ============================================================ -->
+<!-- §1.2 -->
+<!-- ============================================================ -->
+<section id="s1-2">
+<h2 class="section">§1.2 Chemistry and Matter · 化学与物质 <span class="page-marker">P.7 – P.9</span></h2>
+
+<div class="box box-vocab">
+<b>本节目标</b>
+<ol style="margin:6px 0">
+<li>定义化学与物质；</li>
+<li>比较质量 (mass) 和重量 (weight)；</li>
+<li>解释为何化学家要用"亚微观"的角度描述物质。</li>
+</ol>
+<b>关键词汇：</b> chemistry · matter · mass · weight
+</div>
+
+<h3>Chemistry: The Central Science · 化学：中心科学</h3>
+
+<div class="pair">
+<div class="en">Chemistry is the study of matter and the changes that it undergoes. A basic understanding of chemistry is central to all sciences — biology, physics, Earth science, ecology, and others.</div>
+<div class="cn"><b>化学 = 研究物质及其变化的科学。</b>它是一切自然科学的中心 —— 生物、物理、地学、生态学都离不开化学基础。所以化学又被称作"<b>中心科学 (central science)</b>"。</div>
+</div>
+
+<h3>Matter and Its Characteristics · 物质及其特征</h3>
+
+<div class="box box-key" data-label="核心定义">
+<b>Matter 物质</b> = 任何<b>有质量 (mass)</b> 并<b>占据空间 (takes up space)</b> 的东西。
+</div>
+
+<p>你觉得空气是物质吗？看不见、也感觉不到 —— 但是把气球吹起来后，气球膨胀、变重了。所以<b>空气也是物质</b>。</p>
+
+<div class="box box-note">
+<b>什么不是物质？</b>
+<ul style="margin:6px 0">
+<li>热 (heat)、光 (light)、无线电波 (radio waves)、磁场 (magnetic fields) —— 它们是能量或场，不是物质。</li>
+<li>思想、想法 —— 更不是。</li>
+</ul>
+判断依据：<b>能不能称出质量？能不能占据空间？</b>
+</div>
+
+<h3>Mass vs. Weight · 质量与重量</h3>
+
+<p>去超市买 1 磅（约 454 g）蔬菜，售货员放在秤上称的其实是"重量 (weight)"。</p>
+
+<div class="pair">
+<div class="en">Weight is a measure not only of the amount of matter but also of the effect of Earth's gravitational pull on that matter. This force is not exactly the same everywhere on Earth and actually becomes less as you move away from Earth's surface at sea level.</div>
+<div class="cn"><b>重量</b>不仅反映物质的多少，还反映<b>地球引力</b>对该物质施加的力。这个力在地球各地略有不同，离海平面越远越小。</div>
+</div>
+
+<div class="box box-key" data-label="必背区分">
+<table class="vocab">
+<thead><tr><th>比较项</th><th>质量 mass</th><th>重量 weight</th></tr></thead>
+<tbody>
+<tr><td>本质</td><td>物质多少的量度</td><td>物质受重力作用的力</td></tr>
+<tr><td>单位</td><td>kg, g (SI 单位)</td><td>N (牛顿)</td></tr>
+<tr><td>是否随位置变</td><td><b>不变</b>（地球、月球都一样）</td><td><b>变化</b>（月球上约为地球的 1/6）</td></tr>
+<tr><td>测量工具</td><td>天平 (balance)</td><td>弹簧秤 (scale)</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="box box-warn">
+<b>为什么科学家坚持用"质量"而不用"重量"？</b><br/>
+科学家在世界各地做实验，如果每次都用重量，还得考虑当地的重力加速度，太不方便。<b>质量与重力无关</b>，是一个通用的、可比较的量。<br/>
+👉 这就是为什么第 11 章计算摩尔时全部用 g/mol，从来不用"重量"。
+</div>
+
+<h3>What You See and What You Don't · 看得见的和看不见的</h3>
+
+<p>你观察一栋大楼，只看到外墙；但你知道墙里有钢筋支撑。手臂弯曲时，你只看到手向肩膀靠近，但里面有肌肉在收缩。—— <b>物质的行为往往有两个层面：宏观 (macroscopic) 与亚微观 (submicroscopic)</b>。</p>
+
+<div class="box box-note">
+<b>三级尺度概念（贯穿全书）：</b>
+<ul>
+<li><b>Macroscopic 宏观：</b> 肉眼可见 —— 一杯水、一块金属。</li>
+<li><b>Microscopic 微观：</b> 显微镜下可见 —— 细胞、细菌。</li>
+<li><b>Submicroscopic 亚微观：</b> 显微镜也看不见 —— <b>原子 (atoms)、分子</b>。1 百万亿 (10¹²) 个原子才能占满这个句号"."。</li>
+</ul>
+<b>化学的任务：</b> 用亚微观层面的原子行为，去解释宏观现象。
+</div>
+
+<h3>Making Models · 构建模型</h3>
+
+<p>因为原子看不见，化学家用"<b>模型 (model)</b>"来表示 —— 例如用彩色小球代表不同原子。第 1 章 Figure 1-3 里氧原子结合成臭氧的示意图就是一种模型。</p>
+
+<div class="box box-example">
+<b>Problem-Solving Lab：Chemical Models · 化学模型</b><br/>
+1980 年代中期以前，人们只知道碳有两种存在形式：金刚石 (diamond) 和石墨 (graphite)。之后科学家在研究星际物质时意外发现<b>第三种</b>：<span class="term">巴克敏斯特富勒烯 (buckminsterfullerene, C₆₀)</span>，俗称"<b>bucky-ball 巴基球</b>"。60 个碳原子排列成足球状（由五边形和六边形拼成）。<br/>
+🎯 <b>要点：</b> 模型帮助我们"看见"我们看不见的东西 —— 这就是它的价值。
+</div>
+
+<h3>Branches of Chemistry · 化学的分支</h3>
+
+<div class="box box-vocab">
+<table class="vocab">
+<thead><tr><th style="width:20%">分支</th><th style="width:32%">研究领域</th><th>示例</th></tr></thead>
+<tbody>
+<tr><td><b>Organic 有机化学</b></td><td>大多数含碳化合物</td><td>药品、塑料</td></tr>
+<tr><td><b>Inorganic 无机化学</b></td><td>通常不含碳的物质</td><td>矿物、金属、半导体</td></tr>
+<tr><td><b>Physical 物理化学</b></td><td>物质的行为、变化与相关能量</td><td>反应速率、反应机理</td></tr>
+<tr><td><b>Analytical 分析化学</b></td><td>物质的组成成分</td><td>食品营养、质量控制</td></tr>
+<tr><td><b>Biochemistry 生物化学</b></td><td>生命体中的物质及过程</td><td>代谢、发酵</td></tr>
+</tbody>
+</table>
+另加：<b>Theoretical chemistry 理论化学</b>（研究"为什么"和"怎样"发生反应）与 <b>Environmental chemistry 环境化学</b>（化学物质在环境中的作用）。
+</div>
+
+<div class="box box-example">
+<b>§1.2 Assessment 精要（题 6–10）</b>
+<ol>
+<li><b>定义物质：</b> 有质量并占据空间的东西。</li>
+<li><b>mass vs weight：</b> mass 是物质多少，与位置无关；weight 与重力有关，会随位置改变。</li>
+<li><b>为什么要用亚微观视角？</b> 因为宏观现象的原因都藏在原子层面上，只有理解原子的行为才能真正解释物质变化。</li>
+<li><b>题 10（重要计算）：</b> 你在地球上体重 120 磅、质量 54 kg。月球上重力是地球的 1/6。<br/>
+👉 <b>质量：不变，仍然是 54 kg。</b><br/>
+👉 <b>重量：变为 120 ÷ 6 = 20 磅。</b><br/>
+这道题正是 mass 与 weight 区别的经典例题。</li>
+</ol>
+</div>
+</section>
+
+<!-- ============================================================ -->
+<!-- §1.3 -->
+<!-- ============================================================ -->
+<section id="s1-3">
+<h2 class="section">§1.3 Scientific Methods · 科学方法 <span class="page-marker">P.10 – P.13</span></h2>
+
+<div class="box box-vocab">
+<b>本节目标</b>
+<ol style="margin:6px 0">
+<li>识别科学方法的常见步骤；</li>
+<li>比较定性数据与定量数据；</li>
+<li>比较不同类型的变量；</li>
+<li>描述理论与科学定律的区别。</li>
+</ol>
+<b>关键词汇：</b> scientific method · qualitative data · quantitative data · hypothesis · experiment · independent variable · dependent variable · control · conclusion · model · theory · scientific law
+</div>
+
+<h3>A Systematic Approach · 科学方法的六步循环</h3>
+
+<div class="callout-topic">
+<h3>🔄 科学方法流程（记住这个圈）</h3>
+<p>观察 (Observation) → 假设 (Hypothesis) → 实验 (Experiment) → 结论 (Conclusion) → 若被大量实验反复支持 → 理论 (Theory) → 若在自然界始终成立 → 定律 (Scientific Law)。<br/>
+<b>关键：这不是死板的清单，可以循环、可以修改。</b></p>
+</div>
+
+<h3>Step 1 · Observation 观察：两种数据</h3>
+
+<div class="box box-key" data-label="必背区分">
+<b>Qualitative data 定性数据</b>：描述性的，涉及颜色、气味、形状、感觉 —— <b>不用数字</b>。<br/>
+　例：这个溶液是<b>蓝色的</b>；这种气体<b>有刺激性气味</b>。<br/><br/>
+<b>Quantitative data 定量数据</b>：<b>用数字</b>表达的信息 —— 多少、多快、多热、多重。<br/>
+　例：温度是 25 ℃；反应生成了 3.5 g 沉淀。
+</div>
+
+<h3>Step 2 · Hypothesis 假设</h3>
+
+<div class="pair">
+<div class="en">A hypothesis is a tentative explanation for what has been observed. Molina and Rowland's hypothesis stated what they believed to be happening, even though there was no formal evidence at that point to support the statement.</div>
+<div class="cn"><b>假设</b>是对观察到的现象所做的<b>暂定 (tentative)</b> 解释。<br/>
+Molina 和 Rowland 就是这样提出的假设：<b>CFCs 在平流层会被紫外线打破，释放出氯原子，而氯原子会破坏臭氧</b>。—— 当时没有任何直接证据，只是一个待检验的猜想。</div>
+</div>
+
+<h3>Step 3 · Experiment 实验：四类变量</h3>
+
+<p>教材用一个"简单实验"帮你理解变量：<b>验证"食盐在热水中比室温下溶解得快"</b>。</p>
+
+<div class="box box-key" data-label="四类变量">
+<b>Independent variable 自变量：</b> <b>你主动改变</b>的量 —— 这里是<b>温度</b>（40 ℃ vs 20 ℃）。<br/><br/>
+<b>Dependent variable 因变量：</b> <b>随自变量而变</b>的量 —— 这里是<b>溶解所需时间</b>（40 ℃ 需 1 min，20 ℃ 需 3 min）。你只能"测"它，不能直接"设"它。<br/><br/>
+<b>Constant 常量 (恒定因素)：</b> 实验中<b>不允许改变</b>的其他因素 —— 盐的量、水的量、是否搅拌等。必须相同，实验才有说服力。<br/><br/>
+<b>Control 对照 (对照组)：</b> 用来<b>比较的标准</b> —— 这里是室温 (20 ℃) 那组。教材另举了一个例子：三支试管中加入指示剂，中间的加了酸变黄，就作为对照，比较另两支是否含酸。
+</div>
+
+<div class="box box-warn">
+<b>易错提醒：</b>
+<ul>
+<li>"constant"和"control"很容易混淆：<b>constant 是"什么不变"，control 是"用什么来对比"</b>。</li>
+<li>一个好的实验，<b>一次只改变一个自变量</b>，否则你分不清是谁引起了变化。</li>
+<li>因变量是"被动"变化的 —— 温度改变，溶解速率跟着改变，而不是反过来。</li>
+</ul>
+</div>
+
+<h3>Step 4 · Conclusion 结论</h3>
+
+<div class="pair">
+<div class="en">A hypothesis can never be proven. Therefore, to say that the data support a hypothesis is to give only a tentative "thumbs up" to the idea that the hypothesis may be true.</div>
+<div class="cn"><b>假设永远不能被"证明"。</b>说"数据支持这个假设"只是给它一个<b>暂时的赞</b>。如果后续证据不支持，假设就要被<b>修改或抛弃</b>。<br/>
+👉 这是科学与"信仰"最本质的区别 —— <b>科学永远保持"可被推翻"的开放性</b>。</div>
+</div>
+
+<p>大多数假设最终都<b>没有被支持</b>，但即便如此，实验数据仍然能带来新的信息。这是科学的常态。</p>
+
+<h3>Step 5 · Model 模型</h3>
+
+<p>Molina 和 Rowland 不仅提出假设，还建立了<b>模型</b>：紫外线把 CFC 分子中的氯原子打下来 → 氯原子与臭氧结合，形成氧气和一氧化氯 (ClO) → 破坏臭氧。<b>模型能被实验检验，也能用来做预测。</b></p>
+
+<div class="figure-note">
+<strong>Figure 1-13 的模型：</strong> ① UV 打破 CFC，释放 Cl 原子；② Cl + O₃ → O₂ + ClO。这就是"CFC 破坏臭氧"的微观机制。
+</div>
+
+<h3>Step 6 · Theory 理论 vs Scientific Law 定律</h3>
+
+<div class="box box-key" data-label="必背对比">
+<table class="vocab">
+<thead><tr><th></th><th>Theory 理论</th><th>Scientific Law 科学定律</th></tr></thead>
+<tbody>
+<tr><td>本质</td><td>被<b>大量实验反复支持</b>的假设 —— <b>解释"为什么"</b></td><td>自然界中反复被证实的<b>关系或规律</b> —— <b>描述"是什么"</b></td></tr>
+<tr><td>可否修改</td><td>可以（新数据出现时）</td><td>可以（若发现例外）</td></tr>
+<tr><td>例子</td><td>爱因斯坦相对论、原子理论</td><td>牛顿万有引力定律、查理定律</td></tr>
+</tbody>
+</table>
+<b>核心：定律描述现象，理论解释现象。</b>
+</div>
+
+<div class="box box-warn">
+<b>常见误区：</b> "理论"在日常口语里意味着"猜测"（如"我有个理论……"），但<b>科学中的理论已经经过大量证据支持</b>，比日常用语强得多。反过来，"科学定律"也不代表永远不能被推翻。
+</div>
+
+<div class="box box-example">
+<b>§1.3 Assessment 精要（题 11–16）</b>
+<ol>
+<li><b>科学方法及步骤：</b> 观察 → 假设 → 实验 → 数据分析 → 结论；可循环修改。</li>
+<li><b>气球体积随温度变化实验：</b> 自变量 = 温度；因变量 = 气球体积；常量 = 气球本身、气体量、外界压强；对照 = 起始（未加热）时的体积。</li>
+<li><b>Molina 与 Rowland 假设的强弱：</b> <b>优点</b> 有实验室数据支持、能解释臭氧减少和 CFC 增加的联系；<b>弱点</b> 实验室条件与真实平流层不同，需要野外验证。</li>
+<li><b>Charles 的关系应叫定律：</b> 它描述"温度与体积成正比"这个<b>关系</b>，而没有解释<b>为什么</b>，所以是<b>定律</b>（Charles's Law）。</li>
+<li><b>为什么实验室数据必须由平流层测量支持？</b> 因为平流层的条件（压强、UV 强度、多气体共存）比实验室复杂得多；要真正证明"CFCs 破坏臭氧"必须在<b>真实环境</b>里得到证据。</li>
+<li><b>关于饮食预防癌症的报道，没有数据支持：</b> 这不是结论，只能算<b>假设 (hypothesis)</b> —— 因为结论必须建立在实验数据之上。</li>
+</ol>
+</div>
+</section>
+
+<!-- ============================================================ -->
+<!-- §1.4 -->
+<!-- ============================================================ -->
+<section id="s1-4">
+<h2 class="section">§1.4 Scientific Research · 科学研究 <span class="page-marker">P.14 – P.17</span></h2>
+
+<div class="box box-vocab">
+<b>本节目标</b>
+<ol style="margin:6px 0">
+<li>比较纯研究、应用研究和技术；</li>
+<li>掌握实验室安全规则。</li>
+</ol>
+<b>关键词汇：</b> pure research · applied research · technology
+</div>
+
+<h3>Types of Scientific Investigations · 三种科研类型</h3>
+
+<div class="box box-key" data-label="必背三分类">
+<b>① Pure research 纯研究（基础研究）：</b> 为了<b>知识本身</b>而研究，由好奇心驱动。<br/>
+　例：Molina 和 Rowland 最初研究 CFCs 与臭氧的反应 —— 那时并没有环境证据，纯粹是想弄清楚"CFC 到底能存在多久"。<br/><br/>
+
+<b>② Applied research 应用研究：</b> 为了解决<b>具体问题</b>而研究。<br/>
+　例：1985 年臭氧洞被发现后，同样的问题变成了应用研究；后来又开发 CFC 的替代品。<br/><br/>
+
+<b>③ Technology 技术：</b> 科学知识的<b>实际应用</b>，用来改善人类生活。<br/>
+　例：核电、人工关节、尼龙、抗生素。
+</div>
+
+<div class="box box-note">
+<b>关系：</b> 纯研究是"根"，应用研究是"干"，技术是"果"。<b>没有前面的纯研究储备，突发问题（如臭氧洞、艾滋病）就没有立即可用的知识。</b>
+</div>
+
+<h3>Chance Discoveries · 意外发现</h3>
+
+<p>教材举了两个经典"意外发现"故事：</p>
+
+<div class="box box-example">
+<b>🧵 尼龙 (Nylon) 的发现</b><br/>
+1928 年 DuPont 公司聘任 32 岁的哈佛化学家 <b>Wallace Carothers</b> 任研究中心主任，目标是造出类似丝绸的人造纤维。1930 年，团队成员 <b>Julian Hill</b> 把热玻璃棒伸入一混合溶液中提起时<b>意外</b>拉出长纤维。Carothers 沿着这个方向研究，1934 年发明尼龙。尼龙最初用于牙刷，二战时代替丝绸做降落伞，如今广泛用于纺织和塑料。
+</div>
+
+<div class="box box-example">
+<b>💊 青霉素 (Penicillin) 的发现（Biology Connection）</b><br/>
+1922 年 <b>Alexander Fleming</b> 鼻涕滴到菌培养皿上，他没有扔掉，而是持续观察，发现细菌被杀死 —— 由此发现<b>溶菌酶 (lysozyme)</b>。<br/>
+1928 年，Fleming 又发现培养皿被<b>青霉菌 (Penicillium)</b> 污染，霉菌周围出现"死菌圈"，从而发现<b>青霉素</b>。<br/>
+👉 <b>科学家的关键素质：观察力 + 不轻易放弃"意外"。</b>
+</div>
+
+<h3>🥽 Students in the Laboratory · 实验室安全（必看）</h3>
+
+<div class="box box-warn">
+<b>Table 1-2 · 24 条实验室安全规则精华版：</b>
+<ol style="margin:6px 0">
+<li><b>课前预习</b>实验步骤，有疑问先问老师。</li>
+<li><b>没有老师许可绝不做实验；绝不单独在实验室。</b></li>
+<li>看懂教科书封面内页的<b>安全符号</b>，读完所有 "CAUTION" 提示。</li>
+<li><b>护目镜 + 实验服 必须全程佩戴</b>；接触腐蚀性药品时戴手套；长发扎起。</li>
+<li><b>禁戴隐形眼镜</b>（会吸收挥发气体，紧急时难摘）。</li>
+<li>不穿松散衣服/首饰；<b>禁穿凉鞋/赤脚</b>。</li>
+<li><b>实验室禁食、禁饮、禁嚼口香糖。</b></li>
+<li>知道<b>灭火器、紧急淋浴、防火毯、急救箱</b>位置。</li>
+<li>一切事故、伤害、错误操作立即报告老师。</li>
+<li>药品接触皮肤/眼睛，立即用<b>大量水冲洗</b>。</li>
+<li>取药品前<b>读标签 3 次</b>（拿起前、拿在手中时、放回时）。</li>
+<li>不把试剂瓶带回工位；用小烧杯/试纸<b>只取所需量</b>。</li>
+<li><b>用剩的药品不可倒回原瓶</b>。</li>
+<li>不把滴管插进试剂瓶。</li>
+<li><b>绝不品尝药品；绝不用嘴吸移液管。</b></li>
+<li>可燃物远离明火。</li>
+<li>有毒/可燃气体必须在<b>通风橱 (fume hood)</b> 中操作。</li>
+<li>加热试管时<b>管口不对人</b>，也不要往试管口里看。</li>
+<li>不用酒精灯加热量筒、滴定管、移液管。</li>
+<li><b>热玻璃与冷玻璃外观相同</b> —— 小心！</li>
+<li>废玻璃、废药品按老师指示处理。</li>
+<li><b>稀释酸时，永远把酸慢慢加入水中</b>（不能反过来！）。</li>
+<li>天平区保持洁净，绝不把药品直接放天平托盘。</li>
+<li>实验结束<b>清洗器材、清理台面、关水关气、洗手</b>。</li>
+</ol>
+</div>
+
+<h3>🧪 miniLAB：Developing Observation Skills · 培养观察力</h3>
+
+<div class="box box-example">
+<b>目的：</b> 学会做仔细的观察 (observation) 并做出推断 (inference)。<br/>
+<b>推断 (inference)：</b> 对观察结果的<b>解释</b>。<br/><br/>
+<b>操作：</b>
+<ol>
+<li>培养皿中加水 0.5 cm 深，加 1 mL 植物油。</li>
+<li>牙签蘸洗洁精，触到水面中心，观察油的行为（油会散开）。</li>
+<li>另一培养皿加牛奶，滴 4 种不同颜色的食用色素在 4 个位置（不放中心），重复步骤 2。</li>
+</ol>
+<b>现象：</b> 加洗洁精后，油和牛奶中的脂肪都会被"推开"，色素形成漂亮的旋涡。<br/>
+<b>推断：</b> 油、牛奶中的脂肪、油脂都属于<b>脂类 (lipids)</b>；洗洁精能"分开"脂类和水 —— 这就是它去除油污的原理。
+</div>
+
+<h3>Benefits of Chemistry · 化学的贡献</h3>
+
+<p>我们享受的大量便利都是化学的<b>技术应用</b>：核能、人工假肢与人工关节、抗生素、合成纤维、塑料、化肥、药物…… <b>化学不仅是理论，更改变着世界。</b></p>
+
+<div class="box box-example">
+<b>§1.4 Assessment 精要（题 17–21）</b>
+<ol>
+<li><b>纯研究 vs 应用研究：</b> 纯研究以获取知识为目的；应用研究以解决具体问题为目的。</li>
+<li><b>技术是什么？来自哪种研究？</b> 技术是科学信息的实际应用；它同时来自<b>纯研究和应用研究</b>的成果。</li>
+<li><b>为什么要提前读实验步骤？</b> 提前熟悉步骤能<b>提高效率</b>、<b>保证安全</b>、避免临时操作错误。</li>
+<li><b>为什么规则如此严格？</b>
+ <ul>
+ <li>a. 观察者也要戴护目镜和实验服 —— 药品可能溅飞到旁观者；</li>
+ <li>b. 报告一切事故 —— 让老师及时处理，避免恶化；</li>
+ <li>c. 未用完药品不倒回原瓶 —— 防止<b>污染整瓶试剂</b>。</li>
+ </ul>
+</li>
+</ol>
+</div>
+</section>
+
+<!-- ============================================================ -->
+<!-- ChemLab -->
+<!-- ============================================================ -->
+<section id="chemlab">
+<h2 class="section">🧪 CHEMLAB：The Rubber Band Stretch · 橡皮筋的拉伸 <span class="page-marker">P.18 – P.19</span></h2>
+
+<div class="callout-topic">
+<h3>历史背景</h3>
+<p>Galileo Galilei（1564–1642）是意大利哲学家、天文学家、数学家。他开创了"<b>观察 + 实验 + 分析</b>"的系统化研究方式，现代科学的方法论起源于他。这个实验让你亲自设计一次这样的科学方法。</p>
+</div>
+
+<div class="box box-vocab">
+<b>问题：</b>加热一根被拉伸的橡皮筋，会发生什么？<br/>
+<b>目标：</b>观察橡皮筋在拉伸/松弛/加热时的性质变化；形成假设；设计实验；收集分析数据；得出结论。<br/>
+<b>材料：</b>大橡皮筋、500 g 砝码、支架、夹子、吹风机、直尺。
+</div>
+
+<h3>Pre-Lab 预习思考</h3>
+<ol>
+<li><b>热量传递方向：</b>如果物体摸起来是"凉的"，说明<b>能量从你的手指流向物体</b>（你手指温度更高）。</li>
+<li><b>用额头判断吸热/放热：</b>额头对温度非常敏感，可以贴近橡皮筋感知它是变暖 (释放热量) 还是变凉 (吸收热量)。</li>
+<li><b>本实验探索的问题：</b>橡皮筋在拉伸/收缩时能量流向何处？加热后长度如何变化？</li>
+</ol>
+
+<h3>关键实验步骤</h3>
+<div class="step"><span class="no">1</span>观察未拉伸的橡皮筋，记录颜色、粗细、弹性。</div>
+<div class="step"><span class="no">2</span>快速拉伸橡皮筋并<b>立即碰到额头</b>：会感觉<b>发热</b> —— 橡皮筋释放能量（放热）。</div>
+<div class="step"><span class="no">3</span>让被拉伸的橡皮筋放回原状，再碰额头：会感觉<b>发凉</b> —— 橡皮筋吸收能量（吸热）。</div>
+<div class="step"><span class="no">4</span>用支架挂上砝码使橡皮筋处于拉伸状态，用吹风机加热。<b>观察长度变化。</b></div>
+
+<h3>Analyze and Conclude · 分析与结论</h3>
+
+<div class="box box-note">
+<ul>
+<li><b>意外的结论：</b>被拉伸的橡皮筋加热后<b>会缩短</b>（大多数物质加热膨胀，橡皮筋反其道而行之！）。</li>
+<li><b>如果加冰：</b>被拉伸的橡皮筋会<b>变长</b>（因为冷却时它膨胀）。</li>
+<li><b>自变量：</b>温度（加热或冷却）；<b>因变量：</b>橡皮筋长度；<b>对照：</b>室温下未加热的橡皮筋。</li>
+<li>这个实验的数据以<b>定性 (qualitative)</b> 为主（长度感觉变短了、感觉发热了）也可以做<b>定量 (quantitative)</b> —— 用直尺测长度。</li>
+</ul>
+</div>
+
+<div class="box box-warn">
+<b>Real-World Chemistry 现实应用：</b>
+<ul>
+<li><b>冰块高于杯沿，融化后为什么不会溢出来？</b> 冰的密度小于水（冰浮在水面上是因为它比液态水占更大体积），冰融化成水后体积反而变小，正好补偿原本露出杯沿的部分。</li>
+<li><b>为什么桥梁、公路设计要考虑温度极端？</b> 材料受热膨胀、遇冷收缩，若不留伸缩缝，热胀时会挤裂、冷缩时会拉断。这就是为什么大桥上都有"伸缩缝"。</li>
+</ul>
+</div>
+</section>
+
+<!-- ============================================================ -->
+<!-- Chemistry and Society -->
+<!-- ============================================================ -->
+<section id="society">
+<h2 class="section">🌐 Chemistry and Society：人类基因组计划 <span class="page-marker">P.20</span></h2>
+
+<p>从眼睛肤色到疾病易感性，人类之间千差万别，这些差异大多由<b>人类基因组 (human genome)</b> 控制 —— 一份存在于每个细胞核中的"完整说明书"。</p>
+
+<div class="box box-note">
+<b>人类基因组计划 (Human Genome Project, HGP)：</b>
+<ul>
+<li>1990 年由美国能源部与美国国家卫生研究院共同启动。</li>
+<li>2003 年正是 Watson 和 Crick 发现 DNA 双螺旋结构 50 周年。</li>
+<li>DNA 由被称为<b>含氮碱基 (nitrogen bases)</b> 的化学物质相连，人类基因组约有 <b>30 亿对</b>碱基对。</li>
+<li>2001 年 2 月完成粗略基因组图谱，比预定时间提前数年。</li>
+<li>成功关键：<b>各国科学家使用统一的方法、通过网络实时共享数据</b>，这正是"科学方法"的力量。</li>
+</ul>
+</div>
+
+<div class="box box-warn">
+<b>伦理挑战：</b> 如果基因图谱显示某人有患某病的倾向，雇主或保险公司是否有权知道？—— HGP 打开了新大门，也带来了必须面对的伦理、法律、社会问题。
+</div>
+</section>
+
+<!-- ============================================================ -->
+<!-- Study Guide -->
+<!-- ============================================================ -->
+<section id="study-guide">
+<h2 class="section">📝 Study Guide 章节复习</h2>
+
+<h3>§1.1 The Stories of Two Chemicals</h3>
+<div class="box box-note">
+<ul>
+<li>宇宙中所有物质的"原料"都是在恒星中形成的。</li>
+<li><b>Chemical 化学物质</b> = 有确定组成的物质。</li>
+<li><b>Ozone (O₃) 臭氧</b> 在<b>平流层 (stratosphere)</b> 形成保护层；由氧气 (O₂) 在紫外线作用下形成。</li>
+<li>南极上空臭氧层变薄的现象俗称"<b>臭氧洞 (ozone hole)</b>"。</li>
+<li><b>CFCs 氟氯烃</b> 是含 Cl、F、C 的<b>人造化学品</b>，稳定、无毒，曾用作制冷剂和喷雾推进剂，但会漂进平流层。</li>
+</ul>
+</div>
+
+<h3>§1.2 Chemistry and Matter</h3>
+<div class="box box-note">
+<ul>
+<li><b>Chemistry 化学</b> = 研究<b>物质 (matter)</b> 及其变化的科学。</li>
+<li><b>Matter</b> = 有<b>质量 (mass)</b> 并<b>占据空间</b>的东西。</li>
+<li><b>Mass</b> 与位置无关；<b>Weight</b> 会随重力变化。</li>
+<li>化学有 5 大传统分支：Organic / Inorganic / Physical / Analytical / Biochemistry。</li>
+<li>宏观现象反映了原子在亚微观 (submicroscopic) 层面的行为。</li>
+</ul>
+</div>
+
+<h3>§1.3 Scientific Methods</h3>
+<div class="box box-note">
+<ul>
+<li>科学方法的典型步骤：<b>观察 → 假设 → 实验 → 数据分析 → 结论</b>。</li>
+<li><b>Qualitative data</b> 用描述性语言；<b>Quantitative data</b> 用数字。</li>
+<li>实验的四要素：<b>自变量 (independent)</b>、<b>因变量 (dependent)</b>、<b>常量 (constant)</b>、<b>对照 (control)</b>。</li>
+<li><b>Theory</b> = 经过大量实验支持的假设；<b>Scientific law</b> = 描述自然界中的关系。</li>
+</ul>
+</div>
+
+<h3>§1.4 Scientific Research</h3>
+<div class="box box-note">
+<ul>
+<li><b>Pure research</b> 追求知识本身；<b>Applied research</b> 解决具体问题；<b>Technology</b> 是科学知识的实际应用。</li>
+<li>实验室安全是每个人的责任。</li>
+<li>今日许多便利品都源自化学的技术应用。</li>
+</ul>
+</div>
+</section>
+
+<!-- ============================================================ -->
+<!-- Chapter Assessment -->
+<!-- ============================================================ -->
+<section id="assessment">
+<h2 class="section">🎯 Chapter Assessment 章末测评（精选 12 题）</h2>
+
+<p class="small">题号对应教材 raw.txt 中的题号；答案后附中文详解。</p>
+
+<ol class="practice">
+
+<li><b>(题 22 · Concept Mapping)</b> 用下列词语补全概念图：stratosphere（平流层）、oxygen gas（氧气）、CFCs、ozone（臭氧）、ultraviolet radiation（紫外线）。<br/>
+"____ is formed in the ____ when ____ breaks up ____ and is destroyed by ____."
+<div class="ans">
+<b>Ozone</b> is formed in the <b>stratosphere</b> when <b>ultraviolet radiation</b> breaks up <b>oxygen gas</b>, and is destroyed by <b>CFCs</b>.<br/>
+中文：<b>臭氧</b>在<b>平流层</b>中形成，当<b>紫外线</b>击碎<b>氧气</b>时产生，最终被<b>氟氯烃 (CFCs)</b> 破坏。
+</div>
+</li>
+
+<li><b>(题 23)</b> What is a chemical? 什么是化学物质？
+<div class="ans">化学物质 (chemical) = 任何具有<b>确定组成 (definite composition)</b> 的物质。水、盐、O₂、O₃、CFCs 都是化学物质。</div>
+</li>
+
+<li><b>(题 25)</b> Explain the balance between oxygen and ozone in the stratosphere. Why is it important?
+<div class="ans">平流层中 O₂ 和 O₃ 之间是<b>动态平衡</b>：紫外线不断把 O₂ 打成两个 O 原子，然后 O + O₂ → O₃；同时 O₃ 也不断吸收紫外线又分解回 O₂。这个循环<b>持续消耗紫外线</b>，从而保护地面上的生命。若 O₃ 减少（如被 CFCs 破坏），紫外线到达地面增多，会引起皮肤癌、白内障、农作物减产。</div>
+</li>
+
+<li><b>(题 29)</b> Which measurement depends on gravitational force — mass or weight? Explain.
+<div class="ans"><b>Weight（重量）</b>取决于重力，因为 weight = mass × 重力加速度 g。同一物体在地球和月球上 mass 相同，但月球重力约为地球的 1/6，所以在月球上 weight 只是地球上的 1/6。<b>Mass</b> 是物质本身的量，与重力无关。</div>
+</li>
+
+<li><b>(题 30)</b> Which branch of chemistry studies the composition of substances? Environmental impact of chemicals?
+<div class="ans">研究物质组成 → <b>Analytical chemistry 分析化学</b>；研究化学物质对环境的影响 → <b>Environmental chemistry 环境化学</b>。</div>
+</li>
+
+<li><b>(题 31)</b> How does qualitative data differ from quantitative data? Give examples.
+<div class="ans"><b>Qualitative data 定性</b>：描述性质，不涉及数字。例：溶液是蓝色的，气体有刺鼻气味。<br/>
+<b>Quantitative data 定量</b>：用数字表达。例：温度 25 ℃，反应生成 3.5 g 沉淀，pH = 4.2。</div>
+</li>
+
+<li><b>(题 32)</b> What is the function of a control in an experiment?
+<div class="ans">对照组 (control) 提供<b>比较基准</b>：让你能判断实验中观察到的变化到底是不是由自变量引起的。例如"温度对盐溶解速率影响"实验中，室温 (20 ℃) 组就是对照 —— 你把 40 ℃ 组的溶解速率与它比较。</div>
+</li>
+
+<li><b>(题 33)</b> What is the difference between a hypothesis, a theory, and a law?
+<div class="ans">
+<b>Hypothesis 假设：</b> 对观察现象的<b>暂定解释</b>，尚未经充分检验。<br/>
+<b>Theory 理论：</b> 经过<b>大量实验支持</b>的解释，能广泛解释现象、做出预测（但仍可能被新证据修改）。<br/>
+<b>Scientific law 定律：</b> 自然界中被反复观察证实的<b>关系</b>（描述"是什么"，不解释"为什么"）。<br/>
+📌 <b>关系：</b>假设 → 通过大量实验支持 → 上升为理论；反复观察到的规律 → 定律。<b>定律不是理论"升级"版</b>；两者本质不同：定律描述，理论解释。
+</div>
+</li>
+
+<li><b>(题 35)</b> Compare and Contrast: Why is CFC depletion of the ozone layer a theory and not a scientific law?
+<div class="ans">因为它是对"为什么臭氧减少"的<b>机制性解释</b>（UV 打破 CFC → 释放 Cl → Cl 破坏 O₃），属于理论范畴。而定律只描述<b>可重复出现的关系</b>（比如"O₃ 浓度每年下降 X%"），并不解释背后机制。</div>
+</li>
+
+<li><b>(题 37)</b> Communicating Ideas: Scientists often learn as much from an incorrect hypothesis as from one that is correct. Explain.
+<div class="ans">当假设被推翻时，实验数据反而暴露了原有认知的漏洞或指向新的现象。这些"意外结果"往往是重大发现的起点。例如青霉素、尼龙、微波炉都是"意外"或"错误假设"衍生出来的产物。<b>科学的进步不仅来自证实，也来自证伪。</b></div>
+</li>
+
+<li><b>(题 38 · Designing an Experiment)</b> How would you design an experiment to evaluate the effectiveness of a "new and improved" chemical fertilizer on bean plants?
+<div class="ans">
+<b>假设：</b>使用新肥料的豆苗比不使用的长得更高（或更重）。<br/>
+<b>自变量：</b>肥料种类（新肥 / 旧肥 / 不施肥）。<br/>
+<b>因变量：</b>豆苗每周的高度、叶片数、鲜重。<br/>
+<b>常量：</b>豆种同一品种、同一日播种、同种土壤、同一光照、同一浇水量、同一温度。<br/>
+<b>对照组：</b>不施任何肥料的一组。<br/>
+<b>操作：</b>三组各 10 盆重复实验，持续 6 周，每周测量并记录，实验结束后统计比较平均值。<br/>
+<b>意义：</b>只有当"新肥"组显著优于"旧肥"和"对照"组时，才能说新肥有效。
+</div>
+</li>
+
+<li><b>(题 39 · Inferring)</b> A newscaster reports, "The air quality today is poor. Visibility is only a quarter mile. Pollutants in the air are expected to rise above 0.085 ppm in the next 8 hour average..." Which are qualitative, which are quantitative?
+<div class="ans">
+<b>Qualitative（定性）：</b> "air quality is poor 空气质量差"；"spend as little time outside as possible 尽量少外出"。<br/>
+<b>Quantitative（定量）：</b> "visibility is only a quarter mile 能见度仅 1/4 英里"；"above 0.085 ppm 超过 0.085 ppm"；"8 hour average 8 小时平均"。<br/>
+<b>判断依据：</b>凡是用数字、单位表达的是定量；用形容词描述的是定性。
+</div>
+</li>
+
+<li><b>(标准化测试 Q1)</b> Matter is defined as anything that: (a) exists in nature (b) is solid to the touch (c) is found in the universe (d) has mass and takes up space.
+<div class="ans">选 <b>(d)</b>。这是 matter 的<b>科学定义</b>：有质量并占据空间。其他选项都过于宽泛或不准确。</div>
+</li>
+
+<li><b>(标准化测试 Q2)</b> Mass is preferred over weight for all reasons EXCEPT: (a) same value everywhere on Earth (b) independent of gravitational forces (c) becomes less in outer space, farther from Earth (d) constant measure of amount of matter.
+<div class="ans">选 <b>(c)</b>。质量<b>不会</b>随远离地球而变小（那是重量的性质），所以 (c) 是错误陈述，也就是本题"EXCEPT"要选的答案。(a)(b)(d) 都是选 mass 的正当理由。</div>
+</li>
+
+<li><b>(标准化测试 Q3)</b> Which is an example of pure research?
+<div class="ans">选 <b>(a) creating synthetic elements to study their properties 合成新元素以研究其性质</b>。这是纯粹出于好奇的知识探索，没有具体应用目标。<br/>
+(b) 制造耐热塑料、(c) 防止铁船生锈、(d) 找汽油替代品 —— 都是<b>应用研究</b>，目标明确。</div>
+</li>
+
+</ol>
+</section>
+
+<!-- ============================================================ -->
+<!-- Cheat sheet -->
+<!-- ============================================================ -->
+<section id="cheatsheet">
+<h2 class="section">⚡ 一页知识卡（考前速看）</h2>
+
+<div class="callout-topic">
+<h3>🌟 最需要背下来的 6 组概念</h3>
+<p>把这一节抄一遍再默一遍，本章就掌握 90%。</p>
+</div>
+
+<div class="box box-key" data-label="1 · 什么是化学">
+<b>Chemistry</b> = <b>研究物质及其变化</b>的科学。<br/>
+<b>Matter</b> = <b>有质量 + 占据空间</b>的东西。<br/>
+<b>Chemical</b> = 有<b>确定组成</b>的物质。
+</div>
+
+<div class="box box-key" data-label="2 · Mass vs Weight">
+<b>Mass 质量</b>：物质多少，单位 kg / g，<b>与位置无关</b>，用<b>天平</b>测。<br/>
+<b>Weight 重量</b>：受重力的力，单位 N，<b>随重力变化</b>（月球 = 地球的 1/6），用<b>弹簧秤</b>测。<br/>
+👉 化学计算永远用 <b>mass</b>。
+</div>
+
+<div class="box box-key" data-label="3 · 尺度三级">
+<b>Macroscopic 宏观</b> → 肉眼可见 → 一杯水<br/>
+<b>Microscopic 微观</b> → 显微镜可见 → 细胞<br/>
+<b>Submicroscopic 亚微观</b> → 原子、分子 → 用<b>模型 (model)</b> 表示<br/>
+👉 化学 = 用亚微观解释宏观。
+</div>
+
+<div class="box box-key" data-label="4 · 科学方法六步">
+观察 → 假设 → 实验 → 数据分析 → 结论 →（大量支持后）理论 →（自然界普遍规律）定律。<br/>
+<b>关键：可循环、可修改。</b>
+</div>
+
+<div class="box box-key" data-label="5 · 实验四变量">
+<b>Independent 自变量</b>：你改的（如温度）。<br/>
+<b>Dependent 因变量</b>：跟着变的（如溶解时间）。<br/>
+<b>Constant 常量</b>：不能改的（如水量、盐量）。<br/>
+<b>Control 对照</b>：比较基准（如室温组）。<br/>
+👉 一次只改一个自变量！
+</div>
+
+<div class="box box-key" data-label="6 · Theory vs Law">
+<b>Theory 理论</b>：解释"为什么"—— 例：原子理论、相对论。<br/>
+<b>Scientific Law 定律</b>：描述"是什么"关系 —— 例：查理定律、万有引力定律。<br/>
+👉 <b>定律不是理论的"升级版"</b>，两者用途不同。
+</div>
+
+<div class="box box-key" data-label="7 · 三种科研类型">
+<b>Pure research 纯研究</b>：好奇心驱动 → 无具体目标。<br/>
+<b>Applied research 应用研究</b>：解决具体问题。<br/>
+<b>Technology 技术</b>：科学知识的实际应用（尼龙、青霉素、核电、假肢）。<br/>
+👉 意外发现常常成为重大突破的起点（尼龙、青霉素）。
+</div>
+
+<div class="box box-key" data-label="8 · 两条化学故事">
+<b>Ozone O₃</b>：在<b>平流层 (15–50 km)</b> 由 O₂ 遇 UV 生成，保护生物免受紫外线。<br/>
+<b>CFCs</b>：Cl + F + C 组成的合成品，稳定无毒，用作制冷剂/喷雾推进剂。<br/>
+👉 <b>Molina & Rowland 的模型</b>：UV 打破 CFC → 释放 Cl 原子 → Cl 破坏 O₃ → 形成 O₂ + ClO。
+</div>
+
+<div class="box box-warn">
+<b>⚠️ 三大易错点：</b>
+<ol>
+<li>混淆 mass 和 weight —— 记住："mass 不变，weight 会变"。</li>
+<li>混淆 theory 和 law —— 记住："定律描述现象，理论解释现象"。</li>
+<li>混淆 constant 和 control —— 记住："constant 是什么不变，control 是拿什么比较"。</li>
+</ol>
+</div>
+
+<hr class="soft"/>
+<p class="small" style="text-align:center">📘 本手册对应《Chemistry — Matter and Change》Glencoe · Chapter 1 · P.2 – P.23 · 中文自学讲义 v1.0</p>
+</section>
+
+</main>
+</div>
+<script src="theme.js"></script>
+</body>
+</html>

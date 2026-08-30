@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>第 7 章 The Elements · 中文学习手册</title>
+<script>
+window.MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$','$$'], ['\\[','\\]']] }, svg: { fontCache: 'global' } };
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+:root{--bg:#f7f5ef;--paper:#ffffff;--ink:#232323;--ink-soft:#4a4a4a;--accent:#0f6b5e;--accent-2:#c1543b;--accent-3:#3e5aa8;--hi:#f6e58d;--box-note:#eaf1fb;--box-warn:#fdecea;--box-key:#fff1d6;--box-example:#eef7ee;--line:#e4dfd2;}
+*{box-sizing:border-box}html,body{margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei","Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.75;font-size:16px;}
+.wrap{display:flex;max-width:1400px;margin:0 auto;min-height:100vh}
+aside.toc{position:sticky;top:0;align-self:flex-start;width:280px;height:100vh;overflow-y:auto;background:linear-gradient(180deg,#0f6b5e,#0b4d43);color:#fff;padding:24px 18px;}
+aside.toc h1{font-size:16px;margin:0 0 6px;letter-spacing:1px;color:#f6e58d}
+aside.toc .sub{font-size:12px;opacity:.75;margin-bottom:16px}
+aside.toc a{display:block;color:#f2fbf8;text-decoration:none;padding:8px 10px;border-radius:6px;margin-bottom:2px;font-size:14px;line-height:1.4;border-left:3px solid transparent;}
+aside.toc a:hover{background:rgba(255,255,255,.10)}
+main{flex:1;padding:36px 44px;background:var(--paper);box-shadow:0 0 30px rgba(0,0,0,.05)}
+h1.title{font-size:32px;margin:0 0 6px;color:var(--accent)}
+.subtitle{color:var(--ink-soft);margin-bottom:24px;font-size:14px}
+h2.section{font-size:24px;color:var(--accent);border-bottom:2px solid var(--accent);padding-bottom:6px;margin-top:56px;margin-bottom:14px;}
+h3{font-size:19px;color:var(--accent-2);margin-top:32px;border-left:5px solid var(--accent-2);padding-left:10px}
+h4{font-size:16px;color:var(--accent-3);margin-top:20px}
+.term{color:var(--accent-2);font-weight:700}
+.term-en{color:var(--accent);font-style:italic}
+.box{padding:14px 18px;border-radius:10px;margin:14px 0;position:relative}
+.box::before{content:attr(data-label);position:absolute;top:-10px;left:14px;background:#fff;padding:0 8px;font-size:12px;font-weight:700;letter-spacing:1px;}
+.box-note{background:var(--box-note);border:1px solid #c9d7f0}.box-note::before{content:"讲解 · 知识点";color:var(--accent-3)}
+.box-warn{background:var(--box-warn);border:1px solid #f5c6c0}.box-warn::before{content:"重难点 · 易错点";color:var(--accent-2)}
+.box-key{background:var(--box-key);border:1px solid #f3d78b}.box-key::before{content:"关键要点";color:#a17108}
+.box-example{background:var(--box-example);border:1px solid #b7dab8}.box-example::before{content:"应用实例";color:#2c6e2e}
+table.vocab{width:100%;border-collapse:collapse;margin:6px 0}
+table.vocab th,table.vocab td{padding:6px 10px;border-bottom:1px solid var(--line);font-size:14px;text-align:left;vertical-align:top}
+table.vocab th{background:#dfeae7;color:var(--accent)}
+ol.practice{padding-left:20px}ol.practice li{margin-bottom:10px}
+.ans{background:#eef7ee;border-left:4px solid #4e9d5c;padding:10px 14px;border-radius:0 8px 8px 0;margin:6px 0;font-size:14.5px}
+.ans::before{content:"参考答案与解析　";color:#2c6e2e;font-weight:700;font-size:12px;letter-spacing:1px}
+hr.soft{border:none;border-top:1px dashed #cfc9b6;margin:32px 0}
+.callout-topic{background:linear-gradient(135deg,#0f6b5e,#3e5aa8);color:#fff;padding:18px 22px;border-radius:12px;margin:20px 0;}
+.callout-topic h3{color:#f6e58d;border:none;padding:0;margin:0 0 8px}
+.callout-topic p{margin:0;opacity:.95}
+.small{font-size:13px;color:var(--ink-soft)}
+</style>
+<link rel="stylesheet" href="theme.css" />
+</head>
+<body>
+<div class="wrap">
+<aside class="toc">
+  <h1>第 7 章 元素巡礼</h1>
+  <div class="sub">Chemistry · Matter and Change</div>
+  <a href="#overview">📖 章导读</a>
+  <a href="#map">🗺️ 章节地图</a>
+  <a href="#vocab">📚 术语速查表</a>
+  <a href="#s-block">§ s 区元素 (Group 1, 2)</a>
+  <a href="#p-block">§ p 区元素 (Group 13-18)</a>
+  <a href="#d-block">§ d 区元素 (过渡金属)</a>
+  <a href="#f-block">§ f 区元素 (镧系 / 锕系)</a>
+  <a href="#study-guide">📝 Study Guide</a>
+  <a href="#assessment">🧪 Chapter Assessment</a>
+  <a href="#cheatsheet">⚡ 一页知识卡</a>
+</aside>
+
+<main>
+<h1 class="title">第 7 章 · The Elements 元素巡礼</h1>
+<div class="subtitle">按周期表分区介绍代表元素的性质、存在、用途　·　中文自学手册</div>
+
+<section id="overview">
+<h2 class="section">📖 章导读</h2>
+<p>第 6 章讲了周期表的<b>结构</b>与<b>规律</b>，这一章是"实地参观"——沿着周期表的分区，把每个家族的代表元素挨个介绍一遍：它们长啥样、存在于哪里、有什么用途、化学脾气如何。这部分属于<b>描述化学</b>（descriptive chemistry），信息量大，但和周期律紧密关联——只要抓住"位置决定性质"，记忆负担就会小很多。</p>
+<div class="callout-topic">
+<h3>🌟 记忆法：位置 → 性质 → 用途</h3>
+<p>先看它在周期表哪一区、哪一族 → 推出电子构型和活泼性 → 联系生活中的应用。这样即便忘了具体数据，也能"推理"回答。</p>
+</div>
+</section>
+
+<section id="map">
+<h2 class="section">🗺️ 章节地图</h2>
+<table class="vocab">
+<thead><tr><th>分区</th><th>包含</th><th>整体特征</th></tr></thead>
+<tbody>
+<tr><td>s 区</td><td>Group 1（碱金属）+ Group 2（碱土金属）</td><td>活泼金属，易失 1-2 个电子成阳离子</td></tr>
+<tr><td>p 区</td><td>Group 13-18</td><td>金属→类金属→非金属→稀有气体的过渡带</td></tr>
+<tr><td>d 区</td><td>Group 3-12 过渡金属</td><td>多氧化态、多颜色、多催化性</td></tr>
+<tr><td>f 区</td><td>镧系 + 锕系</td><td>稀土磁材、核燃料</td></tr>
+</tbody>
+</table>
+</section>
+
+<section id="vocab">
+<h2 class="section">📚 术语速查表</h2>
+<table class="vocab">
+<thead><tr><th>English</th><th>中文</th><th>要点</th></tr></thead>
+<tbody>
+<tr><td>allotrope</td><td>同素异形体</td><td>同种元素的不同单质形式（如金刚石、石墨、富勒烯）</td></tr>
+<tr><td>diatomic molecule</td><td>双原子分子</td><td>7 种：H₂ N₂ O₂ F₂ Cl₂ Br₂ I₂</td></tr>
+<tr><td>semiconductor</td><td>半导体</td><td>Si、Ge，导电性介于金属与非金属</td></tr>
+<tr><td>catalyst</td><td>催化剂</td><td>加快反应但不消耗；过渡金属常见</td></tr>
+<tr><td>alloy</td><td>合金</td><td>金属与其他元素形成的混合物（如钢、青铜）</td></tr>
+<tr><td>ore</td><td>矿石</td><td>富含某元素的矿物，供工业冶炼</td></tr>
+<tr><td>rare earth</td><td>稀土</td><td>17 种元素（Sc, Y + 15 镧系）</td></tr>
+<tr><td>noble gas</td><td>稀有气体</td><td>化学惰性，用于霓虹灯、保护气</td></tr>
+<tr><td>malleable / ductile</td><td>延展性 / 韧性</td><td>金属的典型物理性质（可打薄 / 可抽丝）</td></tr>
+<tr><td>oxidation state</td><td>氧化态</td><td>元素在化合物中的表观电荷</td></tr>
+</tbody>
+</table>
+</section>
+
+<section id="s-block">
+<h2 class="section">§ s 区元素：Group 1 & Group 2</h2>
+
+<h3>Group 1 — 碱金属 Alkali Metals</h3>
+<p>成员：<b>Li Na K Rb Cs Fr</b>；价电子构型 <b>ns¹</b>。这一族是<b>最活泼的金属</b>——只需失 1 个 e⁻ 就凑齐惰性气体构型。</p>
+<div class="box box-key">
+<b>性质速印：</b><br/>
+① 质软（可用刀切），密度低（Li、Na、K 密度小于水）。<br/>
+② 熔点低（Cs 只有 28.5 ℃，接近手温）。<br/>
+③ 极易与水反应放出 H₂：$2\text{Na} + 2\text{H}_2\text{O} \to 2\text{NaOH} + \text{H}_2\uparrow$。越往下越剧烈（K 起火、Cs 爆炸）。<br/>
+④ 焰色反应：Li 深红、Na 金黄、K 淡紫、Rb 紫红、Cs 蓝紫。<br/>
+⑤ 通常保存在<b>煤油</b>中，隔绝空气和水。<br/>
+⑥ 均形成 +1 阳离子（Na⁺, K⁺ 是人体电解质）。
+</div>
+<div class="box box-example">
+生活印象：<b>Na</b> 是食盐 (NaCl) 里的钠；<b>K</b> 是香蕉里的钾；<b>Li</b> 是锂电池里的锂。<br/>
+Fr（钫）是放射性最强的碱金属，地壳中几乎不存在。
+</div>
+
+<h3>Group 2 — 碱土金属 Alkaline Earth Metals</h3>
+<p>成员：<b>Be Mg Ca Sr Ba Ra</b>；价电子构型 <b>ns²</b>。比碱金属"温和一些"——需要失 2 个电子。</p>
+<div class="box box-key">
+<b>性质速印：</b><br/>
+① 比碱金属硬、密度大、熔点高。<br/>
+② 与水反应比碱金属弱（Mg 常温几乎不反应，Ca 反应中等，Ba 剧烈）。<br/>
+③ 均形成 +2 阳离子。<br/>
+④ 焰色反应：Ca 砖红、Sr 深红、Ba 苹果绿（烟花常见！）。<br/>
+⑤ 生活：<b>Mg</b> 用于合金和烟花；<b>Ca</b> 是<b>骨骼和牙齿</b>主要成分（Ca₃(PO₄)₂）；<b>Ba</b> 医学造影用 BaSO₄。
+</div>
+</section>
+
+<section id="p-block">
+<h2 class="section">§ p 区元素：Group 13-18</h2>
+
+<h3>Group 13 — 硼族 (B Al Ga In Tl)</h3>
+<p>典型代表：<b>硼 B</b>（类金属，用于耐热玻璃）、<b>铝 Al</b>（地壳中含量最多的<b>金属</b>；两性金属，既能与酸反应也能与强碱反应；轻、导电、耐腐蚀，用于易拉罐、飞机机身、导线）。</p>
+<div class="box box-note">
+Al 的两性反应：<br/>
+$2\text{Al} + 6\text{HCl} \to 2\text{AlCl}_3 + 3\text{H}_2$（与酸）<br/>
+$2\text{Al} + 2\text{NaOH} + 6\text{H}_2\text{O} \to 2\text{Na[Al(OH)}_4\text{]} + 3\text{H}_2$（与碱）
+</div>
+
+<h3>Group 14 — 碳族 (C Si Ge Sn Pb)</h3>
+<p><b>C（碳）</b>是生命的核心元素，有多种<b>同素异形体 (allotropes)</b>：</p>
+<div class="box box-key">
+<b>碳的同素异形体：</b><br/>
+① <b>金刚石 diamond</b>：sp³ 三维网状，最硬的天然物质，绝缘体但导热极好。<br/>
+② <b>石墨 graphite</b>：sp² 平面层状，层间弱作用力可滑动 → 铅笔芯；<b>唯一导电的非金属</b>。<br/>
+③ <b>富勒烯 fullerene (C₆₀)</b>：足球状，1985 年发现。<br/>
+④ <b>石墨烯 graphene</b>：单层石墨，2004 年剥离出来，2010 年诺奖。<br/>
+⑤ <b>碳纳米管 CNT</b>：卷起来的石墨烯。
+</div>
+<p><b>Si（硅）</b>是地壳中含量第二的元素（仅次于 O）；类金属；<b>半导体</b>，是芯片的基础材料。<b>Sn（锡）、Pb（铅）</b>为柔软的重金属，铅有毒。</p>
+
+<h3>Group 15 — 氮族 (N P As Sb Bi)</h3>
+<p><b>N₂</b>占空气 78%；分子中有<b>三键 N≡N</b>，键能极大 → 极其稳定 → 常温下几乎不反应，工业固氮才让 N₂ 变成 NH₃（Haber 法）。<br/>
+<b>P（磷）</b>有两种主要同素异形体：<b>白磷 (P₄)</b>（剧毒、遇空气自燃）和<b>红磷</b>（稳定，用于火柴）。P 是 DNA、ATP、骨骼的关键元素。</p>
+
+<h3>Group 16 — 氧族 (O S Se Te Po)</h3>
+<p><b>O</b>是地壳中含量最多的元素、生命之源。<b>O₂</b>（氧气）与 <b>O₃</b>（臭氧）是氧的两种同素异形体——臭氧层在平流层吸收紫外线保护地球。<br/>
+<b>S（硫）</b>：黄色固体；用于制硫酸 H₂SO₄（化学工业最大宗产品之一）、火药、橡胶硫化。</p>
+
+<h3>Group 17 — 卤素 Halogens (F Cl Br I At)</h3>
+<div class="box box-key">
+<b>卤素性质：</b><br/>
+① 均为<b>双原子分子 X₂</b>，缺 1 个电子成 X⁻。<br/>
+② 常温下：F₂ 淡黄色气体；Cl₂ 黄绿色气体；Br₂ 红棕色<b>液体</b>（唯一常温液态非金属）；I₂ 紫黑色<b>固体</b>（易升华成紫色蒸气）。<br/>
+③ 活泼性 F &gt; Cl &gt; Br &gt; I，F 是<b>最活泼</b>的非金属。<br/>
+④ 与金属反应形成盐（"卤素"= salt former）：$2\text{Na} + \text{Cl}_2 \to 2\text{NaCl}$。<br/>
+⑤ 应用：Cl₂ 用于自来水消毒；I 是甲状腺激素的组成；F 用于牙膏防龋齿。
+</div>
+
+<h3>Group 18 — 稀有气体 Noble Gases</h3>
+<p>成员：<b>He Ne Ar Kr Xe Rn</b>。外层电子已满（He 是 1s²，其余是 ns² np⁶），化学上<b>极为惰性</b>。用途：He 用于气球和低温制冷；Ne 用于霓虹灯（红色）；Ar 用作电弧焊接的保护气；Xe 用于闪光灯和汽车灯。Rn 是放射性气体，室内含量过高对人体有害。</p>
+</section>
+
+<section id="d-block">
+<h2 class="section">§ d 区元素：过渡金属 Transition Metals</h2>
+<p>Group 3-12，共 10 列。特点：</p>
+<div class="box box-key">
+① <b>多种氧化态</b>——Fe 常见 +2/+3；Cu 常见 +1/+2；Mn 可达 +2, +4, +7；Cr 可达 +3, +6。<br/>
+② <b>化合物多有颜色</b>——Cu²⁺ 蓝色、Fe³⁺ 橙棕色、KMnO₄ 紫色、K₂Cr₂O₇ 橙红色。<br/>
+③ <b>常作催化剂</b>——Fe 用于合成氨、V₂O₅ 用于制硫酸、Pt/Pd 用于汽车尾气。<br/>
+④ <b>形成合金</b>——钢（Fe + C）、青铜（Cu + Sn）、黄铜（Cu + Zn）、不锈钢（Fe + Cr + Ni）。
+</div>
+<div class="box box-example">
+生活印象：<br/>
+<b>Fe（铁）</b>：地壳含量 4 位；血红蛋白核心；钢铁工业主料。<br/>
+<b>Cu（铜）</b>：良导体，电线、水管、硬币；生成绿色铜绿 Cu(OH)₂·CuCO₃。<br/>
+<b>Zn（锌）</b>：镀锌钢板防锈；胃药 ZnO。<br/>
+<b>Ag（银）</b>：抗菌、导电性最好；感光材料。<br/>
+<b>Au（金）</b>：不腐蚀、装饰、电子接触。<br/>
+<b>Hg（汞）</b>：唯一常温液态金属；有毒（老式温度计已淘汰）。
+</div>
+</section>
+
+<section id="f-block">
+<h2 class="section">§ f 区元素：镧系 & 锕系（内过渡金属）</h2>
+<p><b>Lanthanides 镧系（La-Lu，Z = 57-71）</b>：又称"稀土" (rare earths)。虽名"稀"但地壳含量并不算低，只是分散。用途：Nd 与 Fe、B 组成强磁体（钕铁硼，风力发电、电动车电机）；Eu、Y 用于彩色显像；Ce 用于打火石。</p>
+<p><b>Actinides 锕系（Ac-Lr，Z = 89-103）</b>：全部具有<b>放射性</b>。U（铀）、Pu（钚）是核燃料。Z ≥ 93 的都是人造元素（超铀元素）。</p>
+</section>
+
+<section id="study-guide">
+<h2 class="section">📝 Study Guide 章节复习</h2>
+<div class="box box-note">
+<b>s 区</b>（活泼金属）：Group 1 (ns¹，成 +1) → Group 2 (ns²，成 +2)。<br/>
+<b>p 区</b>（多样）：13 硼族（Al 两性）、14 碳族（C 多种同素异形体、Si 半导体）、15 氮族（N₂ 稳定）、16 氧族（O₂/O₃、S 制硫酸）、17 卤素（都是 X₂，F 最强非金属）、18 稀有气体（惰性）。<br/>
+<b>d 区</b>：过渡金属，多氧化态、多颜色、多催化性、多合金。Fe、Cu、Zn、Ag、Au、Hg 各有生活印象。<br/>
+<b>f 区</b>：镧系稀土（磁材、彩显）、锕系（放射性、核燃料）。<br/>
+<b>7 种双原子分子必背：</b>H₂、N₂、O₂、F₂、Cl₂、Br₂、I₂。
+</div>
+</section>
+
+<section id="assessment">
+<h2 class="section">🧪 Chapter Assessment 章末测评（精选题）</h2>
+
+<ol class="practice">
+<li>下列元素中，最活泼的金属是（　　）：Li、Na、K、Rb、Cs。
+<div class="ans">选 <b>Cs</b>。同族越往下金属性越强。Fr 更强但极稀有。</div>
+</li>
+
+<li>钠储存在什么液体中？为什么？
+<div class="ans">储存在<b>煤油</b>（或矿物油）中。因为 Na 极易与水、氧气反应，煤油可隔绝空气和水。</div>
+</li>
+
+<li>下列元素在常温下呈液态的是（　　）：Cl、Br、I、Hg。选出正确的一项并说明。
+<div class="ans"><b>Br 和 Hg</b>。Br₂（红棕色）是唯一常温液态非金属；Hg 是唯一常温液态金属。Cl₂ 气体、I₂ 固体。</div>
+</li>
+
+<li>写出碳的三种主要同素异形体名称并简述性质。
+<div class="ans"><b>金刚石</b>（sp³ 三维网状，最硬、绝缘、导热）；<b>石墨</b>（sp² 层状，软而导电，铅笔芯）；<b>富勒烯 C₆₀</b>（球状分子，1985 年发现，纳米技术）。此外还有石墨烯、碳纳米管。</div>
+</li>
+
+<li>为什么 N₂ 化学性质极稳定？
+<div class="ans">N₂ 分子中有<b>三键 N≡N</b>，键能达 946 kJ/mol，破坏三键需要极大能量，所以常温下几乎不反应。这也是空气中氮气占 78% 却对生命"惰性"的原因；工业固氮 (Haber 法) 需高温高压 + 铁催化剂。</div>
+</li>
+
+<li>为什么 F 是电负性最大的元素？
+<div class="ans">F 在周期表<b>右上角</b>（除稀有气体外），原子半径小、核电荷相对高、只差 1 个电子就凑齐八隅体 → 对成键电子对的吸引力最强，电负性 = 4.0。</div>
+</li>
+
+<li>下列哪种元素常用作汽车尾气催化剂？<br/>
+a) Fe；b) Al；c) Pt；d) Ca。
+<div class="ans">选 <b>c</b>。铂 Pt（含 Pd、Rh）催化 CO 与 NOₓ 转化为 CO₂、N₂。</div>
+</li>
+
+<li>Al 是"两性"金属，写一个与酸和一个与碱反应的方程式。
+<div class="ans">
+与酸：$2\text{Al} + 6\text{HCl} \to 2\text{AlCl}_3 + 3\text{H}_2$<br/>
+与碱：$2\text{Al} + 2\text{NaOH} + 6\text{H}_2\text{O} \to 2\text{Na[Al(OH)}_4\text{]} + 3\text{H}_2$
+</div>
+</li>
+
+<li>下列都是过渡金属的一组是（　　）：<br/>
+a) Fe, Cu, Zn；b) Na, K, Rb；c) Al, Ga, In；d) F, Cl, Br。
+<div class="ans">选 <b>a</b>。Fe、Cu、Zn 均在 d 区。</div>
+</li>
+
+<li>Xenon（Xe）能形成化合物吗？
+<div class="ans">能。虽然稀有气体"惰性"，但重的 Xe、Kr 在极端条件下可与 F、O 形成化合物，如 XeF₂、XeF₄、XeO₃。1962 年 Bartlett 首次合成 XePtF₆，打破了"稀有气体不能形成化合物"的信条。</div>
+</li>
+
+<li>为什么石墨能导电而金刚石不能？
+<div class="ans">石墨是 sp² 杂化，每个 C 有<b>1 个未杂化的 p 电子</b>参与形成层内大 π 键，电子可在层内自由移动 → 导电。金刚石是 sp³，所有价电子都被 4 个 σ 键"锁死"，没有自由电子 → 绝缘。</div>
+</li>
+
+<li>钕铁硼磁体的化学式表达为 Nd₂Fe₁₄B。其中 Nd 属于哪一区？为什么现代高性能电机大量使用稀土？
+<div class="ans">Nd 属于 <b>f 区</b>（镧系）。稀土 4f 电子提供强磁性，与 Fe 结合形成的合金能产生极强磁场，功率密度高、体积小，因此广泛用于电动车、风力发电、耳机、硬盘等。</div>
+</li>
+</ol>
+</section>
+
+<section id="cheatsheet">
+<h2 class="section">⚡ 一页知识卡</h2>
+
+<div class="callout-topic">
+<h3>各族性质 · 一览</h3>
+<p>
+G1 碱金属　ns¹　+1　最软最活泼金属，煤油保存<br/>
+G2 碱土　　ns²　+2　骨骼 Ca；焰色艳丽<br/>
+G13 硼族　　ns² np¹　Al 两性、飞机机身<br/>
+G14 碳族　　ns² np²　C 同素异形体、Si 半导体<br/>
+G15 氮族　　ns² np³　N₂ 稳定、P 生命必需<br/>
+G16 氧族　　ns² np⁴　O₂/O₃、S 制硫酸<br/>
+G17 卤素　　ns² np⁵　X₂、F 最活泼非金属<br/>
+G18 稀气　　ns² np⁶　惰性、霓虹灯 / 保护气<br/>
+d 区 过渡　多氧化态、多颜色、多合金、多催化<br/>
+f 区 内过渡　镧系稀土（磁材）、锕系（核燃料）
+</p>
+</div>
+
+<div class="box box-key">
+<b>必背 · 7 种双原子分子：</b>H₂　N₂　O₂　F₂　Cl₂　Br₂　I₂<br/>
+口诀："<b>氢 氮 氧 + 卤素前四</b>"
+</div>
+
+<div class="box box-note">
+<b>同素异形体 vs 同位素 vs 异构体</b><br/>
+① 同素异形体：<b>同元素</b>不同<b>单质形式</b>（如 O₂/O₃, 金刚石/石墨）。<br/>
+② 同位素：<b>同元素</b>不同<b>原子</b>（Z 同、A 不同）。<br/>
+③ 异构体：<b>同分子式</b>不同<b>结构式</b>（第 22 章有机会讲）。
+</div>
+
+<div class="box box-warn">
+<b>常见易错：</b><br/>
+① Al 在 Group 13 却是金属；Ge、Si 是类金属；H 位于 Group 1 但性质更像非金属。<br/>
+② Hg 常温液态、Br₂ 常温液态——这两个是"另类"。<br/>
+③ 稀土不"稀"，只是分散；镧系 = 稀土主体。
+</div>
+</section>
+
+<hr class="soft"/>
+<p class="small" style="text-align:center;color:#888">© 中文自学手册 · 与《Chemistry — Matter and Change》第 7 章配套</p>
+</main>
+</div>
+<script src="theme.js"></script>
+</body>
+</html>

@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>第 4 章 The Structure of the Atom · 中文学习手册</title>
+<script>
+window.MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$','$$'], ['\\[','\\]']] }, svg: { fontCache: 'global' } };
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+:root{--bg:#f7f5ef;--paper:#ffffff;--ink:#232323;--ink-soft:#4a4a4a;--accent:#0f6b5e;--accent-2:#c1543b;--accent-3:#3e5aa8;--hi:#f6e58d;--box-note:#eaf1fb;--box-warn:#fdecea;--box-key:#fff1d6;--box-example:#eef7ee;--line:#e4dfd2;}
+*{box-sizing:border-box}html,body{margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei","Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.75;font-size:16px;}
+.wrap{display:flex;max-width:1400px;margin:0 auto;min-height:100vh}
+aside.toc{position:sticky;top:0;align-self:flex-start;width:280px;height:100vh;overflow-y:auto;background:linear-gradient(180deg,#0f6b5e,#0b4d43);color:#fff;padding:24px 18px;}
+aside.toc h1{font-size:16px;margin:0 0 6px;letter-spacing:1px;color:#f6e58d}
+aside.toc .sub{font-size:12px;opacity:.75;margin-bottom:16px}
+aside.toc a{display:block;color:#f2fbf8;text-decoration:none;padding:8px 10px;border-radius:6px;margin-bottom:2px;font-size:14px;line-height:1.4;border-left:3px solid transparent;}
+aside.toc a:hover{background:rgba(255,255,255,.10)}
+main{flex:1;padding:36px 44px;background:var(--paper);box-shadow:0 0 30px rgba(0,0,0,.05)}
+h1.title{font-size:32px;margin:0 0 6px;color:var(--accent)}
+.subtitle{color:var(--ink-soft);margin-bottom:24px;font-size:14px}
+h2.section{font-size:24px;color:var(--accent);border-bottom:2px solid var(--accent);padding-bottom:6px;margin-top:56px;margin-bottom:14px;}
+h3{font-size:19px;color:var(--accent-2);margin-top:32px;border-left:5px solid var(--accent-2);padding-left:10px}
+h4{font-size:16px;color:var(--accent-3);margin-top:20px}
+.hi{background:linear-gradient(180deg,transparent 55%,var(--hi) 55%);padding:0 2px}
+.term{color:var(--accent-2);font-weight:700}
+.term-en{color:var(--accent);font-style:italic}
+.eq{background:#fafaf5;padding:10px 16px;border-radius:8px;border:1px dashed #cfc9b6;margin:12px 0}
+.box{padding:14px 18px;border-radius:10px;margin:14px 0;position:relative}
+.box::before{content:attr(data-label);position:absolute;top:-10px;left:14px;background:#fff;padding:0 8px;font-size:12px;font-weight:700;letter-spacing:1px;}
+.box-note{background:var(--box-note);border:1px solid #c9d7f0}.box-note::before{content:"讲解 · 知识点";color:var(--accent-3)}
+.box-warn{background:var(--box-warn);border:1px solid #f5c6c0}.box-warn::before{content:"重难点 · 易错点";color:var(--accent-2)}
+.box-key{background:var(--box-key);border:1px solid #f3d78b}.box-key::before{content:"关键公式";color:#a17108}
+.box-example{background:var(--box-example);border:1px solid #b7dab8}.box-example::before{content:"例题详解";color:#2c6e2e}
+table.vocab{width:100%;border-collapse:collapse;margin:6px 0}
+table.vocab th,table.vocab td{padding:6px 10px;border-bottom:1px solid var(--line);font-size:14px;text-align:left;vertical-align:top}
+table.vocab th{background:#dfeae7;color:var(--accent)}
+.step{margin:10px 0;padding:10px 14px 10px 42px;background:#fbfaf3;border-radius:8px;position:relative}
+.step .no{position:absolute;left:10px;top:10px;width:24px;height:24px;line-height:24px;text-align:center;background:var(--accent);color:#fff;border-radius:50%;font-weight:700;font-size:13px;}
+ol.practice{padding-left:20px}ol.practice li{margin-bottom:10px}
+.ans{background:#eef7ee;border-left:4px solid #4e9d5c;padding:10px 14px;border-radius:0 8px 8px 0;margin:6px 0;font-size:14.5px}
+.ans::before{content:"参考答案与解析　";color:#2c6e2e;font-weight:700;font-size:12px;letter-spacing:1px}
+hr.soft{border:none;border-top:1px dashed #cfc9b6;margin:32px 0}
+.callout-topic{background:linear-gradient(135deg,#0f6b5e,#3e5aa8);color:#fff;padding:18px 22px;border-radius:12px;margin:20px 0;}
+.callout-topic h3{color:#f6e58d;border:none;padding:0;margin:0 0 8px}
+.callout-topic p{margin:0;opacity:.95}
+.small{font-size:13px;color:var(--ink-soft)}
+</style>
+<link rel="stylesheet" href="theme.css" />
+</head>
+<body>
+<div class="wrap">
+<aside class="toc">
+  <h1>第 4 章 原子的结构</h1>
+  <div class="sub">Chemistry · Matter and Change</div>
+  <a href="#overview">📖 章导读</a>
+  <a href="#map">🗺️ 章节地图</a>
+  <a href="#vocab">📚 术语速查表</a>
+  <a href="#s4-1">§4.1 早期物质理论</a>
+  <a href="#s4-2">§4.2 亚原子粒子与核式原子</a>
+  <a href="#s4-3">§4.3 原子如何不同</a>
+  <a href="#s4-4">§4.4 不稳定核与放射性衰变</a>
+  <a href="#study-guide">📝 Study Guide</a>
+  <a href="#assessment">🧪 Chapter Assessment</a>
+  <a href="#cheatsheet">⚡ 一页知识卡</a>
+</aside>
+
+<main>
+<h1 class="title">第 4 章 · The Structure of the Atom</h1>
+<div class="subtitle">原子的结构　·　中文自学手册　·　面向国际学校 9 年级</div>
+
+<section id="overview">
+<h2 class="section">📖 章导读</h2>
+<p>上一章我们知道所有物质都由<b>元素</b>组成、元素以<b>原子</b>为基本单位。可原子究竟长什么样？它内部还有更小的粒子吗？这一章就是"原子内部大揭秘"，故事线像侦探小说——每一代科学家用一个精妙实验推翻或修正前人模型。</p>
+<div class="callout-topic">
+<h3>🌟 本章 5 条主线</h3>
+<p>1) Dalton 原子论（5 条）—— 化学的公理。<br/>
+2) Thomson "梅子布丁"—— 发现电子。<br/>
+3) Rutherford α 散射 —— 发现原子核。<br/>
+4) 原子由 <b>质子 p⁺、中子 n⁰、电子 e⁻</b> 组成；<b>原子序数 Z</b> 和<b>质量数 A</b> 决定一切。<br/>
+5) 不稳定核会<b>放射性衰变</b>（α / β / γ），遵循<b>半衰期</b>规律。</p>
+</div>
+<p>这一章的知识让你能读懂周期表 (第 6 章)、理解化学键 (第 8/9 章)、掌握摩尔计算 (第 11 章) 中"平均原子质量"的由来。</p>
+</section>
+
+<section id="map">
+<h2 class="section">🗺️ 章节地图</h2>
+<table class="vocab">
+<thead><tr><th>小节</th><th>核心问题</th><th>关键结论</th></tr></thead>
+<tbody>
+<tr><td>§4.1 Early Theories of Matter</td><td>原子概念如何演变？</td><td>Democritus → Dalton 5 条原子论。</td></tr>
+<tr><td>§4.2 Subatomic Particles &amp; Nuclear Atom</td><td>原子里面有什么？</td><td>三种粒子：p⁺、n⁰、e⁻；核式模型 (Rutherford)：核居中、电子外围、大量空隙。</td></tr>
+<tr><td>§4.3 How Atoms Differ</td><td>不同元素凭什么不同？</td><td>原子序数 Z = p⁺ 数；质量数 A = p⁺ + n⁰；同位素 Z 同 A 不同；平均原子质量按丰度加权。</td></tr>
+<tr><td>§4.4 Unstable Nuclei &amp; Radioactive Decay</td><td>不稳定的核会怎样？</td><td>α、β、γ 三种衰变；半衰期 t₁/₂。</td></tr>
+</tbody>
+</table>
+</section>
+
+<section id="vocab">
+<h2 class="section">📚 术语速查表</h2>
+<table class="vocab">
+<thead><tr><th>English</th><th>中文</th><th>要点</th></tr></thead>
+<tbody>
+<tr><td>Dalton's atomic theory</td><td>道尔顿原子论</td><td>5 条基本假设</td></tr>
+<tr><td>atom</td><td>原子</td><td>元素能保持化学性质的最小微粒</td></tr>
+<tr><td>electron (e⁻)</td><td>电子</td><td>−1 电荷，质量约 1/1836 amu</td></tr>
+<tr><td>proton (p⁺)</td><td>质子</td><td>+1 电荷，约 1 amu，在核内</td></tr>
+<tr><td>neutron (n⁰)</td><td>中子</td><td>0 电荷，约 1 amu，在核内</td></tr>
+<tr><td>nucleus</td><td>原子核</td><td>体积极小、几乎所有质量集中于此</td></tr>
+<tr><td>atomic number (Z)</td><td>原子序数</td><td>质子数，元素身份的唯一标识</td></tr>
+<tr><td>mass number (A)</td><td>质量数</td><td>p⁺ + n⁰</td></tr>
+<tr><td>isotope</td><td>同位素</td><td>Z 相同、A 不同</td></tr>
+<tr><td>atomic mass unit (amu / u)</td><td>原子质量单位</td><td>1 amu = 1/12 of C-12</td></tr>
+<tr><td>atomic mass</td><td>原子质量 / 相对原子质量</td><td>平均值，按同位素丰度加权</td></tr>
+<tr><td>radioactivity</td><td>放射性</td><td>不稳定核自发放出粒子/能量</td></tr>
+<tr><td>alpha (α) particle</td><td>α 粒子</td><td>⁴₂He 核</td></tr>
+<tr><td>beta (β) particle</td><td>β 粒子</td><td>高速电子 e⁻</td></tr>
+<tr><td>gamma (γ) ray</td><td>γ 射线</td><td>高能光子，无质量无电荷</td></tr>
+<tr><td>half-life (t₁/₂)</td><td>半衰期</td><td>放射性核减半所需时间</td></tr>
+<tr><td>transmutation</td><td>核转变</td><td>一种元素通过核反应变成另一种</td></tr>
+</tbody>
+</table>
+</section>
+
+<section id="s4-1">
+<h2 class="section">§4.1 Early Theories of Matter 早期物质理论</h2>
+<p>约公元前 400 年，古希腊哲学家 <span class="term-en">Democritus</span>（德谟克利特）提出："物质不能无限切分，最后剩下的最小微粒叫 <b>atomos</b>（意为'不可切分'）"。但这只是哲学推测，没有实验证据；亚里士多德反对该说法，导致原子概念被搁置了 2000 多年。</p>
+
+<h3>Dalton 原子论（1803，5 条）</h3>
+<div class="box box-key">
+<b>Dalton's Atomic Theory —— 现代化学的基石</b>
+<ol style="margin:6px 0 0 20px">
+<li>所有物质都由极其微小、<b>不可分</b>的原子组成。</li>
+<li>同种元素的原子<b>完全相同</b>（质量、性质），不同元素的原子<b>不同</b>。</li>
+<li>不同元素的原子能以<b>简单整数比</b>结合形成化合物。</li>
+<li>化学反应中原子只是<b>重新组合</b>，不生不灭 → 与<b>质量守恒定律</b>一致。</li>
+<li>原子是化学反应中<b>参与作用的最小单位</b>。</li>
+</ol>
+</div>
+<div class="box box-warn">
+<b>后来被修正的地方：</b>
+<ul style="margin:6px 0 0 20px">
+<li>原子不是不可分——里面还有 p⁺、n⁰、e⁻ (§4.2)。</li>
+<li>同一元素也可以有不同质量的原子——<b>同位素</b> (§4.3)。</li>
+<li>核反应中原子会变成另一种原子——<b>核转变</b> (§4.4)。</li>
+</ul>
+但化学反应中 Dalton 的假设仍然基本成立，所以化学计算依旧靠它。
+</div>
+</section>
+
+<section id="s4-2">
+<h2 class="section">§4.2 Subatomic Particles and the Nuclear Atom 亚原子粒子与核式原子</h2>
+
+<h3>1. Thomson 发现电子（1897）</h3>
+<p>Thomson 用<b>阴极射线管</b>做实验：真空玻璃管两端加高压，从阴极射出一束"射线"（cathode ray）。这束射线被电场偏转到<b>正极</b>一侧、能被磁场偏转，说明它是<b>带负电</b>的粒子流——这就是<b>电子</b>。Thomson 还测出电荷/质量比，之后 Millikan 油滴实验测出电子电荷。</p>
+<div class="box box-note">
+<b>Thomson 的"梅子布丁模型" (plum pudding model)：</b>原子像布丁，正电荷像"面糊"均匀分布，电子像"梅子"嵌在里面。这个模型很快被推翻。
+</div>
+
+<h3>2. Rutherford α 散射实验（1911，重点！）</h3>
+<p>Rutherford 用一束<b>α 粒子</b>轰击极薄的<b>金箔</b>：</p>
+<div class="box box-key">
+<b>观察结果：</b>
+<ul style="margin:6px 0 0 20px">
+<li>绝大多数 α 粒子<b>直穿</b>而过 → 原子内部大部分是<b>空的</b>。</li>
+<li>少数被<b>大角度偏转</b>，极少数被<b>反弹</b>回来 → 原子内有一个<b>体积极小、质量极大、带正电</b>的核心。</li>
+</ul>
+<b>结论：核式原子模型 (nuclear atom)</b>——正电荷和几乎所有质量集中在<b>极小的原子核 (nucleus)</b> 中，电子在核外空间高速运动。原子体积 ≫ 原子核体积（若原子放大到体育场，核只有一颗豌豆那么大）。
+</div>
+
+<h3>3. 三种亚原子粒子</h3>
+<table class="vocab">
+<thead><tr><th>粒子</th><th>符号</th><th>电荷</th><th>相对质量 (amu)</th><th>位置</th></tr></thead>
+<tbody>
+<tr><td>Electron 电子</td><td>e⁻</td><td>−1</td><td>≈ 1/1836 (可忽略)</td><td>核外</td></tr>
+<tr><td>Proton 质子</td><td>p⁺</td><td>+1</td><td>≈ 1</td><td>核内</td></tr>
+<tr><td>Neutron 中子</td><td>n⁰</td><td>0</td><td>≈ 1</td><td>核内</td></tr>
+</tbody>
+</table>
+<div class="box box-warn">
+中子由 Chadwick（1932）发现——它不带电，很难被电场磁场偏转，所以最难探测到，也是发现最晚的。
+</div>
+</section>
+
+<section id="s4-3">
+<h2 class="section">§4.3 How Atoms Differ 原子如何不同</h2>
+
+<h3>1. 原子序数 Z 与质量数 A</h3>
+<div class="box box-key">
+<b>原子序数 Z = 质子数</b>。它决定元素身份：Z 一变，元素就变。<br/>
+<b>质量数 A = 质子数 + 中子数</b> = p⁺ + n⁰。<br/>
+<b>中性原子：</b>质子数 = 电子数（正负电抵消）。<br/>
+<b>核素表示法：</b>$$^{A}_{Z}X$$ 或简写 X-A，如 $^{12}_{6}\text{C}$、$^{235}_{92}\text{U}$、C-12、U-235。
+</div>
+
+<h3>2. 同位素 isotope（重点！）</h3>
+<p><b>同一元素</b>（Z 相同）的<b>不同原子</b>（A 不同）叫<span class="term">同位素</span>。它们化学性质几乎一样（因为 Z 相同、电子结构相同），只是质量不同。</p>
+<div class="box box-example">
+氢有 3 种同位素：<br/>
+$^{1}_{1}\text{H}$（普通氢，1 p⁺，0 n⁰，占 99.98%）<br/>
+$^{2}_{1}\text{H}$（氘 deuterium，D，1 p⁺，1 n⁰）<br/>
+$^{3}_{1}\text{H}$（氚 tritium，T，1 p⁺，2 n⁰，放射性）
+</div>
+
+<h3>3. 原子质量单位 amu 与平均原子质量</h3>
+<div class="box box-key">
+<b>1 amu = C-12 原子质量的 1/12</b>（约 1.66 × 10⁻²⁴ g）。<br/>
+<b>元素的相对原子质量</b>（周期表上那个数字）是各<b>同位素质量按丰度加权平均</b>：<br/>
+$$\bar{M} = \sum_i (\text{丰度}_i \times m_i)$$
+</div>
+
+<div class="box box-example">
+<b>例：</b>Cl 有两种同位素：$^{35}$Cl (34.969 amu, 丰度 75.77%) 和 $^{37}$Cl (36.966 amu, 24.23%)。求 Cl 的相对原子质量。<br/>
+<b>解：</b>
+<div class="step"><span class="no">1</span>$\bar{M} = 0.7577 × 34.969 + 0.2423 × 36.966$</div>
+<div class="step"><span class="no">2</span>$= 26.50 + 8.957 = 35.46$ amu</div>
+与周期表上 Cl 的 35.45 一致。
+</div>
+</section>
+
+<section id="s4-4">
+<h2 class="section">§4.4 Unstable Nuclei and Radioactive Decay 不稳定核与放射性衰变</h2>
+
+<h3>1. 为什么核会不稳定？</h3>
+<p>原子核里 p⁺ 之间是同性相斥的库仑力，靠<b>强相互作用力</b>把它们和 n⁰ 粘在一起。当 p⁺/n⁰ 比失衡或核太重时，核就不稳定，会自发地放出粒子或能量以达到更稳定的状态——这叫<b>放射性衰变</b>。</p>
+
+<h3>2. 三种基本衰变</h3>
+<table class="vocab">
+<thead><tr><th>类型</th><th>放出</th><th>核变化</th><th>穿透力</th></tr></thead>
+<tbody>
+<tr><td>α 衰变</td><td>$^{4}_{2}\text{He}$（α 粒子）</td><td>Z 减 2，A 减 4</td><td>最弱（一张纸就能挡）</td></tr>
+<tr><td>β 衰变</td><td>e⁻（β 粒子，来自 n⁰ → p⁺ + e⁻）</td><td>Z 加 1，A 不变</td><td>中等（几毫米铝板）</td></tr>
+<tr><td>γ 衰变</td><td>γ 射线（高能光子）</td><td>Z、A 都不变（能量释放）</td><td>最强（需铅或厚混凝土）</td></tr>
+</tbody>
+</table>
+
+<div class="box box-example">
+<b>核反应式配平：</b>左右两边质量数 A 之和相等、原子序数 Z 之和相等。<br/>
+α 衰变例：$$^{238}_{92}\text{U} \longrightarrow \,^{234}_{90}\text{Th} + \,^{4}_{2}\text{He}$$
+β 衰变例：$$^{14}_{6}\text{C} \longrightarrow \,^{14}_{7}\text{N} + \,^{0}_{-1}\text{e}$$
+</div>
+
+<h3>3. 半衰期 (half-life, t₁/₂)</h3>
+<div class="box box-key">
+放射性核每经过一个 <b>t₁/₂</b>，剩余数量减少到<b>原来的一半</b>：
+$$N = N_0 \left(\frac{1}{2}\right)^{t / t_{1/2}}$$
+其中 $N_0$ 是初始量，$N$ 是经过时间 $t$ 后剩余量。<br/>
+<b>特点：</b>每种同位素的 t₁/₂ 是常数，与外界条件（温度、压力）<b>无关</b>。
+</div>
+
+<div class="box box-example">
+<b>例：</b>C-14 的半衰期是 5730 年。一件古董中 C-14 剩余量为初始的 1/8。它多久前形成？<br/>
+<b>解：</b>1/8 = (1/2)³ → 经过了 <b>3 个半衰期</b> = 3 × 5730 = <b>17190 年</b>。
+</div>
+
+<div class="box box-warn">
+<b>易错点：</b>半衰期不是"死光的时间"，是"剩一半的时间"。经过 n 个 t₁/₂ 剩 $(1/2)^n$，永远不会真的到 0。
+</div>
+</section>
+
+<section id="study-guide">
+<h2 class="section">📝 Study Guide 章节复习</h2>
+<div class="box box-note">
+<b>1. 原子论：</b>Dalton 5 条，是化学计算的公理；后来被修正但主体成立。<br/>
+<b>2. 亚原子粒子：</b>p⁺、n⁰、e⁻；Thomson 阴极射线发现电子；Rutherford α 散射发现核。<br/>
+<b>3. 元素与同位素：</b>Z 决定元素，A = Z + N；同位素 Z 同 A 不同；平均原子质量 = Σ(丰度 × 质量)。<br/>
+<b>4. 放射性：</b>α（Z 减 2、A 减 4）、β（Z 加 1、A 不变）、γ（Z A 不变）；半衰期公式 $N = N_0(1/2)^{t/t_{1/2}}$。
+</div>
+</section>
+
+<section id="assessment">
+<h2 class="section">🧪 Chapter Assessment 章末测评（精选题）</h2>
+
+<ol class="practice">
+<li>Dalton 原子论中哪一条<b>不完全正确</b>？
+<div class="ans">"原子不可分"—— 现代已知原子可分为 p⁺、n⁰、e⁻。此外"同种元素原子完全相同"也需修正（同位素质量不同）。</div>
+</li>
+
+<li>Rutherford 金箔实验的哪一现象说明原子内部大部分是空的？
+<div class="ans">绝大多数 α 粒子<b>直接穿过金箔</b>而不偏转，说明它们没遇到什么阻挡 → 原子内部大部分是空的。</div>
+</li>
+
+<li>写出下列原子的 (Z, N, A) 及电子数：<br/>
+① $^{40}_{19}\text{K}$；② $^{56}_{26}\text{Fe}$；③ $^{197}_{79}\text{Au}$。
+<div class="ans">
+① Z=19, N=40−19=21, A=40，电子=19。<br/>
+② Z=26, N=30, A=56，电子=26。<br/>
+③ Z=79, N=118, A=197，电子=79。
+</div>
+</li>
+
+<li>Cu 有两种同位素：$^{63}$Cu (62.93 amu, 69.15%) 与 $^{65}$Cu (64.93 amu, 30.85%)，求相对原子质量。
+<div class="ans">$\bar{M} = 0.6915 × 62.93 + 0.3085 × 64.93 = 43.517 + 20.031 = <b>63.55</b>$ amu，与周期表 63.55 一致。</div>
+</li>
+
+<li>下面哪种衰变方式会使 Z 增加 1？
+<div class="ans"><b>β 衰变</b>。中子 n⁰ 转变为 p⁺ + e⁻，多出一个质子，Z 加 1，A 不变。</div>
+</li>
+
+<li>配平核反应：$^{226}_{88}\text{Ra} \to \,^{?}_{?}? + \,^{4}_{2}\text{He}$
+<div class="ans">左侧 A=226, Z=88；右侧已有 A=4, Z=2，故未知核 A=222, Z=86，即 $^{222}_{86}\text{Rn}$。</div>
+</li>
+
+<li>某同位素半衰期 8 天。40 mg 样品经 24 天后剩多少？
+<div class="ans">24/8 = 3 个 t₁/₂，剩 $(1/2)^3 = 1/8$。40 × 1/8 = <b>5.0 mg</b>。</div>
+</li>
+
+<li>下列元素符号哪一个书写<b>正确</b>？
+a) CU；b) Cu；c) cu；d) cU。
+<div class="ans">选 <b>b</b>。元素符号首字母大写，第二字母小写。</div>
+</li>
+
+<li>为什么同位素化学性质几乎相同？
+<div class="ans">化学性质由<b>电子结构</b>决定。同位素 Z 相同 → 电子数与排布相同 → 化学性质几乎相同；只有质量数不同，会略微影响反应速率（同位素效应），但一般化学反应中不显著。</div>
+</li>
+
+<li>如果 Ne 有三种同位素：$^{20}$Ne (19.99, 90.48%), $^{21}$Ne (20.99, 0.27%), $^{22}$Ne (21.99, 9.25%)，求平均原子质量。
+<div class="ans">$0.9048×19.99 + 0.0027×20.99 + 0.0925×21.99 ≈ 18.09 + 0.0567 + 2.034 ≈ <b>20.18</b>$ amu。</div>
+</li>
+
+<li>下列哪种射线穿透力最强？
+a) α; b) β; c) γ; d) 三者一样。
+<div class="ans">选 <b>c</b>。γ 是高能光子，需铅或厚混凝土才能挡。α 一张纸就能挡，β 几毫米铝板。</div>
+</li>
+
+<li>解释：如果 Rutherford 实验中原子是 Thomson 的"梅子布丁"，那么 α 粒子应该有什么表现？
+<div class="ans">若正电荷均匀分布在整个原子体积中，密度很低，α 粒子应该几乎都直穿过、不出现大角度反弹。实际观察到<b>反弹</b>，说明正电荷集中在极小的核内。</div>
+</li>
+</ol>
+</section>
+
+<section id="cheatsheet">
+<h2 class="section">⚡ 一页知识卡</h2>
+
+<div class="callout-topic">
+<h3>亚原子粒子速查</h3>
+<p>e⁻ ：−1 电荷，几乎无质量，核外<br/>
+p⁺ ：+1 电荷，1 amu，核内 —— <b>决定元素身份</b><br/>
+n⁰ ：0 电荷，1 amu，核内 —— <b>决定同位素</b></p>
+</div>
+
+<div class="box box-key">
+<b>核心公式 &amp; 记法</b><br/>
+① 原子序数 Z = p⁺ 数 = 中性原子的 e⁻ 数<br/>
+② 质量数 A = p⁺ + n⁰<br/>
+③ 核素表示 $^{A}_{Z}X$<br/>
+④ 平均原子质量 $\bar{M} = \Sigma (\text{丰度} × m_i)$<br/>
+⑤ 半衰期 $N = N_0 (1/2)^{t/t_{1/2}}$
+</div>
+
+<div class="box box-note">
+<b>三种衰变一句话记：</b>
+"α 出核变 He、减两位；β 出电子、Z 加 1；γ 出光子、不变位。"
+</div>
+
+<div class="box box-warn">
+<b>易错三连：</b><br/>
+① 电子数 = p⁺ 数只在<b>中性原子</b>成立；离子要加减。<br/>
+② 同位素<b>不是同素异形体</b>（同素异形体是同一元素的不同单质形式，如金刚石与石墨）。<br/>
+③ 半衰期不受温度/压力影响，只由核性质决定。
+</div>
+</section>
+
+<hr class="soft"/>
+<p class="small" style="text-align:center;color:#888">© 中文自学手册 · 与《Chemistry — Matter and Change》第 4 章配套</p>
+</main>
+</div>
+<script src="theme.js"></script>
+</body>
+</html>
