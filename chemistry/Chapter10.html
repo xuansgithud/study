@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>第 10 章 Chemical Reactions · 中文学习手册</title>
+<script>
+window.MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$','$$'], ['\\[','\\]']] }, svg: { fontCache: 'global' } };
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+:root{--bg:#f7f5ef;--paper:#ffffff;--ink:#232323;--ink-soft:#4a4a4a;--accent:#0f6b5e;--accent-2:#c1543b;--accent-3:#3e5aa8;--hi:#f6e58d;--box-note:#eaf1fb;--box-warn:#fdecea;--box-key:#fff1d6;--box-example:#eef7ee;--line:#e4dfd2;}
+*{box-sizing:border-box}html,body{margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei","Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.75;font-size:16px;}
+.wrap{display:flex;max-width:1400px;margin:0 auto;min-height:100vh}
+aside.toc{position:sticky;top:0;align-self:flex-start;width:280px;height:100vh;overflow-y:auto;background:linear-gradient(180deg,#0f6b5e,#0b4d43);color:#fff;padding:24px 18px;}
+aside.toc h1{font-size:16px;margin:0 0 6px;letter-spacing:1px;color:#f6e58d}
+aside.toc .sub{font-size:12px;opacity:.75;margin-bottom:16px}
+aside.toc a{display:block;color:#f2fbf8;text-decoration:none;padding:8px 10px;border-radius:6px;margin-bottom:2px;font-size:14px;line-height:1.4;border-left:3px solid transparent;}
+aside.toc a:hover{background:rgba(255,255,255,.10)}
+main{flex:1;padding:36px 44px;background:var(--paper);box-shadow:0 0 30px rgba(0,0,0,.05)}
+h1.title{font-size:32px;margin:0 0 6px;color:var(--accent)}
+.subtitle{color:var(--ink-soft);margin-bottom:24px;font-size:14px}
+h2.section{font-size:24px;color:var(--accent);border-bottom:2px solid var(--accent);padding-bottom:6px;margin-top:56px;margin-bottom:14px;}
+h3{font-size:19px;color:var(--accent-2);margin-top:32px;border-left:5px solid var(--accent-2);padding-left:10px}
+h4{font-size:16px;color:var(--accent-3);margin-top:20px}
+.term{color:var(--accent-2);font-weight:700}
+.term-en{color:var(--accent);font-style:italic}
+.box{padding:14px 18px;border-radius:10px;margin:14px 0;position:relative}
+.box::before{content:attr(data-label);position:absolute;top:-10px;left:14px;background:#fff;padding:0 8px;font-size:12px;font-weight:700;letter-spacing:1px;}
+.box-note{background:var(--box-note);border:1px solid #c9d7f0}.box-note::before{content:"讲解 · 知识点";color:var(--accent-3)}
+.box-warn{background:var(--box-warn);border:1px solid #f5c6c0}.box-warn::before{content:"重难点 · 易错点";color:var(--accent-2)}
+.box-key{background:var(--box-key);border:1px solid #f3d78b}.box-key::before{content:"关键规则";color:#a17108}
+.box-example{background:var(--box-example);border:1px solid #b7dab8}.box-example::before{content:"例题详解";color:#2c6e2e}
+table.vocab{width:100%;border-collapse:collapse;margin:6px 0}
+table.vocab th,table.vocab td{padding:6px 10px;border-bottom:1px solid var(--line);font-size:14px;text-align:left;vertical-align:top}
+table.vocab th{background:#dfeae7;color:var(--accent)}
+.step{margin:10px 0;padding:10px 14px 10px 42px;background:#fbfaf3;border-radius:8px;position:relative}
+.step .no{position:absolute;left:10px;top:10px;width:24px;height:24px;line-height:24px;text-align:center;background:var(--accent);color:#fff;border-radius:50%;font-weight:700;font-size:13px;}
+ol.practice{padding-left:20px}ol.practice li{margin-bottom:10px}
+.ans{background:#eef7ee;border-left:4px solid #4e9d5c;padding:10px 14px;border-radius:0 8px 8px 0;margin:6px 0;font-size:14.5px}
+.ans::before{content:"参考答案与解析　";color:#2c6e2e;font-weight:700;font-size:12px;letter-spacing:1px}
+hr.soft{border:none;border-top:1px dashed #cfc9b6;margin:32px 0}
+.callout-topic{background:linear-gradient(135deg,#0f6b5e,#3e5aa8);color:#fff;padding:18px 22px;border-radius:12px;margin:20px 0;}
+.callout-topic h3{color:#f6e58d;border:none;padding:0;margin:0 0 8px}
+.callout-topic p{margin:0;opacity:.95}
+.small{font-size:13px;color:var(--ink-soft)}
+</style>
+<link rel="stylesheet" href="theme.css?v=20260905" />
+</head>
+<body>
+<div class="wrap">
+<aside class="toc">
+  <h1>第 10 章 化学反应</h1>
+  <div class="sub">Chemistry · Matter and Change</div>
+  <a href="#overview">📖 章导读</a>
+  <a href="#map">🗺️ 章节地图</a>
+  <a href="#vocab">📚 术语速查表</a>
+  <a href="#s10-1">§10.1 反应与化学方程式</a>
+  <a href="#s10-2">§10.2 反应分类</a>
+  <a href="#s10-3">§10.3 水溶液中的反应</a>
+  <a href="#study-guide">📝 Study Guide</a>
+  <a href="#assessment">🧪 Chapter Assessment</a>
+  <a href="#cheatsheet">⚡ 一页知识卡</a>
+</aside>
+
+<main>
+<h1 class="title">第 10 章 · Chemical Reactions</h1>
+<div class="subtitle">化学反应　·　中文自学手册　·　直接连接第 11 章的地基</div>
+
+<section id="overview">
+<h2 class="section">📖 章导读</h2>
+<p>化学反应是化学的<b>动词</b>——研究"物质怎么变成另一种物质"。这一章教你三件核心事：<br/>
+① 如何用<b>化学方程式</b>描述反应，并<b>配平</b>它；<br/>
+② 如何把反应<b>分类</b>为 5 种基本类型；<br/>
+③ <b>水溶液中的反应</b>（沉淀、酸碱中和），以及如何写<b>净离子方程式</b>。</p>
+<div class="callout-topic">
+<h3>🌟 为什么关键？</h3>
+<p>第 11 章的所有摩尔计算、第 12 章的化学计量 (Stoichiometry)，都从一根<b>已配平的化学方程式</b>开始。学不会配平，就无法定量分析反应。</p>
+</div>
+</section>
+
+<section id="map">
+<h2 class="section">🗺️ 章节地图</h2>
+<table class="vocab">
+<thead><tr><th>小节</th><th>核心问题</th><th>关键结论</th></tr></thead>
+<tbody>
+<tr><td>§10.1 反应与方程式</td><td>怎么写和配平方程式？</td><td>5 步配平；不改下标只改系数；状态符号 (s)(l)(g)(aq)。</td></tr>
+<tr><td>§10.2 反应分类</td><td>反应有几种类型？</td><td>5 类：化合、分解、单置换、复分解、燃烧。</td></tr>
+<tr><td>§10.3 水溶液反应</td><td>如何写离子方程式？</td><td>溶解度规则 → 沉淀；完全离子式；净离子式（去观察者离子）。</td></tr>
+</tbody>
+</table>
+</section>
+
+<section id="vocab">
+<h2 class="section">📚 术语速查表</h2>
+<table class="vocab">
+<thead><tr><th>English</th><th>中文</th><th>要点</th></tr></thead>
+<tbody>
+<tr><td>chemical reaction</td><td>化学反应</td><td>产生新物质的变化</td></tr>
+<tr><td>reactant / product</td><td>反应物 / 生成物</td><td>箭头前 / 箭头后</td></tr>
+<tr><td>chemical equation</td><td>化学方程式</td><td>用化学式和系数表达反应</td></tr>
+<tr><td>balanced equation</td><td>配平方程式</td><td>两边各元素原子数相等</td></tr>
+<tr><td>coefficient</td><td>系数</td><td>写在化学式前的整数</td></tr>
+<tr><td>subscript</td><td>下标</td><td>化学式内部的小数字（<b>永远不能改</b>）</td></tr>
+<tr><td>state symbol</td><td>状态符号</td><td>(s) 固 / (l) 液 / (g) 气 / (aq) 水溶液</td></tr>
+<tr><td>catalyst</td><td>催化剂</td><td>加快反应但自身不消耗；写箭头上方</td></tr>
+<tr><td>synthesis / combination</td><td>化合（合成）</td><td>A + B → AB</td></tr>
+<tr><td>decomposition</td><td>分解</td><td>AB → A + B</td></tr>
+<tr><td>single-replacement</td><td>单置换 / 单取代</td><td>A + BC → AC + B</td></tr>
+<tr><td>double-replacement</td><td>复分解 / 双取代</td><td>AB + CD → AD + CB</td></tr>
+<tr><td>combustion</td><td>燃烧</td><td>燃料 + O₂ → CO₂ + H₂O</td></tr>
+<tr><td>activity series</td><td>活动性顺序</td><td>金属/卤素的反应活性排序</td></tr>
+<tr><td>precipitate</td><td>沉淀</td><td>反应生成的不溶固体（↓）</td></tr>
+<tr><td>aqueous solution</td><td>水溶液</td><td>(aq)</td></tr>
+<tr><td>electrolyte</td><td>电解质</td><td>溶于水解离出离子的物质</td></tr>
+<tr><td>complete ionic equation</td><td>完全离子方程式</td><td>把所有强电解质写成离子</td></tr>
+<tr><td>net ionic equation</td><td>净离子方程式</td><td>去掉"观察者离子"后的方程式</td></tr>
+<tr><td>spectator ion</td><td>观察者 / 旁观离子</td><td>反应前后都以离子形式存在</td></tr>
+</tbody>
+</table>
+</section>
+
+<section id="s10-1">
+<h2 class="section">§10.1 Reactions and Equations 反应与化学方程式（重难点！）</h2>
+
+<h3>1. 化学反应发生的信号</h3>
+<div class="box box-note">
+① 颜色变化（如铁生锈变棕）<br/>
+② 产生气体（冒泡）<br/>
+③ 产生沉淀 (precipitate)<br/>
+④ 温度变化（放热/吸热）<br/>
+⑤ 发光<br/>
+出现一种或多种信号 → 大概率是化学反应，最终以"是否有新物质生成"为准。
+</div>
+
+<h3>2. 化学方程式三种表达</h3>
+<ul>
+<li><b>Word equation 文字式：</b>hydrogen + oxygen → water</li>
+<li><b>Skeleton equation 骨架式：</b>H₂ + O₂ → H₂O（未配平）</li>
+<li><b>Balanced equation 配平式：</b>2H₂ + O₂ → 2H₂O</li>
+</ul>
+
+<h3>3. 状态符号 & 催化剂</h3>
+<div class="box box-key">
+<b>状态：</b>(s) solid、(l) liquid、(g) gas、(aq) 溶于水的水溶液。<br/>
+<b>可逆反应</b>用双箭头 ⇌。<br/>
+<b>催化剂</b>写在箭头<b>上方</b>：$\text{2H}_2\text{O}_2 \xrightarrow{\text{MnO}_2} 2\text{H}_2\text{O} + \text{O}_2$
+</div>
+
+<h3>4. 配平 5 步法（Balancing Equations）</h3>
+<div class="box box-key">
+<b>第 1 步：</b>写出<b>骨架式</b>（反应物 → 生成物）。<br/>
+<b>第 2 步：</b>逐元素数原子。<br/>
+<b>第 3 步：</b>用<b>系数（coefficient）</b>调整——注意：只改系数，<b>永远不改下标</b>！<br/>
+<b>第 4 步：</b>从<b>最复杂</b>的分子/<b>只出现一次</b>的元素开始；<b>H 和 O 放最后</b>。<br/>
+<b>第 5 步：</b>检查所有元素两边相等，且系数是<b>最简整数比</b>。
+</div>
+
+<div class="box box-example">
+<b>例：配平</b> C₃H₈ + O₂ → CO₂ + H₂O（丙烷燃烧）<br/>
+<div class="step"><span class="no">1</span>C：左 3，右 1 → CO₂ 系数写 3。C₃H₈ + O₂ → 3CO₂ + H₂O</div>
+<div class="step"><span class="no">2</span>H：左 8，右 2 → H₂O 系数 4。C₃H₈ + O₂ → 3CO₂ + 4H₂O</div>
+<div class="step"><span class="no">3</span>O：右 3×2 + 4×1 = 10；左 2 → O₂ 系数 5。</div>
+<div class="step"><span class="no">4</span>结果：<b>C₃H₈ + 5O₂ → 3CO₂ + 4H₂O</b>。检查：C 3=3、H 8=8、O 10=10 ✓</div>
+</div>
+
+<div class="box box-warn">
+<b>7 种常见"双原子分子"必须记住（写单质时不能只写一个原子）：</b>H₂、N₂、O₂、F₂、Cl₂、Br₂、I₂。
+</div>
+</section>
+
+<section id="s10-2">
+<h2 class="section">§10.2 Classifying Chemical Reactions 反应分类（5 种）</h2>
+
+<h3>1. 化合反应 Synthesis / Combination：A + B → AB</h3>
+<div class="box box-example">
+$2\text{H}_2 + \text{O}_2 \to 2\text{H}_2\text{O}$<br/>
+$\text{CaO} + \text{H}_2\text{O} \to \text{Ca(OH)}_2$<br/>
+$\text{N}_2 + 3\text{H}_2 \to 2\text{NH}_3$（合成氨）
+</div>
+
+<h3>2. 分解反应 Decomposition：AB → A + B</h3>
+<div class="box box-example">
+$2\text{H}_2\text{O} \xrightarrow{\text{电解}} 2\text{H}_2 + \text{O}_2$<br/>
+$\text{CaCO}_3 \xrightarrow{\Delta} \text{CaO} + \text{CO}_2$（石灰石煅烧）<br/>
+$2\text{KClO}_3 \xrightarrow{\text{MnO}_2, \Delta} 2\text{KCl} + 3\text{O}_2$
+</div>
+
+<h3>3. 单置换反应 Single-Replacement：A + BC → AC + B</h3>
+<p>一种较活泼的单质"顶替"化合物中的另一种。</p>
+<div class="box box-key">
+<b>活动性顺序表 (Activity Series)</b><br/>
+金属：K &gt; Ca &gt; Na &gt; Mg &gt; Al &gt; Zn &gt; Fe &gt; Sn &gt; Pb &gt; <b>(H)</b> &gt; Cu &gt; Ag &gt; Au<br/>
+卤素：F &gt; Cl &gt; Br &gt; I<br/>
+<b>规则：活性强的能置换活性弱的，反之不能。</b>
+</div>
+<div class="box box-example">
+$\text{Zn} + 2\text{HCl} \to \text{ZnCl}_2 + \text{H}_2$（Zn 在 H 前，能置换 H₂）<br/>
+$\text{Cu} + 2\text{AgNO}_3 \to \text{Cu(NO}_3)_2 + 2\text{Ag}$（Cu 比 Ag 活泼）<br/>
+$\text{Cu} + \text{HCl} \to $ 无反应（Cu 在 H 后）<br/>
+$\text{Cl}_2 + 2\text{NaBr} \to 2\text{NaCl} + \text{Br}_2$（卤素置换）
+</div>
+
+<h3>4. 复分解反应 Double-Replacement：AB + CD → AD + CB</h3>
+<p>两种化合物"交换"离子。发生条件：至少产生<b>沉淀、气体、水（弱电解质）</b>之一。</p>
+<div class="box box-example">
+$\text{AgNO}_3 + \text{NaCl} \to \text{AgCl}\downarrow + \text{NaNO}_3$（生成沉淀）<br/>
+$\text{HCl} + \text{NaOH} \to \text{NaCl} + \text{H}_2\text{O}$（生成水，酸碱中和）<br/>
+$2\text{HCl} + \text{CaCO}_3 \to \text{CaCl}_2 + \text{H}_2\text{O} + \text{CO}_2\uparrow$（生成气体）
+</div>
+
+<h3>5. 燃烧反应 Combustion：燃料 + O₂ → CO₂ + H₂O</h3>
+<p>烃或含 C、H 的燃料在足量 O₂ 下完全燃烧生成 CO₂ 和 H₂O；不足 O₂ 时不完全燃烧生成 CO 或 C（黑烟）。</p>
+<div class="box box-example">
+$\text{CH}_4 + 2\text{O}_2 \to \text{CO}_2 + 2\text{H}_2\text{O}$（甲烷完全燃烧）<br/>
+$2\text{C}_8\text{H}_{18} + 25\text{O}_2 \to 16\text{CO}_2 + 18\text{H}_2\text{O}$（辛烷/汽油）
+</div>
+</section>
+
+<section id="s10-3">
+<h2 class="section">§10.3 Reactions in Aqueous Solutions 水溶液中的反应</h2>
+
+<h3>1. 电解质与解离</h3>
+<p><b>电解质 electrolyte</b>：溶于水或熔融时能电离产生离子的物质。<b>强电解质</b>（可溶盐、强酸 HCl H₂SO₄ HNO₃…、强碱 NaOH KOH…）在水中<b>完全</b>解离；弱电解质（弱酸弱碱、水）部分解离。</p>
+
+<h3>2. 溶解度规则 Solubility Rules（必背！）</h3>
+<div class="box box-key">
+<b>常见"可溶"规则：</b><br/>
+① 所有 Group 1（Na⁺、K⁺、Li⁺）和 NH₄⁺ 的盐——都可溶。<br/>
+② 所有 NO₃⁻、CH₃COO⁻（乙酸根）盐——都可溶。<br/>
+③ Cl⁻、Br⁻、I⁻ 盐——多数可溶，<b>例外：AgCl、PbCl₂、Hg₂Cl₂ 不溶</b>。<br/>
+④ SO₄²⁻ 盐——多数可溶，<b>例外：BaSO₄、PbSO₄、SrSO₄、CaSO₄（微溶）不溶</b>。<br/>
+<b>常见"不溶"规则：</b><br/>
+⑤ OH⁻ 盐——大多<b>不溶</b>，例外：Group 1、Ba(OH)₂、Sr(OH)₂ 可溶，Ca(OH)₂ 微溶。<br/>
+⑥ S²⁻ 盐——大多不溶，例外：Group 1、2、NH₄⁺ 可溶。<br/>
+⑦ CO₃²⁻、PO₄³⁻ 盐——大多不溶，例外：Group 1、NH₄⁺。
+</div>
+
+<h3>3. 三种方程式表达（重点！）</h3>
+<div class="box box-note">
+以 AgNO₃ + NaCl → AgCl↓ + NaNO₃ 为例：<br/>
+<b>① 分子方程式 (molecular equation)：</b><br/>
+$\text{AgNO}_3\text{(aq)} + \text{NaCl(aq)} \to \text{AgCl(s)} + \text{NaNO}_3\text{(aq)}$<br/><br/>
+<b>② 完全离子方程式 (complete ionic)：</b>把所有强电解质写成离子（沉淀、水、气体和弱电解质<b>保留分子式</b>）<br/>
+$\text{Ag}^+ + \text{NO}_3^- + \text{Na}^+ + \text{Cl}^- \to \text{AgCl(s)} + \text{Na}^+ + \text{NO}_3^-$<br/><br/>
+<b>③ 净离子方程式 (net ionic)：</b>去掉两边都出现的<b>观察者离子 (spectator ion)</b><br/>
+$\text{Ag}^+ + \text{Cl}^- \to \text{AgCl(s)}$<br/>
+这就是"反应真正发生的过程"。
+</div>
+
+<h3>4. 常见类型：沉淀、气体、酸碱中和</h3>
+<div class="box box-example">
+<b>沉淀：</b>Pb(NO₃)₂ + 2KI → PbI₂↓（黄色）+ 2KNO₃　（净离子：Pb²⁺ + 2I⁻ → PbI₂）<br/>
+<b>气体：</b>Na₂CO₃ + 2HCl → 2NaCl + H₂O + CO₂↑　（净离子：CO₃²⁻ + 2H⁺ → H₂O + CO₂）<br/>
+<b>酸碱中和：</b>HCl + NaOH → NaCl + H₂O　（净离子：H⁺ + OH⁻ → H₂O）
+</div>
+</section>
+
+<section id="study-guide">
+<h2 class="section">📝 Study Guide 章节复习</h2>
+<div class="box box-note">
+<b>配平：</b>只改系数不改下标；从复杂/单出现元素开始；H、O 最后。<br/>
+<b>5 种反应：</b>化合 A+B→AB；分解 AB→A+B；单置换（看活动性顺序）；复分解（产生沉淀/水/气体）；燃烧（+O₂ → CO₂ + H₂O）。<br/>
+<b>水溶液：</b>强电解质完全解离；溶解度规则记熟；<b>净离子式</b> = 分子式 → 完全离子式 → 划去观察者离子。<br/>
+<b>7 种双原子分子：</b>H₂ N₂ O₂ F₂ Cl₂ Br₂ I₂。
+</div>
+</section>
+
+<section id="assessment">
+<h2 class="section">🧪 Chapter Assessment 章末测评（精选题）</h2>
+
+<ol class="practice">
+<li>配平：Fe + O₂ → Fe₂O₃
+<div class="ans"><b>4Fe + 3O₂ → 2Fe₂O₃</b>。Fe：4=2×2；O：6=2×3。</div>
+</li>
+
+<li>配平：Al + HCl → AlCl₃ + H₂
+<div class="ans"><b>2Al + 6HCl → 2AlCl₃ + 3H₂</b>。Al 2=2；Cl 6=6；H 6=6。</div>
+</li>
+
+<li>配平：C₄H₁₀ + O₂ → CO₂ + H₂O（丁烷燃烧）
+<div class="ans">2C₄H₁₀ + 13O₂ → 8CO₂ + 10H₂O。C 8=8；H 20=20；O 26=16+10=26。</div>
+</li>
+
+<li>判断下列反应是否发生并简述：<br/>
+① Cu + FeSO₄ → ？<br/>
+② Zn + CuSO₄ → ？<br/>
+③ Cl₂ + KBr → ？<br/>
+④ I₂ + NaCl → ？
+<div class="ans">
+① <b>不反应</b>：Cu 活性弱于 Fe，不能置换。<br/>
+② <b>反应</b>：Zn + CuSO₄ → ZnSO₄ + Cu（Zn 比 Cu 活泼）。<br/>
+③ <b>反应</b>：Cl₂ + 2KBr → 2KCl + Br₂（Cl 比 Br 活泼）。<br/>
+④ <b>不反应</b>：I 比 Cl 弱，不能置换。
+</div>
+</li>
+
+<li>下列反应属于哪一类？<br/>
+① 2Mg + O₂ → 2MgO<br/>
+② CaCO₃ → CaO + CO₂<br/>
+③ Ca(OH)₂ + 2HCl → CaCl₂ + 2H₂O<br/>
+④ CH₄ + 2O₂ → CO₂ + 2H₂O<br/>
+⑤ Fe + CuSO₄ → FeSO₄ + Cu
+<div class="ans">
+① 化合 (combination)<br/>
+② 分解 (decomposition)<br/>
+③ 复分解/酸碱中和 (double-replacement / neutralization)<br/>
+④ 燃烧 (combustion)<br/>
+⑤ 单置换 (single-replacement)
+</div>
+</li>
+
+<li>预测反应：AgNO₃(aq) + NaCl(aq) → ？写分子、完全离子、净离子方程式。
+<div class="ans">
+生成 AgCl 沉淀（Cl⁻ 盐 Ag 例外）。<br/>
+分子：AgNO₃ + NaCl → AgCl(s) + NaNO₃<br/>
+完全离子：Ag⁺ + NO₃⁻ + Na⁺ + Cl⁻ → AgCl(s) + Na⁺ + NO₃⁻<br/>
+净离子：<b>Ag⁺ + Cl⁻ → AgCl(s)</b>（Na⁺、NO₃⁻ 是观察者离子）
+</div>
+</li>
+
+<li>下列盐水溶液中，会与 Na₂CO₃ 反应生成沉淀的是（　　）：<br/>
+a) KNO₃；b) NaCl；c) CaCl₂；d) NH₄Cl。
+<div class="ans">选 <b>c</b>。Ca²⁺ + CO₃²⁻ → CaCO₃↓。其余组合的产物都可溶。</div>
+</li>
+
+<li>为什么"改下标"不算配平？举例说明。
+<div class="ans">改下标就<b>换了一种物质</b>。例如 H₂ + O₂ → H₂O 不平衡，若把 H₂O 改成 H₂O₂ 变成 "H₂ + O₂ → H₂O₂"，看似平衡了，但生成物已经变成过氧化氢，不再是水。因此配平只能加系数。</div>
+</li>
+
+<li>写出下列反应的净离子方程式：<br/>
+HNO₃(aq) + KOH(aq) → KNO₃(aq) + H₂O(l)
+<div class="ans">
+完全离子：H⁺ + NO₃⁻ + K⁺ + OH⁻ → K⁺ + NO₃⁻ + H₂O<br/>
+去 K⁺、NO₃⁻ 观察者：<b>H⁺ + OH⁻ → H₂O</b>。这是<b>所有强酸强碱中和反应</b>的净离子式。
+</div>
+</li>
+
+<li>2H₂O(l) 电解生成 H₂ 和 O₂。配平并注明这是何种反应类型。
+<div class="ans"><b>2H₂O(l) → 2H₂(g) + O₂(g)</b>。<b>分解反应</b>（一种物质变成两种或多种）。</div>
+</li>
+
+<li>下列盐在水中溶解度<b>大</b>的一组是（　　）：<br/>
+a) AgCl, PbSO₄；b) NaNO₃, KCl；c) BaSO₄, CaCO₃；d) Fe(OH)₃, PbI₂。
+<div class="ans">选 <b>b</b>。NaNO₃、KCl 都是 Group 1 + NO₃⁻/Cl⁻ 组合，可溶。a、c、d 都为常见沉淀。</div>
+</li>
+
+<li>Pb(NO₃)₂ 与 KI 混合出现什么颜色沉淀？写净离子方程式。
+<div class="ans">生成<b>亮黄色</b> PbI₂ 沉淀（"金雨 golden rain"）。<br/>
+净离子：<b>Pb²⁺ + 2I⁻ → PbI₂(s)</b></div>
+</li>
+
+<li>为什么 CH₄ 完全燃烧生成 CO₂ 和 H₂O？不完全燃烧生成什么？
+<div class="ans">O₂ 足量时，C 被氧化到最高价 → CO₂，H → H₂O。O₂ 不足时，C 被氧化到较低价 → CO（有毒！）甚至 C 单质（黑烟）。所以厨房要保持通风，避免煤气不完全燃烧产生 CO 中毒。</div>
+</li>
+</ol>
+</section>
+
+<section id="cheatsheet">
+<h2 class="section">⚡ 一页知识卡</h2>
+
+<div class="callout-topic">
+<h3>5 种反应类型速查</h3>
+<p>① 化合　A + B → AB<br/>
+② 分解　AB → A + B<br/>
+③ 单置换　A + BC → AC + B　（看活动性顺序）<br/>
+④ 复分解　AB + CD → AD + CB　（沉淀 / 水 / 气体三选一）<br/>
+⑤ 燃烧　燃料 + O₂ → CO₂ + H₂O</p>
+</div>
+
+<div class="box box-key">
+<b>配平口诀</b><br/>
+"只改系数不动下标；<br/>
+先难后易，先大后小；<br/>
+氢氧最后，检查一遍；<br/>
+系数化简，最简整数。"
+</div>
+
+<div class="box box-note">
+<b>金属活动性（前 12 位）</b><br/>
+K &gt; Ca &gt; Na &gt; Mg &gt; Al &gt; Zn &gt; Fe &gt; Sn &gt; Pb &gt; <b>(H)</b> &gt; Cu &gt; Ag &gt; Au<br/>
+"钾钙钠镁铝，锌铁锡铅氢，铜银金"
+</div>
+
+<div class="box box-key">
+<b>溶解度速查（简版）</b><br/>
+可溶：Group 1、NH₄⁺、NO₃⁻、CH₃COO⁻ 的盐<br/>
+Cl⁻/Br⁻/I⁻ 除 Ag/Pb/Hg 都可溶<br/>
+SO₄²⁻ 除 Ba/Pb/Sr/Ca 都可溶<br/>
+不溶（除 Group 1 与 NH₄⁺ 外）：OH⁻、S²⁻、CO₃²⁻、PO₄³⁻ 的盐
+</div>
+
+<div class="box box-warn">
+<b>易错三提醒：</b>
+① 单质要用双原子分子写：H₂、N₂、O₂、F₂、Cl₂、Br₂、I₂。<br/>
+② 状态符号别忘：(s)(l)(g)(aq)。<br/>
+③ 净离子式：只保留"沉淀 / 弱电解质 / 气体"的分子形式；强电解质拆成离子。
+</div>
+</section>
+
+<hr class="soft"/>
+<p class="small" style="text-align:center;color:#888">© 中文自学手册 · 与《Chemistry — Matter and Change》第 10 章配套</p>
+</main>
+</div>
+<script src="theme.js?v=20260905"></script>
+</body>
+</html>

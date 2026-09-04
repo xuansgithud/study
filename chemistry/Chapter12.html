@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>第 12 章 Stoichiometry 化学计量 · 双语学习手册</title>
+<script>
+window.MathJax = {
+  tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$','$$'], ['\\[','\\]']] },
+  svg: { fontCache: 'global' }
+};
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+:root{
+  --bg:#f7f5ef;--paper:#ffffff;--ink:#232323;--ink-soft:#4a4a4a;
+  --accent:#0f6b5e;--accent-2:#c1543b;--accent-3:#3e5aa8;
+  --hi:#f6e58d;--box-en:#eef4f2;--box-cn:#fff8ec;
+  --box-note:#eaf1fb;--box-warn:#fdecea;--box-key:#fff1d6;--box-example:#eef7ee;--line:#e4dfd2;
+}
+*{box-sizing:border-box}html,body{margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei","Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.75;font-size:16px;}
+.wrap{display:flex;max-width:1400px;margin:0 auto;min-height:100vh}
+aside.toc{position:sticky;top:0;align-self:flex-start;width:280px;height:100vh;overflow-y:auto;background:linear-gradient(180deg,#0f6b5e,#0b4d43);color:#fff;padding:24px 18px;}
+aside.toc h1{font-size:16px;margin:0 0 6px;letter-spacing:1px;color:#f6e58d}
+aside.toc .sub{font-size:12px;opacity:.75;margin-bottom:16px}
+aside.toc a{display:block;color:#f2fbf8;text-decoration:none;padding:8px 10px;border-radius:6px;margin-bottom:2px;font-size:14px;line-height:1.4;border-left:3px solid transparent;}
+aside.toc a:hover{background:rgba(255,255,255,.10)}
+aside.toc a.h2{padding-left:22px;font-size:13px;opacity:.9}
+main{flex:1;padding:36px 44px;background:var(--paper);box-shadow:0 0 30px rgba(0,0,0,.05)}
+h1.title{font-size:32px;margin:0 0 6px;color:var(--accent)}
+.subtitle{color:var(--ink-soft);margin-bottom:24px;font-size:14px}
+h2.section{font-size:24px;color:var(--accent);border-bottom:2px solid var(--accent);padding-bottom:6px;margin-top:56px;margin-bottom:14px;}
+h3{font-size:19px;color:var(--accent-2);margin-top:32px;border-left:5px solid var(--accent-2);padding-left:10px}
+h4{font-size:16px;color:var(--accent-3);margin-top:20px}
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:14px 0}
+.pair .en,.pair .cn{padding:14px 16px;border-radius:10px;font-size:15px;line-height:1.75;}
+.pair .en{background:var(--box-en);border-left:4px solid var(--accent)}
+.pair .cn{background:var(--box-cn);border-left:4px solid var(--accent-2)}
+.pair .en::before{content:"EN 原文";display:block;font-size:11px;letter-spacing:1px;color:var(--accent);font-weight:700;margin-bottom:6px}
+.pair .cn::before{content:"CN 讲解";display:block;font-size:11px;letter-spacing:1px;color:var(--accent-2);font-weight:700;margin-bottom:6px}
+@media(max-width:960px){.pair{grid-template-columns:1fr}}
+.hi{background:linear-gradient(180deg,transparent 55%,var(--hi) 55%);padding:0 2px}
+.term{color:var(--accent-2);font-weight:700}
+.term-en{color:var(--accent);font-style:italic}
+.eq{background:#fafaf5;padding:10px 16px;border-radius:8px;overflow-x:auto;border:1px dashed #cfc9b6;margin:12px 0}
+.box{padding:14px 18px;border-radius:10px;margin:14px 0;position:relative}
+.box::before{content:attr(data-label);position:absolute;top:-10px;left:14px;background:#fff;padding:0 8px;font-size:12px;font-weight:700;letter-spacing:1px;}
+.box-note{background:var(--box-note);border:1px solid #c9d7f0}.box-note::before{content:"讲解 · 知识点";color:var(--accent-3)}
+.box-warn{background:var(--box-warn);border:1px solid #f5c6c0}.box-warn::before{content:"重难点 · 易错点";color:var(--accent-2)}
+.box-key{background:var(--box-key);border:1px solid #f3d78b}.box-key::before{content:"关键公式";color:#a17108}
+.box-example{background:var(--box-example);border:1px solid #b7dab8}.box-example::before{content:"例题详解";color:#2c6e2e}
+.box-vocab{background:#eef4f2;border:1px solid #b8d6cf}.box-vocab::before{content:"术语速查";color:var(--accent)}
+table.vocab{width:100%;border-collapse:collapse;margin:6px 0}
+table.vocab th,table.vocab td{padding:6px 10px;border-bottom:1px solid var(--line);font-size:14px;text-align:left;vertical-align:top}
+table.vocab th{background:#dfeae7;color:var(--accent)}
+.tag{display:inline-block;padding:2px 8px;border-radius:12px;font-size:11px;background:#e8f0ee;color:var(--accent);margin-right:6px;font-weight:600;}
+.tag.warn{background:#fdecea;color:var(--accent-2)}
+.tag.hard{background:#fff1d6;color:#a17108}
+.step{margin:10px 0;padding:10px 14px 10px 42px;background:#fbfaf3;border-radius:8px;position:relative}
+.step .no{position:absolute;left:10px;top:10px;width:24px;height:24px;line-height:24px;text-align:center;background:var(--accent);color:#fff;border-radius:50%;font-weight:700;font-size:13px;}
+ol.practice{padding-left:20px}ol.practice li{margin-bottom:10px}
+.ans{background:#eef7ee;border-left:4px solid #4e9d5c;padding:10px 14px;border-radius:0 8px 8px 0;margin:6px 0;font-size:14.5px}
+.ans::before{content:"参考答案与解析　";color:#2c6e2e;font-weight:700;font-size:12px;letter-spacing:1px}
+details{background:#f4f2ea;border-radius:8px;padding:8px 12px;margin:8px 0}
+details summary{cursor:pointer;font-weight:600;color:var(--accent-3)}
+details[open]{background:#eaf1fb}
+hr.soft{border:none;border-top:1px dashed #cfc9b6;margin:32px 0}
+.page-marker{display:inline-block;font-size:11px;color:#888;background:#f0ede2;padding:1px 8px;border-radius:10px;margin-left:8px;vertical-align:middle;}
+.callout-topic{background:linear-gradient(135deg,#0f6b5e,#3e5aa8);color:#fff;padding:18px 22px;border-radius:12px;margin:20px 0;}
+.callout-topic h3{color:#f6e58d;border:none;padding:0;margin:0 0 8px}
+.callout-topic p{margin:0;opacity:.95}
+.small{font-size:13px;color:var(--ink-soft)}
+</style>
+<link rel="stylesheet" href="theme.css?v=20260905" />
+</head>
+<body>
+<div class="wrap">
+<aside class="toc" id="toc">
+  <h1>第 12 章 STOICHIOMETRY</h1>
+  <div class="sub">化学计量 · Chemistry Matter and Change</div>
+  <a href="#overview">📖 全章导读</a>
+  <a href="#vocab">📚 术语速查表</a>
+  <a href="#s12-1">§12.1 What is Stoichiometry?</a>
+  <a href="#s12-2">§12.2 Stoichiometric Calculations</a>
+  <a href="#s12-3">§12.3 Limiting Reactants 限量试剂</a>
+  <a href="#s12-4">§12.4 Percent Yield 产率</a>
+  <a href="#study-guide">📝 Study Guide 章节复习</a>
+  <a href="#assessment">🧪 Chapter Assessment</a>
+  <a href="#std-test">🎯 Standardized Test 标测</a>
+  <a href="#cheatsheet">⚡ 一页知识卡</a>
+</aside>
+
+<main>
+<h1 class="title">第 12 章 · Stoichiometry 化学计量</h1>
+<div class="subtitle">📕《Chemistry — Matter and Change》第 353–383 页 · 中英对照 + 详细讲解 + 习题解析<br/>面向国际学校 9 年级学生 · 中文精读版</div>
+
+<!-- ============================== 全章导读 ============================== -->
+<section id="overview">
+<h2 class="section">📖 全章导读：Stoichiometry 到底是什么？</h2>
+
+<p>你在第 10 章学会了<b>配平化学方程式</b>；在第 11 章学会了<b>摩尔 mol、质量 g、粒子数、气体体积</b>之间的换算。<b>第 12 章</b>把两条主线合在一起——用"配平的方程式"里的<b>系数（摩尔比）</b>作桥梁，实现<b>反应物到生成物之间</b>的定量换算。这就叫<span class="term">化学计量 (stoichiometry)</span>。</p>
+
+<div class="pair">
+<div class="en">Chemists use stoichiometric calculations to answer questions such as: How much of a reactant is needed to obtain a certain amount of product? How much product can be produced from a given amount of reactant? Stoichiometry is based on the law of conservation of mass and uses balanced chemical equations to determine relationships between amounts of reactants and products.</div>
+<div class="cn">化学家用<b>化学计量计算</b>回答两类问题：为了得到一定量的<b>产物</b>需要多少<b>反应物</b>？由一定量反应物<b>最多能产多少产物</b>？这些计算的基础是<b>质量守恒定律</b>——反应前后原子总数、质量总数不变；工具是<b>配平的化学方程式</b>——方程式里的<b>系数</b>就是反应物与生成物之间的<b>摩尔比</b>。</div>
+</div>
+
+<div class="callout-topic">
+<h3>🌟 本章 4 节主线</h3>
+<p>§12.1 What is Stoichiometry? —— 方程式的<b>多重解读</b>（粒子/mol/质量/体积），以及 <b>摩尔比 mole ratio</b> 的写法。<br/>
+§12.2 Stoichiometric Calculations —— 4 种基本换算：<b>mol→mol、mol→g、g→mol、g→g</b>，一律遵循"<b>已知量 → mol A → mol B → 目标量</b>"的三步套路。<br/>
+§12.3 Limiting Reactants 限量试剂 —— 两种反应物一起投料时，哪一种<b>先用完</b>决定了最终产量。<br/>
+§12.4 Percent Yield 产率 —— 实际得到的产量占理论产量的百分比，几乎所有真实实验都 &lt; 100%。</p>
+</div>
+
+<h3>为什么这章特别重要？</h3>
+<p>Stoichiometry 是<b>把化学变成一门量化科学</b>的关键。学会它，你就能：</p>
+<ul>
+<li>预测一场反应能产生多少产物，从而决定投料量和成本。</li>
+<li>找出限量试剂，减少浪费。</li>
+<li>评估实验成功率（产率），改进反应条件。</li>
+<li>看懂工业化生产（如合成氨、硫酸、水泥、火箭燃料）的原理。</li>
+</ul>
+<p>第 13、14 章讲气体和溶液时，还会继续用到 stoichiometry；第 16 章讲反应热时也一样。这是一条<b>贯穿高中和大学化学</b>的核心工具。</p>
+</section>
+
+<!-- ============================== 术语速查表 ============================== -->
+<section id="vocab">
+<h2 class="section">📚 术语速查表</h2>
+<div class="box box-vocab">
+<table class="vocab">
+<thead><tr><th>English</th><th>中文</th><th>要点</th></tr></thead>
+<tbody>
+<tr><td>stoichiometry</td><td>化学计量学</td><td>研究反应物与生成物之间的量的关系</td></tr>
+<tr><td>balanced chemical equation</td><td>配平的化学方程式</td><td>一切 stoichiometric 计算的起点</td></tr>
+<tr><td>coefficient</td><td>系数</td><td>化学式前的整数；<b>不等于</b>下标</td></tr>
+<tr><td>mole ratio (mol ratio)</td><td>摩尔比</td><td>由配平系数直接读出；换算 mol A ↔ mol B 的桥梁</td></tr>
+<tr><td>conservation of mass</td><td>质量守恒</td><td>反应前后 Σm 相等</td></tr>
+<tr><td>conservation of atoms</td><td>原子守恒</td><td>各元素原子数两边相等</td></tr>
+<tr><td>molar mass (M)</td><td>摩尔质量 g/mol</td><td>周期表原子量之和；g ↔ mol 的换算因子</td></tr>
+<tr><td>Avogadro's number</td><td>阿伏伽德罗常数</td><td>$N_A = 6.02 \times 10^{23}$ /mol</td></tr>
+<tr><td>STP</td><td>标准状况</td><td>0 ℃ (273.15 K)、1 atm；气体 22.4 L/mol</td></tr>
+<tr><td>limiting reactant</td><td>限量试剂</td><td>先反应完的那种，决定最大产量</td></tr>
+<tr><td>excess reactant</td><td>过量反应物</td><td>反应结束后仍有剩余的那种</td></tr>
+<tr><td>theoretical yield</td><td>理论产量</td><td>按 stoichiometry 计算出来的<b>最大</b>产量</td></tr>
+<tr><td>actual yield</td><td>实际产量</td><td>实验中真正得到的产量（一般 &lt; 理论）</td></tr>
+<tr><td>percent yield</td><td>产率 / 百分产率</td><td>$\dfrac{\text{actual}}{\text{theoretical}} \times 100\%$</td></tr>
+<tr><td>dimensional analysis</td><td>因次分析</td><td>用换算因子让单位相消，得到目标单位</td></tr>
+<tr><td>catalyst</td><td>催化剂</td><td>提高反应速率但不参与方程式（如接触法制硫酸）</td></tr>
+</tbody>
+</table>
+</div>
+</section>
+
+<!-- ============================== §12.1 ============================== -->
+<section id="s12-1">
+<h2 class="section">§12.1 What is Stoichiometry? 什么是化学计量学？<span class="page-marker">P.353–357</span></h2>
+
+<h3>1. 化学方程式的多重含义（粒子 / mol / 质量 / 体积）</h3>
+<div class="pair">
+<div class="en">A balanced chemical equation is more than just a symbolic sentence—it tells you the ratios in which particles combine, the ratios in which moles combine, and, by using molar masses, the ratios of masses. For example, look at the combustion of propane, C3H8:<br/>
+C3H8(g) + 5O2(g) → 3CO2(g) + 4H2O(g)<br/>
+The coefficients (1, 5, 3, 4) reveal that 1 molecule of propane reacts with 5 molecules of oxygen, or 1 mole with 5 moles, or 44.09 g with 160.0 g, all conserving mass.</div>
+<div class="cn">配平后的化学方程式远不只是<b>符号句子</b>——它同时告诉你<b>粒子比、摩尔比、质量比</b>三层信息。以丙烷 C₃H₈ 燃烧为例：<br/>
+$\text{C}_3\text{H}_8(g) + 5\text{O}_2(g) \to 3\text{CO}_2(g) + 4\text{H}_2\text{O}(g)$<br/>
+系数 (1, 5, 3, 4) 告诉你三件事：<br/>
+① <b>分子层面</b>：1 个 C₃H₈ 与 5 个 O₂ 反应，生成 3 个 CO₂ + 4 个 H₂O；<br/>
+② <b>摩尔层面</b>：1 mol C₃H₈ + 5 mol O₂ → 3 mol CO₂ + 4 mol H₂O；<br/>
+③ <b>质量层面</b>：44.09 g + 5×32.00 g = 44.09 + 160.0 = <b>204.1 g 反应物</b> 生成 3×44.01 + 4×18.02 = 132.0 + 72.08 = <b>204.1 g 产物</b>。反应前后质量相等——<b>质量守恒</b>。</div>
+</div>
+
+<div class="box box-key" data-label="重要方程">
+<b>方程式的 3 层解读速查</b><br/>
+① 系数 = 粒子数比（表示 1 molecule、1 formula unit 或 1 mol）<br/>
+② 系数 = 摩尔比（可作换算因子）<br/>
+③ 系数 × 摩尔质量 = 质量比（用来验证质量守恒）<br/>
+④ 气体（同温同压）：系数 = 体积比（Avogadro's law，第 14 章会详细讲）
+</div>
+
+<div class="box box-warn" data-label="易错点">
+<b>系数 ≠ 质量比！</b>2H₂ + O₂ → 2H₂O 中 H₂:O₂ = 2:1 是摩尔比，但质量比是 2×2 : 1×32 = 4:32 = 1:8。做题时千万别把系数当质量比直接乘 g。
+</div>
+
+<h3>2. 摩尔比 (Mole Ratio) —— 本章的灵魂</h3>
+<div class="pair">
+<div class="en">A mole ratio is a ratio between the numbers of moles of any two substances in a balanced chemical equation. Mole ratios are used as conversion factors to convert moles of one substance to moles of another. For the equation 2Al + 3Br2 → 2AlBr3, six mole ratios can be written—each of the three species can be paired with the other two:<br/>
+2 mol Al / 3 mol Br2, 3 mol Br2 / 2 mol Al, 2 mol Al / 2 mol AlBr3, ...</div>
+<div class="cn"><b>摩尔比</b>是配平方程式里<b>任意两种物质的摩尔数之比</b>，用作 mol A ↔ mol B 的<b>换算因子</b>。以铝与溴反应为例：<br/>
+$$2\text{Al}(s) + 3\text{Br}_2(l) \to 2\text{AlBr}_3(s)$$
+可以写出 <b>6 组</b>摩尔比（3 种物质，每种与另外 2 种配对，且每对可以正写和倒写）：<br/>
+$\dfrac{2\text{ mol Al}}{3\text{ mol Br}_2}$, $\dfrac{3\text{ mol Br}_2}{2\text{ mol Al}}$, $\dfrac{2\text{ mol Al}}{2\text{ mol AlBr}_3}$, $\dfrac{2\text{ mol AlBr}_3}{2\text{ mol Al}}$, $\dfrac{3\text{ mol Br}_2}{2\text{ mol AlBr}_3}$, $\dfrac{2\text{ mol AlBr}_3}{3\text{ mol Br}_2}$。</div>
+</div>
+<div class="box box-note">
+<b>规律：</b>参与方程式的物质有 n 种，就能写 <b>n(n−1)</b> 个摩尔比。<br/>
+2 种物质 → 2 个；3 种 → 6 个；4 种 → 12 个。<br/>
+<b>使用规则：</b>要把"已知 mol"换成"要求 mol"时，分母写"已知"、分子写"要求"，这样单位才能相消。
+</div>
+
+<h3>3. 例题详解</h3>
+
+<div class="box box-example" data-label="Example Problem 12-1">
+<b>Interpreting Chemical Equations 解读化学方程式</b><br/>
+把 $\text{C}_3\text{H}_8(g) + 5\text{O}_2(g) \to 3\text{CO}_2(g) + 4\text{H}_2\text{O}(g)$ 分别从粒子、mol、质量三个层面解读，并验证质量守恒。<br/>
+<b>解：</b>
+<div class="step"><span class="no">1</span><b>粒子：</b>1 分子 C₃H₈ + 5 分子 O₂ → 3 分子 CO₂ + 4 分子 H₂O。</div>
+<div class="step"><span class="no">2</span><b>mol：</b>1 mol C₃H₈ + 5 mol O₂ → 3 mol CO₂ + 4 mol H₂O。</div>
+<div class="step"><span class="no">3</span><b>质量：</b>反应物 = 1(44.09) + 5(32.00) = 44.09 + 160.0 = 204.1 g；生成物 = 3(44.01) + 4(18.02) = 132.0 + 72.08 = 204.1 g。<br/>
+两边质量相等 → <b>质量守恒</b> ✓。</div>
+</div>
+
+<div class="box box-example" data-label="Practice 1 详解">
+<b>N₂(g) + 3H₂(g) → 2NH₃(g)</b> 用三个层面解读并验证守恒。<br/>
+① 粒子：1 N₂ + 3 H₂ → 2 NH₃。<br/>
+② mol：1 mol + 3 mol → 2 mol。<br/>
+③ 质量：1(28.02) + 3(2.02) = 28.02 + 6.06 = 34.08 g；2(17.04) = 34.08 g ✓。
+</div>
+
+<div class="box box-example" data-label="Practice 2 · 写摩尔比">
+<b>4Al(s) + 3O₂(g) → 2Al₂O₃(s)</b>，写出全部摩尔比。<br/>
+$\dfrac{4\text{ mol Al}}{3\text{ mol O}_2}$、$\dfrac{3\text{ mol O}_2}{4\text{ mol Al}}$、$\dfrac{4\text{ mol Al}}{2\text{ mol Al}_2\text{O}_3}$、$\dfrac{2\text{ mol Al}_2\text{O}_3}{4\text{ mol Al}}$、$\dfrac{3\text{ mol O}_2}{2\text{ mol Al}_2\text{O}_3}$、$\dfrac{2\text{ mol Al}_2\text{O}_3}{3\text{ mol O}_2}$。共 <b>6</b> 个（也可化简，但一般保留系数原样便于换算）。
+</div>
+
+<div class="box box-example" data-label="Practice 3 · 先配平再写比">
+<b>ZnO(s) + HCl(aq) → ZnCl₂(aq) + H₂O(l)</b><br/>
+先配平：<b>ZnO + 2HCl → ZnCl₂ + H₂O</b>。<br/>
+6 个摩尔比：1/2、2/1（ZnO 与 HCl）；1/1（ZnO 与 ZnCl₂ 或 H₂O）；2/1、1/2（HCl 与 ZnCl₂ 或 H₂O）。
+</div>
+</section>
+
+<!-- ============================== §12.2 ============================== -->
+<section id="s12-2">
+<h2 class="section">§12.2 Stoichiometric Calculations 化学计量计算<span class="page-marker">P.358–365</span></h2>
+
+<h3>核心：mol 中心 & 三步套路</h3>
+<div class="pair">
+<div class="en">All stoichiometric calculations begin with a balanced chemical equation. Regardless of whether the given quantity is in grams, moles, particles, or liters, you must always <b>convert to moles first</b>, use the <b>mole ratio</b> to find moles of the desired substance, then convert back to the required units. The general path is: <b>Given quantity → mol A → mol B → desired quantity</b>.</div>
+<div class="cn">所有化学计量计算都<b>从配平的方程式出发</b>，然后按<b>"三步套路"</b>：<br/>
+<b>Step 1：</b> 把已知量（g / L / 粒子数）换算成 <b>mol A</b>；<br/>
+<b>Step 2：</b> 用<b>摩尔比</b>把 mol A 换算成 <b>mol B</b>（B = 目标物质）；<br/>
+<b>Step 3：</b> 把 mol B 换算成需要的单位（g / L / 粒子数）。<br/>
+这就是所谓的 <b>"mol 中心" (mole is the hub)</b>。</div>
+</div>
+
+<div class="callout-topic">
+<h3>🌟 mol 中心换算路线图（必背！）</h3>
+<p>&nbsp;&nbsp;&nbsp;g A　　↔　　<b>mol A</b>　　—（摩尔比）—　　<b>mol B</b>　　↔　　g B<br/>
+&nbsp;&nbsp;&nbsp;粒子数 A　↔　mol A　　　　　　　　　　　　mol B　↔　粒子数 B<br/>
+&nbsp;&nbsp;&nbsp;体积 (STP) A ↔ mol A　　　　　　　　　　　　 mol B ↔ 体积 (STP) B</p>
+<p>关键换算因子：<b>M (g/mol)</b>、$N_A = 6.02 \times 10^{23}$、<b>22.4 L/mol (仅在 STP)</b>、<b>系数比 (mole ratio)</b>。</p>
+</div>
+
+<h3>类型 1：Mole → Mole 换算</h3>
+<div class="box box-example" data-label="Example Problem 12-2 · mol → mol">
+<b>题目：</b>丙烷 C₃H₈ 与足量氧气完全燃烧，燃烧 10.0 mol C₃H₈ 会生成多少 mol CO₂？<br/>
+<b>Analyze：</b>已知 mol C₃H₈，求 mol CO₂ → 用摩尔比一步换算。<br/>
+配平：$\text{C}_3\text{H}_8 + 5\text{O}_2 \to 3\text{CO}_2 + 4\text{H}_2\text{O}$<br/>
+<b>Solve：</b>
+<div class="step"><span class="no">1</span>摩尔比：$\dfrac{3\text{ mol CO}_2}{1\text{ mol C}_3\text{H}_8}$。</div>
+<div class="step"><span class="no">2</span>$n(\text{CO}_2) = 10.0 \text{ mol C}_3\text{H}_8 \times \dfrac{3\text{ mol CO}_2}{1\text{ mol C}_3\text{H}_8} = <b>30.0 mol CO}_2$</b>。</div>
+<b>Evaluate：</b>已知 3 位有效数字，答案 30.0 mol 也是 3 位 ✓。1 mol C₃H₈ 应产 3 mol CO₂，10 mol × 3 = 30 mol，合理。
+</div>
+
+<div class="box box-example" data-label="Practice 9 · 硫酸的合成">
+<b>题目：</b>SO₂ + O₂ + H₂O → H₂SO₄，配平后计算：若 12.5 mol SO₂ 反应，最多产多少 mol H₂SO₄？需 O₂ 多少 mol？<br/>
+<b>解：</b>配平后 <b>2SO₂ + O₂ + 2H₂O → 2H₂SO₄</b>。<br/>
+① $n(\text{H}_2\text{SO}_4) = 12.5 \times \dfrac{2}{2} = <b>12.5 mol}$</b>。<br/>
+② $n(\text{O}_2) = 12.5 \times \dfrac{1}{2} = <b>6.25 mol}$</b>。
+</div>
+
+<div class="box box-example" data-label="Practice 10 · CS₂ 的生成">
+<b>题目：</b>CH₄ + S₈ → CS₂ + H₂S，配平后：若用 1.50 mol S₈，能产多少 mol CS₂ 和多少 mol H₂S？<br/>
+配平：<b>2CH₄ + S₈ → 2CS₂ + 4H₂S</b>。<br/>
+① $n(\text{CS}_2) = 1.50 \times \dfrac{2}{1} = <b>3.00 mol}$</b>。<br/>
+② $n(\text{H}_2\text{S}) = 1.50 \times \dfrac{4}{1} = <b>6.00 mol}$</b>。
+</div>
+
+<h3>类型 2：Mole → Mass 换算</h3>
+<div class="box box-example" data-label="Example Problem 12-3 · mol → g">
+<b>题目：</b>2Na(s) + Cl₂(g) → 2NaCl(s)。1.25 mol Cl₂ 反应，最多得 NaCl 多少 g？<br/>
+<b>解：</b>
+<div class="step"><span class="no">1</span>摩尔比 NaCl:Cl₂ = 2:1，$n(\text{NaCl}) = 1.25 \times \dfrac{2}{1} = 2.50$ mol。</div>
+<div class="step"><span class="no">2</span>M(NaCl) = 22.99 + 35.45 = 58.44 g/mol。</div>
+<div class="step"><span class="no">3</span>$m = 2.50 \times 58.44 = <b>146 g}$</b>（3 位有效数字）。</div>
+</div>
+
+<div class="box box-example" data-label="Practice 11 · TiCl₄ 的制备">
+<b>题目：</b>TiO₂ + C + 2Cl₂ → TiCl₄ + CO₂，若用 1.25 mol TiO₂，需要 Cl₂ 多少 g？<br/>
+$n(\text{Cl}_2) = 1.25 \times \dfrac{2}{1} = 2.50$ mol；$m(\text{Cl}_2) = 2.50 \times 70.90 = <b>177 g}$</b>。
+</div>
+
+<div class="box box-example" data-label="Practice 12 · NaCl 电解">
+<b>题目：</b>2NaCl(l) → 2Na(l) + Cl₂(g)。用 2.50 mol NaCl 电解，能得 Cl₂ 多少 g？<br/>
+$n(\text{Cl}_2) = 2.50 \times \dfrac{1}{2} = 1.25$ mol；$m = 1.25 \times 70.90 = <b>88.6 g}$</b>。
+</div>
+
+<h3>类型 3：Mass → Mass 换算（最常见的应用题！）</h3>
+<div class="box box-example" data-label="Example Problem 12-4 · g → g">
+<b>题目：</b>NH₄NO₃ 受热分解产 N₂O + H₂O。分解 25.0 g NH₄NO₃ 可产 H₂O 多少 g？<br/>
+<b>方程式：</b>$\text{NH}_4\text{NO}_3(s) \to \text{N}_2\text{O}(g) + 2\text{H}_2\text{O}(g)$<br/>
+<b>解 · 三步套路：</b>
+<div class="step"><span class="no">1</span><b>g → mol：</b>M(NH₄NO₃) = 80.05 g/mol；$n = 25.0/80.05 = 0.3123$ mol。</div>
+<div class="step"><span class="no">2</span><b>mol → mol（摩尔比 1:2）：</b>$n(\text{H}_2\text{O}) = 0.3123 \times \dfrac{2}{1} = 0.6247$ mol。</div>
+<div class="step"><span class="no">3</span><b>mol → g：</b>$m = 0.6247 \times 18.02 = <b>11.3 g H}_2\text{O</b>$。</div>
+<b>Evaluate：</b>1 mol NH₄NO₃ (80 g) 产 2 mol H₂O (36 g)。25 g × (36/80) ≈ 11.25 g，合理 ✓。
+</div>
+
+<h3>类型 4：混合换算（含 g、L、粒子数）</h3>
+<div class="box box-example" data-label="综合练习：g → L (STP)">
+<b>题目：</b>CaCO₃ → CaO + CO₂↑。10.0 g CaCO₃ 完全分解，在 STP 下能得到多少 L CO₂？<br/>
+<b>解：</b>
+<div class="step"><span class="no">1</span>$n(\text{CaCO}_3) = 10.0/100.09 = 0.09991$ mol</div>
+<div class="step"><span class="no">2</span>摩尔比 1:1，$n(\text{CO}_2) = 0.09991$ mol</div>
+<div class="step"><span class="no">3</span>$V = 0.09991 \times 22.4 = <b>2.24 L</b>$ (STP)</div>
+</div>
+
+<div class="box box-example" data-label="综合练习：g → 粒子数">
+<b>题目：</b>4.0 g NaOH 中含多少个式量单位？<br/>
+$n = 4.0/40.0 = 0.10$ mol；$N = 0.10 \times 6.02 \times 10^{23} = <b>6.02 \times 10^{22}$ 个</b>。
+</div>
+
+<div class="box box-warn" data-label="Stoichiometry 4 大易错点">
+① <b>忘记先换成 mol：</b>直接用"g × 系数比"是错的（因为系数是 mol 比）。<br/>
+② <b>忘记先配平：</b>没配平就直接读系数会导致 mole ratio 错误。<br/>
+③ <b>22.4 L/mol 仅在 STP 用</b>；其他条件必须用 PV = nRT（第 14 章）。<br/>
+④ <b>有效数字保留最少的一个已知量</b>，中间步骤多保 1-2 位避免累积误差。
+</div>
+</section>
+
+<!-- ============================== §12.3 ============================== -->
+<section id="s12-3">
+<h2 class="section">§12.3 Limiting Reactants 限量试剂<span class="page-marker">P.366–370</span></h2>
+
+<h3>1. 什么是限量试剂？</h3>
+<div class="pair">
+<div class="en">In many chemical reactions, one reactant is not present in the exact amount needed by stoichiometry—one runs out before the others. The reactant that is used up first is called the <b>limiting reactant</b>. It limits the extent of the reaction and determines the amount of product that can be formed. The other reactants, present in more than the required amount, are called <b>excess reactants</b>.</div>
+<div class="cn">在实际实验中，两种反应物很少<b>恰好按化学计量比投料</b>。总会有一种<b>先反应完</b>——这种就叫<span class="term">限量试剂 (limiting reactant)</span>。它决定了反应能进行的<b>最大程度</b>，也决定了<b>最大产量</b>。其余的叫<span class="term">过量试剂 (excess reactant)</span>，反应结束后仍会剩下。<br/><br/>
+<b>生活类比：</b>做汉堡需要 1 块面包 + 2 片肉。你有 10 块面包 + 15 片肉——按肉算能做 15/2 = 7.5 → 7 个汉堡；按面包算能做 10 个。<br/>
+实际上只能做 <b>7 个</b>，"肉"是限量试剂，"面包"过量（剩 10 − 7 = 3 块）。</div>
+</div>
+
+<h3>2. 判断限量试剂的 3 步法（重难点！）</h3>
+<div class="box box-key" data-label="限量试剂 3 步法">
+<div class="step"><span class="no">1</span>把两种反应物都换成 mol。</div>
+<div class="step"><span class="no">2</span>分别用它们计算能生成多少 mol 产物（用摩尔比）。</div>
+<div class="step"><span class="no">3</span>结果较小的那个反应物 = <b>限量试剂</b>；这个较小的产物 mol 数 = 理论产量。<br/>
+过量试剂剩余 = 初始 mol − 与限量试剂完全反应所消耗的 mol。</div>
+</div>
+
+<div class="box box-note">
+<b>替代方法（比比值法）：</b>把两种反应物的 mol 除以它们各自的系数，得到"归一化 mol"。<b>值小的那个就是限量试剂</b>。<br/>
+这个方法比"分别算产物 mol"更快，思路一样。
+</div>
+
+<h3>3. 例题 —— 白磷燃烧</h3>
+<div class="box box-example" data-label="Example Problem 12-5 · P₄O₁₀">
+<b>题目：</b>P₄(s) + 5O₂(g) → P₄O₁₀(s)。<br/>
+25.0 g P₄ 与 50.0 g O₂ 混合反应：<br/>
+(a) 生成 P₄O₁₀ 多少 g？<br/>
+(b) 过量反应物剩多少 g？<br/>
+<b>解：</b>
+<div class="step"><span class="no">1</span>换成 mol：<br/>
+$n(\text{P}_4) = 25.0/123.9 = 0.2018$ mol；<br/>
+$n(\text{O}_2) = 50.0/32.00 = 1.563$ mol。</div>
+<div class="step"><span class="no">2</span>判限量：按 P₄ 需要 O₂ = 5 × 0.2018 = 1.009 mol，实际有 1.563 mol → O₂ <b>过量</b>；<b>P₄ 是限量试剂</b>。</div>
+<div class="step"><span class="no">3</span>算 P₄O₁₀：$n(\text{P}_4\text{O}_{10}) = 0.2018 \times \dfrac{1}{1} = 0.2018$ mol；<br/>
+M(P₄O₁₀) = 4×30.97 + 10×16.00 = 283.9 g/mol；<br/>
+$m = 0.2018 \times 283.9 = <b>57.3 g P}_4\text{O}_{10</b>$。</div>
+<div class="step"><span class="no">4</span>过量 O₂ 剩余：<br/>
+消耗 O₂ = 1.009 mol，剩 = 1.563 − 1.009 = 0.554 mol；<br/>
+$m = 0.554 \times 32.00 = <b>17.7 g O}_2$ 剩余</b>。</div>
+</div>
+
+<div class="box box-example" data-label="Practice 20 · 汽车安全气囊">
+<b>题目：</b>6Na(s) + Fe₂O₃(s) → 3Na₂O(s) + 2Fe(s)（这是安全气囊里其中一步反应）。100.0 g Na + 100.0 g Fe₂O₃：<br/>
+(a) 限量试剂？(b) 过量试剂？(c) 生成 Fe 多少 g？(d) 过量试剂剩多少 g？<br/>
+<b>解：</b>
+$n(\text{Na}) = 100.0/22.99 = 4.350$ mol；$n(\text{Fe}_2\text{O}_3) = 100.0/159.7 = 0.6262$ mol。<br/>
+比比值：Na: 4.350/6 = 0.725；Fe₂O₃: 0.6262/1 = 0.6262 → <b>Fe₂O₃ 是限量试剂</b>，Na 过量。<br/>
+$n(\text{Fe}) = 0.6262 \times 2 = 1.252$ mol；$m = 1.252 \times 55.85 = <b>69.9 g Fe</b>$。<br/>
+消耗 Na = 6 × 0.6262 = 3.757 mol；剩 Na = 4.350 − 3.757 = 0.593 mol；$m = 0.593 \times 22.99 = <b>13.6 g Na</b>$ 剩余。
+</div>
+
+<div class="box box-example" data-label="Practice 21 · 光合作用">
+<b>题目：</b>6CO₂ + 6H₂O → C₆H₁₂O₆ + 6O₂。若植物有 88.0 g CO₂ 与 64.0 g H₂O，问 (a) 限量试剂 (b) 过量剩余 (c) 生成葡萄糖多少 g？<br/>
+$n(\text{CO}_2) = 88.0/44.01 = 2.000$ mol；$n(\text{H}_2\text{O}) = 64.0/18.02 = 3.552$ mol。<br/>
+比比值：CO₂: 2.000/6 = 0.3333；H₂O: 3.552/6 = 0.592 → <b>CO₂ 是限量试剂</b>，H₂O 过量。<br/>
+$n(\text{C}_6\text{H}_{12}\text{O}_6) = 2.000 \times \dfrac{1}{6} = 0.3333$ mol；$m = 0.3333 \times 180.2 = <b>60.1 g 葡萄糖</b>$。<br/>
+消耗 H₂O = 2.000 mol；剩 H₂O = 3.552 − 2.000 = 1.552 mol = <b>28.0 g</b>。
+</div>
+
+<h3>4. 为什么工业上常用过量？</h3>
+<div class="box box-note">
+① <b>提高转化率</b>：让"贵"的那种反应物尽量反应完（转化率接近 100%）；<br/>
+② <b>加快速率</b>：过量的反应物浓度高，反应快；<br/>
+③ <b>推动平衡</b>：可逆反应中加过量反应物，让平衡向右（Le Chatelier 原理，第 18 章）；<br/>
+④ 但过量意味着<b>成本上升</b>和<b>回收工艺</b>——工业设计要在"转化率"和"成本"之间平衡。
+</div>
+</section>
+
+<!-- ============================== §12.4 ============================== -->
+<section id="s12-4">
+<h2 class="section">§12.4 Percent Yield 产率<span class="page-marker">P.371–374</span></h2>
+
+<h3>1. 理论产量 vs 实际产量</h3>
+<div class="pair">
+<div class="en">The <b>theoretical yield</b> is the maximum amount of product that can be produced from a given amount of reactant, as calculated from the balanced chemical equation and limiting reactant. The <b>actual yield</b> is the amount of product actually obtained from an experiment. It is almost always less than the theoretical yield due to side reactions, incomplete reactions, or loss during handling. The <b>percent yield</b> is:<br/>
+Percent Yield = (Actual Yield / Theoretical Yield) × 100%</div>
+<div class="cn"><span class="term">理论产量 (theoretical yield)</span>：按 stoichiometry 和限量试剂算出来的<b>最大</b>产量——理想化的"完美情况"。<br/>
+<span class="term">实际产量 (actual yield)</span>：实验中真正称量得到的产品质量——一般<b>小于</b>理论。<br/>
+<b>百分产率公式：</b>
+$$\boxed{\text{Percent Yield} = \frac{\text{Actual Yield}}{\text{Theoretical Yield}} \times 100\%}$$
+</div>
+</div>
+
+<div class="box box-key" data-label="重点公式">
+$$\text{Percent Yield} = \frac{m_{\text{actual}}}{m_{\text{theoretical}}} \times 100\%$$
+$$\text{也可以：} \quad = \frac{n_{\text{actual}}}{n_{\text{theoretical}}} \times 100\%$$
+</div>
+
+<h3>2. 为什么实际 &lt; 理论？</h3>
+<div class="box box-note">
+① <b>反应不完全</b>或<b>可逆反应</b>：有些反应做不到 100% 转化。<br/>
+② <b>副反应 (side reactions)</b>：部分反应物走了另一条路。<br/>
+③ <b>操作损失</b>：过滤、转移、烘干、纯化时都会掉。<br/>
+④ <b>产品有杂质</b>：还需要提纯，纯化过程再损失。<br/>
+⑤ <b>反应物本身不纯</b>：初始投料 &lt; 计算所用。
+</div>
+
+<div class="box box-warn" data-label="实验注意">
+如果实验算出 <b>Percent Yield &gt; 100%</b>，通常说明：<br/>
+① 产物<b>未干燥</b>（含水）；② 产物<b>有杂质</b>；③ 称量或计算错误。要重做或纯化产品。
+</div>
+
+<h3>3. 例题详解</h3>
+
+<div class="box box-example" data-label="Example Problem 12-6 · 银铬酸盐">
+<b>题目：</b>0.500 g AgNO₃ 与 K₂CrO₄ 反应生成 Ag₂CrO₄ 沉淀。<br/>
+(a) 求理论产量；(b) 若实得 0.455 g，产率多少？<br/>
+方程式：<b>2AgNO₃ + K₂CrO₄ → Ag₂CrO₄↓ + 2KNO₃</b><br/>
+<b>解：</b>
+<div class="step"><span class="no">1</span>$n(\text{AgNO}_3) = 0.500/169.9 = 2.94 \times 10^{-3}$ mol。</div>
+<div class="step"><span class="no">2</span>摩尔比 AgNO₃:Ag₂CrO₄ = 2:1，$n(\text{Ag}_2\text{CrO}_4) = 2.94×10^{-3} / 2 = 1.47×10^{-3}$ mol。</div>
+<div class="step"><span class="no">3</span>M(Ag₂CrO₄) = 2×107.87 + 52.00 + 4×16.00 = 331.74 g/mol；理论 $m = 1.47×10^{-3} \times 331.74 = <b>0.488 g</b>$。</div>
+<div class="step"><span class="no">4</span>Percent Yield = 0.455/0.488 × 100% = <b>93.2%</b>。</div>
+</div>
+
+<div class="box box-example" data-label="Practice 27 · 抗酸片">
+<b>题目：</b>Al(OH)₃ + 3HCl → AlCl₃ + 3H₂O。14.0 g Al(OH)₃ 反应，理论产 AlCl₃ 多少 g？若实得 22.0 g，产率多少？<br/>
+$n(\text{Al(OH)}_3) = 14.0/78.00 = 0.1795$ mol；$n(\text{AlCl}_3) = 0.1795$ mol；理论 $m = 0.1795 \times 133.34 = <b>23.9 g</b>$。<br/>
+Yield = 22.0/23.9 × 100% = <b>92.1%</b>。
+</div>
+
+<div class="box box-example" data-label="Practice 28 · 铜置换银">
+<b>题目：</b>Cu + 2AgNO₃ → Cu(NO₃)₂ + 2Ag。20.0 g Cu 反应，理论产 Ag 多少 g？若实得 60.0 g Ag，产率多少？<br/>
+$n(\text{Cu}) = 20.0/63.55 = 0.3147$ mol；$n(\text{Ag}) = 0.3147 × 2 = 0.6294$ mol；理论 $m = 0.6294 \times 107.87 = <b>67.9 g}$</b>。<br/>
+Yield = 60.0/67.9 × 100% = <b>88.4%</b>。
+</div>
+
+<h3>4. 工业上的产率优化：接触法制硫酸</h3>
+<div class="box box-note">
+硫酸是化学工业最大宗产品之一。制造分 3 步：<br/>
+① $\text{S}_8 + 8\text{O}_2 \to 8\text{SO}_2$（燃烧硫，产率 ~100%）<br/>
+② $2\text{SO}_2 + \text{O}_2 \xrightarrow{\text{V}_2\text{O}_5,\ 400\ ℃} 2\text{SO}_3$（关键步骤，用<b>催化剂</b>）<br/>
+③ $\text{SO}_3 + \text{H}_2\text{O} \to \text{H}_2\text{SO}_4$<br/>
+第 ② 步是关键：温度低反应慢，温度高转化率降。工程师采用"<b>4 次过催化剂 + 中间冷却</b>"，把总产率提升到 <b>98% 以上</b>。这就是"接触法" (contact process)。
+</div>
+</section>
+
+<!-- ============================== Study Guide ============================== -->
+<section id="study-guide">
+<h2 class="section">📝 Study Guide 章节复习</h2>
+
+<div class="box box-key" data-label="核心公式一览">
+① <b>三层解读</b>：系数 = 粒子数比 = mol 比 = 气体体积比（同温同压）<br/>
+② <b>三步套路</b>：已知量 → mol A → mol B（用系数比）→ 目标量<br/>
+③ <b>换算因子</b>：<br/>
+&emsp;g ↔ mol：$n = m/M$<br/>
+&emsp;粒子 ↔ mol：$N = n N_A$<br/>
+&emsp;STP 气体 ↔ mol：$V = n \times 22.4\text{ L/mol}$<br/>
+④ <b>限量试剂</b>：分别算能产多少 mol 产物，取较小者<br/>
+⑤ <b>百分产率</b>：$\dfrac{\text{actual}}{\text{theoretical}} \times 100\%$
+</div>
+
+<div class="box box-note" data-label="全章思维导图">
+配平方程式（第 10 章）<br/>
+　　　　　↓<br/>
+读出<b>系数 → 摩尔比</b> (§12.1)<br/>
+　　　　　↓<br/>
+　"三步套路"做定量计算 (§12.2)<br/>
+　g / L / 粒子 → mol → mol → 目标<br/>
+　　　　　↓<br/>
+两种反应物时先判<b>限量试剂</b> (§12.3)<br/>
+　　　　　↓<br/>
+用限量试剂算<b>理论产量</b>；与实际值对比得<b>百分产率</b> (§12.4)
+</div>
+
+<div class="box box-warn" data-label="全章 6 大易错点">
+① 系数是 <b>mol 比不是 g 比</b>；② 不先配平就写摩尔比；③ 22.4 L/mol 只在 STP；<br/>
+④ 忘先判限量试剂，导致算错理论产量；⑤ actual 忘干燥去杂 → 产率 &gt; 100%；<br/>
+⑥ 有效数字保留错误。
+</div>
+</section>
+
+<!-- ============================== Chapter Assessment ============================== -->
+<section id="assessment">
+<h2 class="section">🧪 Chapter Assessment 章末测评</h2>
+
+<h3>Section 12.1 摩尔比</h3>
+<ol class="practice">
+<li><b>[Q56]</b> SiO₂ + HF → SiF₄ + H₂O。配平方程式并列出三个摩尔比。
+<div class="ans">配平：<b>SiO₂ + 4HF → SiF₄ + 2H₂O</b>。<br/>
+三例摩尔比：$\dfrac{4\text{ mol HF}}{1\text{ mol SiO}_2}$（求 HF 需要量）；$\dfrac{1\text{ mol SiF}_4}{1\text{ mol SiO}_2}$（求 SiF₄ 产量）；$\dfrac{2\text{ mol H}_2\text{O}}{4\text{ mol HF}}$（求 H₂O 由 HF 换算）。</div></li>
+
+<li><b>[Q57]</b> 2Al + 3Cl₂ → 2AlCl₃。写出 mol Al → mol AlCl₃ 的摩尔比。
+<div class="ans">$\dfrac{2\text{ mol AlCl}_3}{2\text{ mol Al}}$ = $\dfrac{1\text{ mol AlCl}_3}{1\text{ mol Al}}$（等价）。</div></li>
+
+<li><b>[Q58]</b> 2C + FeCr₂O₄ → FeCr₂ + 2CO₂。求 mol FeCr₂O₄ → mol FeCr₂ 的摩尔比。
+<div class="ans">$\dfrac{1\text{ mol FeCr}_2}{1\text{ mol FeCr}_2\text{O}_4}$。</div></li>
+
+<li><b>[Q60]</b> 反应 W + X → Y + Z，实验测得消耗 W = 0.90 mol、X = 0.30 mol，产 Y = 0.60 mol、Z = 1.20 mol。求配平系数。
+<div class="ans">各 mol 数除以最小值 0.30：W = 3, X = 1, Y = 2, Z = 4。<br/>
+配平方程：<b>3W + X → 2Y + 4Z</b>。</div></li>
+</ol>
+
+<h3>Section 12.2 mol → mol 换算</h3>
+<ol class="practice">
+<li><b>[Q61]</b> CaC₂ + 2H₂O → Ca(OH)₂ + C₂H₂。5.50 mol CaC₂ 与足量水反应，产 C₂H₂ 多少 mol？
+<div class="ans">摩尔比 1:1 → $n(\text{C}_2\text{H}_2) = <b>5.50 mol</b>$。</div></li>
+
+<li><b>[Q62]</b> 3NaHCO₃ + H₃C₆H₅O₇ → 3CO₂ + 3H₂O + Na₃C₆H₅O₇。0.0119 mol NaHCO₃ 反应产 CO₂ 多少 mol？
+<div class="ans">摩尔比 3:3 = 1:1 → $n(\text{CO}_2) = <b>0.0119 mol</b>$。</div></li>
+
+<li><b>[Q63]</b> CaCO₃ + 2HCl → CaCl₂ + H₂O + CO₂。0.0250 mol HCl 能溶多少 mol CaCO₃？
+<div class="ans">摩尔比 CaCO₃:HCl = 1:2 → $n(\text{CaCO}_3) = 0.0250 \times \dfrac{1}{2} = <b>0.0125 mol</b>$。</div></li>
+</ol>
+
+<h3>Section 12.2 mol → g 换算</h3>
+<ol class="practice">
+<li><b>[Q64]</b> C₁₂H₂₂O₁₁ + 3O₂ → 2H₃C₆H₅O₇ + 3H₂O。2.50 mol 蔗糖发酵产柠檬酸 (H₃C₆H₅O₇, M = 192.12) 多少 g？
+<div class="ans">$n(\text{acid}) = 2.50 \times 2 = 5.00$ mol；$m = 5.00 \times 192.12 = <b>961 g}$</b>。</div></li>
+
+<li><b>[Q65]</b> C₂H₅OH + C₃H₇COOH → C₃H₇COOC₂H₅ + H₂O。4.50 mol 乙醇酯化产菠萝香酯 (M = 116.16) 多少 g？
+<div class="ans">摩尔比 1:1 → $n = 4.50$ mol；$m = 4.50 \times 116.16 = <b>523 g}$</b>。</div></li>
+
+<li><b>[Q66]</b> 2C₈H₁₈ + 25O₂ → 16CO₂ + 18H₂O。若要释放 5.00 mol CO₂，需辛烷多少 g？
+<div class="ans">$n(\text{C}_8\text{H}_{18}) = 5.00 \times \dfrac{2}{16} = 0.625$ mol；$m = 0.625 \times 114.23 = <b>71.4 g}$</b>。</div></li>
+
+<li><b>[Q67]</b> K₂CrO₄ + Pb(NO₃)₂ → PbCrO₄↓ + 2KNO₃。0.250 mol K₂CrO₄ 产黄色 PbCrO₄ 多少 g？
+<div class="ans">$n(\text{PbCrO}_4) = 0.250$ mol；M = 323.18 g/mol；$m = 0.250 \times 323.18 = <b>80.8 g}$</b>。</div></li>
+</ol>
+
+<h3>Section 12.2 g → g 换算</h3>
+<ol class="practice">
+<li><b>[Q69]</b> CH₄ + 3Cl₂ → CHCl₃ + 3HCl。制 50.0 g CHCl₃ 需 CH₄ 多少 g？
+<div class="ans">$n(\text{CHCl}_3) = 50.0/119.37 = 0.4189$ mol；$n(\text{CH}_4) = 0.4189$ mol；$m = 0.4189 \times 16.04 = <b>6.72 g}$</b>。</div></li>
+
+<li><b>[Q70]</b> C₂H₅OH + 3O₂ → 2CO₂ + 3H₂O。100.0 g 乙醇燃烧产 CO₂ 多少 g？
+<div class="ans">$n(\text{C}_2\text{H}_5\text{OH}) = 100.0/46.07 = 2.171$ mol；$n(\text{CO}_2) = 2.171 \times 2 = 4.341$ mol；$m = 4.341 \times 44.01 = <b>191 g}$</b>。</div></li>
+
+<li><b>[Q73]</b> CO + 2H₂ → CH₃OH。生 45.0 g 甲醇需 H₂ 多少 g？
+<div class="ans">$n(\text{CH}_3\text{OH}) = 45.0/32.04 = 1.404$ mol；$n(\text{H}_2) = 2.809$ mol；$m = 2.809 \times 2.02 = <b>5.67 g}$</b>。</div></li>
+
+<li><b>[Q74a]</b> 4Au + 8NaCN + O₂ + 2H₂O → 4NaAu(CN)₂ + 4NaOH。25.0 g NaCN 能提取金 (Au) 多少 g？
+<div class="ans">$n(\text{NaCN}) = 25.0/49.01 = 0.5101$ mol；$n(\text{Au}) = 0.5101 \times \dfrac{4}{8} = 0.2551$ mol；$m = 0.2551 \times 196.97 = <b>50.2 g Au</b>$。</div></li>
+</ol>
+
+<h3>Section 12.3 限量试剂</h3>
+<ol class="practice">
+<li><b>[Q77]</b> Fe + 2NiO(OH) + 2H₂O → Fe(OH)₂ + 2Ni(OH)₂。5.00 mol Fe 与 8.00 mol NiO(OH) 反应，Fe(OH)₂ 产多少 mol？
+<div class="ans">Fe:NiO(OH) 需按 1:2 → 5 mol Fe 需 10 mol NiO(OH) 但只有 8 mol → <b>NiO(OH) 是限量试剂</b>。<br/>
+$n(\text{Fe(OH)}_2) = 8.00 \times \dfrac{1}{2} = <b>4.00 mol}$</b>。</div></li>
+
+<li><b>[Q79]</b> Fe₂O₃ + 3CO → 2Fe + 3CO₂。25.0 mol Fe₂O₃ 与 30.0 mol CO 反应，产 Fe 多少 g？
+<div class="ans">比比值：Fe₂O₃: 25.0/1 = 25.0；CO: 30.0/3 = 10.0 → <b>CO 是限量试剂</b>。<br/>
+$n(\text{Fe}) = 30.0 \times \dfrac{2}{3} = 20.0$ mol；$m = 20.0 \times 55.85 = <b>1117 g ≈ 1.12 kg</b>$。</div></li>
+
+<li><b>[Q80]</b> N₂ + 3H₂ → 2NH₃。3.50 mol H₂ + 5.00 mol N₂ 反应，NH₃ 产多少 g？
+<div class="ans">比比值：H₂: 3.50/3 = 1.167；N₂: 5.00/1 = 5.00 → <b>H₂ 是限量试剂</b>。<br/>
+$n(\text{NH}_3) = 3.50 \times \dfrac{2}{3} = 2.333$ mol；$m = 2.333 \times 17.04 = <b>39.8 g NH}_3$</b>。</div></li>
+
+<li><b>[Q81]</b> 5Cl₂ + 2P₄ → 4PCl₅（原教材未配平，正确配平应为 <b>10Cl₂ + P₄ → 4PCl₅</b>）。16.0 g Cl₂ 与 23.0 g P₄ 反应，判限量试剂。
+<div class="ans">$n(\text{Cl}_2) = 16.0/70.90 = 0.2257$ mol；$n(\text{P}_4) = 23.0/123.9 = 0.1857$ mol。<br/>
+比比值：Cl₂: 0.2257/10 = 0.02257；P₄: 0.1857/1 = 0.1857 → <b>Cl₂ 是限量试剂</b>，P₄ 过量。</div></li>
+
+<li><b>[Q82]</b> Zn + 2MnO₂ + H₂O → Zn(OH)₂ + Mn₂O₃。25.0 g Zn + 30.0 g MnO₂：<br/>
+(a) 限量试剂？(b) 产 Zn(OH)₂ 多少 g？
+<div class="ans">$n(\text{Zn}) = 25.0/65.38 = 0.3824$ mol；$n(\text{MnO}_2) = 30.0/86.94 = 0.3451$ mol。<br/>
+比比值：Zn: 0.3824/1 = 0.3824；MnO₂: 0.3451/2 = 0.1726 → <b>MnO₂ 是限量试剂</b>。<br/>
+$n(\text{Zn(OH)}_2) = 0.3451 \times \dfrac{1}{2} = 0.1726$ mol；M = 99.42 g/mol；$m = 0.1726 \times 99.42 = <b>17.2 g}$</b>。</div></li>
+
+<li><b>[Q83]</b> 2Li + Br₂ → 2LiBr。25.0 g Li + 25.0 g Br₂：判限量并求 LiBr 产量、过量剩余。
+<div class="ans">$n(\text{Li}) = 25.0/6.94 = 3.602$ mol；$n(\text{Br}_2) = 25.0/159.81 = 0.1564$ mol。<br/>
+比比值：Li: 3.602/2 = 1.801；Br₂: 0.1564/1 = 0.1564 → <b>Br₂ 是限量试剂</b>。<br/>
+$n(\text{LiBr}) = 0.1564 \times 2 = 0.3128$ mol；$m = 0.3128 \times 86.85 = <b>27.2 g LiBr</b>$。<br/>
+Li 消耗 = 0.3128 mol；剩 Li = 3.602 − 0.3128 = 3.289 mol；$m = 3.289 \times 6.94 = <b>22.8 g Li</b>$ 剩余。</div></li>
+</ol>
+
+<h3>Section 12.4 产率</h3>
+<ol class="practice">
+<li><b>[Q84]</b> C₁₂H₂₂O₁₁ + H₂O → 4C₂H₅OH + 4CO₂。684 g 蔗糖发酵得 349 g 乙醇，理论 & 产率？
+<div class="ans">$n(\text{sucrose}) = 684/342.3 = 1.998$ mol；$n(\text{ethanol}) = 1.998 \times 4 = 7.992$ mol；理论 $m = 7.992 \times 46.07 = <b>368 g}$</b>。<br/>
+Yield = 349/368 × 100% = <b>94.8%</b>。</div></li>
+
+<li><b>[Q85]</b> 2PbS + 3O₂ → 2PbO + 2SO₂（配平后）。200.0 g PbS 产 PbO 的理论质量；实际 170.0 g 产率？
+<div class="ans">$n(\text{PbS}) = 200.0/239.3 = 0.8358$ mol；$n(\text{PbO}) = 0.8358$ mol；理论 $m = 0.8358 \times 223.2 = <b>186.6 g}$</b>。<br/>
+Yield = 170.0/186.6 × 100% = <b>91.1%</b>。</div></li>
+
+<li><b>[Q86]</b> CaCO₃ → CaO + CO₂。235.0 g CaCO₃ 分解，理论 CO₂ 多少 g？实际 97.5 g 产率？
+<div class="ans">$n(\text{CaCO}_3) = 235.0/100.1 = 2.348$ mol；$n(\text{CO}_2) = 2.348$ mol；理论 $m = 2.348 \times 44.01 = <b>103.3 g}$</b>。<br/>
+Yield = 97.5/103.3 × 100% = <b>94.4%</b>。</div></li>
+
+<li><b>[Q87]</b> SiO₂ + 6HF → H₂SiF₆ + 2H₂O。40.0 g SiO₂ + 40.0 g HF：<br/>
+(a) 限量；(b) 过量剩余；(c) 理论 H₂SiF₆；(d) 实际 45.8 g，产率？
+<div class="ans">$n(\text{SiO}_2) = 40.0/60.08 = 0.6658$ mol；$n(\text{HF}) = 40.0/20.01 = 1.999$ mol。<br/>
+比比值：SiO₂: 0.6658；HF: 1.999/6 = 0.3332 → <b>HF 是限量试剂</b>。<br/>
+消耗 SiO₂ = 1.999/6 = 0.3332 mol；剩 SiO₂ = 0.3326 mol × 60.08 = <b>20.0 g</b>。<br/>
+$n(\text{H}_2\text{SiF}_6) = 0.3332$ mol；M = 144.09 g/mol；理论 $m = <b>48.0 g}$</b>。<br/>
+Yield = 45.8/48.0 × 100% = <b>95.4%</b>。</div></li>
+
+<li><b>[Q88]</b> ZrI₄ → Zr + 2I₂。45.0 g ZrI₄ 分解得 5.00 g Zr，产率？
+<div class="ans">$n(\text{ZrI}_4) = 45.0/598.85 = 0.07515$ mol；$n(\text{Zr}) = 0.07515$ mol；理论 $m = 0.07515 \times 91.22 = <b>6.855 g}$</b>。<br/>
+Yield = 5.00/6.855 × 100% = <b>72.9%</b>。</div></li>
+
+<li><b>[Q90]</b> MnO₂ + 4HCl → MnCl₂ + Cl₂ + 2H₂O。86.0 g MnO₂ + 50.0 g HCl 反应，实际 20.0 g Cl₂，产率？
+<div class="ans">$n(\text{MnO}_2) = 86.0/86.94 = 0.9891$ mol；$n(\text{HCl}) = 50.0/36.46 = 1.371$ mol。<br/>
+比比值：MnO₂: 0.9891；HCl: 1.371/4 = 0.3428 → <b>HCl 是限量试剂</b>。<br/>
+$n(\text{Cl}_2) = 1.371 / 4 = 0.3428$ mol；理论 $m = 0.3428 \times 70.90 = <b>24.3 g}$</b>。<br/>
+Yield = 20.0/24.3 × 100% = <b>82.3%</b>。</div></li>
+</ol>
+
+<h3>Mixed Review 综合</h3>
+<ol class="practice">
+<li><b>[Q92]</b> 2NH₃ + 3CuO → 3Cu + 3H₂O + N₂（配平后）。40.0 g NH₃ + 80.0 g CuO：判限量；产 N₂ 多少 g？过量剩多少？
+<div class="ans">$n(\text{NH}_3) = 40.0/17.04 = 2.348$ mol；$n(\text{CuO}) = 80.0/79.55 = 1.006$ mol。<br/>
+比比值：NH₃: 2.348/2 = 1.174；CuO: 1.006/3 = 0.3352 → <b>CuO 是限量试剂</b>。<br/>
+$n(\text{N}_2) = 1.006/3 = 0.3352$ mol；$m = 0.3352 \times 28.02 = <b>9.39 g N}_2$</b>。<br/>
+消耗 NH₃ = 1.006 × 2/3 = 0.6707 mol；剩 NH₃ = 2.348 − 0.6707 = 1.678 mol × 17.04 = <b>28.6 g</b>。</div></li>
+
+<li><b>[Q93]</b> CaC₂ + N₂ → CaNCN + C。7.50 mol CaC₂ + 5.00 mol N₂ 反应，产 CaNCN 多少 g？
+<div class="ans">比比值：CaC₂: 7.50；N₂: 5.00 → <b>N₂ 是限量试剂</b>。$n(\text{CaNCN}) = 5.00$ mol；M = 80.11 g/mol；$m = 5.00 \times 80.11 = <b>401 g}$</b>。</div></li>
+
+<li><b>[Q94]</b> CuO + H₂ → Cu + H₂O。32.0 g CuO 反应产 Cu 多少 g？
+<div class="ans">$n(\text{CuO}) = 32.0/79.55 = 0.4023$ mol；$n(\text{Cu}) = 0.4023$ mol；$m = 0.4023 \times 63.55 = <b>25.6 g}$</b>。</div></li>
+
+<li><b>[Q96]</b> 2H₂O → 2H₂ + O₂。36.0 g 水电解，理论 H₂ 多少 g？实得 3.80 g H₂ 产率？
+<div class="ans">$n(\text{H}_2\text{O}) = 36.0/18.02 = 1.998$ mol；$n(\text{H}_2) = 1.998$ mol；理论 $m = 1.998 \times 2.02 = <b>4.04 g}$</b>。<br/>
+Yield = 3.80/4.04 × 100% = <b>94.1%</b>。</div></li>
+
+<li><b>[Q98]</b> 8Al + 3NH₄ClO₄ → 4Al₂O₃ + 3NH₄Cl（航天飞机固体燃料）。6.00×10⁵ kg NH₄ClO₄ 产 6.56×10⁵ kg Al₂O₃，产率多少？
+<div class="ans">$n(\text{NH}_4\text{ClO}_4) = 6.00\times10^5\times 10^3/117.49 = 5.107 \times 10^6$ mol；<br/>
+$n(\text{Al}_2\text{O}_3) = 5.107\times10^6 \times \dfrac{4}{3} = 6.810 \times 10^6$ mol；<br/>
+理论 $m = 6.810\times10^6 \times 101.96 = 6.943 \times 10^8$ g = <b>6.94 × 10⁵ kg</b>。<br/>
+Yield = 6.56/6.94 × 100% = <b>94.5%</b>。</div></li>
+
+<li><b>[Q99]</b> 你算出产率 108%，可能吗？为什么？
+<div class="ans">理论上 <b>不可能超过 100%</b>（超过就违背了质量守恒）。可能原因：<br/>
+① 产物未干燥（含水/溶剂）；② 产物含杂质；③ 称量或天平误差；④ 计算错误（如摩尔质量、限量试剂判错）。<br/>
+补救：重新干燥、纯化产物，再称量重算。</div></li>
+
+<li><b>[Q103]</b> 火堆快熄灭时扇一扇会重新烧起来，从 stoichiometry 角度解释。
+<div class="ans">火堆本质是碳与氧的燃烧：$\text{C} + \text{O}_2 \to \text{CO}_2$。当火将熄时，反应物 O₂ 消耗，附近变得缺氧，<b>O₂ 成了限量试剂</b>。扇风增加新鲜空气流入，补充 O₂ → 反应继续甚至加剧 → 火又燃起来。</div></li>
+</ol>
+</section>
+
+<!-- ============================== Standardized Test ============================== -->
+<section id="std-test">
+<h2 class="section">🎯 Standardized Test Practice 标准化测试</h2>
+<p class="small">教材设定：Dr. Raitano 实验室现有——NaCl 700.0 g、AgNO₃ 100.0 g、Na₂CO₃ 500.0 g、Ca(OH)₂ 300.0 g、NaH₂PO₄ 350.0 g、KClO₃ 200.0 g。</p>
+
+<ol class="practice">
+<li><b>[Q1]</b> Cu + 2AgNO₃ → 2Ag + Cu(NO₃)₂。用完 100.0 g AgNO₃ 需 Cu 多少 g？
+<div class="ans">$n(\text{AgNO}_3) = 100.0/169.9 = 0.5886$ mol；$n(\text{Cu}) = 0.5886/2 = 0.2943$ mol；$m = 0.2943 \times 63.55 = <b>18.7 g}$</b>。选 <b>a</b>。</div></li>
+
+<li><b>[Q2]</b> Na₂CO₃ + Ca(OH)₂ → 2NaOH + CaCO₃。用现有的 Na₂CO₃ 与 Ca(OH)₂，最多产多少 mol NaOH？
+<div class="ans">$n(\text{Na}_2\text{CO}_3) = 500.0/106.0 = 4.717$ mol；$n(\text{Ca(OH)}_2) = 300.0/74.10 = 4.049$ mol。<br/>
+比比值 1:1 → <b>Ca(OH)₂ 是限量试剂</b>；$n(\text{NaOH}) = 4.049 \times 2 = <b>8.10 mol}$</b>。选 <b>c</b>。</div></li>
+
+<li><b>[Q3]</b> 2KClO₃ → 2KCl + 3O₂。用一半 KClO₃ (100.0 g) 得 12.8 g O₂，产率？
+<div class="ans">$n(\text{KClO}_3) = 100.0/122.55 = 0.8160$ mol；$n(\text{O}_2) = 0.8160 \times \dfrac{3}{2} = 1.224$ mol；理论 $m = 1.224 \times 32.00 = 39.17$ g。<br/>
+Yield = 12.8/39.17 × 100% = <b>32.7%</b>。选 <b>b</b>。</div></li>
+
+<li><b>[Q4]</b> 2NaH₂PO₄ → Na₂H₂P₂O₇ + H₂O。要制 444.0 g Na₂H₂P₂O₇ 需 NaH₂PO₄ 多少 g？还需买多少？
+<div class="ans">$n(\text{Na}_2\text{H}_2\text{P}_2\text{O}_7) = 444.0/221.94 = 2.001$ mol；$n(\text{NaH}_2\text{PO}_4) = 2 \times 2.001 = 4.002$ mol；$m = 4.002 \times 119.98 = 480.1$ g。<br/>
+现有 350.0 g，还需 <b>130 g</b>。选 <b>b</b>。</div></li>
+
+<li><b>[Q5]</b> Stoichiometry 建立在哪条定律上？<br/>
+a) 恒摩尔比；b) 阿伏伽德罗常数；c) 能量守恒；d) 质量守恒。
+<div class="ans">选 <b>d</b>。质量守恒是配平方程式和所有化学计量计算的基础。</div></li>
+
+<li><b>[Q6]</b> 2HgO → 2Hg + O₂。3.55 mol HgO 分解得 1.54 mol O₂ + 618 g Hg，产率？
+<div class="ans">Hg 理论 mol = 3.55 mol；$m_{th} = 3.55 \times 200.59 = 712.1$ g。<br/>
+Yield = 618/712.1 × 100% = <b>86.8%</b>。选 <b>d</b>。<br/>
+（也可用 O₂：理论 $n = 3.55/2 = 1.775$ mol，Yield = 1.54/1.775 × 100% = 86.8%。）</div></li>
+
+<li><b>[Q7]</b> (CH₃)₂N₂H₂ + 2N₂O₄ → 3N₂ + 4H₂O + 2CO₂。2.0 mol (CH₃)₂N₂H₂ + 4.0 mol N₂O₄，产率 85%，问各产物 mol？
+<div class="ans">比比值：hydrazine: 2.0；N₂O₄: 4.0/2 = 2.0 → 恰好化学计量比。<br/>
+理论 mol：N₂ = 2.0 × 3 = 6.0；H₂O = 2.0 × 4 = 8.0；CO₂ = 2.0 × 2 = 4.0。<br/>
+乘 85%：N₂ = <b>5.1 mol</b>；H₂O = <b>6.8 mol</b>；CO₂ = <b>3.4 mol</b>。选 <b>c</b>。</div></li>
+</ol>
+</section>
+
+<!-- ============================== Cheat Sheet ============================== -->
+<section id="cheatsheet">
+<h2 class="section">⚡ 一页知识卡</h2>
+
+<div class="callout-topic">
+<h3>mol 中心路线图（全章灵魂）</h3>
+<p>g A　—— M ——&nbsp;&nbsp; <b>mol A</b>　——摩尔比——&nbsp;&nbsp; <b>mol B</b>　—— M ——&nbsp;&nbsp; g B<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;粒子 A ↔ N_A ↔ mol A　　　　　　　　mol B ↔ N_A ↔ 粒子 B<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;L (STP) A ↔ 22.4 ↔ mol A　　　　　　　mol B ↔ 22.4 ↔ L (STP) B</p>
+</div>
+
+<div class="box box-key" data-label="核心公式速查">
+① $n = m / M$（g ↔ mol）<br/>
+② $N = n N_A$，$N_A = 6.02 \times 10^{23}$（粒子 ↔ mol）<br/>
+③ $V_{STP} = n \times 22.4$ L/mol（STP 气体 ↔ mol）<br/>
+④ $n_B = n_A \times \dfrac{\text{系数 B}}{\text{系数 A}}$（mol A ↔ mol B）<br/>
+⑤ $\text{Yield}\% = \dfrac{\text{actual}}{\text{theoretical}} \times 100\%$
+</div>
+
+<div class="box box-note" data-label="限量试剂 3 步法">
+① 反应物换 mol；<br/>
+② 除以各自系数得"归一化 mol"；<br/>
+③ 值<b>小</b>的 = 限量试剂 = 决定理论产量。
+</div>
+
+<div class="box box-warn" data-label="全章 6 大易错点">
+① 系数 = <b>mol 比</b>，不是 g 比。<br/>
+② 计算前必须<b>先配平</b>方程式。<br/>
+③ 22.4 L/mol <b>只在 STP</b> 用（0 ℃, 1 atm）。<br/>
+④ 有两个反应物时<b>先判限量试剂</b>再算理论产量。<br/>
+⑤ 产率 &gt; 100% 说明产物<b>未干燥或有杂质</b>。<br/>
+⑥ 有效数字保留最少的那个已知量位数。
+</div>
+
+<div class="box box-example" data-label="速记口诀">
+"<b>先配平，再换 mol；<br/>
+mol 中心，看比例；<br/>
+两料齐来判限量，<br/>
+理论 × 产率 = 实际。</b>"
+</div>
+</section>
+
+<hr class="soft"/>
+<p class="small" style="text-align:center;color:#888">© 中文自学手册 · 与《Chemistry — Matter and Change》第 12 章配套 · 与 Chapter 11 手册同一风格深度</p>
+</main>
+</div>
+<script src="theme.js?v=20260905"></script>
+</body>
+</html>

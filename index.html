@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#102c47">
+  <title>Keystone · Colin 的九年级学习空间</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;family=Noto+Sans+SC:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --night: #102c47;
+      --ink: #15233c;
+      --paper: #f5f3ea;
+      --mist: #dce7ec;
+      --blue: #4166ec;
+      --electric: #80a4ff;
+      --lime: #dbf65a;
+      --coral: #ff765f;
+      --quiet: #8b9cac;
+      --line: #cad4d5;
+      --mono: "IBM Plex Mono", monospace;
+      --display: "Bricolage Grotesque", "Noto Sans SC", sans-serif;
+      --body: "Noto Sans SC", system-ui, sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; color: var(--ink); background: var(--paper); font-family: var(--body); }
+    a { color: inherit; text-decoration: none; }
+    a:focus-visible { outline: 3px solid var(--lime); outline-offset: 4px; }
+    .shell { width: min(1220px, calc(100% - 48px)); margin: auto; }
+
+    .topbar { display: flex; align-items: center; justify-content: space-between; min-height: 86px; color: var(--paper); }
+    .brand { display: inline-flex; align-items: center; gap: 12px; font-family: var(--display); font-size: 18px; font-weight: 800; letter-spacing: -.06em; }
+    .brand-sign { display: grid; width: 34px; height: 34px; place-items: center; border: 1px solid #ffffff70; border-radius: 50%; color: var(--lime); font-family: var(--mono); font-size: 15px; letter-spacing: 0; }
+    .brand small, .edition { display: block; margin-top: 1px; color: #b8c8d4; font: 9px/1.4 var(--mono); letter-spacing: .1em; }
+    .top-links { display: flex; align-items: center; gap: 25px; color: #c4d1da; font: 10px var(--mono); letter-spacing: .04em; }
+    .top-links a { transition: color .18s ease; }
+    .top-links a:hover { color: var(--lime); }
+    .edition { padding: 7px 10px; border: 1px solid #ffffff28; border-radius: 999px; color: var(--lime); }
+
+    .page-top { color: var(--paper); background: var(--night); overflow: hidden; }
+    .hero { position: relative; min-height: 596px; padding: 48px 0 74px; isolation: isolate; }
+    .hero::before { content: ""; position: absolute; z-index: -2; inset: 0 -25vw; background-image: linear-gradient(#ffffff0d 1px, transparent 1px), linear-gradient(90deg, #ffffff0d 1px, transparent 1px); background-size: 39px 39px; mask-image: linear-gradient(90deg, transparent, #000 15%, #000 85%, transparent); }
+    .hero::after { content: ""; position: absolute; z-index: -1; width: 700px; height: 700px; right: -273px; top: -230px; border: 1px solid #99b2ff35; border-radius: 50%; box-shadow: 0 0 0 48px #99b2ff08, 0 0 0 113px #99b2ff06, 0 0 0 190px #99b2ff05; }
+    .hero-grid { display: grid; grid-template-columns: minmax(0, .94fr) minmax(460px, 1.06fr); align-items: center; gap: 28px; }
+    .eyebrow { display: flex; align-items: center; gap: 9px; margin-bottom: 20px; color: var(--lime); font: 10px var(--mono); letter-spacing: .12em; }
+    .eyebrow::before { width: 19px; height: 7px; border-top: 1px solid currentColor; border-bottom: 1px solid currentColor; content: ""; }
+    h1 { max-width: 590px; margin: 0; font-family: var(--display); font-size: clamp(48px, 5.6vw, 78px); font-weight: 750; letter-spacing: -.077em; line-height: .98; }
+    h1 em { color: var(--lime); font-style: normal; }
+    .intro { max-width: 505px; margin: 24px 0 0; color: #c6d2d9; font-size: 16px; line-height: 1.85; }
+    .hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 17px; margin-top: 29px; }
+    .primary-action { display: inline-flex; align-items: center; gap: 12px; padding: 14px 17px; border-radius: 4px; background: var(--lime); color: var(--night); font-weight: 800; font-size: 14px; box-shadow: 5px 5px 0 #6282d4; transition: transform .18s ease, box-shadow .18s ease; }
+    .primary-action:hover { transform: translate(-2px, -2px); box-shadow: 8px 8px 0 #6282d4; }
+    .plain-action { color: #e6eef1; font-size: 13px; font-weight: 700; border-bottom: 1px solid #e6eef166; padding-bottom: 3px; }
+    .plain-action:hover { color: var(--lime); border-color: var(--lime); }
+
+    .sky-map { position: relative; min-height: 426px; }
+    .orbit { position: absolute; left: 51%; top: 50%; width: 416px; height: 276px; transform: translate(-50%, -50%) rotate(-15deg); border: 1px solid #98b4ff42; border-radius: 50%; }
+    .orbit::before, .orbit::after { position: absolute; border: 1px solid #98b4ff2c; border-radius: 50%; content: ""; }
+    .orbit::before { width: 316px; height: 184px; left: 45px; top: 45px; }
+    .orbit::after { width: 520px; height: 365px; left: -52px; top: -45px; }
+    .map-caption { position: absolute; top: 24px; right: 0; color: #a9bac8; font: 9px var(--mono); letter-spacing: .08em; text-align: right; }
+    .map-caption b { display: block; margin-bottom: 5px; color: var(--lime); font-weight: 500; }
+    .course-core { position: absolute; z-index: 2; left: 50%; top: 49%; width: 226px; padding: 21px 20px 19px; transform: translate(-50%, -50%) rotate(-3deg); background: var(--paper); color: var(--night); box-shadow: 13px 16px 0 #020d1a46; transition: transform .25s ease; }
+    .course-core:hover { transform: translate(-50%, -54%) rotate(0); }
+    .core-status { display: flex; justify-content: space-between; color: var(--blue); font: 9px var(--mono); letter-spacing: .08em; }
+    .core-status span:last-child { color: #537200; }
+    .course-core h2 { margin: 27px 0 5px; font-family: var(--display); font-size: 30px; line-height: .95; letter-spacing: -.07em; }
+    .course-core p { margin: 0; color: #647381; font-size: 11px; }
+    .core-go { display: flex; align-items: center; justify-content: space-between; margin-top: 21px; padding-top: 11px; border-top: 1px solid var(--line); color: var(--blue); font: 10px var(--mono); }
+    .course-core:hover .core-go { color: #243cbd; }
+    .satellite { position: absolute; z-index: 3; display: flex; align-items: center; gap: 8px; color: #d8e3eb; font: 10px var(--mono); letter-spacing: .04em; }
+    .satellite::before { display: grid; width: 24px; height: 24px; place-items: center; border: 1px solid #afc5d335; border-radius: 50%; background: #12334e; color: #aabccb; content: "+"; font-size: 14px; }
+    .satellite b { display: block; color: inherit; font-size: 10px; font-weight: 500; }
+    .satellite small { display: block; margin-top: 2px; color: #8298a8; font-size: 8px; }
+    .satellite.math { left: 1%; top: 16%; }
+    .satellite.physics { right: 1%; top: 51%; }
+    .satellite.bio { left: 22%; bottom: 9%; }
+    .orbit-dot { position: absolute; z-index: 3; width: 8px; height: 8px; border-radius: 50%; background: var(--coral); box-shadow: 0 0 0 5px #ff765f24; }
+    .dot-one { right: 20%; top: 24%; } .dot-two { left: 9%; bottom: 32%; width: 6px; height: 6px; background: var(--lime); box-shadow: 0 0 0 5px #dbf65a24; }
+    .map-legend { position: absolute; bottom: 0; right: 0; display: flex; gap: 12px; color: #a8bac6; font: 8px var(--mono); letter-spacing: .06em; }
+    .map-legend i { display: inline-block; width: 6px; height: 6px; margin-right: 5px; border-radius: 50%; background: var(--lime); }
+    .map-legend i.muted { background: #7d92a2; }
+
+    .now-strip { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 20px; min-height: 82px; border-bottom: 1px solid var(--line); color: var(--ink); }
+    .now-label { color: var(--blue); font: 10px var(--mono); letter-spacing: .1em; }
+    .now-strip p { margin: 0; font-size: 13px; font-weight: 700; }
+    .now-strip p span { color: var(--quiet); font-weight: 500; }
+    .jump { display: inline-flex; gap: 7px; align-items: center; color: var(--blue); font: 10px var(--mono); }
+    .jump:hover { color: #1b39ba; }
+
+    .subject-zone { padding: 100px 0 110px; }
+    .section-kicker { color: var(--blue); font: 10px var(--mono); letter-spacing: .12em; }
+    .route-heading { display: grid; grid-template-columns: 1fr auto; gap: 25px; align-items: end; margin-bottom: 34px; }
+    .route-heading h2 { margin: 8px 0 0; font-family: var(--display); font-size: clamp(38px, 4.6vw, 59px); line-height: 1; letter-spacing: -.075em; }
+    .route-heading p { max-width: 296px; margin: 0; color: #6c7a89; font-size: 13px; line-height: 1.7; }
+    .route { position: relative; }
+    .stops { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 1px; border: 1px solid var(--line); background: var(--line); }
+    .stop { display: flex; min-height: 128px; flex-direction: column; padding: 17px 15px 14px; background: var(--paper); transition: background .17s ease, transform .17s ease; }
+    .stop::before { width: 10px; height: 10px; margin: 0 0 13px; border: 1px solid var(--blue); border-radius: 50%; background: var(--paper); color: var(--blue); content: ""; transition: background .17s ease, transform .17s ease; }
+    .stop:hover::before, .stop:focus-visible::before { transform: scale(1.18); background: var(--blue); }
+    .stop:nth-child(3n)::before { border-color: var(--coral); color: var(--coral); }
+    .stop:nth-child(3n):hover::before, .stop:nth-child(3n):focus-visible::before { background: var(--coral); }
+    .stop:nth-child(5n)::before { border-color: #779419; color: #779419; }
+    .stop:nth-child(5n):hover::before, .stop:nth-child(5n):focus-visible::before { background: var(--lime); }
+    .stop:hover { position: relative; z-index: 1; background: #eef2ff; transform: translateY(-3px); }
+    .stop.is-current { position: relative; z-index: 1; background: var(--night); color: var(--paper); }
+    .stop.is-current::before { border: 3px solid var(--paper); background: var(--lime); box-shadow: 0 0 0 2px var(--lime); }
+    .stop.is-current .stop-number, .stop.is-current small { color: var(--lime); }
+    .stop.is-current strong { color: var(--paper); }
+    .stop-number { color: var(--blue); font: 9px var(--mono); letter-spacing: .04em; }
+    .stop strong { display: block; margin: 8px 0 3px; font-size: 13px; line-height: 1.32; letter-spacing: -.03em; }
+    .stop small { color: var(--quiet); font: 9px/1.35 var(--mono); }
+    .route-tip { display: flex; justify-content: space-between; margin: 13px 0 0; color: #70808e; font: 10px var(--mono); }
+    .route-tip span:first-child { color: var(--blue); font-weight: 600; }
+    .route-tip span:last-child { color: #70808e; }
+
+    .launches { margin-top: 116px; padding-top: 19px; border-top: 1px solid var(--ink); }
+    .launches-head { display: flex; align-items: baseline; justify-content: space-between; gap: 20px; margin-bottom: 3px; }
+    .launches h2 { margin: 0; font-family: var(--display); font-size: 29px; letter-spacing: -.06em; }
+    .launches p { margin: 0; color: var(--quiet); font: 9px var(--mono); }
+    .launch-list { margin: 0; padding: 0; list-style: none; }
+    .launch-list li { display: grid; grid-template-columns: 70px 1fr auto; align-items: center; gap: 20px; min-height: 75px; border-bottom: 1px solid var(--line); transition: padding .18s ease, background .18s ease; }
+    .launch-list li:hover { padding: 0 12px; background: #e9e8df; }
+    .launch-code { color: var(--blue); font: 10px var(--mono); }
+    .launch-name { font-family: var(--display); font-size: 22px; font-weight: 650; letter-spacing: -.055em; }
+    .launch-name small { margin-left: 10px; color: var(--quiet); font: 9px var(--mono); letter-spacing: .04em; }
+    .launch-status { color: #70808e; font: 9px var(--mono); text-align: right; }
+    .launch-list li:first-child .launch-status { color: #5d7611; }
+    .launch-list li:first-child .launch-status::before { display: inline-block; width: 6px; height: 6px; margin-right: 6px; border-radius: 50%; background: var(--lime); content: ""; }
+
+    footer { display: flex; justify-content: space-between; gap: 20px; padding: 24px 0 35px; border-top: 1px solid #ffffff24; color: #b7c5cd; font: 9px var(--mono); letter-spacing: .05em; }
+    .footer-wrap { background: var(--night); }
+
+    @media (max-width: 900px) {
+      .hero-grid { grid-template-columns: 1fr; }
+      .hero { padding-top: 35px; }
+      .sky-map { min-height: 350px; margin: -20px 0 0; }
+      .map-caption { right: 4%; }
+      .route-heading { grid-template-columns: 1fr; gap: 12px; }
+      .route-heading p { max-width: 480px; }
+      .stops { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    }
+    @media (max-width: 620px) {
+      .shell { width: min(100% - 32px, 1220px); }
+      .topbar { min-height: 71px; }
+      .top-links a { display: none; }
+      .edition { font-size: 8px; }
+      .hero { min-height: 0; padding: 37px 0 50px; }
+      h1 { font-size: clamp(43px, 13vw, 60px); }
+      .intro { font-size: 14px; }
+      .hero-actions { gap: 14px; }
+      .sky-map { min-height: 314px; margin-top: 0; transform: scale(.92); transform-origin: center top; }
+      .orbit { width: 322px; height: 208px; }
+      .orbit::before { width: 237px; height: 132px; left: 42px; top: 36px; }
+      .orbit::after { width: 398px; height: 282px; left: -39px; top: -38px; }
+      .course-core { width: 194px; padding: 17px; }
+      .course-core h2 { margin-top: 21px; font-size: 27px; }
+      .satellite { font-size: 8px; }
+      .satellite::before { width: 20px; height: 20px; }
+      .satellite.math { left: 0; top: 23%; } .satellite.physics { right: -1%; top: 52%; } .satellite.bio { left: 7%; bottom: 6%; }
+      .map-caption, .map-legend { display: none; }
+      .now-strip { grid-template-columns: auto 1fr; gap: 11px; min-height: 90px; }
+      .now-strip p { font-size: 12px; }
+      .jump { grid-column: 2; justify-self: start; margin-top: -13px; }
+      .subject-zone { padding: 69px 0 75px; }
+      .route-heading h2 { font-size: 42px; }
+      .stops { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .stop { min-height: 117px; padding: 14px 12px; }
+      .launches { margin-top: 72px; }
+      .launches-head { display: block; }
+      .launches-head p { margin-top: 8px; }
+      .launch-list li { grid-template-columns: 48px 1fr; gap: 10px; min-height: 67px; }
+      .launch-name { font-size: 18px; }
+      .launch-status { grid-column: 2; justify-self: start; margin-top: -20px; }
+      .launch-name small { display: none; }
+      footer { display: block; font-size: 8px; line-height: 2; }
+    }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; animation: none !important; } }
+  </style>
+</head>
+<body>
+  <div class="page-top">
+    <nav class="topbar shell" aria-label="主导航">
+      <a class="brand" href="index.html" aria-label="Keystone 首页"><span class="brand-sign">K</span><span>KEYSTONE<small>COLIN'S STUDY SPACE</small></span></a>
+      <div class="top-links"><a href="#subjects">学科航图</a><a href="#chemistry">化学路线</a><a href="chemistry/Chapter01.html">开始学习</a><span class="edition">GRADE 09 / 2026</span></div>
+    </nav>
+    <main class="shell">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-grid">
+          <div>
+            <p class="eyebrow">INTERNATIONAL SCHOOL · GRADE 9</p>
+            <h1 id="hero-title">把课本变成<br>可以<em>探索</em>的宇宙。</h1>
+            <p class="intro">这里不是一排等待点击的学科按钮，而是一张会持续生长的学习航图。化学已经起飞；接下来，更多问题会在这里找到答案。</p>
+            <div class="hero-actions"><a class="primary-action" href="chemistry/Chapter01.html">从化学第 1 章开始 <span>↗</span></a><a class="plain-action" href="#chemistry">浏览化学航线 ↓</a></div>
+          </div>
+          <div class="sky-map" aria-label="学科星图：化学已开放，数学、物理与生物即将推出">
+            <p class="map-caption"><b>THE GROWING ATLAS</b>一门学科，一条新轨道</p>
+            <div class="orbit" aria-hidden="true"></div><i class="orbit-dot dot-one" aria-hidden="true"></i><i class="orbit-dot dot-two" aria-hidden="true"></i>
+            <a class="course-core" href="chemistry/Chapter01.html"><span class="core-status"><span>01 / ACTIVE</span><span>● OPEN</span></span><h2>化学<br>CHEMISTRY</h2><p>13 chapters · bilingual notes</p><span class="core-go">进入实验室 <b>→</b></span></a>
+            <div class="satellite math"><span><b>数学</b><small>CALIBRATING</small></span></div>
+            <div class="satellite physics"><span><b>物理</b><small>IN ASSEMBLY</small></span></div>
+            <div class="satellite bio"><span><b>生物</b><small>COMING INTO VIEW</small></span></div>
+            <p class="map-legend"><span><i></i>已开放</span><span><i class="muted"></i>建设中</span></p>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <section class="shell now-strip" aria-label="当前学习进度">
+    <span class="now-label">NOW IN LAB</span><p>化学导论 <span>· 从“什么是化学”开始建立你的观察方法。</span></p><a class="jump" href="chemistry/Chapter01.html">继续学习 →</a>
+  </section>
+
+  <main class="shell subject-zone">
+    <section id="chemistry" aria-labelledby="route-title">
+      <div class="route-heading"><div><p class="section-kicker">CHEMISTRY / LIVE COURSE</p><h2 id="route-title">13 个站点，一条反应路径。</h2></div><p>每一站都保留一个真实的学习入口。直接点击章节，沿着化学从观察到计算的路径前进。</p></div>
+      <div class="route">
+        <div class="stops" aria-label="化学章节导航">
+          <a class="stop" href="chemistry/Chapter01.html"><span class="stop-number">01 / 起点</span><strong>化学导论</strong><small>INTRODUCTION</small></a>
+          <a class="stop" href="chemistry/Chapter02.html"><span class="stop-number">02 / 工具</span><strong>数据分析</strong><small>DATA ANALYSIS</small></a>
+          <a class="stop" href="chemistry/Chapter03.html"><span class="stop-number">03 / 观察</span><strong>物质：性质与变化</strong><small>MATTER</small></a>
+          <a class="stop" href="chemistry/Chapter04.html"><span class="stop-number">04 / 微观</span><strong>原子结构</strong><small>ATOMIC STRUCTURE</small></a>
+          <a class="stop" href="chemistry/Chapter05.html"><span class="stop-number">05 / 电子</span><strong>原子中的电子</strong><small>ELECTRONS</small></a>
+          <a class="stop" href="chemistry/Chapter06.html"><span class="stop-number">06 / 规律</span><strong>元素周期表与周期律</strong><small>PERIODIC LAW</small></a>
+          <a class="stop" href="chemistry/Chapter07.html"><span class="stop-number">07 / 元素</span><strong>元素</strong><small>ELEMENTS</small></a>
+          <a class="stop" href="chemistry/Chapter08.html"><span class="stop-number">08 / 离子</span><strong>离子化合物</strong><small>IONIC COMPOUNDS</small></a>
+          <a class="stop" href="chemistry/Chapter09.html"><span class="stop-number">09 / 共价键</span><strong>共价键</strong><small>COVALENT BONDING</small></a>
+          <a class="stop" href="chemistry/Chapter10.html"><span class="stop-number">10 / 反应</span><strong>化学反应</strong><small>REACTIONS</small></a>
+          <a class="stop is-current" href="chemistry/Chapter11.html" aria-current="page"><span class="stop-number">11 / 正在学习</span><strong>摩尔</strong><small>THE MOLE</small></a>
+          <a class="stop" href="chemistry/Chapter12.html"><span class="stop-number">12 / 配平</span><strong>化学计量</strong><small>STOICHIOMETRY</small></a>
+          <a class="stop" href="chemistry/Chapter13.html"><span class="stop-number">13 / 变化</span><strong>物质的三态</strong><small>STATES OF MATTER</small></a>
+        </div>
+      </div>
+      <p class="route-tip"><span>你正在学习：CH 11 · 摩尔</span><span>13 / 13 STATIONS · 点击直接打开</span></p>
+    </section>
+
+    <section class="launches" id="subjects" aria-labelledby="subjects-title">
+      <div class="launches-head"><h2 id="subjects-title">下一批正在校准。</h2><p>不是空白占位符，而是为下一段探索预留的位置。</p></div>
+      <ul class="launch-list">
+        <li><span class="launch-code">01 / LIVE</span><span class="launch-name">化学 <small>CHEMISTRY</small></span><span class="launch-status">13 个章节已上线</span></li>
+        <li><span class="launch-code">02 / NEXT</span><span class="launch-name">生物 <small>BIOLOGY</small></span><span class="launch-status">准备观察生命系统</span></li>
+        <li><span class="launch-code">03 / NEXT</span><span class="launch-name">物理 <small>PHYSICS</small></span><span class="launch-status">准备研究世界如何运作</span></li>
+        <li><span class="launch-code">04 / LATER</span><span class="launch-name">数学 <small>MATHEMATICS</small></span><span class="launch-status">准备解开模式与结构</span></li>
+      </ul>
+    </section>
+  </main>
+
+  <div class="footer-wrap"><footer class="shell"><span>KEYSTONE / A STUDY ATLAS THAT KEEPS GROWING</span><span>MADE FOR CURIOSITY · 2026</span></footer></div>
+</body>
+</html>

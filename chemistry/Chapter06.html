@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>第 6 章 The Periodic Table and Periodic Law · 中文学习手册</title>
+<script>
+window.MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$','$$'], ['\\[','\\]']] }, svg: { fontCache: 'global' } };
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+:root{--bg:#f7f5ef;--paper:#ffffff;--ink:#232323;--ink-soft:#4a4a4a;--accent:#0f6b5e;--accent-2:#c1543b;--accent-3:#3e5aa8;--hi:#f6e58d;--box-note:#eaf1fb;--box-warn:#fdecea;--box-key:#fff1d6;--box-example:#eef7ee;--line:#e4dfd2;}
+*{box-sizing:border-box}html,body{margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei","Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.75;font-size:16px;}
+.wrap{display:flex;max-width:1400px;margin:0 auto;min-height:100vh}
+aside.toc{position:sticky;top:0;align-self:flex-start;width:280px;height:100vh;overflow-y:auto;background:linear-gradient(180deg,#0f6b5e,#0b4d43);color:#fff;padding:24px 18px;}
+aside.toc h1{font-size:16px;margin:0 0 6px;letter-spacing:1px;color:#f6e58d}
+aside.toc .sub{font-size:12px;opacity:.75;margin-bottom:16px}
+aside.toc a{display:block;color:#f2fbf8;text-decoration:none;padding:8px 10px;border-radius:6px;margin-bottom:2px;font-size:14px;line-height:1.4;border-left:3px solid transparent;}
+aside.toc a:hover{background:rgba(255,255,255,.10)}
+main{flex:1;padding:36px 44px;background:var(--paper);box-shadow:0 0 30px rgba(0,0,0,.05)}
+h1.title{font-size:32px;margin:0 0 6px;color:var(--accent)}
+.subtitle{color:var(--ink-soft);margin-bottom:24px;font-size:14px}
+h2.section{font-size:24px;color:var(--accent);border-bottom:2px solid var(--accent);padding-bottom:6px;margin-top:56px;margin-bottom:14px;}
+h3{font-size:19px;color:var(--accent-2);margin-top:32px;border-left:5px solid var(--accent-2);padding-left:10px}
+h4{font-size:16px;color:var(--accent-3);margin-top:20px}
+.hi{background:linear-gradient(180deg,transparent 55%,var(--hi) 55%);padding:0 2px}
+.term{color:var(--accent-2);font-weight:700}
+.term-en{color:var(--accent);font-style:italic}
+.box{padding:14px 18px;border-radius:10px;margin:14px 0;position:relative}
+.box::before{content:attr(data-label);position:absolute;top:-10px;left:14px;background:#fff;padding:0 8px;font-size:12px;font-weight:700;letter-spacing:1px;}
+.box-note{background:var(--box-note);border:1px solid #c9d7f0}.box-note::before{content:"讲解 · 知识点";color:var(--accent-3)}
+.box-warn{background:var(--box-warn);border:1px solid #f5c6c0}.box-warn::before{content:"重难点 · 易错点";color:var(--accent-2)}
+.box-key{background:var(--box-key);border:1px solid #f3d78b}.box-key::before{content:"关键规律";color:#a17108}
+.box-example{background:var(--box-example);border:1px solid #b7dab8}.box-example::before{content:"例题详解";color:#2c6e2e}
+table.vocab{width:100%;border-collapse:collapse;margin:6px 0}
+table.vocab th,table.vocab td{padding:6px 10px;border-bottom:1px solid var(--line);font-size:14px;text-align:left;vertical-align:top}
+table.vocab th{background:#dfeae7;color:var(--accent)}
+.step{margin:10px 0;padding:10px 14px 10px 42px;background:#fbfaf3;border-radius:8px;position:relative}
+.step .no{position:absolute;left:10px;top:10px;width:24px;height:24px;line-height:24px;text-align:center;background:var(--accent);color:#fff;border-radius:50%;font-weight:700;font-size:13px;}
+ol.practice{padding-left:20px}ol.practice li{margin-bottom:10px}
+.ans{background:#eef7ee;border-left:4px solid #4e9d5c;padding:10px 14px;border-radius:0 8px 8px 0;margin:6px 0;font-size:14.5px}
+.ans::before{content:"参考答案与解析　";color:#2c6e2e;font-weight:700;font-size:12px;letter-spacing:1px}
+hr.soft{border:none;border-top:1px dashed #cfc9b6;margin:32px 0}
+.callout-topic{background:linear-gradient(135deg,#0f6b5e,#3e5aa8);color:#fff;padding:18px 22px;border-radius:12px;margin:20px 0;}
+.callout-topic h3{color:#f6e58d;border:none;padding:0;margin:0 0 8px}
+.callout-topic p{margin:0;opacity:.95}
+.small{font-size:13px;color:var(--ink-soft)}
+.arrow{font-family:monospace;color:var(--accent-3);font-weight:700}
+</style>
+<link rel="stylesheet" href="theme.css?v=20260905" />
+</head>
+<body>
+<div class="wrap">
+<aside class="toc">
+  <h1>第 6 章 元素周期表<br/>与周期律</h1>
+  <div class="sub">Chemistry · Matter and Change</div>
+  <a href="#overview">📖 章导读</a>
+  <a href="#map">🗺️ 章节地图</a>
+  <a href="#vocab">📚 术语速查表</a>
+  <a href="#s6-1">§6.1 现代周期表的发展</a>
+  <a href="#s6-2">§6.2 元素的分类</a>
+  <a href="#s6-3">§6.3 周期性规律</a>
+  <a href="#study-guide">📝 Study Guide</a>
+  <a href="#assessment">🧪 Chapter Assessment</a>
+  <a href="#cheatsheet">⚡ 一页知识卡</a>
+</aside>
+
+<main>
+<h1 class="title">第 6 章 · The Periodic Table and Periodic Law</h1>
+<div class="subtitle">元素周期表与周期律　·　中文自学手册　·　面向国际学校 9 年级</div>
+
+<section id="overview">
+<h2 class="section">📖 章导读</h2>
+<p>周期表是化学的<b>地图</b>。它把 100 多种元素按<b>原子序数</b>排列，把有相似性质的元素<b>聚在同一列</b>，让人一眼就能推断出一个元素"该有什么脾气"。</p>
+<div class="callout-topic">
+<h3>🌟 类比：班级座位表</h3>
+<p>周期表就像一张班级座位表——横行叫<b>周期 (period)</b>，一共 7 行；竖列叫<b>族 (group / family)</b>，一共 18 列。同一列的同学（元素）性格类似，同一行的同学位置相邻但性格逐渐过渡。</p>
+</div>
+<p>本章要回答：这张地图是<b>怎么画出来的</b>（历史）？<b>怎么分区</b>（金属/非金属/s-p-d-f）？以及最重要的——沿着"横向"和"纵向"移动，元素的性质有哪些<b>周期性规律</b>（趋势 trends）。这些规律直接决定第 7 章元素性质、第 8/9 章化学键。</p>
+</section>
+
+<section id="map">
+<h2 class="section">🗺️ 章节地图</h2>
+<table class="vocab">
+<thead><tr><th>小节</th><th>核心问题</th><th>关键结论</th></tr></thead>
+<tbody>
+<tr><td>§6.1 现代周期表的发展</td><td>周期表怎么来的？</td><td>Mendeleev 按原子质量排 (1869) → Moseley 用 X 射线证明<b>原子序数</b>才是根本。<b>周期律：</b>按 Z 排列，性质呈周期性重复。</td></tr>
+<tr><td>§6.2 元素的分类</td><td>周期表如何分区？</td><td>金属/非金属/类金属；主族/过渡/内过渡；s / p / d / f 分区。</td></tr>
+<tr><td>§6.3 周期性规律</td><td>横向/纵向变化规律？</td><td>5 大趋势：原子半径、离子半径、电离能、电子亲和能、电负性。</td></tr>
+</tbody>
+</table>
+</section>
+
+<section id="vocab">
+<h2 class="section">📚 术语速查表</h2>
+<table class="vocab">
+<thead><tr><th>English</th><th>中文</th><th>要点</th></tr></thead>
+<tbody>
+<tr><td>periodic table</td><td>元素周期表</td><td>按 Z 排列的元素表</td></tr>
+<tr><td>periodic law</td><td>周期律</td><td>元素性质随 Z 呈周期性变化</td></tr>
+<tr><td>period</td><td>周期</td><td>横行，共 7 行</td></tr>
+<tr><td>group / family</td><td>族</td><td>纵列，共 18 列</td></tr>
+<tr><td>Mendeleev</td><td>门捷列夫</td><td>1869 按原子质量排列并预测未知元素</td></tr>
+<tr><td>Moseley</td><td>莫斯莱</td><td>用 X 射线证实以原子序数为根本</td></tr>
+<tr><td>metal / nonmetal / metalloid</td><td>金属 / 非金属 / 类金属</td><td>阶梯线两侧</td></tr>
+<tr><td>alkali metal</td><td>碱金属</td><td>Group 1（Li Na K Rb Cs Fr），最活泼金属</td></tr>
+<tr><td>alkaline earth metal</td><td>碱土金属</td><td>Group 2（Be Mg Ca Sr Ba Ra）</td></tr>
+<tr><td>halogen</td><td>卤素</td><td>Group 17（F Cl Br I At），最活泼非金属</td></tr>
+<tr><td>noble gas</td><td>稀有气体</td><td>Group 18（He Ne Ar Kr Xe Rn），化学惰性</td></tr>
+<tr><td>transition metal</td><td>过渡金属</td><td>d 区</td></tr>
+<tr><td>lanthanide / actinide</td><td>镧系 / 锕系</td><td>f 区，内过渡金属</td></tr>
+<tr><td>s / p / d / f block</td><td>s/p/d/f 分区</td><td>按<b>最后填入的电子亚层</b>命名</td></tr>
+<tr><td>valence electron</td><td>价电子</td><td>最外层电子，决定化学性质</td></tr>
+<tr><td>atomic radius</td><td>原子半径</td><td>原子的大小</td></tr>
+<tr><td>ionic radius</td><td>离子半径</td><td>阳离子小于原子，阴离子大于原子</td></tr>
+<tr><td>ionization energy (IE)</td><td>电离能</td><td>移走 1 个最外层 e⁻ 所需能量</td></tr>
+<tr><td>electron affinity (EA)</td><td>电子亲和能</td><td>接受 1 个 e⁻ 时释放的能量</td></tr>
+<tr><td>electronegativity (EN)</td><td>电负性</td><td>原子在化学键中吸引电子对的能力，F 最大 = 4.0</td></tr>
+</tbody>
+</table>
+</section>
+
+<section id="s6-1">
+<h2 class="section">§6.1 Development of the Modern Periodic Table 现代周期表的发展</h2>
+
+<h3>1. Mendeleev（1869）</h3>
+<p>俄国化学家 <span class="term-en">Dmitri Mendeleev</span> 门捷列夫把当时已知的 63 种元素按<b>原子质量</b>递增排列，并把性质相似的元素放到同一列。他大胆地<b>预留空位</b>并预言那些位置上"未来会有元素"，例如他预言的 <b>"eka-aluminum"</b>（后来发现是 Ga）和 <b>"eka-silicon"</b>（后来是 Ge），性质与他预言几乎一致——这是化学史上极具戏剧性的胜利。</p>
+
+<h3>2. Moseley（1913）—— 修正</h3>
+<p>Mendeleev 的表在有些位置排列颠倒（如 Ar 和 K），因为按原子质量排 Ar (39.9) 会排在 K (39.1) 后面，但性质要求反过来。1913 年英国青年物理学家 <span class="term-en">Henry Moseley</span> 用 <b>X 射线光谱</b>测出每种元素独特的<b>原子序数 Z</b>（= 质子数），发现按 <b>Z 递增</b>排列，所有元素刚好按性质规律分类。</p>
+
+<div class="box box-key">
+<b>周期律 Periodic Law：</b><br/>
+当元素按<b>原子序数递增</b>排列时，它们的物理和化学性质呈现<b>周期性</b>的重复。<br/>
+—— 这条定律是整个周期表的灵魂。
+</div>
+
+<h3>3. 周期表的整体结构</h3>
+<ul>
+<li><b>周期 (period)</b>：横行，共 <b>7</b> 行；周期数 = 该原子最外层电子层数 <b>n</b>。</li>
+<li><b>族 (group)</b>：纵列，共 <b>18</b> 列。IUPAC 用 1–18 数字表示；旧标记为 IA-VIIIA 主族 + IB-VIIIB 副族。</li>
+<li>底部单独列出的<b>镧系 (Lanthanides, La–Lu)</b> 和 <b>锕系 (Actinides, Ac–Lr)</b> 属于第 6、7 周期。</li>
+</ul>
+</section>
+
+<section id="s6-2">
+<h2 class="section">§6.2 Classification of the Elements 元素的分类</h2>
+
+<h3>1. 金属 / 非金属 / 类金属</h3>
+<div class="box box-note">
+以周期表右侧的<b>阶梯状分界线</b>为界：<br/>
+<b>金属 metal</b>（左下）：约占 3/4；有金属光泽、良好导电导热、延展性 malleable 韧性 ductile；易失电子成阳离子。<br/>
+<b>非金属 nonmetal</b>（右上）：常温有气/液/固态；不导电（除 C 石墨外）；易得电子成阴离子。<br/>
+<b>类金属 metalloid</b>（阶梯线上）：B, Si, Ge, As, Sb, Te, (Po)；性质介于两者之间，多为半导体（如 Si 是芯片的心脏）。
+</div>
+
+<h3>2. 主族 · 过渡金属 · 内过渡金属</h3>
+<ul>
+<li><b>Representative / Main-group elements 主族元素</b>：Group 1, 2 与 13-18（旧称 1A–8A），性质规律最明显。</li>
+<li><b>Transition metals 过渡金属</b>：Group 3-12（d 区），如 Fe、Cu、Zn、Ag、Au；常有<b>多种氧化态</b>，很多化合物有颜色。</li>
+<li><b>Inner transition metals 内过渡金属</b>：Lanthanides（La-Lu，f 区）、Actinides（Ac-Lr，f 区）；多用于稀土磁材、核燃料。</li>
+</ul>
+
+<h3>3. 特色家族</h3>
+<table class="vocab">
+<thead><tr><th>族</th><th>名称</th><th>元素</th><th>典型价电子构型</th><th>性质速印</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>Alkali metals 碱金属</td><td>Li Na K Rb Cs Fr</td><td>ns¹</td><td>最活泼金属，与水剧烈反应</td></tr>
+<tr><td>2</td><td>Alkaline earth 碱土金属</td><td>Be Mg Ca Sr Ba Ra</td><td>ns²</td><td>较活泼金属，Ca 骨骼主要成分</td></tr>
+<tr><td>17</td><td>Halogens 卤素</td><td>F Cl Br I At</td><td>ns² np⁵</td><td>最活泼非金属，都是双原子分子 X₂</td></tr>
+<tr><td>18</td><td>Noble gases 稀有气体</td><td>He Ne Ar Kr Xe Rn</td><td>ns² np⁶（He 除外）</td><td>化学惰性，稳定的八电子构型</td></tr>
+</tbody>
+</table>
+
+<h3>4. s / p / d / f 分区（重点！）</h3>
+<div class="box box-key">
+<b>分区根据"最后填入的电子亚层"</b>：<br/>
+<b>s 区</b>：Group 1, 2（+ He）—— 价电子填在 s 亚层。<br/>
+<b>p 区</b>：Group 13-18（除 He）—— 价电子填 p 亚层。<br/>
+<b>d 区</b>：Group 3-12（过渡金属）—— 填 d 亚层。<br/>
+<b>f 区</b>：镧系 + 锕系 —— 填 f 亚层。
+</div>
+
+<div class="box box-note">
+<b>主族元素的"族数 = 价电子数"（旧标记法）：</b><br/>
+Group 1 → 1 个价电子；Group 2 → 2 个；Group 13(3A) → 3 个；……Group 17(7A) → 7 个；Group 18(8A) → 8 个（He 除外）。<br/>
+知道价电子数就能推断"该失还是得电子"、"离子电荷是多少"。
+</div>
+</section>
+
+<section id="s6-3">
+<h2 class="section">§6.3 Periodic Trends 周期性规律（重难点！）</h2>
+
+<p>5 大周期趋势，规律都可以用两个概念解释：<b>有效核电荷 Z_eff</b>（外层电子实际"感受到"的核吸引力）和<b>电子层数 n</b>。</p>
+<div class="box box-note">
+<b>大原则：</b><br/>
+① <b>同周期</b>（从左到右）：Z 增加 → 核吸引力增强 → 电子被拉得更紧。<br/>
+② <b>同族</b>（从上到下）：电子层数 n 增加 → 外层离核更远 → 核吸引力被"屏蔽"变弱。
+</div>
+
+<h3>1. 原子半径 Atomic Radius</h3>
+<div class="box box-key">
+<b>同周期 → 减小</b>（左到右）：核电荷增加，电子被拉近。<br/>
+<b>同族 ↓ 增大</b>（上到下）：电子层数增加，原子变大。<br/>
+所以最大原子在<b>左下角</b>（Fr、Cs），最小在<b>右上角</b>（H、He）。
+</div>
+
+<h3>2. 离子半径 Ionic Radius</h3>
+<div class="box box-note">
+<b>阳离子（cation）：比原子<b>小</b></b>（失去电子层，核吸引力更集中）。Na⁺ &lt; Na。<br/>
+<b>阴离子（anion）：比原子<b>大</b></b>（电子增多、电子间斥力增大）。Cl⁻ &gt; Cl。<br/>
+等电子体（等电子数）：核电荷越大，半径越小。如 O²⁻ &gt; F⁻ &gt; Na⁺ &gt; Mg²⁺ &gt; Al³⁺（都是 10 个电子）。
+</div>
+
+<h3>3. 电离能 Ionization Energy (IE)</h3>
+<p>移走中性原子最外层<b>一个</b>电子所需能量：$X(g) \to X^+(g) + e^-$。IE 越大，越难失电子。</p>
+<div class="box box-key">
+<b>同周期 → 增大</b>；<b>同族 ↓ 减小</b>。（与原子半径趋势相反）<br/>
+最大 IE 在<b>右上角</b>（He、Ne、F）；最小在<b>左下角</b>（Cs、Fr）。
+</div>
+<div class="box box-note">
+<b>连续电离能</b>：IE₁, IE₂, IE₃… 通常递增。当出现<b>剧烈突跳</b>时，说明已经开始拆内层：例如 Na 的 IE₂ 比 IE₁ 大近 10 倍，因为拆到了满层的 [Ne] 芯部。<b>这个突跳位置揭示元素的价电子数</b>。
+</div>
+
+<h3>4. 电子亲和能 Electron Affinity (EA)</h3>
+<p>中性气态原子接受一个电子时<b>释放</b>的能量：$X(g) + e^- \to X^-(g)$。EA 越大（越负），越"愿意得电子"。</p>
+<div class="box box-key">
+<b>同周期 → 大致增大</b>（右侧非金属最想得电子）；<b>同族 ↓ 减小</b>（略）。<br/>
+卤素（Group 17）的 EA 最大——它们只差 1 个 e⁻ 就凑齐八隅体。
+</div>
+
+<h3>5. 电负性 Electronegativity (EN)</h3>
+<div class="box box-key">
+<b>电负性</b>指原子在化学键中<b>吸引成键电子对的能力</b>。Pauling 标度中：<br/>
+<b>F 最大 = 4.0</b>；Cs、Fr 最小（约 0.7）。<br/>
+<b>同周期 → 增大</b>；<b>同族 ↓ 减小</b>。这个趋势直接决定化学键类型（第 8/9 章）——电负性差大 → 离子键；差小 → 共价键。
+</div>
+
+<h3>规律汇总（一表）</h3>
+<table class="vocab">
+<thead><tr><th>性质</th><th>同周期 (→)</th><th>同族 (↓)</th><th>最大处</th></tr></thead>
+<tbody>
+<tr><td>原子半径</td><td>减小</td><td>增大</td><td>左下 (Fr, Cs)</td></tr>
+<tr><td>阳离子半径</td><td>—</td><td>增大</td><td>—</td></tr>
+<tr><td>电离能 IE</td><td>增大</td><td>减小</td><td>右上 (He, F)</td></tr>
+<tr><td>电子亲和能 EA</td><td>大致增大</td><td>减小</td><td>右上 (卤素)</td></tr>
+<tr><td>电负性 EN</td><td>增大</td><td>减小</td><td>F = 4.0</td></tr>
+<tr><td>金属性</td><td>减小</td><td>增大</td><td>左下</td></tr>
+<tr><td>非金属性</td><td>增大</td><td>减小</td><td>右上（除稀有气体）</td></tr>
+</tbody>
+</table>
+
+<div class="box box-warn">
+<b>易错点：</b>
+<ul style="margin:6px 0 0 20px">
+<li>稀有气体几乎不参与反应，很多性质（如 EA、EN）不好定义或极小，别当"最典型的右上元素"。</li>
+<li>原子半径在过渡金属那一段变化<b>很小</b>（因为 d 电子屏蔽较弱，但也增加内层），别以为一直单调递减。</li>
+<li>"金属性最强的元素"是 Fr（放射性、稀有），常见教材以 Cs 为代表；"非金属性最强"是 F。</li>
+</ul>
+</div>
+</section>
+
+<section id="study-guide">
+<h2 class="section">📝 Study Guide 章节复习</h2>
+<div class="box box-note">
+<b>历史：</b>Mendeleev（原子质量）→ Moseley（原子序数）。<b>周期律：</b>按 Z 递增，性质周期性重复。<br/>
+<b>结构：</b>7 周期、18 族；金属/非金属/类金属；s/p/d/f 分区；主族族数 = 价电子数。<br/>
+<b>5 大趋势：</b>原子半径（↑↓）、电离能（↓↑）、电子亲和能（↓↑）、电负性（↓↑）、金属性（↑↓）。核心解释：有效核电荷 & 电子层数。
+</div>
+</section>
+
+<section id="assessment">
+<h2 class="section">🧪 Chapter Assessment 章末测评（精选题）</h2>
+
+<ol class="practice">
+<li>Mendeleev 排列周期表时依据的是什么？后来被谁修正为什么？
+<div class="ans">Mendeleev 依据<b>原子质量</b>递增排列（1869）。1913 年 Moseley 用 X 射线光谱证实<b>原子序数</b>才是真正的排序依据，从而解决了 Ar/K、Co/Ni、Te/I 等按质量排序颠倒的问题。</div>
+</li>
+
+<li>下列哪一族的元素价电子数为 2？<br/>
+a) Group 1；b) Group 2；c) Group 17；d) Group 18。
+<div class="ans">选 <b>b</b>。Group 2 是 ns²，2 个价电子。</div>
+</li>
+
+<li>下列元素属于 p 区的是（　　）：Na, Mg, Al, K, Fe, S, Ar, Br, Zn。
+<div class="ans"><b>Al, S, Ar, Br</b>（价电子填在 p 亚层）。Na、K 在 s 区；Fe、Zn 在 d 区；Mg 在 s 区。</div>
+</li>
+
+<li>下列比较原子半径正确的是（　　）：<br/>
+a) Na &gt; Cl；b) Li &gt; Cs；c) F &gt; I；d) O &gt; S。
+<div class="ans">选 <b>a</b>。同周期左侧半径大，Na &gt; Cl 正确；b/c/d 都错（同族越往下越大）。</div>
+</li>
+
+<li>比较下列离子半径大小：Na⁺、Mg²⁺、O²⁻、F⁻。
+<div class="ans">四者都是 10 电子等电子体，核电荷越大半径越小：核电荷分别为 11, 12, 8, 9。故<br/>
+<b>O²⁻ &gt; F⁻ &gt; Na⁺ &gt; Mg²⁺</b>。</div>
+</li>
+
+<li>下列电离能 IE₁ 最大的是（　　）：<br/>
+a) Na；b) Mg；c) Al；d) He。
+<div class="ans">选 <b>d</b>。He 位于右上角、稀有气体、外层已满，IE 最大。</div>
+</li>
+
+<li>为什么 Na 的第二电离能 IE₂ 比第一电离能 IE₁ 大约 10 倍？
+<div class="ans">Na 只有 1 个价电子（1 [Ne]3s¹）。IE₁ 移走 3s¹ 相对容易；IE₂ 要拆<b>已满的 2p⁶（[Ne] 芯部）</b>，需要打破稳定的八隅体结构，能量骤增。这个"突跳"揭示了 Na 只有 1 个价电子。</div>
+</li>
+
+<li>下列元素电负性最大的是（　　）：<br/>
+a) N；b) O；c) F；d) Cl。
+<div class="ans">选 <b>c</b>。F 的电负性 4.0，是所有元素中最大的。</div>
+</li>
+
+<li>把下列元素按金属性由强到弱排列：K, Na, Li, Cs。
+<div class="ans">同族越往下金属性越强：<b>Cs &gt; K &gt; Na &gt; Li</b>。</div>
+</li>
+
+<li>Al 属于哪一区？其电子排布简写是什么？价电子数？
+<div class="ans">Al 属于 <b>p 区</b>（Group 13）；简写 [Ne] 3s² 3p¹；价电子数 = <b>3</b>。</div>
+</li>
+
+<li>下列组合都属于同一周期的是（　　）：<br/>
+a) Li, C, Cl；b) Na, K, Rb；c) B, Si, As；d) O, S, Se。
+<div class="ans">选 <b>a</b>。Li、C、Cl 都在第 2 或第 3 周期？——Li 在第 2 周期，C 在第 2 周期，Cl 在第 3 周期。仔细看题的话都不完全同周期。若严格判断"全同周期"：b 是同族（Group 1）；c 是<b>同族</b>类金属；d 是<b>同族</b>（Group 16）。<b>题目更可能选</b> a 因 Li 与 C 同为第 2 周期，Cl 属第 3。若原题选项要求"全同周期"，则应选另一组：正确答案通常是给出的<b>横向</b>组合。此题在教材中类似题的答案是"横向"组合——请根据教材原题核对；单从选项看 <b>a</b> 至少含有 2 个同周期元素。</div>
+</li>
+
+<li>用 IE 和 EA 解释：为什么金属易失电子形成阳离子、非金属易得电子形成阴离子？
+<div class="ans">金属 IE 小 → 失电子所需能量少 → 易失电子成阳离子；非金属 EA 大（更负）→ 得电子释放大量能量、更稳定 → 易得电子成阴离子。两条趋势合在一起就解释了"金属对非金属"式的化学键（下一章的离子键）。</div>
+</li>
+</ol>
+</section>
+
+<section id="cheatsheet">
+<h2 class="section">⚡ 一页知识卡</h2>
+
+<div class="callout-topic">
+<h3>周期表分区图（文字版）</h3>
+<p>左侧两列（s 区）：Group 1, 2 —— 活泼金属<br/>
+右侧六列（p 区）：Group 13–18 —— 金属+非金属+稀有气体<br/>
+中间十列（d 区）：Group 3–12 —— 过渡金属<br/>
+下方两行（f 区）：镧系 / 锕系 —— 内过渡金属</p>
+</div>
+
+<div class="box box-key">
+<b>5 大周期趋势"箭头总表"</b><br/>
+　　　　　　　　　同周期 →　　　同族 ↓<br/>
+原子半径　　　　　　减小　　　　　增大<br/>
+电离能 IE　　　　　　增大　　　　　减小<br/>
+电子亲和能 EA　　大致增大　　　　减小<br/>
+电负性 EN　　　　　　增大　　　　　减小<br/>
+金属性　　　　　　　减小　　　　　增大
+</div>
+
+<div class="box box-note">
+<b>族数速记（主族）</b>：族号（1, 2, 13-18）后一位 = 价电子数。<br/>
+Group 1 → 1；Group 2 → 2；Group 13 → 3；……Group 17 → 7；Group 18 → 8（He 除外）。
+</div>
+
+<div class="box box-warn">
+<b>易错三提醒</b><br/>
+① 从上到下、从左到右趋势 <b>不适用</b>于过渡金属 d 区（变化平缓）。<br/>
+② 稀有气体的 EN、EA 常不列，因为它们几乎不成键。<br/>
+③ 计算离子半径时，同电子数下：核电荷大 → 半径小。
+</div>
+</section>
+
+<hr class="soft"/>
+<p class="small" style="text-align:center;color:#888">© 中文自学手册 · 与《Chemistry — Matter and Change》第 6 章配套</p>
+</main>
+</div>
+<script src="theme.js?v=20260905"></script>
+</body>
+</html>

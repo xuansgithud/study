@@ -1,0 +1,1190 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>第 5 章 Electrons in Atoms · 中文学习手册</title>
+<script>
+window.MathJax = {
+  tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$','$$'], ['\\[','\\]']] },
+  svg: { fontCache: 'global' }
+};
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+:root{
+  --bg:#f7f5ef;
+  --paper:#ffffff;
+  --ink:#232323;
+  --ink-soft:#4a4a4a;
+  --accent:#0f6b5e;         /* 主色（青绿） */
+  --accent-2:#c1543b;       /* 强调色（砖红） */
+  --accent-3:#3e5aa8;       /* 副色（靛蓝） */
+  --hi:#f6e58d;             /* 高亮荧光 */
+  --box-en:#eef4f2;
+  --box-cn:#fff8ec;
+  --box-note:#eaf1fb;
+  --box-warn:#fdecea;
+  --box-key:#fff1d6;
+  --box-example:#eef7ee;
+  --line:#e4dfd2;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei","Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  background:var(--bg);
+  color:var(--ink);
+  line-height:1.75;
+  font-size:16px;
+}
+.wrap{display:flex;max-width:1400px;margin:0 auto;min-height:100vh}
+/* 侧栏 */
+aside.toc{
+  position:sticky; top:0; align-self:flex-start;
+  width:280px; height:100vh; overflow-y:auto;
+  background:linear-gradient(180deg,#0f6b5e,#0b4d43);
+  color:#fff; padding:24px 18px;
+}
+aside.toc h1{font-size:16px;margin:0 0 6px;letter-spacing:1px;color:#f6e58d}
+aside.toc .sub{font-size:12px;opacity:.75;margin-bottom:16px}
+aside.toc a{
+  display:block; color:#f2fbf8; text-decoration:none; padding:8px 10px;
+  border-radius:6px; margin-bottom:2px; font-size:14px; line-height:1.4;
+  border-left:3px solid transparent;
+}
+aside.toc a:hover{background:rgba(255,255,255,.10)}
+aside.toc a.h2{padding-left:22px; font-size:13px; opacity:.9}
+aside.toc a.active{background:rgba(255,255,255,.14); border-left-color:#f6e58d}
+
+main{flex:1;padding:36px 44px;background:var(--paper); box-shadow:0 0 30px rgba(0,0,0,.05)}
+
+h1.title{font-size:32px; margin:0 0 6px; color:var(--accent)}
+.subtitle{color:var(--ink-soft); margin-bottom:24px; font-size:14px}
+h2.section{
+  font-size:24px; color:var(--accent); border-bottom:2px solid var(--accent);
+  padding-bottom:6px; margin-top:56px; margin-bottom:14px;
+}
+h3{font-size:19px; color:var(--accent-2); margin-top:32px; border-left:5px solid var(--accent-2); padding-left:10px}
+h4{font-size:16px; color:var(--accent-3); margin-top:20px}
+
+/* 中英对照卡片 */
+.pair{display:grid; grid-template-columns:1fr 1fr; gap:14px; margin:14px 0}
+.pair .en, .pair .cn{
+  padding:14px 16px; border-radius:10px; font-size:15px; line-height:1.75;
+}
+.pair .en{background:var(--box-en); border-left:4px solid var(--accent)}
+.pair .cn{background:var(--box-cn); border-left:4px solid var(--accent-2)}
+.pair .en::before{content:"EN 原文"; display:block; font-size:11px; letter-spacing:1px; color:var(--accent); font-weight:700; margin-bottom:6px}
+.pair .cn::before{content:"CN 翻译"; display:block; font-size:11px; letter-spacing:1px; color:var(--accent-2); font-weight:700; margin-bottom:6px}
+@media(max-width:960px){.pair{grid-template-columns:1fr}}
+
+.hi{background:linear-gradient(180deg,transparent 55%, var(--hi) 55%); padding:0 2px}
+.term{color:var(--accent-2); font-weight:700}
+.term-en{color:var(--accent); font-style:italic}
+.eq{background:#fafaf5; padding:10px 16px; border-radius:8px; overflow-x:auto; border:1px dashed #cfc9b6; margin:12px 0}
+.eq-center{text-align:center}
+
+/* 各类信息框 */
+.box{padding:14px 18px; border-radius:10px; margin:14px 0; position:relative}
+.box::before{
+  content:attr(data-label); position:absolute; top:-10px; left:14px;
+  background:#fff; padding:0 8px; font-size:12px; font-weight:700; letter-spacing:1px;
+}
+.box-note{background:var(--box-note); border:1px solid #c9d7f0}
+.box-note::before{content:"讲解 · 知识点"; color:var(--accent-3)}
+.box-warn{background:var(--box-warn); border:1px solid #f5c6c0}
+.box-warn::before{content:"重难点 · 易错点"; color:var(--accent-2)}
+.box-key{background:var(--box-key); border:1px solid #f3d78b}
+.box-key::before{content:"关键公式"; color:#a17108}
+.box-example{background:var(--box-example); border:1px solid #b7dab8}
+.box-example::before{content:"例题详解"; color:#2c6e2e}
+.box-vocab{background:#eef4f2; border:1px solid #b8d6cf}
+.box-vocab::before{content:"术语速查"; color:var(--accent)}
+
+table.vocab{width:100%; border-collapse:collapse; margin:6px 0}
+table.vocab th, table.vocab td{padding:6px 10px; border-bottom:1px solid var(--line); font-size:14px; text-align:left; vertical-align:top}
+table.vocab th{background:#dfeae7; color:var(--accent)}
+
+.tag{
+  display:inline-block; padding:2px 8px; border-radius:12px; font-size:11px;
+  background:#e8f0ee; color:var(--accent); margin-right:6px; font-weight:600;
+}
+.tag.warn{background:#fdecea; color:var(--accent-2)}
+.tag.hard{background:#fff1d6; color:#a17108}
+
+.step{margin:10px 0 10px 0; padding:10px 14px 10px 42px; background:#fbfaf3; border-radius:8px; position:relative}
+.step .no{
+  position:absolute; left:10px; top:10px;
+  width:24px; height:24px; line-height:24px; text-align:center;
+  background:var(--accent); color:#fff; border-radius:50%; font-weight:700; font-size:13px;
+}
+
+ol.practice{padding-left:20px}
+ol.practice li{margin-bottom:10px}
+.ans{background:#eef7ee; border-left:4px solid #4e9d5c; padding:10px 14px; border-radius:0 8px 8px 0; margin:6px 0; font-size:14.5px}
+.ans::before{content:"参考答案与解析　"; color:#2c6e2e; font-weight:700; font-size:12px; letter-spacing:1px}
+
+details{background:#f4f2ea; border-radius:8px; padding:8px 12px; margin:8px 0}
+details summary{cursor:pointer; font-weight:600; color:var(--accent-3)}
+details[open]{background:#eaf1fb}
+
+hr.soft{border:none; border-top:1px dashed #cfc9b6; margin:32px 0}
+
+sup.foot{color:var(--accent-3)}
+
+.page-marker{
+  display:inline-block; font-size:11px; color:#888;
+  background:#f0ede2; padding:1px 8px; border-radius:10px; margin-left:8px; vertical-align:middle;
+}
+
+.figure-note{background:#faf7ee; border:1px dashed #d8ce9d; padding:10px 14px; border-radius:8px; margin:12px 0; font-size:14px; color:#665a2c}
+.figure-note strong{color:#a17108}
+
+.callout-topic{
+  background:linear-gradient(135deg,#0f6b5e,#3e5aa8); color:#fff;
+  padding:18px 22px; border-radius:12px; margin:20px 0;
+}
+.callout-topic h3{color:#f6e58d; border:none; padding:0; margin:0 0 8px}
+.callout-topic p{margin:0; opacity:.95}
+
+.small{font-size:13px; color:var(--ink-soft)}
+kbd{background:#eee; padding:1px 6px; border-radius:4px; border:1px solid #ccc; font-family:monospace; font-size:13px}
+</style>
+<link rel="stylesheet" href="theme.css?v=20260905" />
+</head>
+<body>
+<div class="wrap">
+<aside class="toc" id="toc">
+  <h1>第 5 章 原子中的电子</h1>
+  <div class="sub">Chemistry · Matter and Change<br/>Electrons in Atoms</div>
+  <a href="#overview">📖 章导读</a>
+  <a href="#map">🗺️ 章节地图</a>
+  <a href="#vocab">📚 术语速查表</a>
+  <a href="#s5-1">§5.1 光与量子化能量</a>
+  <a href="#s5-2">§5.2 量子论与原子</a>
+  <a href="#s5-3">§5.3 电子排布</a>
+  <a href="#study-guide">📝 Study Guide 章节复习</a>
+  <a href="#assessment">🧪 Chapter Assessment 章末测评</a>
+  <a href="#cheatsheet">⚡ 一页知识卡</a>
+</aside>
+
+<main>
+<h1 class="title">第 5 章 · Electrons in Atoms 原子中的电子</h1>
+<div class="subtitle">📕《Chemistry — Matter and Change》 · 中文精读版<br/>面向国际学校 9 年级学生 · 自学手册</div>
+
+<!-- ============================================================ -->
+<!-- 全章导读 -->
+<!-- ============================================================ -->
+<section id="overview">
+<h2 class="section">📖 章导读：为什么这一章"抽象却最关键"？</h2>
+
+<p>翻开一盒烟花，你会看到<strong>红色</strong>的锶盐、<strong>黄色</strong>的钠盐、<strong>绿色</strong>的钡盐；夜晚的<strong>霓虹灯</strong>里，氖气发出橙红光，氩气发出紫蓝光。为什么每种元素的"颜色"都是唯一的？答案藏在<span class="term">原子里的电子</span>。</p>
+
+<p>第 4 章里 Rutherford（卢瑟福）告诉我们原子有一个"正电荷+几乎全部质量"的<strong>原子核</strong>，外面绕着电子。但他没说：<strong>电子到底怎么排列？为什么带负电的电子不掉进带正电的原子核里？为什么不同元素性质差别这么大？</strong></p>
+
+<p>本章将带你走完一段近百年的思想旅程：</p>
+
+<div class="box box-note">
+<ol>
+<li><b>光的双重性格</b>：光既是<span class="term">波</span>（波长 λ、频率 ν），也是<span class="term">粒子（光子）</span>。 <span class="tag">§5.1</span></li>
+<li><b>能量是"分包"的</b>：Planck 发现，物质吸收或放出能量只能<span class="term">一份一份</span>地来（量子化）。 <span class="tag">§5.1</span></li>
+<li><b>Bohr 模型</b>：电子只能在特定"能级"上运动，跳跃时吸收/放出光子。 <span class="tag">§5.2</span></li>
+<li><b>量子力学模型</b>：电子不是小行星，而是"概率云"——<span class="term">原子轨道</span>。 <span class="tag">§5.2</span></li>
+<li><b>电子排布三大规则</b>：Aufbau、Pauli、Hund，写出任何元素的电子排布式和 Lewis 点式。 <span class="tag">§5.3</span></li>
+</ol>
+</div>
+
+<div class="callout-topic">
+<h3>🌟 一条主线贯穿全章</h3>
+<p>光的行为 → 揭示能量量子化 → 用来"探测"原子内部 → 推翻经典模型 → 建立量子力学的原子图像 → 得到电子排布规则 → 解释周期律与化学键。<br/><b>第 6 章的周期律、第 8/9 章的化学键，全部建立在本章的"电子排布"之上。这一章看不懂，后面就学不透。</b></p>
+</div>
+
+<div class="box box-warn">
+<b>学习建议：</b>
+<ul>
+<li>本章有<strong>大量新概念</strong>（量子、光子、轨道、量子数……），但公式只有三条，先把公式记牢再理解概念。</li>
+<li>把 §5.3 的"填电子"练熟——它是<strong>整个高中/AP 化学最常用</strong>的技能之一。</li>
+<li>遇到抽象概念，多用生活类比：<em>能级 = 楼梯台阶</em>，<em>光子 = 一颗颗"能量子弹"</em>，<em>轨道 = 电子出现的"概率云"</em>。</li>
+</ul>
+</div>
+</section>
+
+<!-- ============================================================ -->
+<!-- 章节地图 -->
+<!-- ============================================================ -->
+<section id="map">
+<h2 class="section">🗺️ 章节地图</h2>
+<table class="vocab">
+<thead><tr><th>小节</th><th>英文标题</th><th>中文主题</th><th>核心概念 / 公式</th><th>难度</th></tr></thead>
+<tbody>
+<tr>
+  <td><b>§5.1</b></td>
+  <td>Light and Quantized Energy</td>
+  <td>光与量子化能量</td>
+  <td>$c=\lambda\nu$、$E=h\nu$、光电效应、原子发射光谱</td>
+  <td><span class="tag">基础</span></td>
+</tr>
+<tr>
+  <td><b>§5.2</b></td>
+  <td>Quantum Theory and the Atom</td>
+  <td>量子论与原子</td>
+  <td>Bohr 模型、de Broglie $\lambda=h/mv$、Heisenberg 不确定性、原子轨道 s/p/d/f</td>
+  <td><span class="tag hard">较难</span></td>
+</tr>
+<tr>
+  <td><b>§5.3</b></td>
+  <td>Electron Configurations</td>
+  <td>电子排布</td>
+  <td>Aufbau、Pauli、Hund、电子排布式、价电子、Lewis 点式</td>
+  <td><span class="tag warn">重点</span></td>
+</tr>
+</tbody>
+</table>
+</section>
+
+<!-- ============================================================ -->
+<!-- 术语速查 -->
+<!-- ============================================================ -->
+<section id="vocab">
+<h2 class="section">📚 术语速查表（Vocabulary）</h2>
+
+<div class="box box-vocab">
+<table class="vocab">
+<thead><tr><th style="width:26%">英文术语</th><th style="width:20%">中文</th><th>一句话解释</th></tr></thead>
+<tbody>
+<tr><td>electromagnetic radiation</td><td>电磁辐射</td><td>以波的形式在空间传播的能量（如可见光、X 射线、微波）。</td></tr>
+<tr><td>wavelength (λ)</td><td>波长</td><td>相邻两个波峰之间的距离，单位 m 或 nm（1 nm = 10⁻⁹ m）。</td></tr>
+<tr><td>frequency (ν)</td><td>频率</td><td>每秒经过一个点的波数，单位赫兹 Hz = s⁻¹。</td></tr>
+<tr><td>amplitude</td><td>振幅</td><td>波从原点到波峰（或波谷）的高度，决定光的"亮度"。</td></tr>
+<tr><td>speed of light (c)</td><td>光速</td><td>所有电磁波在真空中的速度：$c = 3.00\times10^8$ m/s。</td></tr>
+<tr><td>electromagnetic spectrum</td><td>电磁波谱</td><td>所有电磁波按波长/频率排列的谱系。</td></tr>
+<tr><td>quantum</td><td>量子</td><td>物质能得到或失去的最小能量"份"。</td></tr>
+<tr><td>Planck's constant (h)</td><td>普朗克常量</td><td>$h = 6.626\times10^{-34}$ J·s。</td></tr>
+<tr><td>photoelectric effect</td><td>光电效应</td><td>特定频率的光照射金属，电子被"打"出来的现象。</td></tr>
+<tr><td>photon</td><td>光子</td><td>光的粒子，携带一份能量 $E=h\nu$，无质量。</td></tr>
+<tr><td>atomic emission spectrum</td><td>原子发射光谱</td><td>激发态原子发出的、由若干条彩线组成的谱线（每种元素独一无二）。</td></tr>
+<tr><td>ground state</td><td>基态</td><td>原子能量最低的状态。</td></tr>
+<tr><td>excited state</td><td>激发态</td><td>原子吸收能量后能量升高的状态。</td></tr>
+<tr><td>Bohr model</td><td>玻尔模型</td><td>电子沿特定圆形轨道绕核运动、能量量子化的原子模型。</td></tr>
+<tr><td>de Broglie equation</td><td>德布罗意方程</td><td>$\lambda = h/mv$，任何运动粒子都有波长。</td></tr>
+<tr><td>Heisenberg uncertainty principle</td><td>海森堡不确定性原理</td><td>不能同时精确知道电子的位置和速度。</td></tr>
+<tr><td>quantum mechanical model</td><td>量子力学模型</td><td>用波函数描述电子、以概率云代替轨道的现代原子模型。</td></tr>
+<tr><td>atomic orbital</td><td>原子轨道</td><td>电子出现概率较高的三维空间区域（"电子云"）。</td></tr>
+<tr><td>principal quantum number (n)</td><td>主量子数</td><td>指示能级大小与能量，$n = 1, 2, 3, \dots$。</td></tr>
+<tr><td>principal energy level</td><td>主能级</td><td>由主量子数 n 决定的能级层。</td></tr>
+<tr><td>energy sublevel</td><td>能级亚层</td><td>主能级内进一步划分：s / p / d / f。</td></tr>
+<tr><td>electron configuration</td><td>电子排布式</td><td>用 $1s^2\,2s^2\,2p^6\dots$ 表示电子在各轨道的分布。</td></tr>
+<tr><td>Aufbau principle</td><td>构造原理</td><td>电子由低能级到高能级依次填充。</td></tr>
+<tr><td>Pauli exclusion principle</td><td>泡利不相容原理</td><td>同一轨道最多 2 个电子，且自旋相反。</td></tr>
+<tr><td>Hund's rule</td><td>洪特规则</td><td>同一亚层的等能量轨道先单占再配对。</td></tr>
+<tr><td>valence electron</td><td>价电子</td><td>最外层（最高主能级）的电子，决定化学性质。</td></tr>
+<tr><td>electron-dot structure</td><td>电子点式</td><td>用元素符号 + 圆点表示价电子的 Lewis 式。</td></tr>
+</tbody>
+</table>
+</div>
+</section>
+
+<!-- ============================================================ -->
+<!-- §5.1 -->
+<!-- ============================================================ -->
+<section id="s5-1">
+<h2 class="section">§5.1 Light and Quantized Energy 光与量子化能量 <span class="page-marker">P.117–126</span></h2>
+
+<h3>1. 从"没解释清楚"开始：Rutherford 之后的谜团</h3>
+<p>Rutherford 说原子中间是核、外面绕电子，但他<strong>没说</strong>：</p>
+<ul>
+<li>电子怎么排？为什么不掉进核里？</li>
+<li>为什么 Cl（黄绿色气体，剧烈反应）、Ar（惰性气体，几乎不反应）、K（活泼金属，一见水就爆炸）虽然在周期表上紧挨着，性质却天差地别？</li>
+</ul>
+<p>科学家发现——把某些元素在火焰里烧一烧，它们会发出<strong>特定颜色</strong>的光。<span class="hi">元素的化学性质，与原子里电子的排列密切相关</span>。要理解电子，就必须先理解光。</p>
+
+<h3>2. 光的波动性 Wave Nature of Light</h3>
+
+<p><span class="term-en">Electromagnetic radiation（电磁辐射）</span>：一种以<strong>波</strong>的形式在空间中传播的能量。可见光、微波炉里的微波、医院的 X 射线、电视/收音机的信号，都是电磁波。</p>
+
+<h4>2.1 描述波的四个参量</h4>
+<div class="box box-note">
+<ul>
+<li><b>波长 λ (wavelength)</b>：相邻两波峰的距离，单位 m 或 nm（1 nm = $10^{-9}$ m）。用希腊字母 λ（lambda）。</li>
+<li><b>频率 ν (frequency)</b>：每秒钟经过某一点的波数，单位赫兹 Hz = $\text{s}^{-1}$。用希腊字母 ν（nu）。</li>
+<li><b>振幅 amplitude</b>：从原点到波峰的高度，决定光的"亮度"或"强度"（不是能量！）。</li>
+<li><b>速度</b>：所有电磁波在真空中都以<strong>光速</strong>传播：$c = 3.00\times10^8$ m/s。</li>
+</ul>
+</div>
+
+<div class="box box-key">
+<div class="eq eq-center">$$c = \lambda\nu$$</div>
+<p>这条公式非常关键：<strong>光速 = 波长 × 频率</strong>。由于 $c$ 是常数，所以 <span class="hi">波长和频率成反比</span>：波长越长，频率越低；波长越短，频率越高。</p>
+</div>
+
+<div class="figure-note">
+<strong>直觉图像：</strong>红光波长长（~700 nm），频率低；紫光波长短（~400 nm），频率高。彩虹的"红橙黄绿蓝靛紫"（Roy G. Biv）就是按波长从长到短排列的。
+</div>
+
+<h4>2.2 电磁波谱 Electromagnetic Spectrum</h4>
+<p>可见光只是电磁波谱里非常窄的一段。整个谱系按波长从长到短排列如下：</p>
+
+<div class="box box-note">
+<b>无线电波 → 微波 → 红外 → 可见光 → 紫外 → X 射线 → γ 射线</b>
+<table class="vocab" style="margin-top:8px">
+<thead><tr><th>类型</th><th>典型波长</th><th>典型频率</th><th>用途</th></tr></thead>
+<tbody>
+<tr><td>无线电波 Radio</td><td>$>1$ m</td><td>$<3\times10^8$ Hz</td><td>广播、电视、Wi-Fi</td></tr>
+<tr><td>微波 Microwave</td><td>$1\text{ mm}\sim 1\text{ m}$</td><td>$10^9\sim 10^{11}$ Hz</td><td>微波炉、雷达</td></tr>
+<tr><td>红外 Infrared</td><td>$700\text{ nm}\sim 1\text{ mm}$</td><td>$\sim 10^{12}\sim 10^{14}$ Hz</td><td>遥控器、热成像</td></tr>
+<tr><td><b>可见光 Visible</b></td><td><b>400–700 nm</b></td><td>$\sim 4\text{–}7\times10^{14}$ Hz</td><td>照明、视觉</td></tr>
+<tr><td>紫外 UV</td><td>$10\sim 400$ nm</td><td>$10^{15}\sim 10^{16}$ Hz</td><td>杀菌、晒黑</td></tr>
+<tr><td>X 射线</td><td>$0.01\sim 10$ nm</td><td>$10^{16}\sim 10^{19}$ Hz</td><td>医学成像</td></tr>
+<tr><td>γ 射线</td><td>$<0.01$ nm</td><td>$>10^{19}$ Hz</td><td>核反应</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="box box-warn">
+<b>易错点：</b>频率越高 → 能量越大！所以 γ 射线、X 射线杀伤力强，而无线电波温和。可见光里紫光比红光"能量高"。
+</div>
+
+<div class="box box-example">
+<b>例 5-1　计算电磁波的波长</b><br/>
+微波中继塔发射微波，频率为 $\nu = 3.44\times10^9$ Hz。它的波长是多少？
+
+<div class="step"><span class="no">1</span><b>分析</b>：已知 $\nu$，未知 λ，用 $c=\lambda\nu$。</div>
+<div class="step"><span class="no">2</span><b>变形</b>：$\lambda = \dfrac{c}{\nu}$。</div>
+<div class="step"><span class="no">3</span><b>代入</b>：
+$$\lambda = \frac{3.00\times10^8 \text{ m/s}}{3.44\times10^9 \text{ s}^{-1}} = 8.72\times10^{-2}\text{ m}$$
+</div>
+<div class="step"><span class="no">4</span><b>检验</b>：约 8.72 cm，正好落在微波范围里 ✓</div>
+</div>
+
+<h3>3. 光的粒子性 Particle Nature of Light</h3>
+
+<p>可是——波动模型解释不了两件事：</p>
+<ol>
+<li><strong>热物体发光</strong>：铁块室温时是灰的，加热到红热，再加热到蓝白热。为什么温度决定颜色？</li>
+<li><strong>光电效应</strong>：某些金属被特定频率光照射会飞出电子，但频率低于阈值时，再亮的光也没用。</li>
+</ol>
+
+<h4>3.1 Planck 的"能量量子化"假说（1900）</h4>
+
+<div class="box box-note">
+<p>德国物理学家 <strong>Max Planck</strong> 在研究热辐射时提出了一个颠覆性的想法：</p>
+<p class="hi"><b>物质吸收或放出能量，只能以"一份一份"的形式进行，每一份叫做一个<strong>量子 (quantum)</strong>。</b></p>
+<p>能量并不像水一样"连续流动"，而是像楼梯一样"一阶一阶"跳跃。</p>
+</div>
+
+<div class="box box-key">
+<div class="eq eq-center">$$E_{\text{quantum}} = h\nu$$</div>
+<ul>
+<li>$E$ = 一个量子的能量，单位 J（焦耳）</li>
+<li>$h$ = Planck 常量 $= 6.626\times10^{-34}$ J·s</li>
+<li>$\nu$ = 电磁辐射的频率</li>
+</ul>
+<p>频率越高的辐射，每一"份"能量越大——所以紫光的量子能量比红光大。</p>
+</div>
+
+<div class="figure-note">
+<strong>生活类比：</strong>就像小朋友搭积木墙——积木只能一块一块地叠加或拿走，不可能有"半块积木高"的墙。物质能量也是这样，只能是 $1h\nu, 2h\nu, 3h\nu\dots$，不存在"半份"能量。
+</div>
+
+<h4>3.2 光电效应 Photoelectric Effect</h4>
+
+<p><strong>现象：</strong>用一束光照射金属表面，如果光的<strong>频率</strong>足够高，金属就会飞出电子（叫<em>光电子</em>）；如果频率不够高，无论光多亮、照多久，都不会有电子飞出。</p>
+
+<p><strong>问题：</strong>按波动理论，只要照够久，能量总能积累起来把电子推出去。但实验说：<b>不行</b>。</p>
+
+<p><strong>Einstein 的解答（1905）：</strong>光同时具有<span class="term">波和粒子</span>两种性质。光是一颗颗<span class="term">光子（photon）</span>组成的"能量子弹"，每颗光子能量为：</p>
+
+<div class="box box-key">
+<div class="eq eq-center">$$E_{\text{photon}} = h\nu$$</div>
+<p>只有当<strong>单个光子</strong>能量 ≥ 金属"释放电子的阈值"，才能打出电子。频率不够 = 每颗子弹"力气不够"，再多子弹也没用。这为爱因斯坦赢得了 1921 年诺贝尔物理学奖。</p>
+</div>
+
+<div class="box box-warn">
+<b>关键区分：</b>
+<ul>
+<li><strong>振幅（亮度）</strong>——决定光子的"数量"</li>
+<li><strong>频率</strong>——决定每个光子的"能量"</li>
+</ul>
+一束很亮的红光 = 很多能量很小的光子；一束很暗的紫外光 = 很少能量很大的光子。
+</div>
+
+<div class="box box-example">
+<b>例 5-2　计算光子能量</b><br/>
+彩虹中紫光频率 $\nu = 7.23\times10^{14}$ s⁻¹，一个紫光光子能量是多少？
+
+<div class="step"><span class="no">1</span><b>公式</b>：$E_{\text{photon}} = h\nu$。</div>
+<div class="step"><span class="no">2</span><b>代入</b>：
+$$E = (6.626\times10^{-34}\text{ J·s})(7.23\times10^{14}\text{ s}^{-1}) = 4.79\times10^{-19}\text{ J}$$
+</div>
+<div class="step"><span class="no">3</span><b>检验</b>：单位是 J ✓；单个光子的能量确实非常小（10⁻¹⁹ 数量级）。</div>
+</div>
+
+<div class="box box-key">
+<b>综合公式：由波长直接求光子能量</b>
+<p>把 $c=\lambda\nu \Rightarrow \nu = c/\lambda$ 代入 $E=h\nu$：</p>
+<div class="eq eq-center">$$E = \dfrac{hc}{\lambda}$$</div>
+<p><b>三条核心公式一起记：</b> $c=\lambda\nu$ 、 $E=h\nu$ 、 $E=hc/\lambda$。</p>
+</div>
+
+<h3>4. 原子发射光谱 Atomic Emission Spectrum</h3>
+
+<p>见过霓虹灯吗？把电流通入氖气管，氖原子吸收能量变成<strong>激发态</strong>；不稳定的激发态原子会立刻"退回"较低能量，同时发出光。让这束光通过棱镜——你不会看到彩虹式的连续光谱，而是<span class="hi">几条独立的彩线</span>。</p>
+
+<div class="box box-note">
+<p><b>原子发射光谱 (atomic emission spectrum)</b>：某种元素的原子被激发后发射出的、由若干条特定波长组成的谱线。</p>
+<p><b>关键特征：</b></p>
+<ul>
+<li>每种元素的发射光谱都是<span class="hi">独一无二的"指纹"</span>——就像人的指纹一样，可以用来识别元素。</li>
+<li>氢原子的可见光谱只有 4 条线：410 nm（紫）、434 nm（蓝紫）、486 nm（青绿）、656 nm（红）。这 4 条线称为 <b>Balmer 系</b>。</li>
+<li>钠燃烧火焰是黄色的、锶是红色的、铜是绿色的——这就是"焰色反应"，原理就是原子发射光谱。</li>
+</ul>
+</div>
+
+<div class="figure-note">
+<strong>为什么这个现象重要？</strong>连续光谱（如太阳的白光）意味着电子可以有任意能量；<strong>而线状光谱意味着电子只能有特定的、不连续的能量！</strong>这直接指向了下一节的 Bohr 模型。
+</div>
+
+<div class="box box-example">
+<b>练习 §5.1</b>
+<ol class="practice">
+<li>绿光波长 $\lambda = 4.90\times10^{-7}$ m，求频率。
+<div class="ans">
+$\nu = c/\lambda = (3.00\times10^8)/(4.90\times10^{-7}) = 6.12\times10^{14}$ Hz。
+</div>
+</li>
+<li>X 射线波长 $1.15\times10^{-10}$ m，求频率。
+<div class="ans">
+$\nu = (3.00\times10^8)/(1.15\times10^{-10}) = 2.61\times10^{18}$ Hz。
+</div>
+</li>
+<li>某频率 $6.32\times10^{20}$ s⁻¹ 的辐射，一个光子能量是多少？
+<div class="ans">
+$E = h\nu = (6.626\times10^{-34})(6.32\times10^{20}) = 4.19\times10^{-13}$ J。属 γ 射线范围。
+</div>
+</li>
+</ol>
+</div>
+
+</section>
+
+<!-- ============================================================ -->
+<!-- §5.2 -->
+<!-- ============================================================ -->
+<section id="s5-2">
+<h2 class="section">§5.2 Quantum Theory and the Atom 量子论与原子 <span class="page-marker">P.127–134</span></h2>
+
+<h3>1. Bohr 的氢原子模型（1913）</h3>
+
+<p>丹麦青年物理学家 <strong>Niels Bohr</strong>（1885–1962）在 Rutherford 实验室工作时，提出了一个惊人的模型来解释氢的发射光谱：</p>
+
+<div class="box box-note">
+<p><b>Bohr 模型的核心假设：</b></p>
+<ol>
+<li>氢原子里的电子只能在<strong>特定的圆形轨道</strong>上运动，每个轨道对应一个<strong>能级 (energy level)</strong>。</li>
+<li>每个轨道用一个<strong>量子数 n</strong> 标记：$n = 1, 2, 3, 4, \dots$。n = 1 是离核最近、能量最低的轨道，称为<span class="term">基态 ground state</span>。</li>
+<li>电子在允许的轨道上运动时<strong>不辐射能量</strong>（这与经典物理矛盾，但 Bohr 就这么假设了）。</li>
+<li>只有当电子在<strong>不同轨道之间跳跃</strong>时，才会吸收或放出一个光子。</li>
+</ol>
+</div>
+
+<div class="box box-key">
+<b>电子跃迁的能量：</b>
+<div class="eq eq-center">$$\Delta E = E_{\text{higher}} - E_{\text{lower}} = E_{\text{photon}} = h\nu$$</div>
+<p>电子从高能级 <em>掉到</em> 低能级 → 放出光子；<br/>电子从低能级 <em>跳到</em> 高能级 → 吸收光子。</p>
+</div>
+
+<div class="figure-note">
+<strong>楼梯类比：</strong>把 Bohr 的轨道想象成楼梯，人（电子）只能<strong>站在某一级台阶</strong>上，不能停留在"1.5 级"。从 3 楼跳到 1 楼，放出的能量正好等于两层楼的能量差。<br/>不过要注意：这个楼梯的台阶<strong>不是均匀的</strong>——越往高层，两个相邻台阶越靠近。
+</div>
+
+<h4>1.1 用 Bohr 模型解释氢的四条可见光谱线</h4>
+
+<table class="vocab">
+<thead><tr><th>可见谱线</th><th>波长 (nm)</th><th>颜色</th><th>电子跃迁</th></tr></thead>
+<tbody>
+<tr><td>Hα</td><td>656</td><td>红</td><td>$n=3 \to n=2$</td></tr>
+<tr><td>Hβ</td><td>486</td><td>青绿</td><td>$n=4 \to n=2$</td></tr>
+<tr><td>Hγ</td><td>434</td><td>蓝紫</td><td>$n=5 \to n=2$</td></tr>
+<tr><td>Hδ</td><td>410</td><td>紫</td><td>$n=6 \to n=2$</td></tr>
+</tbody>
+</table>
+<p>这四条线合称 <b>Balmer 系</b>（可见光）；跃迁到 $n=1$ 的叫 <b>Lyman 系</b>（紫外）；跃迁到 $n=3$ 的叫 <b>Paschen 系</b>（红外）。</p>
+
+<div class="box box-note">
+<b>氢原子能量公式：</b>
+<div class="eq eq-center">$$E_n = -\frac{2.18\times10^{-18}\text{ J}}{n^2}$$</div>
+<p>基态 $n=1$：$E_1 = -2.18\times10^{-18}$ J（负号表示相对无穷远的束缚态）。<br/>激发态越高，$|E|$ 越小，能级越"密"。</p>
+</div>
+
+<h4>1.2 Bohr 模型的成功与失败</h4>
+
+<div class="box box-warn">
+<b>成功：</b>完美预言了氢的所有谱线。<br/>
+<b>失败：</b>
+<ul>
+<li>只能解释<strong>氢</strong>（只有 1 个电子）；对 He 及以上元素完全无能为力。</li>
+<li>不能解释元素的化学行为。</li>
+<li>后来证明"电子沿圆轨道运动"这个图像本身就是错的。</li>
+</ul>
+<b>但 Bohr 的历史贡献：</b>确立了"电子能量量子化"的思想，为后来的量子力学铺路。
+</div>
+
+<h3>2. de Broglie：电子也是波（1924）</h3>
+
+<p>光可以像波、也可以像粒子——那反过来呢？法国研究生 <strong>Louis de Broglie</strong> 大胆猜想：<span class="hi">既然波能表现出粒子性，粒子（比如电子）也应该表现出波动性。</span></p>
+
+<div class="box box-key">
+<b>de Broglie 方程：</b>
+<div class="eq eq-center">$$\lambda = \dfrac{h}{mv}$$</div>
+<p>任何有质量 $m$、速度 $v$ 的运动粒子都有波长 λ。质量越大、速度越快，波长越短、越难被观察到。</p>
+</div>
+
+<div class="figure-note">
+<strong>为什么你看不见汽车的"波长"？</strong>一辆 910 kg 的汽车以 25 m/s 前进，
+$$\lambda = \frac{6.626\times10^{-34}}{910\times25} \approx 2.9\times10^{-38}\text{ m}$$
+这比原子核还小 20 多个数量级，根本测不出。<br/>
+但一个以同样速度运动的电子（$m = 9.11\times10^{-31}$ kg），波长约 $2.9\times10^{-5}$ m ——完全可以测出来。1927 年 Davisson-Germer 实验证实了电子的波动性。
+</div>
+
+<div class="box box-note">
+<b>de Broglie 的洞察 → Bohr 轨道的解释：</b>为什么电子只能在特定轨道上？因为轨道周长必须<strong>恰好等于电子波长的整数倍</strong>（$2\pi r = n\lambda$），否则波会自我抵消。这就是"能级量子化"的物理来源。
+</div>
+
+<h3>3. Heisenberg 不确定性原理（1927）</h3>
+
+<p>德国物理学家 <strong>Werner Heisenberg</strong> 想：能不能"看见"一个电子？想看见就得用光去照它——可是光子的能量和电子差不多，一"照"就把电子给撞走了。于是：</p>
+
+<div class="box box-key">
+<p><b>Heisenberg 不确定性原理：</b><span class="hi">不可能同时精确知道一个粒子的位置和速度。</span></p>
+<div class="eq eq-center">$$\Delta x \cdot \Delta p \gtrsim \dfrac{h}{4\pi}$$</div>
+<p>位置越确定 → 速度越模糊；速度越确定 → 位置越模糊。这不是仪器不够好，而是<strong>宇宙的本性</strong>。</p>
+</div>
+
+<div class="figure-note">
+<strong>气球类比：</strong>黑房间里想找到一个氦气球，你伸手去摸——碰到就知道位置，但你的手同时把气球推走了。用手电（光子）照气球？光子被气球反射到你眼里，气球几乎没变——因为气球比光子重得多。<br/>
+但电子太小，一个光子撞它就会显著改变它的位置和速度。<b>所以"电子在原子里的确切轨道"这种说法本身就是没意义的。</b>
+</div>
+
+<h3>4. Schrödinger 的量子力学模型（1926）</h3>
+
+<p>奥地利物理学家 <strong>Erwin Schrödinger</strong> 把电子当作"波"，写出了描述它的方程（<em>薛定谔方程</em>，太复杂，这里不展开）。方程的解叫<strong>波函数 ψ</strong>，而 $|\psi|^2$ 代表电子在某处出现的<strong>概率密度</strong>。</p>
+
+<div class="box box-note">
+<p><b>量子力学模型 (quantum mechanical model) 的关键思想：</b></p>
+<ul>
+<li>电子的能量是量子化的（保留了 Bohr 的正确部分）。</li>
+<li>但电子<span class="hi">不再沿固定轨道运动</span>——只能说它"以某种概率出现在某个区域"。</li>
+<li>这个"概率云"叫做 <span class="term">原子轨道 atomic orbital</span>。</li>
+<li>习惯上取"包含 90% 电子概率"的边界画成轨道形状。</li>
+</ul>
+</div>
+
+<div class="figure-note">
+<strong>轨道 ≠ 轨道！</strong>
+<ul>
+<li>Bohr 的 <em>orbit</em>（轨道）= 固定的、可以画出来的电子路径 —— <b>错的</b>。</li>
+<li>量子力学的 <em>orbital</em>（轨道）= 一片模糊的"概率云"，说的是"电子在哪儿"的概率分布 —— <b>对的</b>。</li>
+</ul>
+</div>
+
+<h3>5. 原子的量子数与轨道结构</h3>
+
+<h4>5.1 主量子数 n (Principal Quantum Number)</h4>
+<p>$n = 1, 2, 3, 4, \dots$，指示轨道的<strong>大小和能量</strong>：$n$ 越大，轨道越大、离核越远、能量越高。$n$ 也叫<span class="term">主能级 (principal energy level)</span>。</p>
+
+<h4>5.2 能级亚层 s / p / d / f (Sublevels)</h4>
+
+<div class="box box-note">
+<p>每个主能级 <em>n</em> 里包含 <em>n</em> 个亚层：</p>
+<ul>
+<li>$n=1$：1 个亚层（1s）</li>
+<li>$n=2$：2 个亚层（2s, 2p）</li>
+<li>$n=3$：3 个亚层（3s, 3p, 3d）</li>
+<li>$n=4$：4 个亚层（4s, 4p, 4d, 4f）</li>
+</ul>
+<p><b>亚层的能量顺序：</b> $s < p < d < f$。</p>
+</div>
+
+<h4>5.3 每个亚层的轨道数、形状与容量</h4>
+
+<table class="vocab">
+<thead><tr><th>亚层</th><th>轨道数</th><th>形状</th><th>方向 / 说明</th><th>最多容纳电子</th></tr></thead>
+<tbody>
+<tr><td><b>s</b></td><td>1</td><td>球形</td><td>无方向性</td><td>2</td></tr>
+<tr><td><b>p</b></td><td>3</td><td>哑铃形</td><td>沿 x, y, z 三个方向（$p_x, p_y, p_z$）</td><td>6</td></tr>
+<tr><td><b>d</b></td><td>5</td><td>四叶草 + 一个特殊</td><td>$d_{xy}, d_{xz}, d_{yz}, d_{x^2-y^2}, d_{z^2}$</td><td>10</td></tr>
+<tr><td><b>f</b></td><td>7</td><td>更复杂</td><td>7 个 f 轨道</td><td>14</td></tr>
+</tbody>
+</table>
+
+<div class="box box-key">
+<b>关键规律：</b>
+<ul>
+<li>每个轨道最多容纳 <b>2 个电子</b>（Pauli 不相容原理）。</li>
+<li>第 n 主能级共有 <b>$n^2$ 个轨道</b>。</li>
+<li>第 n 主能级最多容纳 <b>$2n^2$ 个电子</b>。</li>
+</ul>
+</div>
+
+<table class="vocab">
+<thead><tr><th>n</th><th>亚层</th><th>轨道数 (n²)</th><th>最多电子数 (2n²)</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>1s</td><td>1</td><td>2</td></tr>
+<tr><td>2</td><td>2s, 2p</td><td>4</td><td>8</td></tr>
+<tr><td>3</td><td>3s, 3p, 3d</td><td>9</td><td>18</td></tr>
+<tr><td>4</td><td>4s, 4p, 4d, 4f</td><td>16</td><td>32</td></tr>
+</tbody>
+</table>
+
+<div class="box box-warn">
+<b>常见误区：</b>虽然氢原子只有 1 个电子，但它可以有<strong>无数种可能的能量状态</strong>——就像一个人只能站在楼梯的某一级，但楼梯可以有很多级。基态氢的电子在 1s 轨道；如果被激发，它可以跑到 2s、2p、3s、3d 甚至更高的轨道。
+</div>
+
+</section>
+
+<!-- ============================================================ -->
+<!-- §5.3 -->
+<!-- ============================================================ -->
+<section id="s5-3">
+<h2 class="section">§5.3 Electron Configurations 电子排布 <span class="page-marker">P.135–141</span></h2>
+
+<p>最重的元素含超过 100 个电子，怎么排？好在只有<strong>三条规则</strong>——学会了，天下所有元素的电子排布都在你掌控之中。</p>
+
+<h3>1. 三大规则 The Three Rules</h3>
+
+<h4>1.1 构造原理 (Aufbau Principle)</h4>
+<div class="box box-note">
+<p class="hi"><b>电子总是先占据能量最低的可用轨道，然后依次往上填。</b></p>
+<p>"Aufbau" 在德语里就是"搭建、构造"的意思。就像装水杯，先装满底部再装上面。</p>
+</div>
+
+<div class="box box-key">
+<b>能级填充顺序（Aufbau 图）：</b>
+<div class="eq eq-center" style="font-family:monospace">
+1s → 2s → 2p → 3s → 3p → <b>4s → 3d</b> → 4p → <b>5s → 4d</b> → 5p → <b>6s → 4f → 5d</b> → 6p → 7s → 5f → 6d → 7p
+</div>
+<p><b>记忆技巧："对角线规则"</b>——把 1s / 2s 2p / 3s 3p 3d / 4s 4p 4d 4f … 按行写出，然后画从右上到左下的斜线，斜线经过的顺序就是填充顺序。</p>
+</div>
+
+<pre style="background:#fafaf5;padding:12px;border-radius:8px;font-size:14px;line-height:1.5">
+1s
+2s  2p
+3s  3p  3d
+4s  4p  4d  4f
+5s  5p  5d  5f
+6s  6p  6d
+7s  7p
+</pre>
+
+<div class="box box-warn">
+<b>关键要点：</b>
+<ul>
+<li><strong>4s 的能量低于 3d</strong>——所以先填 4s，再填 3d！同样，5s < 4d，6s < 4f < 5d。</li>
+<li>这就是为什么过渡金属会出现在 3d 区。</li>
+</ul>
+</div>
+
+<h4>1.2 泡利不相容原理 (Pauli Exclusion Principle)</h4>
+<div class="box box-note">
+<p class="hi"><b>一个原子轨道最多容纳 2 个电子，且这两个电子的<strong>自旋方向必须相反</strong>。</b></p>
+<p>电子有一种叫"自旋"的属性，用箭头 ↑ 或 ↓ 表示。同一个轨道里的两个电子必须一个 ↑ 一个 ↓，写作 <span style="font-family:monospace">↑↓</span>。</p>
+</div>
+
+<h4>1.3 洪特规则 (Hund's Rule)</h4>
+<div class="box box-note">
+<p class="hi"><b>同一亚层的等能量轨道，电子先"单占"每一个轨道（自旋相同），全部单占后再"配对"。</b></p>
+<p>为什么？因为电子都带负电，相互排斥，所以它们宁愿"分房睡"也不愿"挤一间"。</p>
+</div>
+
+<div class="figure-note">
+<strong>公交车类比：</strong>空座位很多时，你会先挑一个没人的位置坐下（单占），而不是马上凑到别人身边（配对）。等实在没有空排了，才会去坐已经有人的排（自旋相反）。这就是 Hund 规则。
+</div>
+
+<p>以 2p 亚层填 6 个电子为例（三个 2p 轨道 $p_x, p_y, p_z$）：</p>
+<pre style="background:#fafaf5;padding:12px;border-radius:8px;font-size:14px">
+1 个电子： ↑  __  __        （单占 pₓ）
+2 个电子： ↑  ↑   __         （单占 pₓ, py）
+3 个电子： ↑  ↑   ↑          （单占 pₓ, py, pz —— Hund）
+4 个电子： ↑↓ ↑   ↑          （开始配对）
+5 个电子： ↑↓ ↑↓  ↑
+6 个电子： ↑↓ ↑↓  ↑↓         （全部配对，2p 满）
+</pre>
+
+<h3>2. 电子排布式的两种写法</h3>
+
+<h4>2.1 完整电子排布式</h4>
+<p>格式：<b>$n l^{\text{电子数}}$</b>，例如 $1s^2\,2s^2\,2p^6\,3s^1$。</p>
+
+<div class="box box-example">
+<b>写法示范：碳 (C, Z=6)</b>
+<ul>
+<li>共 6 个电子，按 Aufbau 顺序填：1s (2) → 2s (2) → 2p (剩 2 个)</li>
+<li>电子排布式：<b>$1s^2\,2s^2\,2p^2$</b></li>
+<li>轨道图（Hund）：
+<pre style="background:#fff;padding:8px;font-family:monospace">
+   1s     2s      2p
+  ↑↓    ↑↓    ↑  ↑  __
+</pre>
+</li>
+</ul>
+</div>
+
+<h4>2.2 贵气体简写 (Noble-Gas Notation)</h4>
+<p>用最近的贵气体符号（放在方括号里）代表"内层"，只写外层电子。</p>
+<div class="box box-note">
+<ul>
+<li>[He] = $1s^2$</li>
+<li>[Ne] = $1s^2\,2s^2\,2p^6$</li>
+<li>[Ar] = $1s^2\,2s^2\,2p^6\,3s^2\,3p^6$</li>
+<li>[Kr] = $1s^2\,2s^2\,2p^6\,3s^2\,3p^6\,4s^2\,3d^{10}\,4p^6$</li>
+<li>[Xe] = ... $5s^2\,4d^{10}\,5p^6$</li>
+<li>[Rn] = ... $6s^2\,4f^{14}\,5d^{10}\,6p^6$</li>
+</ul>
+<p><b>例：</b>钠 (Na, Z=11) = $1s^2\,2s^2\,2p^6\,3s^1$ = <b>[Ne]$3s^1$</b>。</p>
+</div>
+
+<div class="box box-example">
+<b>例 5-3　写锗 (Ge, Z=32) 的电子排布式</b>
+<div class="step"><span class="no">1</span>找出最近的贵气体：Ar (Z=18)。写作 [Ar]。</div>
+<div class="step"><span class="no">2</span>剩余 32 − 18 = 14 个电子按 Aufbau 顺序填入 4s → 3d → 4p。</div>
+<div class="step"><span class="no">3</span>4s 填 2 个，3d 填 10 个，剩 2 个填 4p。</div>
+<div class="step"><span class="no">4</span>结果：<b>[Ar]$4s^2\,3d^{10}\,4p^2$</b>。</div>
+</div>
+
+<h3>3. 过渡金属的例外 Cr、Cu</h3>
+
+<div class="box box-warn">
+<b>Cr（铬，Z=24）与 Cu（铜，Z=29）不按预期！</b>
+<table class="vocab" style="margin-top:8px">
+<thead><tr><th>元素</th><th>"预期"</th><th>"实际"</th></tr></thead>
+<tbody>
+<tr><td>Cr</td><td>[Ar]$4s^2\,3d^4$</td><td><b>[Ar]$4s^1\,3d^5$</b></td></tr>
+<tr><td>Cu</td><td>[Ar]$4s^2\,3d^9$</td><td><b>[Ar]$4s^1\,3d^{10}$</b></td></tr>
+</tbody>
+</table>
+<p><b>原因：</b>半充满 ($d^5$) 和全充满 ($d^{10}$) 的 d 亚层<strong>特别稳定</strong>。所以从 4s 借一个电子过去，能让整体能量更低。类似的例外还有 Ag、Au、Mo 等。</p>
+</div>
+
+<h3>4. 价电子 Valence Electrons</h3>
+
+<div class="box box-note">
+<p><b>价电子</b>：位于原子<span class="hi">最外层（最高主能级）</span>的电子。它们决定元素的化学性质，也是形成化学键的"主角"。</p>
+<p>快速判断：主族元素的价电子数 = 族号（旧式罗马数字），或个位数（IUPAC 新式）。</p>
+</div>
+
+<table class="vocab">
+<thead><tr><th>元素</th><th>电子排布式</th><th>价电子数</th></tr></thead>
+<tbody>
+<tr><td>H (Z=1)</td><td>$1s^1$</td><td>1</td></tr>
+<tr><td>C (Z=6)</td><td>[He]$2s^2\,2p^2$</td><td>4</td></tr>
+<tr><td>O (Z=8)</td><td>[He]$2s^2\,2p^4$</td><td>6</td></tr>
+<tr><td>Na (Z=11)</td><td>[Ne]$3s^1$</td><td>1</td></tr>
+<tr><td>S (Z=16)</td><td>[Ne]$3s^2\,3p^4$</td><td>6</td></tr>
+<tr><td>Cl (Z=17)</td><td>[Ne]$3s^2\,3p^5$</td><td>7</td></tr>
+<tr><td>Cs (Z=55)</td><td>[Xe]$6s^1$</td><td>1</td></tr>
+</tbody>
+</table>
+
+<div class="box box-warn">
+<b>过渡金属注意：</b>Fe (Z=26) = [Ar]$4s^2\,3d^6$，从"最外层"角度看只有 2 个 4s 价电子；但 3d 电子也常常参与成键。所以过渡金属的"价电子"数常常写成 $ns + (n-1)d$ 一起。<br/>
+对本章而言，只需掌握主族元素的价电子概念即可。
+</div>
+
+<h3>5. 电子点式 Electron-Dot Structure（Lewis 式）</h3>
+
+<div class="box box-note">
+<p><b>电子点式</b>：用元素符号代表原子核 + 内层电子，用<strong>圆点</strong>表示价电子。1902 年由美国化学家 <b>G. N. Lewis</b> 发明。</p>
+<p><b>画法：</b></p>
+<ol>
+<li>先在元素符号的<strong>四周（上、下、左、右）分别放一个点</strong>；</li>
+<li>然后每边再依次<strong>成对</strong>，直到价电子全部画完。</li>
+</ol>
+</div>
+
+<pre style="background:#fafaf5;padding:12px;border-radius:8px;font-family:monospace;font-size:15px;line-height:1.9">
+第二周期：
+Li:  Li·          （1 价电子）
+Be:  ·Be·         （2 价电子）
+B:   ·Ḃ·          （3 价电子）
+C:   ·C̈·          （4 价电子）
+N:   ·N̈·         （5 价电子，一对+三单）
+                 ·
+
+O:   :Ö·         （6 价电子，两对+两单）
+                 ·
+
+F:   :F̈·         （7 价电子，三对+一单）
+                 :
+
+Ne:  :N̈e:        （8 价电子，四对——满壳层）
+                 :
+</pre>
+
+<p class="small">（受纯文本限制，圆点位置为示意，正式书写时应画在字符的上下左右四个位置。）</p>
+
+<div class="box box-example">
+<b>例 5-4　写锡 (Sn, Z=50) 的电子点式</b>
+<div class="step"><span class="no">1</span>电子排布：[Kr]$5s^2\,4d^{10}\,5p^2$。</div>
+<div class="step"><span class="no">2</span>价电子 = $5s^2 + 5p^2$ = <b>4 个</b>（最外层 n=5）。</div>
+<div class="step"><span class="no">3</span>点式：Sn 符号四周各画 1 个点 →  ·Sn·  上下左右各一个。</div>
+</div>
+
+<div class="box box-warn">
+<b>常见误区：</b>Zn (Z=30) 有 10 个 3d 电子 + 2 个 4s 电子，但它的电子点式<strong>只画 2 个点</strong>——因为价电子仅指最外层 (n=4) 的 4s²。d 电子是内层的。<br/>
+一句话：价电子 = 最外层电子数。
+</div>
+
+</section>
+
+<!-- ============================================================ -->
+<!-- Study Guide -->
+<!-- ============================================================ -->
+<section id="study-guide">
+<h2 class="section">📝 Study Guide 章节复习</h2>
+
+<h3>§5.1 光与量子化能量</h3>
+<div class="box box-note">
+<ul>
+<li>所有波都可用<strong>波长 λ、频率 ν、振幅、速度</strong>描述。</li>
+<li>光是电磁波，真空速度 $c = 3.00\times10^8$ m/s。</li>
+<li>光既有波动性又有粒子性；光的粒子叫<strong>光子</strong>。</li>
+<li>物质吸收/放出能量以<strong>量子</strong>为单位。</li>
+<li>元素的<strong>原子发射光谱</strong>是一系列独立的谱线，可用于识别元素。</li>
+</ul>
+</div>
+
+<h3>§5.2 量子论与原子</h3>
+<div class="box box-note">
+<ul>
+<li>Bohr 模型：氢原子的谱线来自电子在不同"轨道"间跃迁。</li>
+<li>de Broglie 方程：$\lambda = h/mv$，所有运动粒子都有波动性。</li>
+<li>Heisenberg 不确定性原理：位置和速度不能同时精确知道。</li>
+<li>量子力学模型：把电子看作波，用<strong>原子轨道</strong>（概率云）描述电子位置。四种轨道：<b>s, p, d, f</b>。</li>
+</ul>
+</div>
+
+<h3>§5.3 电子排布</h3>
+<div class="box box-note">
+<ul>
+<li><strong>Aufbau</strong>：先填低能级；<strong>Pauli</strong>：一个轨道最多 2 电子且自旋反；<strong>Hund</strong>：等能量轨道先单占后配对。</li>
+<li>最外层（最高 n）的电子叫<strong>价电子</strong>，决定化学性质。</li>
+<li>可用三种方式表达电子分布：<strong>轨道图</strong>、<strong>电子排布式</strong>、<strong>电子点式</strong>。</li>
+</ul>
+</div>
+
+<h3>五大关键方程</h3>
+<div class="box box-key">
+<ol>
+<li>电磁波关系：$\; c = \lambda\nu$</li>
+<li>量子能量：$\; E_{\text{quantum}} = h\nu$</li>
+<li>光子能量：$\; E_{\text{photon}} = h\nu = \dfrac{hc}{\lambda}$</li>
+<li>电子跃迁：$\; \Delta E = E_{\text{high}} - E_{\text{low}} = h\nu$</li>
+<li>德布罗意波长：$\; \lambda = \dfrac{h}{mv}$</li>
+</ol>
+</div>
+</section>
+
+<!-- ============================================================ -->
+<!-- Chapter Assessment -->
+<!-- ============================================================ -->
+<section id="assessment">
+<h2 class="section">🧪 Chapter Assessment 章末测评（15 题精讲）</h2>
+
+<div class="box box-example">
+<b>Q1．</b>一束绿光频率为 $6.12\times10^{14}$ Hz，波长是多少？属于电磁波谱的哪一段？
+<div class="ans">
+$\lambda = c/\nu = (3.00\times10^8)/(6.12\times10^{14}) = 4.90\times10^{-7}$ m = 490 nm。属于<strong>可见光</strong>（400–700 nm）范围，颜色为绿。
+</div>
+</div>
+
+<div class="box box-example">
+<b>Q2．</b>某无线电台以 94.7 MHz 广播，其波长是多少？1 MHz = 10⁶ Hz。
+<div class="ans">
+$\nu = 94.7\times10^6$ Hz。<br/>
+$\lambda = (3.00\times10^8)/(94.7\times10^6) \approx 3.17$ m。属于<strong>无线电波</strong>。
+</div>
+</div>
+
+<div class="box box-example">
+<b>Q3．</b>红光频率 $\nu = 4.48\times10^{14}$ Hz，求一个红光光子的能量。
+<div class="ans">
+$E = h\nu = (6.626\times10^{-34})(4.48\times10^{14}) = 2.97\times10^{-19}$ J。
+</div>
+</div>
+
+<div class="box box-example">
+<b>Q4．</b>紫外光波长 $\lambda = 1.18\times10^{-8}$ m，一个紫外光子能量是多少？
+<div class="ans">
+$E = hc/\lambda = (6.626\times10^{-34})(3.00\times10^8)/(1.18\times10^{-8}) = 1.68\times10^{-17}$ J。
+</div>
+</div>
+
+<div class="box box-example">
+<b>Q5．</b>金原子中移除 1 个电子需 $8.17\times10^{-19}$ J 能量，能够引起光电效应的<strong>最长</strong>波长是多少？
+<div class="ans">
+最长波长 ⇔ 最低频率 ⇔ 光子能量刚好等于阈值。<br/>
+$\lambda = hc/E = (6.626\times10^{-34})(3.00\times10^8)/(8.17\times10^{-19}) = 2.43\times10^{-7}$ m = 243 nm，属紫外光。
+</div>
+</div>
+
+<div class="box box-example">
+<b>Q6．</b>请解释：白光的连续光谱与氢的原子发射光谱有何本质区别？
+<div class="ans">
+白光通过棱镜得到从红到紫<strong>连续变化</strong>的彩虹，说明能量可以取任意值；<br/>
+氢发射光谱只有几条独立的彩线（410, 434, 486, 656 nm），说明氢原子的电子<strong>只能拥有若干特定的能量</strong>，跃迁时只发射出对应能量差的光子。<br/>
+这是<strong>能量量子化</strong>的直接证据。
+</div>
+</div>
+
+<div class="box box-example">
+<b>Q7．</b>Bohr 模型和量子力学模型的核心区别是什么？
+<div class="ans">
+<b>Bohr 模型：</b>电子沿<strong>确定的圆形轨道</strong>绕核运动（<em>orbit</em>），像"太阳系"。<br/>
+<b>量子力学模型：</b>电子的位置不确定，用<strong>概率云（轨道 orbital）</strong>描述；只能说电子"在某区域出现的概率是多少"，不能画出具体路径。<br/>
+共同点：两者都认为能量是量子化的。
+</div>
+</div>
+
+<div class="box box-example">
+<b>Q8．</b>氢原子第 3 主能级里有几个亚层？几个轨道？最多能容纳几个电子？
+<div class="ans">
+$n=3$ → <b>3 个亚层</b>（3s, 3p, 3d）；<br/>
+轨道数 = $n^2 = 9$（1 个 s + 3 个 p + 5 个 d）；<br/>
+最多容纳 $2n^2 = 18$ 个电子。
+</div>
+</div>
+
+<div class="box box-example">
+<b>Q9．</b>写出 <b>硒 (Se, Z=34)</b> 的完整电子排布式和贵气体简写。
+<div class="ans">
+完整式：$1s^2\,2s^2\,2p^6\,3s^2\,3p^6\,4s^2\,3d^{10}\,4p^4$。<br/>
+贵气体简写：<b>[Ar]$4s^2\,3d^{10}\,4p^4$</b>。<br/>
+（先填 4s 再填 3d 再填 4p，注意顺序！）
+</div>
+</div>
+
+<div class="box box-example">
+<b>Q10．</b>下列电子排布式属于哪种元素？
+(a) $1s^2\,2s^2\,2p^5$ &nbsp;&nbsp;
+(b) [Ar]$4s^2$ &nbsp;&nbsp;
+(c) [Kr]$5s^2\,4d^{10}\,5p^1$
+<div class="ans">
+(a) 共 9 个电子 → <b>F（氟）</b>。<br/>
+(b) 18 + 2 = 20 个电子 → <b>Ca（钙）</b>。<br/>
+(c) 36 + 2 + 10 + 1 = 49 个电子 → <b>In（铟）</b>。
+</div>
+</div>
+
+<div class="box box-example">
+<b>Q11．</b>写出 <b>Cr（铬，Z=24）</b> 的电子排布式，并解释为什么它不是"预期"的 [Ar]$4s^2\,3d^4$。
+<div class="ans">
+实际：<b>[Ar]$4s^1\,3d^5$</b>。<br/>
+原因：3d 亚层<strong>半充满</strong>（$d^5$，每个 d 轨道单占一个电子）时特别稳定；从 4s 借一个电子到 3d 反而降低了整体能量。类似的例外还有 Cu（[Ar]$4s^1\,3d^{10}$）。
+</div>
+</div>
+
+<div class="box box-example">
+<b>Q12．</b>画出 <b>N（氮，Z=7）</b> 的轨道图，并说明用到的规则。
+<div class="ans">
+排布：$1s^2\,2s^2\,2p^3$。轨道图：
+<pre style="background:#fff;padding:6px;font-family:monospace">
+   1s      2s        2p
+  ↑↓     ↑↓     ↑  ↑  ↑   （三个 2p 电子单占，自旋相同）
+</pre>
+用到的规则：
+<ul>
+<li>Aufbau——先 1s → 2s → 2p；</li>
+<li>Pauli——1s 和 2s 里的两个电子自旋相反 ↑↓；</li>
+<li>Hund——三个 2p 电子分别单占 $p_x, p_y, p_z$，自旋方向相同。</li>
+</ul>
+</div>
+</div>
+
+<div class="box box-example">
+<b>Q13．</b>画出下列元素的电子点式：(a) Mg &nbsp; (b) S &nbsp; (c) Br &nbsp; (d) Xe。
+<div class="ans">
+先写价电子数：<br/>
+(a) Mg = [Ne]$3s^2$，2 价电子 → Mg 两侧各 1 点 (·Mg·)。<br/>
+(b) S = [Ne]$3s^2\,3p^4$，6 价电子 → S 四周共 6 点（两对 + 两单）。<br/>
+(c) Br = [Ar]$4s^2\,3d^{10}\,4p^5$，7 价电子 → Br 四周 7 点（三对 + 一单）。<br/>
+(d) Xe = [Kr]$5s^2\,4d^{10}\,5p^6$，8 价电子 → Xe 四周共 8 点（四对，全满）。
+</div>
+</div>
+
+<div class="box box-example">
+<b>Q14．</b>Bohr 模型里，氢原子从 $n=3$ 跃迁到 $n=2$，放出的光子波长是多少？
+（用 $E_n = -2.18\times10^{-18}/n^2$ J）
+<div class="ans">
+$E_3 = -2.18\times10^{-18}/9 = -2.42\times10^{-19}$ J<br/>
+$E_2 = -2.18\times10^{-18}/4 = -5.45\times10^{-19}$ J<br/>
+$\Delta E = E_3 - E_2 = -2.42\times10^{-19} - (-5.45\times10^{-19}) = 3.03\times10^{-19}$ J（放出）<br/>
+$\lambda = hc/\Delta E = (6.626\times10^{-34})(3.00\times10^8)/(3.03\times10^{-19}) = 6.56\times10^{-7}$ m = <b>656 nm</b>，正好是氢的红色 Hα 线！
+</div>
+</div>
+
+<div class="box box-example">
+<b>Q15．</b>需要多少个频率为 $4.88\times10^{13}$ Hz 的红外光子才能提供 1.00 J 能量？
+<div class="ans">
+一个光子的能量：$E = h\nu = (6.626\times10^{-34})(4.88\times10^{13}) = 3.23\times10^{-20}$ J。<br/>
+所需光子数 $= 1.00 / 3.23\times10^{-20} = 3.09\times10^{19}$ 个。
+</div>
+</div>
+
+<hr class="soft"/>
+
+<h3>标准化选择题（Standardized Test Practice）</h3>
+
+<div class="box box-example">
+<b>Q16．</b>宇宙射线波长 $2.67\times10^{-13}$ m，其频率是（&nbsp;&nbsp;）
+&nbsp;&nbsp;A. $8.90\times10^{-22}$ s⁻¹
+&nbsp;&nbsp;B. $3.75\times10^{-12}$ s⁻¹
+&nbsp;&nbsp;C. $8.01\times10^5$ s⁻¹
+&nbsp;&nbsp;<b>D. $1.12\times10^{21}$ s⁻¹</b>
+<div class="ans">
+$\nu = c/\lambda = 3.00\times10^8/2.67\times10^{-13} = 1.12\times10^{21}$ s⁻¹。选 <b>D</b>。
+</div>
+</div>
+
+<div class="box box-example">
+<b>Q17．</b>某紫外光频率 $5.45\times10^{16}$ s⁻¹，一个光子能量是（&nbsp;&nbsp;）
+&nbsp;&nbsp;<b>A. $3.61\times10^{-17}$ J</b>
+&nbsp;&nbsp;B. $1.22\times10^{-50}$ J
+&nbsp;&nbsp;C. $8.23\times10^{-49}$ J
+&nbsp;&nbsp;D. $3.81\times10^{-24}$ J
+<div class="ans">
+$E = h\nu = (6.626\times10^{-34})(5.45\times10^{16}) = 3.61\times10^{-17}$ J。选 <b>A</b>。
+</div>
+</div>
+
+<div class="box box-example">
+<b>Q18．</b>Cd（镉，Z=48）的贵气体简写电子排布式是（&nbsp;&nbsp;）
+&nbsp;&nbsp;A. [Kr]$4d^{10}4f^2$
+&nbsp;&nbsp;B. [Ar]$4s^2\,3d^{10}$
+&nbsp;&nbsp;C. [Xe]$5s^2\,4d^{10}$
+&nbsp;&nbsp;<b>D. [Kr]$5s^2\,4d^{10}$</b>
+<div class="ans">
+Cd Z=48，Kr 是 Z=36，剩 12 个电子填 5s (2) + 4d (10)。选 <b>D</b>。
+</div>
+</div>
+
+</section>
+
+<!-- ============================================================ -->
+<!-- Cheat Sheet -->
+<!-- ============================================================ -->
+<section id="cheatsheet">
+<h2 class="section">⚡ 一页知识卡（考前速览）</h2>
+
+<h3>① 三大公式</h3>
+<div class="box box-key">
+<ul style="font-size:16px;line-height:2.2">
+<li>$c = \lambda\nu$ &nbsp;&nbsp; ($c = 3.00\times10^8$ m/s)</li>
+<li>$E_{\text{photon}} = h\nu$ &nbsp;&nbsp; ($h = 6.626\times10^{-34}$ J·s)</li>
+<li>$E = \dfrac{hc}{\lambda}$ &nbsp;&nbsp;（合并两式）</li>
+<li>德布罗意：$\lambda = \dfrac{h}{mv}$</li>
+<li>氢原子能级：$E_n = -\dfrac{2.18\times10^{-18}\text{ J}}{n^2}$</li>
+</ul>
+</div>
+
+<h3>② 电子填充顺序（Aufbau 图）</h3>
+<div class="box box-note">
+<pre style="background:#fff;padding:12px;font-family:monospace;font-size:15px;line-height:1.7;text-align:center">
+1s
+2s ─→ 2p
+3s ─→ 3p ─→ 3d
+4s ─→ 4p ─→ 4d ─→ 4f
+5s ─→ 5p ─→ 5d ─→ 5f
+6s ─→ 6p ─→ 6d
+7s ─→ 7p
+</pre>
+<p><b>斜线顺序（记住）：</b><br/>
+1s → 2s → 2p → 3s → 3p → <b>4s → 3d</b> → 4p → 5s → 4d → 5p → 6s → 4f → 5d → 6p → 7s …</p>
+<p><b>每种亚层容量：</b>s=2, p=6, d=10, f=14。</p>
+</div>
+
+<h3>③ 三大规则一句话</h3>
+<div class="box box-key">
+<table class="vocab">
+<thead><tr><th>规则</th><th>核心内容</th></tr></thead>
+<tbody>
+<tr><td><b>Aufbau 构造</b></td><td>先低能级、后高能级</td></tr>
+<tr><td><b>Pauli 不相容</b></td><td>每轨道 ≤ 2 个电子，且自旋反 ↑↓</td></tr>
+<tr><td><b>Hund 洪特</b></td><td>等能量轨道，先单占后配对</td></tr>
+</tbody>
+</table>
+</div>
+
+<h3>④ 前 20 号元素电子排布速查表</h3>
+<div class="box box-note">
+<table class="vocab">
+<thead><tr><th>Z</th><th>元素</th><th>符号</th><th>电子排布式</th><th>贵气体简写</th><th>价电子</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>氢</td><td>H</td><td>$1s^1$</td><td>—</td><td>1</td></tr>
+<tr><td>2</td><td>氦</td><td>He</td><td>$1s^2$</td><td>—</td><td>2</td></tr>
+<tr><td>3</td><td>锂</td><td>Li</td><td>$1s^2\,2s^1$</td><td>[He]$2s^1$</td><td>1</td></tr>
+<tr><td>4</td><td>铍</td><td>Be</td><td>$1s^2\,2s^2$</td><td>[He]$2s^2$</td><td>2</td></tr>
+<tr><td>5</td><td>硼</td><td>B</td><td>$1s^2\,2s^2\,2p^1$</td><td>[He]$2s^2\,2p^1$</td><td>3</td></tr>
+<tr><td>6</td><td>碳</td><td>C</td><td>$1s^2\,2s^2\,2p^2$</td><td>[He]$2s^2\,2p^2$</td><td>4</td></tr>
+<tr><td>7</td><td>氮</td><td>N</td><td>$1s^2\,2s^2\,2p^3$</td><td>[He]$2s^2\,2p^3$</td><td>5</td></tr>
+<tr><td>8</td><td>氧</td><td>O</td><td>$1s^2\,2s^2\,2p^4$</td><td>[He]$2s^2\,2p^4$</td><td>6</td></tr>
+<tr><td>9</td><td>氟</td><td>F</td><td>$1s^2\,2s^2\,2p^5$</td><td>[He]$2s^2\,2p^5$</td><td>7</td></tr>
+<tr><td>10</td><td>氖</td><td>Ne</td><td>$1s^2\,2s^2\,2p^6$</td><td>—</td><td>8</td></tr>
+<tr><td>11</td><td>钠</td><td>Na</td><td>$1s^2\,2s^2\,2p^6\,3s^1$</td><td>[Ne]$3s^1$</td><td>1</td></tr>
+<tr><td>12</td><td>镁</td><td>Mg</td><td>$1s^2\,2s^2\,2p^6\,3s^2$</td><td>[Ne]$3s^2$</td><td>2</td></tr>
+<tr><td>13</td><td>铝</td><td>Al</td><td>$\dots 3s^2\,3p^1$</td><td>[Ne]$3s^2\,3p^1$</td><td>3</td></tr>
+<tr><td>14</td><td>硅</td><td>Si</td><td>$\dots 3s^2\,3p^2$</td><td>[Ne]$3s^2\,3p^2$</td><td>4</td></tr>
+<tr><td>15</td><td>磷</td><td>P</td><td>$\dots 3s^2\,3p^3$</td><td>[Ne]$3s^2\,3p^3$</td><td>5</td></tr>
+<tr><td>16</td><td>硫</td><td>S</td><td>$\dots 3s^2\,3p^4$</td><td>[Ne]$3s^2\,3p^4$</td><td>6</td></tr>
+<tr><td>17</td><td>氯</td><td>Cl</td><td>$\dots 3s^2\,3p^5$</td><td>[Ne]$3s^2\,3p^5$</td><td>7</td></tr>
+<tr><td>18</td><td>氩</td><td>Ar</td><td>$\dots 3s^2\,3p^6$</td><td>—</td><td>8</td></tr>
+<tr><td>19</td><td>钾</td><td>K</td><td>$\dots 3p^6\,4s^1$</td><td>[Ar]$4s^1$</td><td>1</td></tr>
+<tr><td>20</td><td>钙</td><td>Ca</td><td>$\dots 3p^6\,4s^2$</td><td>[Ar]$4s^2$</td><td>2</td></tr>
+</tbody>
+</table>
+</div>
+
+<h3>⑤ 电磁波谱能量顺序</h3>
+<div class="box box-warn">
+<p style="text-align:center;font-size:16px"><b>能量小 ← 无线电 · 微波 · 红外 · <span class="hi">可见（红→紫）</span> · 紫外 · X 射线 · γ 射线 → 能量大</b></p>
+<p style="text-align:center">波长长 ⇔ 频率低 ⇔ 能量小</p>
+</div>
+
+<h3>⑥ 关键"极限"与常量</h3>
+<div class="box box-key">
+<ul>
+<li>光速 $c = 3.00\times10^8$ m/s</li>
+<li>Planck 常量 $h = 6.626\times10^{-34}$ J·s</li>
+<li>1 nm = $10^{-9}$ m</li>
+<li>1 MHz = $10^6$ Hz</li>
+<li>可见光波长 ≈ 400–700 nm</li>
+<li>电子质量 $m_e = 9.11\times10^{-31}$ kg</li>
+</ul>
+</div>
+
+<h3>⑦ 常犯错误清单</h3>
+<div class="box box-warn">
+<ol>
+<li><b>忘了 4s 先于 3d 填</b>——K 是 [Ar]$4s^1$ 不是 [Ar]$3d^1$。</li>
+<li><b>忘了 Cr、Cu 例外</b>——都是 $4s^1$ 而不是 $4s^2$。</li>
+<li><b>把振幅当能量</b>——振幅决定亮度，频率才决定能量！</li>
+<li><b>把过渡金属的 d 电子写进价电子点式</b>——Zn 只画 2 个点。</li>
+<li><b>Hund 规则忘了</b>——2p³ 要写 ↑↑↑ 不能写 ↑↓↑。</li>
+<li><b>Bohr "orbit" ≠ 量子力学 "orbital"</b>——路径 vs 概率云。</li>
+<li><b>计算光子能量时单位混乱</b>——一定用 SI 单位 (J, m, s, Hz)。</li>
+</ol>
+</div>
+
+<hr class="soft"/>
+<p style="text-align:center;color:var(--ink-soft);font-size:14px">
+—— 第 5 章 完 · 加油，你已经掌握了整个化学最抽象也最强大的一章！——<br/>
+下一章：<b>第 6 章 The Periodic Table and Periodic Law</b>，会告诉你为什么周期表长这样——答案就在你刚学的电子排布里。
+</p>
+
+</section>
+
+</main>
+</div>
+<script src="theme.js?v=20260905"></script>
+</body>
+</html>

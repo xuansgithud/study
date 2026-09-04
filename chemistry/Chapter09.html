@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>第 9 章 Covalent Bonding · 中文学习手册</title>
+<script>
+window.MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$','$$'], ['\\[','\\]']] }, svg: { fontCache: 'global' } };
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+:root{--bg:#f7f5ef;--paper:#ffffff;--ink:#232323;--ink-soft:#4a4a4a;--accent:#0f6b5e;--accent-2:#c1543b;--accent-3:#3e5aa8;--hi:#f6e58d;--box-note:#eaf1fb;--box-warn:#fdecea;--box-key:#fff1d6;--box-example:#eef7ee;--line:#e4dfd2;}
+*{box-sizing:border-box}html,body{margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei","Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.75;font-size:16px;}
+.wrap{display:flex;max-width:1400px;margin:0 auto;min-height:100vh}
+aside.toc{position:sticky;top:0;align-self:flex-start;width:280px;height:100vh;overflow-y:auto;background:linear-gradient(180deg,#0f6b5e,#0b4d43);color:#fff;padding:24px 18px;}
+aside.toc h1{font-size:16px;margin:0 0 6px;letter-spacing:1px;color:#f6e58d}
+aside.toc .sub{font-size:12px;opacity:.75;margin-bottom:16px}
+aside.toc a{display:block;color:#f2fbf8;text-decoration:none;padding:8px 10px;border-radius:6px;margin-bottom:2px;font-size:14px;line-height:1.4;border-left:3px solid transparent;}
+aside.toc a:hover{background:rgba(255,255,255,.10)}
+main{flex:1;padding:36px 44px;background:var(--paper);box-shadow:0 0 30px rgba(0,0,0,.05)}
+h1.title{font-size:32px;margin:0 0 6px;color:var(--accent)}
+.subtitle{color:var(--ink-soft);margin-bottom:24px;font-size:14px}
+h2.section{font-size:24px;color:var(--accent);border-bottom:2px solid var(--accent);padding-bottom:6px;margin-top:56px;margin-bottom:14px;}
+h3{font-size:19px;color:var(--accent-2);margin-top:32px;border-left:5px solid var(--accent-2);padding-left:10px}
+h4{font-size:16px;color:var(--accent-3);margin-top:20px}
+.term{color:var(--accent-2);font-weight:700}
+.term-en{color:var(--accent);font-style:italic}
+.box{padding:14px 18px;border-radius:10px;margin:14px 0;position:relative}
+.box::before{content:attr(data-label);position:absolute;top:-10px;left:14px;background:#fff;padding:0 8px;font-size:12px;font-weight:700;letter-spacing:1px;}
+.box-note{background:var(--box-note);border:1px solid #c9d7f0}.box-note::before{content:"讲解 · 知识点";color:var(--accent-3)}
+.box-warn{background:var(--box-warn);border:1px solid #f5c6c0}.box-warn::before{content:"重难点 · 易错点";color:var(--accent-2)}
+.box-key{background:var(--box-key);border:1px solid #f3d78b}.box-key::before{content:"关键规则";color:#a17108}
+.box-example{background:var(--box-example);border:1px solid #b7dab8}.box-example::before{content:"例题详解";color:#2c6e2e}
+table.vocab{width:100%;border-collapse:collapse;margin:6px 0}
+table.vocab th,table.vocab td{padding:6px 10px;border-bottom:1px solid var(--line);font-size:14px;text-align:left;vertical-align:top}
+table.vocab th{background:#dfeae7;color:var(--accent)}
+.step{margin:10px 0;padding:10px 14px 10px 42px;background:#fbfaf3;border-radius:8px;position:relative}
+.step .no{position:absolute;left:10px;top:10px;width:24px;height:24px;line-height:24px;text-align:center;background:var(--accent);color:#fff;border-radius:50%;font-weight:700;font-size:13px;}
+ol.practice{padding-left:20px}ol.practice li{margin-bottom:10px}
+.ans{background:#eef7ee;border-left:4px solid #4e9d5c;padding:10px 14px;border-radius:0 8px 8px 0;margin:6px 0;font-size:14.5px}
+.ans::before{content:"参考答案与解析　";color:#2c6e2e;font-weight:700;font-size:12px;letter-spacing:1px}
+hr.soft{border:none;border-top:1px dashed #cfc9b6;margin:32px 0}
+.callout-topic{background:linear-gradient(135deg,#0f6b5e,#3e5aa8);color:#fff;padding:18px 22px;border-radius:12px;margin:20px 0;}
+.callout-topic h3{color:#f6e58d;border:none;padding:0;margin:0 0 8px}
+.callout-topic p{margin:0;opacity:.95}
+.small{font-size:13px;color:var(--ink-soft)}
+</style>
+<link rel="stylesheet" href="theme.css?v=20260905" />
+</head>
+<body>
+<div class="wrap">
+<aside class="toc">
+  <h1>第 9 章 共价键</h1>
+  <div class="sub">Chemistry · Matter and Change</div>
+  <a href="#overview">📖 章导读</a>
+  <a href="#map">🗺️ 章节地图</a>
+  <a href="#vocab">📚 术语速查表</a>
+  <a href="#s9-1">§9.1 共价键</a>
+  <a href="#s9-2">§9.2 分子命名</a>
+  <a href="#s9-3">§9.3 Lewis 结构</a>
+  <a href="#s9-4">§9.4 分子形状 (VSEPR)</a>
+  <a href="#s9-5">§9.5 电负性与极性</a>
+  <a href="#study-guide">📝 Study Guide</a>
+  <a href="#assessment">🧪 Chapter Assessment</a>
+  <a href="#cheatsheet">⚡ 一页知识卡</a>
+</aside>
+
+<main>
+<h1 class="title">第 9 章 · Covalent Bonding</h1>
+<div class="subtitle">共价键　·　中文自学手册　·　"分子级"化学式与结构</div>
+
+<section id="overview">
+<h2 class="section">📖 章导读</h2>
+<p>第 8 章讲了"金属 + 非金属"的离子键。这一章讲"非金属 + 非金属"—— 它们没法互相"送"电子（都想要），干脆<b>共用一对</b>电子，这就是<span class="term">共价键 (covalent bond)</span>。</p>
+<div class="callout-topic">
+<h3>🌟 本章 5 条主线</h3>
+<p>1) 共价键的本质：共用电子对；单键 / 双键 / 三键 / σ 键 / π 键。<br/>
+2) <b>分子化合物命名</b>：用希腊语前缀（mono, di, tri…）。<br/>
+3) <b>Lewis 结构</b>画法（5 步）+ 共振 + 例外。<br/>
+4) <b>VSEPR 分子形状</b>：linear / bent / trigonal planar / tetrahedral 等。<br/>
+5) <b>电负性与极性</b>：键极性 → 分子极性。</p>
+</div>
+</section>
+
+<section id="map">
+<h2 class="section">🗺️ 章节地图</h2>
+<table class="vocab">
+<thead><tr><th>小节</th><th>核心问题</th><th>关键结论</th></tr></thead>
+<tbody>
+<tr><td>§9.1 The Covalent Bond</td><td>共价键怎么形成？</td><td>非金属共用电子对；单/双/三键；σ/π 键；键能与键长与键级相关。</td></tr>
+<tr><td>§9.2 Naming Molecules</td><td>分子怎么命名？</td><td>希腊前缀 mono di tri…；酸的 hydro- / -ic / -ous 规则。</td></tr>
+<tr><td>§9.3 Molecular Structures</td><td>如何画 Lewis 结构？</td><td>5 步法；共振结构；例外（B、奇电子、扩展八隅体）。</td></tr>
+<tr><td>§9.4 Molecular Shapes</td><td>分子长什么样？</td><td>VSEPR：电子对相斥 → 空间构型。</td></tr>
+<tr><td>§9.5 Electronegativity &amp; Polarity</td><td>分子是否极性？</td><td>电负性差 → 键极性；几何对称性 → 分子极性。</td></tr>
+</tbody>
+</table>
+</section>
+
+<section id="vocab">
+<h2 class="section">📚 术语速查表</h2>
+<table class="vocab">
+<thead><tr><th>English</th><th>中文</th><th>要点</th></tr></thead>
+<tbody>
+<tr><td>covalent bond</td><td>共价键</td><td>共用电子对</td></tr>
+<tr><td>molecule</td><td>分子</td><td>共价键连接的粒子</td></tr>
+<tr><td>single / double / triple bond</td><td>单 / 双 / 三键</td><td>共用 1/2/3 对电子</td></tr>
+<tr><td>sigma (σ) bond</td><td>σ 键</td><td>头碰头重叠，可绕轴旋转</td></tr>
+<tr><td>pi (π) bond</td><td>π 键</td><td>肩并肩重叠，不能旋转</td></tr>
+<tr><td>Lewis structure</td><td>Lewis 结构 / 电子式</td><td>用点/线表示价电子与共用对</td></tr>
+<tr><td>resonance</td><td>共振</td><td>多种等效结构描述同一物质</td></tr>
+<tr><td>coordinate covalent bond</td><td>配位键</td><td>一方提供全部电子对</td></tr>
+<tr><td>VSEPR</td><td>价层电子对互斥理论</td><td>用于预测分子形状</td></tr>
+<tr><td>bond angle</td><td>键角</td><td>两键之间的夹角</td></tr>
+<tr><td>bond length / energy</td><td>键长 / 键能</td><td>键级越高，越短、越强</td></tr>
+<tr><td>electronegativity (EN)</td><td>电负性</td><td>吸引成键电子对的能力</td></tr>
+<tr><td>polar / nonpolar bond</td><td>极性 / 非极性键</td><td>由电负性差决定</td></tr>
+<tr><td>polar / nonpolar molecule</td><td>极性 / 非极性分子</td><td>由键极性 + 几何对称性决定</td></tr>
+<tr><td>dipole</td><td>偶极</td><td>正负电荷中心不重合</td></tr>
+</tbody>
+</table>
+</section>
+
+<section id="s9-1">
+<h2 class="section">§9.1 The Covalent Bond 共价键</h2>
+
+<h3>1. 为什么共用电子？</h3>
+<p>两个非金属原子都想凑齐八隅体，谁也不肯"放弃"电子。折中办法：<b>各出一个电子，一起用</b>——这两个电子既属于甲、也属于乙。这种由<b>共用电子对</b>形成的化学键就是共价键。</p>
+
+<h3>2. 单键、双键、三键</h3>
+<div class="box box-key">
+<b>键级 = 共用电子对数：</b><br/>
+① 单键（single）：共用 1 对，如 H—H；<br/>
+② 双键（double）：共用 2 对，如 O=O；<br/>
+③ 三键（triple）：共用 3 对，如 N≡N。
+</div>
+<div class="box box-note">
+<b>键长 &amp; 键能规律：</b>键级越高 → 键<b>越短</b>、<b>越强</b>（键能越大）。<br/>
+C—C ≈ 154 pm；C=C ≈ 134 pm；C≡C ≈ 120 pm。<br/>
+键能：C—C ≈ 347 kJ/mol；C=C ≈ 614；C≡C ≈ 839。
+</div>
+
+<h3>3. σ 键 与 π 键</h3>
+<div class="box box-note">
+<b>σ (sigma) 键：</b>轨道<b>头碰头</b>重叠，电子密度集中在两核连线上；可绕键轴自由旋转。所有单键都是 σ 键。<br/>
+<b>π (pi) 键：</b>轨道<b>肩并肩</b>重叠，电子密度在键轴上下方；<b>不能</b>绕键轴旋转。<br/>
+双键 = 1σ + 1π；三键 = 1σ + 2π。
+</div>
+
+<h3>4. 共价化合物 vs 离子化合物</h3>
+<table class="vocab">
+<thead><tr><th>性质</th><th>共价（分子）化合物</th><th>离子化合物</th></tr></thead>
+<tbody>
+<tr><td>组成</td><td>非金属 + 非金属</td><td>金属 + 非金属</td></tr>
+<tr><td>基本单位</td><td>分子（molecule）</td><td>化学式单位（formula unit）</td></tr>
+<tr><td>熔沸点</td><td>一般较低</td><td>较高</td></tr>
+<tr><td>硬度</td><td>软或蜡状</td><td>硬而脆</td></tr>
+<tr><td>导电</td><td>一般不导电</td><td>熔融或溶液导电</td></tr>
+</tbody>
+</table>
+</section>
+
+<section id="s9-2">
+<h2 class="section">§9.2 Naming Molecules 分子化合物命名（重点！）</h2>
+
+<h3>1. 二元分子化合物：前缀法</h3>
+<div class="box box-key">
+适用于<b>两种非金属</b>组成的化合物。用希腊语前缀标出每种元素的<b>原子数</b>：
+<table class="vocab">
+<thead><tr><th>数字</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th><th>9</th><th>10</th></tr></thead>
+<tbody>
+<tr><td>前缀</td><td>mono-</td><td>di-</td><td>tri-</td><td>tetra-</td><td>penta-</td><td>hexa-</td><td>hepta-</td><td>octa-</td><td>nona-</td><td>deca-</td></tr>
+</tbody>
+</table>
+<b>规则：</b>
+<ol style="margin:6px 0 0 20px">
+<li>第一个元素：正常元素名，<b>不用 mono-</b>（除非必要区分）。</li>
+<li>第二个元素：<b>前缀 + 词根 + -ide</b>（如 oxide, chloride, fluoride）。</li>
+<li>若前缀与元素首字母元音相碰，可省元音：mono + oxide = <b>monoxide</b>（不是 monooxide）。</li>
+</ol>
+</div>
+
+<div class="box box-example">
+CO　→　carbon <b>mon</b>oxide 一氧化碳<br/>
+CO₂　→　carbon <b>di</b>oxide 二氧化碳<br/>
+N₂O　→　<b>di</b>nitrogen <b>mon</b>oxide<br/>
+N₂O₄　→　<b>di</b>nitrogen <b>tetr</b>oxide<br/>
+P₂O₅　→　<b>di</b>phosphorus <b>pent</b>oxide<br/>
+SF₆　→　sulfur <b>hexa</b>fluoride<br/>
+CCl₄　→　carbon <b>tetra</b>chloride
+</div>
+
+<h3>2. 酸的命名</h3>
+<div class="box box-key">
+<b>① 无氧酸</b>（"H + 一种非金属"）：<br/>
+"hydro- + 非金属词根 + -ic acid"<br/>
+HCl → <b>hydro</b>chlor<b>ic acid</b> 盐酸；HF → hydrofluoric acid；H₂S → hydrosulfuric acid。<br/><br/>
+<b>② 含氧酸</b>（H + 多原子含氧阴离子）：<br/>
+"-ate" → "-<b>ic</b> acid"；"-ite" → "-<b>ous</b> acid"<br/>
+"per-…-ate" → "per-…-ic acid"；"hypo-…-ite" → "hypo-…-ous acid"
+</div>
+
+<div class="box box-example">
+NO₃⁻ nitrate → HNO₃ nitric acid 硝酸<br/>
+NO₂⁻ nitrite → HNO₂ nitrous acid 亚硝酸<br/>
+SO₄²⁻ sulfate → H₂SO₄ sulfuric acid 硫酸<br/>
+SO₃²⁻ sulfite → H₂SO₃ sulfurous acid 亚硫酸<br/>
+ClO₄⁻ perchlorate → HClO₄ perchloric acid 高氯酸<br/>
+ClO⁻ hypochlorite → HClO hypochlorous acid 次氯酸
+</div>
+
+<div class="box box-warn">
+<b>易错点：</b>分子化合物用<b>前缀法</b>，<b>不加</b>罗马数字；离子化合物（第 8 章）反过来。别混。
+</div>
+</section>
+
+<section id="s9-3">
+<h2 class="section">§9.3 Molecular Structures Lewis 结构（重难点！）</h2>
+
+<h3>1. 画 Lewis 结构 5 步法</h3>
+<div class="box box-key">
+<b>第 1 步</b>：算出<b>总价电子数</b>（元素价电子之和；阴离子加电荷数、阳离子减电荷数）。<br/>
+<b>第 2 步</b>：选<b>中心原子</b>——电负性最小的、原子数最少的常在中心（H、F 一般不做中心）。<br/>
+<b>第 3 步</b>：用<b>单键</b>把中心与外围连起来（每根键 2 电子）。<br/>
+<b>第 4 步</b>：把剩余电子先分给<b>外围原子</b>，使它们凑齐 8 电子（H 只需 2）。<br/>
+<b>第 5 步</b>：若还剩电子，给中心；若中心不足 8 电子，把外围的孤对<b>变成双键或三键</b>。
+</div>
+
+<div class="box box-example">
+<b>例：画 CO₂ 的 Lewis 结构</b><br/>
+<div class="step"><span class="no">1</span>价电子总数 = 4(C) + 2×6(O) = <b>16</b> 电子。</div>
+<div class="step"><span class="no">2</span>中心：C（电负性小）。骨架：O—C—O。</div>
+<div class="step"><span class="no">3</span>两个单键用去 4 电子，剩 12 电子。</div>
+<div class="step"><span class="no">4</span>把 12 电子分给两个 O 各 6 个（3 对孤对），使 O 凑齐 8。此时 C 只有 4 电子。</div>
+<div class="step"><span class="no">5</span>把每个 O 的一对孤对变为与 C 的另一根键 → 形成 <b>O=C=O</b>（两个 C=O 双键）。C 现在有 8 电子。</div>
+</div>
+
+<h3>2. 共振结构 Resonance</h3>
+<p>当一种物质<b>无法用单一 Lewis 结构</b>合理描述时，用<b>两个或多个等效结构</b>（共振结构）之间的"平均"来表示。真实分子是它们的"叠加"。</p>
+<div class="box box-example">
+<b>典型：O₃（臭氧）、NO₃⁻、CO₃²⁻、SO₃、C₆H₆（苯）。</b><br/>
+O₃ 可写成 O=O—O 或 O—O=O，两个 O—O 键实际长度相等、介于单键和双键之间——用共振箭头 ↔ 连接两个结构。
+</div>
+
+<h3>3. 例外</h3>
+<div class="box box-warn">
+① <b>H 例外</b>：只需 2 电子（"duet"）。<br/>
+② <b>B 少电子</b>：BF₃ 中 B 只有 6 电子，是常见"稳定的缺电子分子"。<br/>
+③ <b>奇电子分子（自由基）</b>：如 NO、NO₂，共有奇数个价电子，无法凑齐八隅体。<br/>
+④ <b>扩展八隅体</b>：第 3 周期及以后（S、P、Cl）可以超过 8 电子，如 SF₆（12）、PCl₅（10）。因为 3d 亚层可以参与。
+</div>
+
+<h3>4. 配位共价键 Coordinate Covalent Bond</h3>
+<p>共用电子对<b>全部由一方提供</b>的共价键。例如 NH₄⁺ 中，NH₃ 用它的孤对与 H⁺ 结合，形成第四根 N—H 键——这根键是配位键，但一旦形成后与其他三根 N—H 完全等价。</p>
+</section>
+
+<section id="s9-4">
+<h2 class="section">§9.4 Molecular Shapes 分子形状（VSEPR，重难点！）</h2>
+
+<h3>1. VSEPR 核心思想</h3>
+<div class="box box-key">
+<b>价层电子对互斥理论 (VSEPR, Valence Shell Electron Pair Repulsion)：</b><br/>
+中心原子周围的<b>电子对</b>（成键电子对 + 孤对）互相排斥，会尽量<b>远离</b>——这就决定了分子的空间构型。<br/>
+<b>关键：数中心原子的"电子域数"</b>（bonded + lone pairs；一个多重键算 1 个域）。
+</div>
+
+<h3>2. 常见分子形状（必背表）</h3>
+<table class="vocab">
+<thead><tr><th>电子域数</th><th>孤对数</th><th>形状（英文）</th><th>形状（中文）</th><th>键角</th><th>例子</th></tr></thead>
+<tbody>
+<tr><td>2</td><td>0</td><td>linear</td><td>直线形</td><td>180°</td><td>CO₂, BeCl₂</td></tr>
+<tr><td>3</td><td>0</td><td>trigonal planar</td><td>平面三角形</td><td>120°</td><td>BF₃, SO₃</td></tr>
+<tr><td>3</td><td>1</td><td>bent</td><td>弯曲 / V 形</td><td>≈ 118°</td><td>SO₂, O₃</td></tr>
+<tr><td>4</td><td>0</td><td>tetrahedral</td><td>正四面体</td><td>109.5°</td><td>CH₄, NH₄⁺</td></tr>
+<tr><td>4</td><td>1</td><td>trigonal pyramidal</td><td>三角锥</td><td>≈ 107°</td><td>NH₃</td></tr>
+<tr><td>4</td><td>2</td><td>bent</td><td>弯曲 / V 形</td><td>≈ 104.5°</td><td>H₂O</td></tr>
+<tr><td>5</td><td>0</td><td>trigonal bipyramidal</td><td>三角双锥</td><td>90° &amp; 120°</td><td>PCl₅</td></tr>
+<tr><td>6</td><td>0</td><td>octahedral</td><td>八面体</td><td>90°</td><td>SF₆</td></tr>
+</tbody>
+</table>
+
+<div class="box box-note">
+<b>孤对"更霸道"：</b>孤对占的空间比成键对大 → 会把成键角度压得<b>更小</b>。<br/>
+CH₄（无孤对）109.5° → NH₃（1 孤对）107° → H₂O（2 孤对）104.5°。
+</div>
+
+<div class="box box-example">
+<b>判断 H₂O 形状：</b><br/>
+<div class="step"><span class="no">1</span>O 的价电子：6。与 2 个 H 各成 1 单键，占用 4 电子；剩 4 电子 = 2 孤对。</div>
+<div class="step"><span class="no">2</span>电子域数 = 2 bond + 2 lone = <b>4</b>。</div>
+<div class="step"><span class="no">3</span>4 电子域 + 2 孤对 → 查表得 <b>bent（弯曲形）</b>，键角约 104.5°。</div>
+</div>
+</section>
+
+<section id="s9-5">
+<h2 class="section">§9.5 Electronegativity and Polarity 电负性与极性</h2>
+
+<h3>1. 电负性差 → 键的极性</h3>
+<div class="box box-key">
+两个原子的电负性差 ΔEN 决定<b>键的类型</b>：<br/>
+<b>ΔEN &lt; 0.5</b>：非极性共价键（如 H—H、C—H 近似）<br/>
+<b>0.5 ≤ ΔEN &lt; 1.7</b>：极性共价键（如 H—Cl，ΔEN ≈ 0.9）<br/>
+<b>ΔEN ≥ 1.7</b>：一般视为离子键（如 Na—Cl，ΔEN ≈ 2.1）<br/>
+（1.7 只是近似分界，H—F 的 ΔEN ≈ 1.9 但仍认为是极性共价，例外要看具体情况。）
+</div>
+
+<p>极性共价键在写法上可以标偶极方向 δ⁺ → δ⁻，例如 H—Cl 中 Cl 电负性大，电子偏向 Cl，Cl 呈 δ⁻，H 呈 δ⁺。</p>
+
+<h3>2. 分子极性 = 键极性 × 几何对称</h3>
+<div class="box box-note">
+<b>非极性分子</b>：<br/>
+① 全是非极性键（如 O₂、N₂、Cl₂）；<br/>
+② 有极性键但几何<b>对称</b>，偶极互相抵消（如 CO₂ 直线形，两个 C=O 反向抵消；CH₄、CCl₄ 正四面体也对称）。<br/>
+<br/>
+<b>极性分子</b>：<br/>
+有极性键且几何<b>不对称</b>，偶极不能抵消。<br/>
+如 H₂O 弯曲形，两个 O—H 偶极合成一个净偶极 → 极性分子；NH₃ 三角锥，三个 N—H 偶极合成一个净偶极 → 极性分子；HCl 单键极性 → 极性分子。
+</div>
+
+<div class="box box-example">
+<b>比较 CO₂ 与 H₂O 的极性：</b><br/>
+CO₂：两个 C=O 键都极性，但分子是<b>直线</b>，两个偶极方向相反、大小相等 → 相互抵消 → <b>非极性分子</b>。<br/>
+H₂O：两个 O—H 极性，分子<b>弯曲</b>（104.5°），偶极不能相互抵消 → 有净偶极 → <b>极性分子</b>。
+</div>
+
+<div class="box box-warn">
+<b>易错：</b>"有极性键 → 一定是极性分子"是错的。看几何！这就是为什么 CO₂ 无净偶极，而 H₂O 有。这也解释了为什么水是"极性溶剂之王"——能溶解大量离子和极性分子。
+</div>
+</section>
+
+<section id="study-guide">
+<h2 class="section">📝 Study Guide 章节复习</h2>
+<div class="box box-note">
+<b>1. 共价键：</b>共用电子对；单/双/三键；σ (头碰头) + π (肩并肩)；键级越高越短越强。<br/>
+<b>2. 分子命名：</b>前缀法（mono di tri tetra…）；无氧酸 hydro-…-ic acid；含氧酸 -ate → -ic acid、-ite → -ous acid。<br/>
+<b>3. Lewis 结构：</b>5 步法；共振；例外（H duet、B 缺电子、奇电子、扩展八隅体）；配位键。<br/>
+<b>4. VSEPR：</b>电子对相斥；查"电子域数 + 孤对数"表；孤对压角。<br/>
+<b>5. 极性：</b>键极性看 ΔEN；分子极性看键极性 + 几何对称性。
+</div>
+</section>
+
+<section id="assessment">
+<h2 class="section">🧪 Chapter Assessment 章末测评（精选题）</h2>
+
+<ol class="practice">
+<li>下列哪一项是共价化合物？<br/>
+a) NaCl；b) KBr；c) H₂O；d) MgO。
+<div class="ans">选 <b>c</b>。H 和 O 都是非金属，H₂O 是共价（分子）化合物。其余三个都是金属+非金属，为离子化合物。</div>
+</li>
+
+<li>画出 NH₃ 的 Lewis 结构，判断其分子形状。
+<div class="ans">价电子 = 5+3×1 = 8。N 是中心，与 3 个 H 单键，占 6 e⁻，剩 2 e⁻ 作为 N 的孤对。电子域数 = 4（3 键 + 1 孤对）→ <b>trigonal pyramidal 三角锥</b>，键角约 107°。</div>
+</li>
+
+<li>命名下列分子化合物：<br/>
+① SO₂；② N₂O₃；③ PCl₅；④ CO；⑤ SiO₂。
+<div class="ans">
+① sulfur dioxide 二氧化硫<br/>
+② dinitrogen trioxide 三氧化二氮<br/>
+③ phosphorus pentachloride 五氯化磷<br/>
+④ carbon monoxide 一氧化碳<br/>
+⑤ silicon dioxide 二氧化硅
+</div>
+</li>
+
+<li>写出下列酸的化学式：<br/>
+① sulfuric acid；② nitrous acid；③ perchloric acid；④ hydrofluoric acid；⑤ phosphoric acid。
+<div class="ans">
+① H₂SO₄　② HNO₂　③ HClO₄　④ HF　⑤ H₃PO₄
+</div>
+</li>
+
+<li>三键包含（　　）：<br/>
+a) 3 个 σ 键；b) 2 σ + 1 π；c) 1 σ + 2 π；d) 3 个 π 键。
+<div class="ans">选 <b>c</b>。三键 = 1σ + 2π。σ 键只能有一个（头碰头），其余多重键的都是 π。</div>
+</li>
+
+<li>比较键长：C—C、C=C、C≡C。
+<div class="ans">键级越高键越短：<b>C≡C &lt; C=C &lt; C—C</b>。</div>
+</li>
+
+<li>下列分子中哪一个是<b>极性分子</b>？<br/>
+a) CO₂；b) CH₄；c) H₂O；d) BF₃。
+<div class="ans">选 <b>c</b>。CO₂ 直线、CH₄ 正四面体、BF₃ 平面三角，均对称 → 非极性。H₂O 弯曲 → 极性。</div>
+</li>
+
+<li>用 VSEPR 预测 SO₂ 的形状。
+<div class="ans">S 有 6 价电子；与 2 O 成键（若按共振结构，一为单键一为双键 or 都算双键，中心电子域数 = 2 σ + 1 孤对 = 3 电子域，1 孤对）→ <b>bent 弯曲形</b>，键角约 118°。类似 O₃。</div>
+</li>
+
+<li>为什么 NH₃ 键角（107°）比 CH₄（109.5°）小？
+<div class="ans">NH₃ 中心 N 有一对<b>孤对</b>，孤对占的空间比成键对大，会把 3 个 N—H 键"挤"得更近 → 键角变小。CH₄ 没有孤对，4 个键均匀分布在正四面体角。</div>
+</li>
+
+<li>ΔEN(H—O) ≈ 1.4，ΔEN(H—H) = 0，ΔEN(Na—Cl) ≈ 2.1。判断键的类型。
+<div class="ans">H—O：极性共价（0.5 &lt; 1.4 &lt; 1.7）；H—H：非极性共价（0）；Na—Cl：离子键（&gt; 1.7）。</div>
+</li>
+
+<li>解释配位共价键，并用 NH₄⁺ 举例。
+<div class="ans">共用电子对<b>由一方全部提供</b>的共价键叫配位键。NH₃ 中 N 有一对孤对，H⁺ 只有一个空轨道；两者结合时孤对进入 H⁺ 的空轨道形成第 4 根 N—H 键。形成后 4 根 N—H 键完全等价，无法区分谁是配位键。</div>
+</li>
+
+<li>为什么 SF₆ 存在，但 OF₆ 不存在？
+<div class="ans">S 处于第 3 周期，有可用的 3d 亚层，可以"扩展八隅体"容纳 12 个价电子 → SF₆ 合理。O 处于第 2 周期，没有 2d 亚层，只能容纳 8 电子 → OF₆ 无法形成。</div>
+</li>
+</ol>
+</section>
+
+<section id="cheatsheet">
+<h2 class="section">⚡ 一页知识卡</h2>
+
+<div class="callout-topic">
+<h3>Lewis 结构 5 步</h3>
+<p>① 算总价电子（阴离子加电荷、阳离子减电荷）<br/>
+② 选中心原子（电负性最小）<br/>
+③ 单键连接骨架<br/>
+④ 剩电子先给外围凑八隅（H 只 2 个）<br/>
+⑤ 若中心不足 8，把外围孤对变成多重键</p>
+</div>
+
+<div class="box box-key">
+<b>VSEPR 6 大形状速查</b><br/>
+2 域 → linear 180°<br/>
+3 域 → trigonal planar 120°（无孤对）/ bent 118°（1 孤对）<br/>
+4 域 → tetrahedral 109.5° / trigonal pyramidal 107°（1 孤对）/ bent 104.5°（2 孤对）<br/>
+5 域 → trigonal bipyramidal（90°+120°）<br/>
+6 域 → octahedral 90°
+</div>
+
+<div class="box box-note">
+<b>希腊前缀速查</b><br/>
+1 mono 2 di 3 tri 4 tetra 5 penta 6 hexa 7 hepta 8 octa 9 nona 10 deca
+</div>
+
+<div class="box box-warn">
+<b>极性判断口诀</b><br/>
+① 键极性看 ΔEN。<br/>
+② 分子极性：<b>先看键，再看形</b>——键极性 × 几何是否对称。<br/>
+③ 对称几何抵消偶极：直线、平面三角、正四面体、三角双锥、八面体。<br/>
+④ 有孤对通常打破对称 → 极性（如 NH₃、H₂O、SO₂）。
+</div>
+</section>
+
+<hr class="soft"/>
+<p class="small" style="text-align:center;color:#888">© 中文自学手册 · 与《Chemistry — Matter and Change》第 9 章配套</p>
+</main>
+</div>
+<script src="theme.js?v=20260905"></script>
+</body>
+</html>

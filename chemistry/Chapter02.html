@@ -1,0 +1,1011 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>第 2 章 Data Analysis · 中文学习手册</title>
+<script>
+window.MathJax = {
+  tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$','$$'], ['\\[','\\]']] },
+  svg: { fontCache: 'global' }
+};
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+:root{
+  --bg:#f7f5ef;
+  --paper:#ffffff;
+  --ink:#232323;
+  --ink-soft:#4a4a4a;
+  --accent:#0f6b5e;         /* 主色（青绿） */
+  --accent-2:#c1543b;       /* 强调色（砖红） */
+  --accent-3:#3e5aa8;       /* 副色（靛蓝） */
+  --hi:#f6e58d;             /* 高亮荧光 */
+  --box-en:#eef4f2;
+  --box-cn:#fff8ec;
+  --box-note:#eaf1fb;
+  --box-warn:#fdecea;
+  --box-key:#fff1d6;
+  --box-example:#eef7ee;
+  --line:#e4dfd2;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei","Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  background:var(--bg);
+  color:var(--ink);
+  line-height:1.75;
+  font-size:16px;
+}
+.wrap{display:flex;max-width:1400px;margin:0 auto;min-height:100vh}
+/* 侧栏 */
+aside.toc{
+  position:sticky; top:0; align-self:flex-start;
+  width:280px; height:100vh; overflow-y:auto;
+  background:linear-gradient(180deg,#0f6b5e,#0b4d43);
+  color:#fff; padding:24px 18px;
+}
+aside.toc h1{font-size:16px;margin:0 0 6px;letter-spacing:1px;color:#f6e58d}
+aside.toc .sub{font-size:12px;opacity:.75;margin-bottom:16px}
+aside.toc a{
+  display:block; color:#f2fbf8; text-decoration:none; padding:8px 10px;
+  border-radius:6px; margin-bottom:2px; font-size:14px; line-height:1.4;
+  border-left:3px solid transparent;
+}
+aside.toc a:hover{background:rgba(255,255,255,.10)}
+aside.toc a.h2{padding-left:22px; font-size:13px; opacity:.9}
+aside.toc a.active{background:rgba(255,255,255,.14); border-left-color:#f6e58d}
+
+main{flex:1;padding:36px 44px;background:var(--paper); box-shadow:0 0 30px rgba(0,0,0,.05)}
+
+h1.title{font-size:32px; margin:0 0 6px; color:var(--accent)}
+.subtitle{color:var(--ink-soft); margin-bottom:24px; font-size:14px}
+h2.section{
+  font-size:24px; color:var(--accent); border-bottom:2px solid var(--accent);
+  padding-bottom:6px; margin-top:56px; margin-bottom:14px;
+}
+h3{font-size:19px; color:var(--accent-2); margin-top:32px; border-left:5px solid var(--accent-2); padding-left:10px}
+h4{font-size:16px; color:var(--accent-3); margin-top:20px}
+
+/* 中英对照卡片 */
+.pair{display:grid; grid-template-columns:1fr 1fr; gap:14px; margin:14px 0}
+.pair .en, .pair .cn{
+  padding:14px 16px; border-radius:10px; font-size:15px; line-height:1.75;
+}
+.pair .en{background:var(--box-en); border-left:4px solid var(--accent)}
+.pair .cn{background:var(--box-cn); border-left:4px solid var(--accent-2)}
+.pair .en::before{content:"EN 原文"; display:block; font-size:11px; letter-spacing:1px; color:var(--accent); font-weight:700; margin-bottom:6px}
+.pair .cn::before{content:"CN 翻译"; display:block; font-size:11px; letter-spacing:1px; color:var(--accent-2); font-weight:700; margin-bottom:6px}
+@media(max-width:960px){.pair{grid-template-columns:1fr}}
+
+.hi{background:linear-gradient(180deg,transparent 55%, var(--hi) 55%); padding:0 2px}
+.term{color:var(--accent-2); font-weight:700}
+.term-en{color:var(--accent); font-style:italic}
+.eq{background:#fafaf5; padding:10px 16px; border-radius:8px; overflow-x:auto; border:1px dashed #cfc9b6; margin:12px 0}
+.eq-center{text-align:center}
+
+/* 各类信息框 */
+.box{padding:14px 18px; border-radius:10px; margin:14px 0; position:relative}
+.box::before{
+  content:attr(data-label); position:absolute; top:-10px; left:14px;
+  background:#fff; padding:0 8px; font-size:12px; font-weight:700; letter-spacing:1px;
+}
+.box-note{background:var(--box-note); border:1px solid #c9d7f0}
+.box-note::before{content:"讲解 · 知识点"; color:var(--accent-3)}
+.box-warn{background:var(--box-warn); border:1px solid #f5c6c0}
+.box-warn::before{content:"重难点 · 易错点"; color:var(--accent-2)}
+.box-key{background:var(--box-key); border:1px solid #f3d78b}
+.box-key::before{content:"关键公式"; color:#a17108}
+.box-example{background:var(--box-example); border:1px solid #b7dab8}
+.box-example::before{content:"例题详解"; color:#2c6e2e}
+.box-vocab{background:#eef4f2; border:1px solid #b8d6cf}
+.box-vocab::before{content:"术语速查"; color:var(--accent)}
+
+table.vocab{width:100%; border-collapse:collapse; margin:6px 0}
+table.vocab th, table.vocab td{padding:6px 10px; border-bottom:1px solid var(--line); font-size:14px; text-align:left; vertical-align:top}
+table.vocab th{background:#dfeae7; color:var(--accent)}
+
+.tag{
+  display:inline-block; padding:2px 8px; border-radius:12px; font-size:11px;
+  background:#e8f0ee; color:var(--accent); margin-right:6px; font-weight:600;
+}
+.tag.warn{background:#fdecea; color:var(--accent-2)}
+.tag.hard{background:#fff1d6; color:#a17108}
+
+.step{margin:10px 0 10px 0; padding:10px 14px 10px 42px; background:#fbfaf3; border-radius:8px; position:relative}
+.step .no{
+  position:absolute; left:10px; top:10px;
+  width:24px; height:24px; line-height:24px; text-align:center;
+  background:var(--accent); color:#fff; border-radius:50%; font-weight:700; font-size:13px;
+}
+
+ol.practice{padding-left:20px}
+ol.practice li{margin-bottom:10px}
+.ans{background:#eef7ee; border-left:4px solid #4e9d5c; padding:10px 14px; border-radius:0 8px 8px 0; margin:6px 0; font-size:14.5px}
+.ans::before{content:"参考答案与解析　"; color:#2c6e2e; font-weight:700; font-size:12px; letter-spacing:1px}
+
+details{background:#f4f2ea; border-radius:8px; padding:8px 12px; margin:8px 0}
+details summary{cursor:pointer; font-weight:600; color:var(--accent-3)}
+details[open]{background:#eaf1fb}
+
+hr.soft{border:none; border-top:1px dashed #cfc9b6; margin:32px 0}
+
+sup.foot{color:var(--accent-3)}
+
+.page-marker{
+  display:inline-block; font-size:11px; color:#888;
+  background:#f0ede2; padding:1px 8px; border-radius:10px; margin-left:8px; vertical-align:middle;
+}
+
+.figure-note{background:#faf7ee; border:1px dashed #d8ce9d; padding:10px 14px; border-radius:8px; margin:12px 0; font-size:14px; color:#665a2c}
+.figure-note strong{color:#a17108}
+
+.callout-topic{
+  background:linear-gradient(135deg,#0f6b5e,#3e5aa8); color:#fff;
+  padding:18px 22px; border-radius:12px; margin:20px 0;
+}
+.callout-topic h3{color:#f6e58d; border:none; padding:0; margin:0 0 8px}
+.callout-topic p{margin:0; opacity:.95}
+
+.small{font-size:13px; color:var(--ink-soft)}
+kbd{background:#eee; padding:1px 6px; border-radius:4px; border:1px solid #ccc; font-family:monospace; font-size:13px}
+</style>
+<link rel="stylesheet" href="theme.css?v=20260905" />
+</head>
+<body>
+<div class="wrap">
+<aside class="toc" id="toc">
+  <h1>第 2 章 数据分析</h1>
+  <div class="sub">Chemistry · Matter and Change<br/>Chapter 2 · Data Analysis</div>
+  <a href="#overview">📖 章导读</a>
+  <a href="#chapter-map">🗺️ 章节地图</a>
+  <a href="#vocab">📚 术语速查表</a>
+  <a href="#s2-1">§2.1 Units of Measurement 单位与测量</a>
+  <a href="#s2-2">§2.2 Scientific Notation & Dimensional Analysis 科学记数法与因次分析</a>
+  <a href="#s2-3">§2.3 How reliable are measurements? 测量的可靠性</a>
+  <a href="#s2-4">§2.4 Representing Data 数据的图表表达</a>
+  <a href="#study-guide">📝 Study Guide 章节复习</a>
+  <a href="#assessment">🧪 Chapter Assessment 章末测评</a>
+  <a href="#cheatsheet">⚡ 一页知识卡</a>
+</aside>
+
+<main>
+<h1 class="title">第 2 章 · Data Analysis 数据分析</h1>
+<div class="subtitle">📕《Chemistry — Matter and Change》第 24–53 页 · 中文精讲总结 + 例题解析<br/>面向国际学校 9 年级学生 · 自学版</div>
+
+<!-- ============================================================ -->
+<!-- 章导读 -->
+<!-- ============================================================ -->
+<section id="overview">
+<h2 class="section">📖 章导读：为什么要学"数据分析"？</h2>
+
+<div class="callout-topic">
+<h3>🌟 一句话说清本章</h3>
+<p>化学不是背课文，而是要"测得准、算得对、看得懂"。第 2 章教你 4 件事：<b>用什么单位（SI）→ 数字太大太小怎么写（科学记数法）→ 单位怎么换（因次分析）→ 结果准不准（有效数字与误差）→ 用图看规律</b>。这些工具会一直用到第 11 章（摩尔）和以后所有章节，是化学计算的"地基"。</p>
+</div>
+
+<p>你可能想：这一章看起来像数学？—— 没错，它是<b>物理化学的通用语言</b>。学好这一章，后面读题会快很多，做题也不容易在"单位"、"位数"上丢分。</p>
+
+<div class="box box-note">
+<b>本章要解决的 5 个核心问题：</b>
+<ol style="margin:6px 0">
+<li>科学家为什么要用 <span class="term-en">SI</span> 单位？基本单位和导出单位有什么区别？</li>
+<li>像 0.000 000 001 672 62 kg 这样的"魔鬼数字"要怎么优雅地写和算？</li>
+<li>"90 km/h 是每分钟多少英里？"—— 单位换算的通用套路是什么？</li>
+<li>为什么两个学生做同一个实验，测出的数字不一样？"准确"和"精密"是一回事吗？</li>
+<li>怎样从一堆数据中看出规律？—— 图表怎么画、怎么读？</li>
+</ol>
+</div>
+</section>
+
+<!-- ============================================================ -->
+<!-- 章节地图 -->
+<!-- ============================================================ -->
+<section id="chapter-map">
+<h2 class="section">🗺️ 章节地图</h2>
+
+<div class="box box-vocab">
+<table class="vocab">
+<thead><tr><th style="width:16%">小节</th><th style="width:34%">核心问题</th><th>核心结论 / 工具</th></tr></thead>
+<tbody>
+<tr>
+  <td><b>§2.1</b><br/>单位与测量</td>
+  <td>科学测量该用什么单位？体积和密度怎么算？</td>
+  <td>SI 有 7 个基本单位；用前缀（k, c, m, μ, n…）扩展量程；导出单位如 m/s、g/cm³；密度 $\rho=m/V$；Kelvin = °C + 273</td>
+</tr>
+<tr>
+  <td><b>§2.2</b><br/>科学记数法与因次分析</td>
+  <td>超大 / 超小数字怎么写？不同单位间怎么换算？</td>
+  <td>$a\times 10^n$（$1\le a<10$）；加减需同 n；乘除加减指数；用"换算因子"（值为 1 的分数）消掉旧单位、留下新单位</td>
+</tr>
+<tr>
+  <td><b>§2.3</b><br/>测量的可靠性</td>
+  <td>怎么判断数据好不好？位数怎么保留？</td>
+  <td>准确度 vs 精密度（打靶）；百分误差 =|差|/真值×100%；有效数字 5 条规则；加减看小数位，乘除看有效数字位</td>
+</tr>
+<tr>
+  <td><b>§2.4</b><br/>数据的图表表达</td>
+  <td>数据用哪种图？怎么读斜率、外推？</td>
+  <td>圆图（占比）、条形图（比较）、折线图（连续关系）；直线 → 直接正比 $y=kx$；曲线 → 非线性/反比 $xy=k$；斜率 $=\Delta y/\Delta x$</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+
+<!-- ============================================================ -->
+<!-- 术语速查表 -->
+<!-- ============================================================ -->
+<section id="vocab">
+<h2 class="section">📚 术语速查表（Vocabulary）</h2>
+
+<div class="box box-vocab">
+<table class="vocab">
+<thead><tr><th style="width:28%">英文术语</th><th style="width:22%">中文翻译</th><th>含义解释</th></tr></thead>
+<tbody>
+<tr><td>base unit</td><td>基本单位</td><td>SI 中独立定义、不能由其他单位推出的单位（如 m、s、kg、K）</td></tr>
+<tr><td>derived unit</td><td>导出单位</td><td>由若干基本单位组合而成的单位（如 m/s、g/cm³）</td></tr>
+<tr><td>second (s)</td><td>秒</td><td>SI 时间基本单位，由铯 -133 原子跃迁频率定义</td></tr>
+<tr><td>meter (m)</td><td>米</td><td>SI 长度基本单位，光在真空中 1/299 792 458 秒走过的距离</td></tr>
+<tr><td>kilogram (kg)</td><td>千克</td><td>SI 质量基本单位（约 2.2 磅）</td></tr>
+<tr><td>kelvin (K)</td><td>开尔文</td><td>SI 温度基本单位；0 K 是绝对零度；K = °C + 273</td></tr>
+<tr><td>liter (L)</td><td>升</td><td>体积的常用单位；1 L = 1 dm³ = 1000 mL；1 mL = 1 cm³</td></tr>
+<tr><td>density</td><td>密度</td><td>单位体积的质量，$\rho=m/V$，常用 g/cm³ 或 g/mL</td></tr>
+<tr><td>scientific notation</td><td>科学记数法</td><td>把数写成 $a\times 10^n$ 的形式，$1\le a<10$，$n$ 为整数</td></tr>
+<tr><td>conversion factor</td><td>换算因子</td><td>值等于 1 的分数，用来把一种单位换成另一种（如 $\frac{1000\text{ m}}{1\text{ km}}$）</td></tr>
+<tr><td>dimensional analysis</td><td>因次分析 / 单位换算</td><td>通过"消单位"完成计算的方法</td></tr>
+<tr><td>accuracy</td><td>准确度</td><td>测量值接近"真值"的程度</td></tr>
+<tr><td>precision</td><td>精密度</td><td>多次测量彼此之间接近的程度</td></tr>
+<tr><td>percent error</td><td>百分误差</td><td>$\dfrac{|\text{误差}|}{\text{真值}}\times 100\%$</td></tr>
+<tr><td>significant figure</td><td>有效数字</td><td>一个测量数据中"已知位 + 一位估读"的总数字个数</td></tr>
+<tr><td>graph</td><td>图 / 图表</td><td>数据的可视化表示</td></tr>
+<tr><td>direct proportion</td><td>直接正比</td><td>$y=kx$，图像为过原点的直线</td></tr>
+<tr><td>inverse proportion</td><td>反比</td><td>$xy=k$，图像为双曲线</td></tr>
+<tr><td>line of best fit</td><td>最佳拟合线</td><td>让尽可能多的点均匀分布在直线两侧的直线</td></tr>
+<tr><td>slope</td><td>斜率</td><td>$\dfrac{\Delta y}{\Delta x}=\dfrac{y_2-y_1}{x_2-x_1}$</td></tr>
+<tr><td>interpolation / extrapolation</td><td>内插 / 外推</td><td>在已测点之间读值 / 把线延长到测量范围之外读值</td></tr>
+</tbody>
+</table>
+</div>
+</section>
+
+<!-- ============================================================ -->
+<!-- §2.1 -->
+<!-- ============================================================ -->
+<section id="s2-1">
+<h2 class="section">§2.1 Units of Measurement · 单位与测量 <span class="page-marker">P.25 – P.30</span></h2>
+
+<div class="box box-vocab">
+<b>本节目标：</b>
+<ol style="margin:6px 0">
+<li>说出时间、长度、质量、温度的 SI 基本单位；</li>
+<li>解释前缀如何改变单位的量级；</li>
+<li>会用体积和密度的导出单位、会做单位换算；</li>
+<li>会做 Celsius ↔ Kelvin 温度换算。</li>
+</ol>
+</div>
+
+<h3>1. 为什么需要"标准单位"？</h3>
+
+<p>想象一下：你的加拿大朋友发邮件说"最近太热了，天天 35 度不能踢球"，你却觉得 35 应该很冷。—— 问题出在<b>单位</b>：他说的是 <span class="term-en">°C</span>（摄氏度），你以为是 <span class="term-en">°F</span>（华氏度）。<span class="hi">测量必须同时包含"数字 + 单位"，否则毫无意义。</span></p>
+
+<p>1795 年法国科学家统一了"公制"（metric system）；1960 年国际会议把它升级为 <span class="term-en">Système Internationale d'Unités</span>，缩写 <b>SI</b>。全世界科学家都用 SI，这样数据才可以互相重复和验证。</p>
+
+<h3>2. SI 的 7 个基本单位（Base Units）</h3>
+
+<div class="box box-key" data-label="必背表">
+<table class="vocab">
+<thead><tr><th>物理量 Quantity</th><th>基本单位 Base Unit</th><th>符号</th><th>速记 & 应用</th></tr></thead>
+<tbody>
+<tr><td>时间 Time</td><td>second 秒</td><td><b>s</b></td><td>用铯 -133 原子的微波辐射频率定义</td></tr>
+<tr><td>长度 Length</td><td>meter 米</td><td><b>m</b></td><td>光在真空中 1/299 792 458 s 走过的距离</td></tr>
+<tr><td>质量 Mass</td><td>kilogram 千克</td><td><b>kg</b></td><td>用一块铂铱合金原器定义（约 2.2 磅）</td></tr>
+<tr><td>温度 Temperature</td><td>kelvin 开尔文</td><td><b>K</b></td><td>0 K = 绝对零度；不用度符号"°"</td></tr>
+<tr><td>物质的量 Amount</td><td>mole 摩尔</td><td><b>mol</b></td><td>= 6.02×10²³ 个粒子（第 11 章重点）</td></tr>
+<tr><td>电流 Electric current</td><td>ampere 安培</td><td><b>A</b></td><td>—</td></tr>
+<tr><td>光强 Luminous intensity</td><td>candela 坎德拉</td><td><b>cd</b></td><td>衡量光源的亮度</td></tr>
+</tbody>
+</table>
+</div>
+
+<h3>3. 前缀（Prefixes）：让单位大小随心变</h3>
+
+<p>SI 是<b>十进制</b>系统，所有前缀都是 10 的幂。加个前缀，就能把秒变纳秒、把米变千米。前缀通用于任何 SI 单位。</p>
+
+<div class="box box-key" data-label="常用前缀">
+<table class="vocab">
+<thead><tr><th>前缀</th><th>符号</th><th>倍数 Factor</th><th>科学记数法</th><th>例子</th></tr></thead>
+<tbody>
+<tr><td>giga</td><td>G</td><td>1 000 000 000</td><td>$10^{9}$</td><td>gigameter (Gm)</td></tr>
+<tr><td>mega</td><td>M</td><td>1 000 000</td><td>$10^{6}$</td><td>megagram (Mg)</td></tr>
+<tr><td><b>kilo</b></td><td><b>k</b></td><td>1000</td><td>$10^{3}$</td><td>kilometer (km)</td></tr>
+<tr><td><b>deci</b></td><td><b>d</b></td><td>1/10</td><td>$10^{-1}$</td><td>deciliter (dL)</td></tr>
+<tr><td><b>centi</b></td><td><b>c</b></td><td>1/100</td><td>$10^{-2}$</td><td>centimeter (cm)</td></tr>
+<tr><td><b>milli</b></td><td><b>m</b></td><td>1/1000</td><td>$10^{-3}$</td><td>milligram (mg)</td></tr>
+<tr><td>micro</td><td>μ</td><td>1/1 000 000</td><td>$10^{-6}$</td><td>microgram (μg)</td></tr>
+<tr><td>nano</td><td>n</td><td>1/1 000 000 000</td><td>$10^{-9}$</td><td>nanometer (nm)</td></tr>
+<tr><td>pico</td><td>p</td><td>1/1 000 000 000 000</td><td>$10^{-12}$</td><td>picometer (pm)</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="box box-note">
+<b>记忆口诀：</b> "K M G" 越大越大（kilo→mega→giga），"d c m μ n p" 越小越小（deci→centi→milli→micro→nano→pico）。相邻两个前缀之间通常差 10 倍或 1000 倍。<br/>
+👉 1 km = 1000 m；1 m = 100 cm = 1000 mm；1 mm = 1000 μm = 10⁶ nm。
+</div>
+
+<h3>4. 导出单位（Derived Units）：体积与密度</h3>
+
+<p>不是所有量都能只用一个基本单位表示。比如"速度 = 距离 ÷ 时间"，单位是 m/s —— 这就是<b>导出单位</b>：由基本单位组合而成。</p>
+
+<h4>体积 Volume</h4>
+
+<p>SI 中体积的基本导出单位是 <b>m³</b>（立方米）—— 一个边长 1 m 的正方体的体积。实验室里更常用小一点的：</p>
+
+<div class="box box-note">
+<ul style="margin:6px 0">
+<li><b>1 L</b>（升，liter）= <b>1 dm³</b>（边长 1 分米的立方体）</li>
+<li><b>1 mL</b>（毫升）= <b>1 cm³</b>（边长 1 厘米的立方体）</li>
+<li>因此 <b>1 L = 1000 mL = 1000 cm³</b></li>
+</ul>
+<span class="small">液体、不规则固体的体积可以用"排水法"（Water Displacement）：物体放入量筒前后水面差即为其体积。读数要在<b>凹液面 (meniscus) 最低点、平视</b>。</span>
+</div>
+
+<h4>密度 Density</h4>
+
+<p>为什么一袋纸巾轻、一袋罐头重？两袋体积一样，说明"同样的空间里塞进的质量不同"。这个"塞得多密"就是密度。</p>
+
+<div class="box box-key" data-label="密度公式">
+<div class="eq eq-center">$$\text{density}=\dfrac{\text{mass}}{\text{volume}}\qquad \rho=\dfrac{m}{V}$$</div>
+常用单位：<b>g/cm³</b> 或 <b>g/mL</b>（两者等价）。密度是<b>物质的固有属性</b>，可用来鉴定物质。例如：铝 2.7 g/cm³，铁 7.87 g/cm³，铅 11.4 g/cm³，水 1.00 g/cm³。
+</div>
+
+<div class="box box-example" data-label="Example 2-1：由密度和体积求质量">
+<b>题目：</b>把一小块铝放进装有 10.5 mL 水的量筒，水位升到 13.5 mL。已知铝的密度是 2.7 g/cm³。求铝块的质量。
+
+<div class="step"><span class="no">1</span><b>Analyze 分析：</b>已知密度和体积（由水位差得到），求质量。因为 1 cm³ = 1 mL，所以 2.7 g/cm³ = 2.7 g/mL。<br/>体积 V = 13.5 − 10.5 = 3.0 mL。</div>
+
+<div class="step"><span class="no">2</span><b>Solve 求解：</b>由 $\rho=m/V$ 变形得 $m=\rho\cdot V$。
+<div class="eq eq-center">$m = 3.0\ \text{mL}\times 2.7\ \text{g/mL}=8.1\ \text{g}$</div>
+注意单位 mL 相消，剩下 g，正是质量单位。</div>
+
+<div class="step"><span class="no">3</span><b>Evaluate 验证：</b>反向验证：$8.1\ \text{g}\div 3.0\ \text{mL}=2.7$ g/mL ✓ 等于已知密度。答案合理。</div>
+</div>
+
+<div class="box box-note">
+<b>三步解题法（贯穿全书）：</b>
+<ol style="margin:6px 0">
+<li><b>Analyze</b>：列出已知（Known）和未知（Unknown），找关系式，规划步骤。</li>
+<li><b>Solve</b>：写公式 → 代数值 → 计算 → 保留正确单位。</li>
+<li><b>Evaluate</b>：反代验证 / 数量级估算 / 检查单位和有效数字。</li>
+</ol>
+</div>
+
+<h3>5. 温度：Celsius ↔ Kelvin 的换算</h3>
+
+<p>科学家用两种温标：</p>
+<ul>
+<li><b>Celsius 摄氏度 (°C)</b>：水结冰 0 °C、沸腾 100 °C，日常和实验里最常用。</li>
+<li><b>Kelvin 开尔文 (K)</b>：SI 基本单位，"绝对温标"。0 K = 绝对零度（分子完全不动）。水结冰 273.15 K、沸腾 373.15 K。<span class="hi">K 不加"°"，只写 K！</span></li>
+</ul>
+
+<div class="box box-key" data-label="温度换算">
+<div class="eq eq-center">$K = {}^{\circ}\text{C} + 273\qquad\qquad {}^{\circ}\text{C} = K - 273$</div>
+<span class="small">课本用 273，更精确的值是 273.15。第 14 章讲气体定律时会大量用到 Kelvin。</span>
+</div>
+
+<p><b>例：</b>水银熔点 −39 °C = −39 + 273 = <b>234 K</b>；水银沸点 357 °C = 357 + 273 = <b>630 K</b>。反过来：溴熔点 266 K = 266 − 273 = <b>−7 °C</b>。</p>
+
+<div class="box box-warn">
+<b>易错点：</b>
+<ul style="margin:6px 0">
+<li>K 与 °C 的<b>间隔一样大</b>（升 1 K = 升 1 °C），只是零点不同。</li>
+<li>0 K = −273 °C，是<b>理论最低温度</b>，不存在负的 Kelvin！</li>
+<li>写 Kelvin 温度时<b>绝不能</b>加度符号，写成 273 K 而非 273 °K。</li>
+</ul>
+</div>
+
+</section>
+
+<!-- ============================================================ -->
+<!-- §2.2 -->
+<!-- ============================================================ -->
+<section id="s2-2">
+<h2 class="section">§2.2 Scientific Notation & Dimensional Analysis · 科学记数法与因次分析 <span class="page-marker">P.31 – P.35</span></h2>
+
+<div class="box box-vocab">
+<b>本节目标：</b>会用科学记数法表达超大/超小的数并做四则运算；会用因次分析进行单位换算（含多步）。
+</div>
+
+<h3>1. 科学记数法（Scientific Notation）</h3>
+
+<p>质子质量 = 0.000 000 000 000 000 000 000 000 001 672 62 kg —— 一堆零看得头晕。科学家用<b>科学记数法</b>把大 / 小数字表达得干净利落。</p>
+
+<div class="box box-key" data-label="标准写法">
+<div class="eq eq-center">数字 $= a\times 10^{n}$，其中 $1\le a<10$，$n$ 是整数</div>
+<ul style="margin:6px 0">
+<li>数字 &gt; 1：$n$ 为<b>正</b>，如 $1\,392\,000=1.392\times 10^{6}$（小数点向左移 6 位）</li>
+<li>数字 &lt; 1：$n$ 为<b>负</b>，如 $0.000\,000\,028=2.8\times 10^{-8}$（小数点向右移 8 位）</li>
+</ul>
+</div>
+
+<div class="box box-example" data-label="Example 2-2：普通数 → 科学记数法">
+<b>a.</b> 太阳直径 = 1 392 000 km<br/>
+把小数点从"1 392 000."右端往左移 6 位，得到 1.392；因为数字大于 1，指数为正。<br/>
+<span class="hi"><b>答：$1.392\times 10^{6}$ km</b></span>
+
+<hr class="soft"/>
+<b>b.</b> 太阳低层大气密度 = 0.000 000 028 g/cm³<br/>
+小数点从 0. 处往右移 8 位到"2.8"；因为数字小于 1，指数为负。<br/>
+<span class="hi"><b>答：$2.8\times 10^{-8}$ g/cm³</b></span>
+</div>
+
+<h4>加减：先统一指数，再加减系数</h4>
+
+<div class="box box-note">
+<b>规则：</b><span class="hi">$a\times 10^{n}$ 与 $b\times 10^{n}$ 加减时，指数必须相同</span>，然后 $(a\pm b)\times 10^{n}$。
+</div>
+
+<p><b>例：</b>1995 年三个城市人口 —— 东京 $2.70\times 10^{7}$，墨西哥城 $15.6\times 10^{6}$，圣保罗 $0.165\times 10^{8}$。要相加就得先把三项统一为 $10^{7}$：</p>
+
+<div class="eq">
+$15.6\times 10^{6}=1.56\times 10^{7}$（把小数点左移 1 位，指数 +1）<br/>
+$0.165\times 10^{8}=1.65\times 10^{7}$（把小数点右移 1 位，指数 −1）<br/>
+$2.70\times 10^{7}+1.56\times 10^{7}+1.65\times 10^{7}=(2.70+1.56+1.65)\times 10^{7}=5.91\times 10^{7}$
+</div>
+
+<h4>乘除：系数运算，指数相加减</h4>
+
+<div class="box box-key" data-label="乘除口诀">
+<b>乘法：</b>$(a\times 10^{m})\times(b\times 10^{n})=(a\cdot b)\times 10^{m+n}$<br/>
+<b>除法：</b>$(a\times 10^{m})\div(b\times 10^{n})=(a\div b)\times 10^{m-n}$
+</div>
+
+<div class="box box-example" data-label="Example 2-3：乘除运算">
+<b>a.</b> $(2\times 10^{3})\times(3\times 10^{2})$<br/>
+系数：$2\times 3=6$；指数：$3+2=5$<br/>
+<span class="hi"><b>答：$6\times 10^{5}$</b></span>（相当于 2000×300 = 600 000 ✓）
+
+<hr class="soft"/>
+<b>b.</b> $(9\times 10^{8})\div(3\times 10^{-4})$<br/>
+系数：$9\div 3=3$；指数：$8-(-4)=8+4=12$<br/>
+<span class="hi"><b>答：$3\times 10^{12}$</b></span>
+</div>
+
+<div class="box box-warn">
+<b>正负号别搞错！</b><br/>
+$3+(-4)=-1$，不是 −7；$-6-(-4)=-6+4=-2$，不是 −10。碰到负指数时先把两个数写清楚再运算。
+</div>
+
+<h3>2. 因次分析（Dimensional Analysis）—— 单位换算的"万能钥匙"</h3>
+
+<p>假设菜谱要 2 茶匙醋，你要做 6 倍量：需要 12 茶匙，也等于 4 汤匙，也等于 1/4 杯 —— 三种表达方式都对，因为它们量相同。这个"用不同单位描述同一个量"的桥梁就是<b>换算因子</b>。</p>
+
+<div class="box box-key" data-label="换算因子定义">
+<b>Conversion factor：</b>一个"值等于 1"的分数，用两种等价单位构造。例如：<br/>
+$$\dfrac{3\ \text{teaspoons}}{1\ \text{tablespoon}}=1 \quad \text{或反过来}\quad \dfrac{1\ \text{tablespoon}}{3\ \text{teaspoons}}=1$$
+因为分子分母代表<b>同一个真实量</b>，所以整个分数值就是 1。乘 1 不改变量的大小，<span class="hi">只改变单位的"外貌"</span>。
+</div>
+
+<h4>怎么"摆"这个分数？—— 让旧单位被约掉</h4>
+
+<p>要把 48 km 换成 m，已知 1 km = 1000 m。<b>把"km"放在分母，让它和原来的 km 消掉：</b></p>
+
+<div class="eq eq-center">
+$48\ \cancel{\text{km}}\times \dfrac{1000\ \text{m}}{1\ \cancel{\text{km}}}=48\,000\ \text{m}$
+</div>
+
+<div class="box box-note">
+<b>方向判断：</b>
+<ul style="margin:6px 0">
+<li>大单位 → 小单位（km → m）：<b>数字变大</b>。48 km = 48 000 m ✓</li>
+<li>小单位 → 大单位（mg → g）：<b>数字变小</b>。5000 mg = 5 g ✓</li>
+</ul>
+如果换出来的数字方向反了，说明你把换算因子摆颠倒了。
+</div>
+
+<div class="box box-example" data-label="Example 2-4：多步单位换算">
+<b>题目：</b>把速度 550 m/s 换算成 km/min。
+
+<div class="step"><span class="no">1</span><b>Analyze：</b>需要两个换算：m → km（1000 m = 1 km），s → min（60 s = 1 min）。</div>
+
+<div class="step"><span class="no">2</span><b>Solve：</b>
+<div class="eq eq-center">$\dfrac{550\ \cancel{\text{m}}}{\cancel{\text{s}}}\times \dfrac{1\ \text{km}}{1000\ \cancel{\text{m}}}\times \dfrac{60\ \cancel{\text{s}}}{1\ \text{min}}=\dfrac{550\times 60}{1000}\ \dfrac{\text{km}}{\text{min}}=33\ \text{km/min}$</div>
+</div>
+
+<div class="step"><span class="no">3</span><b>Evaluate：</b>把 33 km/min 反算回 m/s：$33\times 1000/60=550$ m/s ✓</div>
+</div>
+
+<div class="box box-warn">
+<b>Mars Climate Orbiter 惨案（1999）：</b>NASA 的火星探测器因为两个工程师团队一个用英制、一个用公制单位，没人发现错误 —— 探测器一头撞进火星大气烧毁。<span class="hi">单位错，一切错。</span>写答案时永远带单位！
+</div>
+
+</section>
+
+<!-- ============================================================ -->
+<!-- §2.3 -->
+<!-- ============================================================ -->
+<section id="s2-3">
+<h2 class="section">§2.3 How reliable are measurements? · 测量的可靠性 <span class="page-marker">P.36 – P.42</span></h2>
+
+<div class="box box-vocab">
+<b>本节目标：</b>区分准确度和精密度；会算百分误差；掌握有效数字的 5 条规则、加减 / 乘除的保留规则、以及舍入规则。<span class="tag hard">本节是本章最难 / 最重要</span>
+</div>
+
+<h3>1. 准确度 vs 精密度（Accuracy vs Precision）</h3>
+
+<p>两个词常被混用，但含义完全不同。用"打靶"来理解：靶心就是"真值"。</p>
+
+<div class="box box-key" data-label="打靶示意">
+<table class="vocab">
+<thead><tr><th>情形</th><th>箭的位置</th><th>准确度</th><th>精密度</th></tr></thead>
+<tbody>
+<tr><td>a</td><td>只有 1 支箭，正中靶心</td><td>高</td><td>无法评价（只有一次）</td></tr>
+<tr><td>b</td><td>几支箭挤在一起，但远离靶心</td><td>低（不准）</td><td>高（很稳）</td></tr>
+<tr><td>c</td><td>几支箭都挤在靶心附近</td><td><b>高</b></td><td><b>高</b></td></tr>
+<tr><td>d</td><td>几支箭散落在靶各处，远离靶心</td><td>低</td><td>低</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="box box-note">
+<b>一句话记住：</b>
+<ul style="margin:6px 0">
+<li><b>Accuracy 准确度</b> = 测量值离<b>真值</b>有多近。</li>
+<li><b>Precision 精密度</b> = <b>多次测量</b>彼此之间有多接近。</li>
+</ul>
+仪器精密但没校准（如天平零点偏 0.5 g）→ 精密但不准确。<br/>
+仪器粗糙但没有系统偏差 → 也许平均值挺准，但一次次差别很大。
+</div>
+
+<h3>2. 百分误差（Percent Error）</h3>
+
+<p>怎么量化"准不准"？用<b>百分误差</b>：</p>
+
+<div class="box box-key" data-label="百分误差公式">
+<div class="eq eq-center">$$\text{Percent error}=\dfrac{|\text{实验值}-\text{真值}|}{\text{真值}}\times 100\%=\dfrac{|\text{error}|}{\text{accepted value}}\times 100\%$$</div>
+<ul style="margin:6px 0">
+<li>误差 error = 实验值 − 真值（可正可负）；</li>
+<li><span class="hi">算百分误差时忽略正负号</span>，只看"偏了多少"；</li>
+<li>百分误差越小，测得越准确。</li>
+</ul>
+</div>
+
+<div class="box box-example" data-label="Example 2-5：算百分误差">
+<b>题目：</b>蔗糖真值密度 1.59 g/cm³。学生 A 三次测得误差为 −0.05, +0.01, −0.02 g/cm³。求各次百分误差（保留 2 位小数）。
+
+<div class="step"><span class="no">1</span>套公式：$\dfrac{|\text{error}|}{1.59}\times 100\%$</div>
+<div class="step"><span class="no">2</span>
+Trial 1：$\dfrac{0.05}{1.59}\times 100\%=3.14\%$<br/>
+Trial 2：$\dfrac{0.01}{1.59}\times 100\%=0.63\%$<br/>
+Trial 3：$\dfrac{0.02}{1.59}\times 100\%=1.26\%$
+</div>
+<div class="step"><span class="no">3</span>Trial 2 百分误差最小，最接近真值 ✓</div>
+</div>
+
+<h3>3. 有效数字（Significant Figures）<span class="tag warn">重点</span><span class="tag hard">难点</span></h3>
+
+<p>如果你用普通刻度尺量一根棒，刻度上能读到 5.2 cm，然后<b>估读</b>一位（比如 5.23 cm）。这里有 3 位有效数字：<b>2 位已知 + 1 位估读</b>。</p>
+
+<div class="box box-note">
+<b>核心思想：</b>有效数字反映"这个数据可信到第几位"。写 3.5 g 和写 3.52 g，含义不同 —— 后者更精密，说明用了更精细的仪器。<span class="hi">你不能凭空多写位数把粗糙数据"美化"，也不能扔掉真实测到的位数。</span>
+</div>
+
+<h4>5 条识别规则</h4>
+
+<div class="box box-key" data-label="有效数字识别">
+<table class="vocab">
+<thead><tr><th style="width:8%">规则</th><th>内容</th><th>例子</th></tr></thead>
+<tbody>
+<tr><td><b>1</b></td><td>非零数字都是有效的</td><td>72.3 g → 3 位</td></tr>
+<tr><td><b>2</b></td><td>夹在非零数字之间的 0 是有效的</td><td>60.5 g → 3 位；1.0200×10⁵ → 5 位</td></tr>
+<tr><td><b>3</b></td><td>小数点右边末尾的 0 是有效的</td><td>6.20 g → 3 位（末尾 0 表示"精确到百分位"）</td></tr>
+<tr><td><b>4</b></td><td>只是"占位"的 0 <b>不</b>是有效数字</td><td>0.0253 g → 3 位（前导 0 不算）<br/>4320 g → 3 位（末尾无小数点，末 0 不算）</td></tr>
+<tr><td><b>5</b></td><td>计数值 / 定义常数有<b>无限</b>位有效数字</td><td>"6 个分子"、60 s = 1 min（定义式）</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="box box-example" data-label="Example 2-6：数有效数字">
+<b>a. 0.000 402 30 g：</b> 前面 4 个 0 是占位（规则 4）不算；4、2、3 都是非零（规则 1）；夹在 4 和 3 中间的 0 有效（规则 2）；末尾 0 在小数点右边（规则 3）有效。<br/>
+👉 有效数字：<b>4, 0, 2, 3, 0 → 共 5 位</b>。<br/>
+科学记数法验证：$4.0230\times 10^{-4}$，一眼看出 5 位。
+
+<hr class="soft"/>
+
+<b>b. 405 000 kg：</b> 4、5 非零；夹在中间的 0 有效；末尾三个 0 没有小数点标注，只是占位（规则 4）。<br/>
+👉 有效数字：<b>4, 0, 5 → 共 3 位</b>。<br/>
+科学记数法验证：$4.05\times 10^{5}$。
+</div>
+
+<div class="box box-warn">
+<b>易错点提醒：</b>
+<ul style="margin:6px 0">
+<li>"0.0084 mL" → <b>2 位</b>有效数字（前导 0 不算）</li>
+<li>"820 400.0 L" → <b>7 位</b>有效数字（末尾"0.0"的两个 0 都有效）</li>
+<li>"807 000 kg" → 只有 <b>3 位</b>（末尾 000 占位不算）</li>
+<li>如果想表示 506 000 cm 全部 6 位都有效，写 $5.06000\times 10^{5}$ cm。</li>
+</ul>
+👉 <b>科学记数法是消除歧义的最好办法。</b>
+</div>
+
+<h4>舍入规则（Rounding Rules）</h4>
+
+<div class="box box-key" data-label="4 条舍入规则">
+<ol style="margin:6px 0">
+<li>紧跟末位后的数字 <b>&lt; 5</b>：直接舍去，末位不变。例：2.532 → <b>2.53</b></li>
+<li>紧跟末位后的数字 <b>&gt; 5</b>：末位进 1。例：2.536 → <b>2.54</b></li>
+<li>紧跟末位后是 <b>5 且后面还有非零数字</b>：末位进 1。例：2.5351 → <b>2.54</b></li>
+<li>紧跟末位后是 <b>5 且后面没有非零数字</b>（就一个 5，或 5 后面全是 0）：看末位是奇是偶 ——<b>奇进偶不进（Banker's rounding）</b>。例：2.5350 → <b>2.54</b>（末位 3 是奇进 1）；2.5250 → <b>2.52</b>（末位 2 是偶不进）</li>
+</ol>
+</div>
+
+<h4>加减法：看小数位（decimal places）</h4>
+
+<div class="box box-note">
+<b>规则：</b>加减结果保留的小数位 = 各数中<b>小数位最少</b>的那个。<br/>
+👉 想成"木桶效应"—— 精度被"最粗"的那把尺子拖累。
+</div>
+
+<div class="box box-example" data-label="Example 2-8：加法保留">
+28.0 cm + 23.538 cm + 25.68 cm = ?<br/>
+对齐小数点直接加：
+<div class="eq" style="font-family:monospace">
+&nbsp;&nbsp;28.0<br/>
+&nbsp;&nbsp;23.538<br/>
++ 25.68<br/>
+———————<br/>
+&nbsp;&nbsp;77.218
+</div>
+最"粗糙"的是 28.0（只有 1 位小数），所以答案只能保留 1 位小数。<br/>
+77.218 的百分位是 1（＜5，规则 1），舍掉 → <span class="hi"><b>77.2 cm</b></span>
+</div>
+
+<h4>乘除法：看有效数字位数（significant figures）</h4>
+
+<div class="box box-note">
+<b>规则：</b>乘除结果的有效数字位数 = 各数中<b>有效数字最少</b>的那个。
+</div>
+
+<div class="box box-example" data-label="Example 2-9：乘法保留">
+求长方体体积：长 3.65 cm × 宽 3.20 cm × 高 2.05 cm。<br/>
+三个数都有 3 位有效数字。<br/>
+$3.65\times 3.20\times 2.05=23.944\ \text{cm}^{3}$<br/>
+只能保留 3 位 → <span class="hi"><b>23.9 cm³</b></span><br/>
+<span class="small">估算验证：3×3×2 = 18，接近 24 ✓</span>
+</div>
+
+<div class="box box-warn">
+<b>特别注意：</b>加减法比较<b>小数位</b>（不是有效数字位），乘除法比较<b>有效数字位</b>（不是小数位）。这两条经常被搞混！<br/><br/>
+<b>反例：</b>1.24 mL + 12.4 mL + 124 mL：小数位分别是 2、1、0，所以答案保留到"个位"，得 137.64 → <b>138 mL</b>。<br/>
+如果误用乘除法规则（有效数字位 3、3、3 都是 3 位），会错误答成 138 mL 也许一样，但换个数据就会算错。
+</div>
+
+</section>
+
+<!-- ============================================================ -->
+<!-- §2.4 -->
+<!-- ============================================================ -->
+<section id="s2-4">
+<h2 class="section">§2.4 Representing Data · 数据的图表表达 <span class="page-marker">P.43 – P.45</span></h2>
+
+<div class="box box-vocab">
+<b>本节目标：</b>会选合适的图型；会画折线图（含最佳拟合线和斜率）；会内插和外推。
+</div>
+
+<h3>1. 三种常见图（Circle / Bar / Line）</h3>
+
+<div class="box box-note">
+<table class="vocab">
+<thead><tr><th>图型</th><th>什么时候用</th><th>特点</th></tr></thead>
+<tbody>
+<tr><td>圆图 / 饼图<br/><span class="term-en">circle graph / pie chart</span></td><td>展示<b>整体的组成比例</b></td><td>各扇形合计 = 100%；如"平流层氯气来源占比"</td></tr>
+<tr><td>条形图<br/><span class="term-en">bar graph</span></td><td>比较<b>不同类别</b>的量（时间、地点、类别）</td><td>x 轴离散变量，y 轴数值；如"月降水量"</td></tr>
+<tr><td>折线图<br/><span class="term-en">line graph</span></td><td>研究<b>两个连续变量的关系</b></td><td>化学里最常用；数据点连线，可读斜率、可内插外推</td></tr>
+</tbody>
+</table>
+</div>
+
+<h3>2. 折线图的画法</h3>
+
+<div class="box box-key" data-label="画图 6 步">
+<ol style="margin:6px 0">
+<li>分清<b>自变量 (independent)</b> 和<b>因变量 (dependent)</b>。自变量放 x 轴，因变量放 y 轴。（如"温度 vs 反应速率"，你主动变温度 → 温度是 x。）</li>
+<li>确定各轴数据范围，选合适的刻度间隔（1、2、5 的倍数最佳）。</li>
+<li>给每根轴标上物理量和单位。</li>
+<li>描点。</li>
+<li>画<b>最佳拟合线 (line of best fit)</b>—— 不是把每个点都连起来，而是让线上下点的数量大致相等。</li>
+<li>加图题。</li>
+</ol>
+</div>
+
+<h3>3. 斜率与正比 / 反比</h3>
+
+<div class="box box-key" data-label="斜率公式">
+<div class="eq eq-center">$$\text{slope}=\dfrac{\Delta y}{\Delta x}=\dfrac{y_{2}-y_{1}}{x_{2}-x_{1}}$$</div>
+</div>
+
+<div class="box box-note">
+<b>直线 (linear)：</b>x、y <b>直接正比</b> $y=kx$，斜率 $k$ 是一个常数。
+<ul style="margin:6px 0">
+<li>斜率<b>为正</b> → 上升 → y 随 x 增大而增大；</li>
+<li>斜率<b>为负</b> → 下降 → y 随 x 增大而减小；</li>
+<li>当 y 轴是质量、x 轴是体积时，<span class="hi">斜率就是密度</span>。</li>
+</ul>
+
+<b>曲线：</b>非线性关系。化学里常见<b>反比 (inverse proportion)</b>：$xy=k$，即 $y=k/x$，图像是双曲线（如 Boyle 定律 P 与 V）。
+</div>
+
+<div class="box box-example" data-label="示例：算铝的密度">
+铝的"质量 vs 体积"图上，取两个点 A(10.0 cm³, 27 g) 和 B(20.0 cm³, 54 g)。<br/>
+$$\text{slope}=\dfrac{54-27}{20.0-10.0}\ \dfrac{\text{g}}{\text{cm}^{3}}=\dfrac{27}{10.0}=2.7\ \text{g/cm}^{3}$$
+👉 斜率 = 2.7 g/cm³ = 铝的密度 ✓
+</div>
+
+<h3>4. 内插与外推（Interpolation / Extrapolation）</h3>
+
+<div class="box box-note">
+<ul style="margin:6px 0">
+<li><b>内插</b>：在已测数据点<b>之间</b>读取数值，可靠性高。</li>
+<li><b>外推</b>：把线延长到测量范围<b>之外</b>读值 —— 假设规律仍然成立，风险较大。</li>
+</ul>
+比如你测了 0–100 °C 下水的密度，用外推去猜 500 °C 的水密度就不靠谱（水都变蒸汽了！）。
+</div>
+
+</section>
+
+<!-- ============================================================ -->
+<!-- Study Guide -->
+<!-- ============================================================ -->
+<section id="study-guide">
+<h2 class="section">📝 Study Guide 章节复习</h2>
+
+<div class="box box-key" data-label="全章公式清单">
+<ul style="margin:6px 0">
+<li>密度：$\rho=\dfrac{m}{V}$</li>
+<li>温标换算：$K={}^{\circ}\text{C}+273\ ;\ {}^{\circ}\text{C}=K-273$</li>
+<li>科学记数法：$a\times 10^{n},\ 1\le a<10$</li>
+<li>百分误差：$\text{PE}=\dfrac{|\text{error}|}{\text{accepted value}}\times 100\%$</li>
+<li>斜率：$\text{slope}=\dfrac{\Delta y}{\Delta x}$</li>
+</ul>
+</div>
+
+<h3>各节要点回顾</h3>
+
+<div class="box box-note">
+<b>§2.1 单位与测量</b>
+<ul>
+<li>SI 有 7 个基本单位；前缀让单位大小可变。</li>
+<li>体积（m³、L、mL）、密度（g/cm³）是导出单位。</li>
+<li>密度是物质的固有属性，可用来鉴别物质。</li>
+<li>Kelvin 与 Celsius：$K={}^{\circ}\text{C}+273$。</li>
+</ul>
+
+<b>§2.2 科学记数法与因次分析</b>
+<ul>
+<li>把很大或很小的数写成 $a\times 10^{n}$。</li>
+<li>加减先统一指数；乘除系数运算、指数加减。</li>
+<li>换算因子 = 值为 1 的分数；用来"消掉旧单位，留下新单位"。</li>
+</ul>
+
+<b>§2.3 测量的可靠性</b>
+<ul>
+<li>准确度看离真值多近；精密度看多次测量的一致性。</li>
+<li>百分误差：正负号忽略。</li>
+<li>有效数字 5 条规则；<b>加减看小数位</b>，<b>乘除看有效数字位</b>。</li>
+<li>舍入规则里"5 且后无非零数字"时"奇进偶不进"。</li>
+</ul>
+
+<b>§2.4 数据的图表表达</b>
+<ul>
+<li>圆图 → 占比；条形图 → 类别比较；折线图 → 连续关系。</li>
+<li>x 是自变量，y 是因变量；画最佳拟合线。</li>
+<li>直线的斜率是常数；当 y = 质量、x = 体积时，斜率 = 密度。</li>
+<li>内插可靠；外推需谨慎。</li>
+</ul>
+</div>
+</section>
+
+<!-- ============================================================ -->
+<!-- Chapter Assessment -->
+<!-- ============================================================ -->
+<section id="assessment">
+<h2 class="section">🧪 Chapter Assessment 章末测评 · 中文详解</h2>
+
+<p class="small">下面挑选原书 P.50–53 中最有代表性的 12 道题，覆盖各节要点。做前先自己算一算，再展开答案对照。</p>
+
+<ol class="practice">
+
+<li><b>Q52.（§2.1）</b>为什么测量必须同时包含<b>数字和单位</b>？
+<div class="ans">数字只是大小，单位说明"用什么尺度量"。没有单位的数据无法解读、无法与别人比较。<b>例：</b>朋友说"温度是 35" —— 到底是 35 °C（热）还是 35 °F（凉）？完全不同。</div>
+</li>
+
+<li><b>Q55.（§2.1）</b>1 km 里有多少 m？1 dm 里有多少 m？
+<div class="ans">1 km = <b>1000</b> m（kilo = 10³）。1 dm = <b>0.1</b> m 或者说 1 m = 10 dm（deci = 10⁻¹）。</div>
+</li>
+
+<li><b>Q57.（§2.1）</b>Celsius 与 Kelvin 温标怎么换算？
+<div class="ans">$K={}^{\circ}\text{C}+273$。两个温标每一"度"大小相同，只是零点差 273：0 K 对应 −273 °C（绝对零度），0 °C 对应 273 K。Kelvin 没有负值，也不加"°"。</div>
+</li>
+
+<li><b>Q73.（§2.1 密度）</b>一个物体质量 7.5 g，放入量筒后水位从 25.1 mL 升到 30.1 mL。求密度。
+<div class="ans">V = 30.1 − 25.1 = 5.0 mL；$\rho=\dfrac{7.5\ \text{g}}{5.0\ \text{mL}}=$ <b>1.5 g/mL</b>。</div>
+</li>
+
+<li><b>Q74.（§2.1 密度求体积）</b>铝的密度 2.7 g/mL，8.1 g 铝的体积是多少？
+<div class="ans">$V=\dfrac{m}{\rho}=\dfrac{8.1\ \text{g}}{2.7\ \text{g/mL}}=$ <b>3.0 mL</b>。</div>
+</li>
+
+<li><b>Q75.（§2.2 科学记数法）</b>把下列数写成科学记数法：<br/>
+a. 0.004 583 4 mm；b. 0.030 54 g；c. 438 904 s；d. 7 004 300 000 g
+<div class="ans">
+a. $4.5834\times 10^{-3}$ mm（小数点右移 3 位）<br/>
+b. $3.054\times 10^{-2}$ g（右移 2 位）<br/>
+c. $4.38904\times 10^{5}$ s（左移 5 位）<br/>
+d. $7.0043\times 10^{9}$ g（左移 9 位）
+</div>
+</li>
+
+<li><b>Q77 a.（§2.2 加减）</b>$6.23\times 10^{6}$ kL + $5.34\times 10^{6}$ kL = ?
+<div class="ans">指数相同，直接系数相加：$(6.23+5.34)\times 10^{6}=$ <b>$1.157\times 10^{7}$ kL</b>（把 11.57 变成 1.157，指数 +1）。</div>
+</li>
+
+<li><b>Q78 a.（§2.2 乘除）</b>$(4.8\times 10^{5}\ \text{km})\times(2.0\times 10^{3}\ \text{km})$
+<div class="ans">系数 4.8×2.0 = 9.6；指数 5+3 = 8。答：<b>$9.6\times 10^{8}$ km²</b>。</div>
+</li>
+
+<li><b>Q80.（§2.2 单位换算）</b>a. 5.70 g → mg；b. 4.37 cm → m；c. 783 kg → g；d. 45.3 mm → m
+<div class="ans">
+a. 5.70 g × (1000 mg / 1 g) = <b>5700 mg</b> = $5.70\times 10^{3}$ mg<br/>
+b. 4.37 cm × (1 m / 100 cm) = <b>0.0437 m</b> = $4.37\times 10^{-2}$ m<br/>
+c. 783 kg × (1000 g / 1 kg) = <b>783 000 g</b> = $7.83\times 10^{5}$ g<br/>
+d. 45.3 mm × (1 m / 1000 mm) = <b>0.0453 m</b> = $4.53\times 10^{-2}$ m
+</div>
+</li>
+
+<li><b>Q81.（§2.3 百分误差）</b>钢管真实长度 5.5 m，测得：a. 5.2 m；b. 5.5 m；c. 5.7 m；d. 5.1 m。分别求百分误差。
+<div class="ans">
+公式：$\dfrac{|\text{实验}-5.5|}{5.5}\times 100\%$。<br/>
+a. |5.2−5.5|/5.5×100% = 0.3/5.5×100% = <b>5.45%</b><br/>
+b. 0/5.5×100% = <b>0%</b>（完美）<br/>
+c. 0.2/5.5×100% = <b>3.64%</b><br/>
+d. 0.4/5.5×100% = <b>7.27%</b>
+</div>
+</li>
+
+<li><b>Q83.（§2.3 有效数字舍入到 4 位）</b>a. 431 801 kg；b. 10 235.0 mg；c. 1.0348 m；d. 0.004 384 010 cm
+<div class="ans">
+a. 431 801：前 5 位是 43180，第 5 位后是 1（&lt;5），保留 4 位 → <b>431 800 kg</b>（或 $4.318\times 10^{5}$ kg）<br/>
+b. 10 235.0：前 4 位是 1023，第 5 位是 5 后接非零 0.0…等 → 严格看第 5 位是"5"且后面有非零位（.0 后无非零），此处 5 后为 0，末位 3 是奇→进 1 → <b>10 240 mg</b>（或 $1.024\times 10^{4}$）<br/>
+c. 1.0348：前 4 位是 1034，末位后是 8（&gt;5），进 1 → <b>1.035 m</b><br/>
+d. 0.004 384 010：前 4 位有效数字 4384，第 5 位是 0（&lt;5），保留 4 位 → <b>0.004 384 cm</b> = $4.384\times 10^{-3}$ cm
+</div>
+</li>
+
+<li><b>Q85 c-d.（§2.3 加减 / 乘除保留）</b><br/>
+c. 4.35 dm + 2.34 dm + 7.35 dm；d. 4.78 cm × 3.218 cm × 5.82 cm
+<div class="ans">
+<b>c.</b> 三数都是 2 位小数（百分位），直接加：4.35 + 2.34 + 7.35 = <b>14.04 dm</b>（保留 2 位小数）。<br/>
+<b>d.</b> 有效数字分别是 3、4、3 位，取最少的 3 位。乘积 = 4.78×3.218×5.82 = 89.529… → <b>89.5 cm³</b>。
+</div>
+</li>
+
+<li><b>Q88.（Mixed Review · 密度 → 体积）</b>23 g 乙醇的密度 0.7893 g/mL，求体积。
+<div class="ans">$V=\dfrac{m}{\rho}=\dfrac{23\ \text{g}}{0.7893\ \text{g/mL}}=29.14\ \text{mL}$。23 有 2 位有效数字，答案 → <b>29 mL</b>。</div>
+</li>
+
+<li><b>Q91.（Mixed Review · 密度比较）</b>15.0 g 水银（密度 13.6 g/cm³）和同体积的铅（密度 11.4 g/cm³）质量是多少？
+<div class="ans">
+先算水银体积：$V=\dfrac{15.0}{13.6}=1.103\ \text{cm}^{3}$。<br/>
+铅质量 = $\rho\cdot V=11.4\times 1.103=12.57$ → 3 位有效数字 <b>12.6 g</b>。
+</div>
+</li>
+
+<li><b>Q92.（§2.3 有效数字与仪器精度）</b>三个学生用米尺（最小刻度到 mm）量一段导线，分别报 3 cm、3.3 cm、2.87 cm。哪个记录正确？
+<div class="ans">
+米尺能读到毫米（0.1 cm），再加一位估读到 0.01 cm。所以正确记录应该有 <b>2 位小数</b>：<b>2.87 cm 是正确的</b>。<br/>
+3 cm 精度太粗（少了 2 位）；3.3 cm 少估读了 1 位；只有 2.87 cm 既包含全部已知位又估读了一位。
+</div>
+</li>
+
+<li><b>Standardized Test Q1（§2.1）</b>下列哪个<b>不是</b> SI 基本单位？<br/>
+a. s；b. kg；c. °C；d. m
+<div class="ans"><b>c. °C</b>。SI 的温度基本单位是 kelvin (K)，摄氏度不是 SI 基本单位（虽然是常用衍生温标）。</div>
+</li>
+
+<li><b>Standardized Test Q4（§2.3）</b>三个学生量邮票长度（真值 2.71 cm），数据如下：<br/>
+S1：2.60 / 2.72 / 2.65（avg 2.66）；S2：2.70 / 2.69 / 2.71（avg 2.70）；S3：2.75 / 2.74 / 2.64（avg 2.71）。哪个说法正确？
+<div class="ans">
+分析：<br/>
+• S2 三次读数范围 0.02 cm，很集中（<b>精密度高</b>），平均 2.70 离真值 2.71 只差 0.01（<b>准确度高</b>）→ 既准确又精密。<br/>
+• S3 平均值恰好等于真值（准确度高），但三次读数从 2.64 到 2.75 相差 0.11（精密度差）—— 只是"平均起来碰巧准"。<br/>
+• S1 既不准也不精。<br/>
+👉 正确答案 <b>a. Student 2 是既精密又准确的</b>。
+</div>
+</li>
+
+</ol>
+</section>
+
+<!-- ============================================================ -->
+<!-- 一页知识卡 -->
+<!-- ============================================================ -->
+<section id="cheatsheet">
+<h2 class="section">⚡ 一页知识卡（Cheat Sheet）</h2>
+
+<div class="box box-key" data-label="SI 基本单位（7 个）">
+<table class="vocab">
+<tr><td>时间 s</td><td>长度 m</td><td>质量 kg</td><td>温度 K</td><td>物质的量 mol</td><td>电流 A</td><td>光强 cd</td></tr>
+</table>
+</div>
+
+<div class="box box-key" data-label="常用前缀（10 的幂）">
+<table class="vocab">
+<tr><th>G</th><th>M</th><th>k</th><th>—</th><th>d</th><th>c</th><th>m</th><th>μ</th><th>n</th><th>p</th></tr>
+<tr><td>10⁹</td><td>10⁶</td><td>10³</td><td>1</td><td>10⁻¹</td><td>10⁻²</td><td>10⁻³</td><td>10⁻⁶</td><td>10⁻⁹</td><td>10⁻¹²</td></tr>
+</table>
+</div>
+
+<div class="box box-key" data-label="必背公式">
+<ul style="margin:6px 0">
+<li>密度：$\rho=\dfrac{m}{V}$，1 mL = 1 cm³，1 L = 1000 mL</li>
+<li>温标：$K={}^{\circ}\text{C}+273$</li>
+<li>科学记数法：$a\times 10^{n},\ 1\le a<10$</li>
+<li>百分误差：$\text{PE}=\dfrac{|\text{实验}-\text{真值}|}{\text{真值}}\times 100\%$</li>
+<li>斜率：$\text{slope}=\dfrac{\Delta y}{\Delta x}$</li>
+</ul>
+</div>
+
+<div class="box box-key" data-label="有效数字口诀">
+<b>识别 5 条：</b>①非零全算 ②中间 0 算 ③尾数 0 有小数点才算 ④占位 0 不算 ⑤计数值 / 定义式无限位。<br/>
+<b>运算 2 条：</b>加减 → 看<b>小数位</b>取最少；乘除 → 看<b>有效数字位</b>取最少。<br/>
+<b>舍入 4 条：</b>末位后 &lt;5 舍；&gt;5 进；=5 有非零跟随 → 进；=5 无非零跟随 → 奇进偶不进。
+</div>
+
+<div class="box box-key" data-label="科学记数法运算">
+<ul style="margin:6px 0">
+<li><b>加减：</b>先统一指数，再加减系数。</li>
+<li><b>乘：</b>系数相乘，指数相加。</li>
+<li><b>除：</b>系数相除，指数相减（被除数指数 − 除数指数）。</li>
+</ul>
+</div>
+
+<div class="box box-key" data-label="单位换算 4 步">
+① 写下已知量（带单位）；② 找到关系（1 km = 1000 m）；③ 摆出换算因子，让旧单位在对角约掉；④ 计算并检查数字方向（大 → 小 数字变大）。
+</div>
+
+<div class="box box-key" data-label="图表选型">
+占比 → 圆图；类别比较 → 条形图；连续关系 → 折线图（可求斜率、内插、外推）。<br/>
+自变量 → x 轴；因变量 → y 轴。质量-体积图的斜率 = 密度。
+</div>
+
+<div class="callout-topic">
+<h3>✅ 学完本章你应该能：</h3>
+<p>1) 说出 7 个 SI 基本单位；2) 熟练使用 k、c、m、μ、n 等前缀；3) 快速求密度、做温标换算；4) 把任何大 / 小数写成科学记数法并做四则运算；5) 用因次分析完成多步单位换算；6) 区分准确度和精密度，会算百分误差；7) 数出任何测量的有效数字位数，按规则舍入；8) 判断该用哪种图，读斜率、做内插外推。</p>
+</div>
+
+<p class="small" style="margin-top:30px">📘 本章为第 11 章"摩尔"及以后的化学计算打下基础 —— 单位换算、有效数字这两把"数学工具"，请务必熟练。</p>
+
+</section>
+
+</main>
+</div>
+
+<script>
+// 简单的目录高亮
+const links = document.querySelectorAll('aside.toc a');
+const sections = Array.from(links).map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);
+function onScroll(){
+  const y = window.scrollY + 100;
+  let idx = 0;
+  sections.forEach((s,i)=>{ if(s && s.offsetTop <= y) idx = i; });
+  links.forEach(a => a.classList.remove('active'));
+  if(links[idx]) links[idx].classList.add('active');
+}
+window.addEventListener('scroll', onScroll);
+onScroll();
+</script>
+<script src="theme.js?v=20260905"></script>
+</body>
+</html>

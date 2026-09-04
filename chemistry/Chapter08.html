@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>第 8 章 Ionic Compounds · 中文学习手册</title>
+<script>
+window.MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$','$$'], ['\\[','\\]']] }, svg: { fontCache: 'global' } };
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+:root{--bg:#f7f5ef;--paper:#ffffff;--ink:#232323;--ink-soft:#4a4a4a;--accent:#0f6b5e;--accent-2:#c1543b;--accent-3:#3e5aa8;--hi:#f6e58d;--box-note:#eaf1fb;--box-warn:#fdecea;--box-key:#fff1d6;--box-example:#eef7ee;--line:#e4dfd2;}
+*{box-sizing:border-box}html,body{margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei","Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.75;font-size:16px;}
+.wrap{display:flex;max-width:1400px;margin:0 auto;min-height:100vh}
+aside.toc{position:sticky;top:0;align-self:flex-start;width:280px;height:100vh;overflow-y:auto;background:linear-gradient(180deg,#0f6b5e,#0b4d43);color:#fff;padding:24px 18px;}
+aside.toc h1{font-size:16px;margin:0 0 6px;letter-spacing:1px;color:#f6e58d}
+aside.toc .sub{font-size:12px;opacity:.75;margin-bottom:16px}
+aside.toc a{display:block;color:#f2fbf8;text-decoration:none;padding:8px 10px;border-radius:6px;margin-bottom:2px;font-size:14px;line-height:1.4;border-left:3px solid transparent;}
+aside.toc a:hover{background:rgba(255,255,255,.10)}
+main{flex:1;padding:36px 44px;background:var(--paper);box-shadow:0 0 30px rgba(0,0,0,.05)}
+h1.title{font-size:32px;margin:0 0 6px;color:var(--accent)}
+.subtitle{color:var(--ink-soft);margin-bottom:24px;font-size:14px}
+h2.section{font-size:24px;color:var(--accent);border-bottom:2px solid var(--accent);padding-bottom:6px;margin-top:56px;margin-bottom:14px;}
+h3{font-size:19px;color:var(--accent-2);margin-top:32px;border-left:5px solid var(--accent-2);padding-left:10px}
+h4{font-size:16px;color:var(--accent-3);margin-top:20px}
+.hi{background:linear-gradient(180deg,transparent 55%,var(--hi) 55%);padding:0 2px}
+.term{color:var(--accent-2);font-weight:700}
+.term-en{color:var(--accent);font-style:italic}
+.box{padding:14px 18px;border-radius:10px;margin:14px 0;position:relative}
+.box::before{content:attr(data-label);position:absolute;top:-10px;left:14px;background:#fff;padding:0 8px;font-size:12px;font-weight:700;letter-spacing:1px;}
+.box-note{background:var(--box-note);border:1px solid #c9d7f0}.box-note::before{content:"讲解 · 知识点";color:var(--accent-3)}
+.box-warn{background:var(--box-warn);border:1px solid #f5c6c0}.box-warn::before{content:"重难点 · 易错点";color:var(--accent-2)}
+.box-key{background:var(--box-key);border:1px solid #f3d78b}.box-key::before{content:"关键规则";color:#a17108}
+.box-example{background:var(--box-example);border:1px solid #b7dab8}.box-example::before{content:"例题详解";color:#2c6e2e}
+table.vocab{width:100%;border-collapse:collapse;margin:6px 0}
+table.vocab th,table.vocab td{padding:6px 10px;border-bottom:1px solid var(--line);font-size:14px;text-align:left;vertical-align:top}
+table.vocab th{background:#dfeae7;color:var(--accent)}
+.step{margin:10px 0;padding:10px 14px 10px 42px;background:#fbfaf3;border-radius:8px;position:relative}
+.step .no{position:absolute;left:10px;top:10px;width:24px;height:24px;line-height:24px;text-align:center;background:var(--accent);color:#fff;border-radius:50%;font-weight:700;font-size:13px;}
+ol.practice{padding-left:20px}ol.practice li{margin-bottom:10px}
+.ans{background:#eef7ee;border-left:4px solid #4e9d5c;padding:10px 14px;border-radius:0 8px 8px 0;margin:6px 0;font-size:14.5px}
+.ans::before{content:"参考答案与解析　";color:#2c6e2e;font-weight:700;font-size:12px;letter-spacing:1px}
+hr.soft{border:none;border-top:1px dashed #cfc9b6;margin:32px 0}
+.callout-topic{background:linear-gradient(135deg,#0f6b5e,#3e5aa8);color:#fff;padding:18px 22px;border-radius:12px;margin:20px 0;}
+.callout-topic h3{color:#f6e58d;border:none;padding:0;margin:0 0 8px}
+.callout-topic p{margin:0;opacity:.95}
+.small{font-size:13px;color:var(--ink-soft)}
+</style>
+<link rel="stylesheet" href="theme.css?v=20260905" />
+</head>
+<body>
+<div class="wrap">
+<aside class="toc">
+  <h1>第 8 章 离子化合物</h1>
+  <div class="sub">Chemistry · Matter and Change</div>
+  <a href="#overview">📖 章导读</a>
+  <a href="#map">🗺️ 章节地图</a>
+  <a href="#vocab">📚 术语速查表</a>
+  <a href="#s8-1">§8.1 化学键的形成</a>
+  <a href="#s8-2">§8.2 离子键</a>
+  <a href="#s8-3">§8.3 命名与化学式</a>
+  <a href="#s8-4">§8.4 金属键与金属</a>
+  <a href="#study-guide">📝 Study Guide</a>
+  <a href="#assessment">🧪 Chapter Assessment</a>
+  <a href="#cheatsheet">⚡ 一页知识卡</a>
+</aside>
+
+<main>
+<h1 class="title">第 8 章 · Ionic Compounds</h1>
+<div class="subtitle">离子化合物　·　中文自学手册　·　"化学式怎么写"的核心章节</div>
+
+<section id="overview">
+<h2 class="section">📖 章导读</h2>
+<p>原子为什么要结合成分子或晶体？答案是<b>能量降低 + 电子稳定</b>——多数原子只要凑齐"最外层 8 电子"（<b>八隅体规则 octet rule</b>）就非常稳定，就像稀有气体。达到八隅体有三条路：<b>失电子</b>（金属，成阳离子）、<b>得电子</b>（非金属，成阴离子）、<b>共用电子</b>（第 9 章的共价键）。</p>
+<div class="callout-topic">
+<h3>🌟 本章聚焦"金属 + 非金属"这一路</h3>
+<p>金属把电子"送给"非金属 → 一个变阳离子一个变阴离子 → 静电吸引 → <b>离子键 (ionic bond)</b> → 组装成<b>离子晶体</b>。本章还教你如何为离子化合物写<b>化学式</b>、如何<b>命名</b>——这是化学的"识字课"，第 10、11 章的所有计算都靠它。</p>
+</div>
+</section>
+
+<section id="map">
+<h2 class="section">🗺️ 章节地图</h2>
+<table class="vocab">
+<thead><tr><th>小节</th><th>核心问题</th><th>关键结论</th></tr></thead>
+<tbody>
+<tr><td>§8.1 化学键的形成</td><td>为什么原子要结合？</td><td>能量降低 + 达到八隅体；三类键：离子 / 共价 / 金属。</td></tr>
+<tr><td>§8.2 离子键的形成与性质</td><td>金属 + 非金属如何结合？</td><td>金属失 e⁻ 成阳离子；非金属得 e⁻ 成阴离子；静电吸引 → 离子晶体。</td></tr>
+<tr><td>§8.3 命名与化学式</td><td>如何读写离子化合物？</td><td>十字交叉法写式；主族看族数、过渡金属用罗马数字、多原子离子必背表。</td></tr>
+<tr><td>§8.4 金属键与金属性质</td><td>金属为何有金属特性？</td><td>电子海模型 → 导电、导热、延展、光泽；合金分置换/间隙。</td></tr>
+</tbody>
+</table>
+</section>
+
+<section id="vocab">
+<h2 class="section">📚 术语速查表</h2>
+<table class="vocab">
+<thead><tr><th>English</th><th>中文</th><th>要点</th></tr></thead>
+<tbody>
+<tr><td>chemical bond</td><td>化学键</td><td>把原子结合在一起的作用力</td></tr>
+<tr><td>ionic bond</td><td>离子键</td><td>阳离子与阴离子的静电吸引</td></tr>
+<tr><td>covalent bond</td><td>共价键</td><td>共用电子对（第 9 章）</td></tr>
+<tr><td>metallic bond</td><td>金属键</td><td>阳离子 + 自由电子海</td></tr>
+<tr><td>octet rule</td><td>八隅体规则</td><td>原子倾向达到最外层 8 电子</td></tr>
+<tr><td>cation</td><td>阳离子</td><td>失去电子后带正电（金属常见）</td></tr>
+<tr><td>anion</td><td>阴离子</td><td>得到电子后带负电（非金属常见）</td></tr>
+<tr><td>monatomic ion</td><td>单原子离子</td><td>Na⁺、Cl⁻ 等</td></tr>
+<tr><td>polyatomic ion</td><td>多原子离子</td><td>SO₄²⁻、NH₄⁺ 等</td></tr>
+<tr><td>oxidation number</td><td>氧化数</td><td>元素在化合物中的"表观电荷"</td></tr>
+<tr><td>electron-dot / Lewis structure</td><td>电子点式 / Lewis 结构</td><td>用点表示价电子</td></tr>
+<tr><td>ionic compound</td><td>离子化合物</td><td>由离子键组成的化合物</td></tr>
+<tr><td>crystal lattice</td><td>晶格</td><td>离子按规则周期排列的三维结构</td></tr>
+<tr><td>formula unit</td><td>化学式单位</td><td>离子化合物的最简整数比表示</td></tr>
+<tr><td>lattice energy</td><td>晶格能</td><td>1 mol 气态离子形成 1 mol 晶体放出的能量</td></tr>
+<tr><td>electron sea model</td><td>电子海模型</td><td>金属键的模型</td></tr>
+<tr><td>alloy</td><td>合金</td><td>金属混合物（钢、青铜、黄铜等）</td></tr>
+</tbody>
+</table>
+</section>
+
+<section id="s8-1">
+<h2 class="section">§8.1 Forming Chemical Bonds 化学键的形成</h2>
+
+<h3>1. 为什么形成化学键？</h3>
+<p>原子之所以结合，是因为结合后<b>体系能量降低</b>，也就是更稳定。达到"能量最低点"通常等价于外层电子凑齐 8 个（<b>八隅体 octet rule</b>），就像稀有气体一样。</p>
+
+<h3>2. 三大类化学键</h3>
+<table class="vocab">
+<thead><tr><th>键型</th><th>组成</th><th>如何达到八隅体</th><th>典型例子</th></tr></thead>
+<tbody>
+<tr><td>离子键 ionic</td><td>金属 + 非金属</td><td>金属失 e⁻、非金属得 e⁻</td><td>NaCl, CaO, MgF₂</td></tr>
+<tr><td>共价键 covalent</td><td>非金属 + 非金属</td><td>共用电子对</td><td>H₂O, CO₂, NH₃</td></tr>
+<tr><td>金属键 metallic</td><td>金属 + 金属</td><td>阳离子 + 电子海</td><td>Fe, Cu, 合金</td></tr>
+</tbody>
+</table>
+
+<h3>3. 电子点式 (Lewis dot structure)</h3>
+<p>用点或叉表示<b>价电子</b>（最外层电子）。写法：<b>族数 = 价电子数</b>（主族）。</p>
+<div class="box box-example">
+Na · （1 个价电子）；<br/>
+: Cl : 上下左右都有点，共 7 个（Group 17）；<br/>
+: Ne : 有 8 个点，达到八隅体（Group 18）。<br/>
+（网页字符受限，实际画时把点均匀分布在元素符号四周。）
+</div>
+</section>
+
+<section id="s8-2">
+<h2 class="section">§8.2 The Formation and Nature of Ionic Bonds 离子键的形成与性质</h2>
+
+<h3>1. 离子的形成</h3>
+<div class="box box-key">
+<b>阳离子 cation：</b>金属原子失去价电子 → 正电荷。<br/>
+$\text{Na} \to \text{Na}^+ + e^-$（Na 有 1 价电子，失 1 个变 +1）<br/>
+$\text{Mg} \to \text{Mg}^{2+} + 2e^-$<br/>
+<b>阴离子 anion：</b>非金属原子得到电子 → 负电荷。<br/>
+$\text{Cl} + e^- \to \text{Cl}^-$（缺 1 个凑齐 8 电子）<br/>
+$\text{O} + 2e^- \to \text{O}^{2-}$
+</div>
+
+<h3>2. 主族元素常见离子电荷（必背）</h3>
+<table class="vocab">
+<thead><tr><th>族</th><th>价电子</th><th>典型离子</th><th>例子</th></tr></thead>
+<tbody>
+<tr><td>1 (IA)</td><td>1</td><td>+1</td><td>Li⁺, Na⁺, K⁺</td></tr>
+<tr><td>2 (IIA)</td><td>2</td><td>+2</td><td>Mg²⁺, Ca²⁺, Ba²⁺</td></tr>
+<tr><td>13 (IIIA)</td><td>3</td><td>+3</td><td>Al³⁺</td></tr>
+<tr><td>14 (IVA)</td><td>4</td><td>±4（多变）</td><td>C 一般不成离子，Sn²⁺/⁴⁺</td></tr>
+<tr><td>15 (VA)</td><td>5</td><td>−3</td><td>N³⁻, P³⁻</td></tr>
+<tr><td>16 (VIA)</td><td>6</td><td>−2</td><td>O²⁻, S²⁻</td></tr>
+<tr><td>17 (VIIA)</td><td>7</td><td>−1</td><td>F⁻, Cl⁻, Br⁻, I⁻</td></tr>
+<tr><td>18 (VIIIA)</td><td>8</td><td>0（不成离子）</td><td>稀有气体</td></tr>
+</tbody>
+</table>
+
+<h3>3. 离子键 & 离子晶体</h3>
+<p>阳离子与阴离子之间的<b>静电吸引力</b>就是<span class="term">离子键 (ionic bond)</span>。它们在空间中按规则排列成<span class="term">晶格 crystal lattice</span>——例如 NaCl 是每个 Na⁺ 被 6 个 Cl⁻ 包围、每个 Cl⁻ 被 6 个 Na⁺ 包围的立方晶格。</p>
+
+<div class="box box-key">
+<b>离子化合物性质：</b>
+<ul style="margin:6px 0 0 20px">
+<li>熔点、沸点<b>高</b>（离子键很强）。</li>
+<li><b>硬而脆</b>：外力使离子层错位后，同种电荷相邻→斥力→碎裂。</li>
+<li>固态<b>不导电</b>（离子被锁在晶格里）；<b>溶于水或熔融时导电</b>（离子可自由移动）。</li>
+<li>大多数<b>易溶于水</b>（有例外，见第 10 章溶解度规则）。</li>
+</ul>
+</div>
+
+<div class="box box-note">
+<b>晶格能 lattice energy：</b>气态阳离子和气态阴离子形成 1 mol 晶体所<b>释放</b>的能量。晶格能越大，晶体越稳定。它由 <b>电荷</b>（越高越大）和<b>离子半径</b>（越小越大）决定。所以 MgO（+2/-2、半径小）晶格能远大于 NaCl（+1/-1、半径大）。
+</div>
+</section>
+
+<section id="s8-3">
+<h2 class="section">§8.3 Names and Formulas for Ionic Compounds 命名与化学式（重难点！）</h2>
+
+<h3>1. 写化学式：十字交叉法</h3>
+<div class="box box-key">
+<b>规则：正负电荷代数和 = 0</b>（离子化合物整体电中性）。<br/>
+把阳离子电荷数写成阴离子的下标，把阴离子电荷数写成阳离子的下标，再<b>化简为最简整数比</b>。
+</div>
+
+<div class="box box-example">
+<b>例 1：</b>Ca²⁺ 与 Cl⁻ → 交叉：Ca 下标 1、Cl 下标 2 → <b>CaCl₂</b>。<br/>
+<b>例 2：</b>Al³⁺ 与 O²⁻ → 交叉：Al 下标 2、O 下标 3 → <b>Al₂O₃</b>。<br/>
+<b>例 3：</b>Mg²⁺ 与 O²⁻ → 交叉：Mg₂O₂ → 化简为 <b>MgO</b>（最简）。<br/>
+<b>例 4（含多原子离子）：</b>Ca²⁺ 与 PO₄³⁻ → Ca₃(PO₄)₂。多原子离子加下标时用<b>括号</b>。
+</div>
+
+<h3>2. 命名单原子离子化合物</h3>
+<div class="box box-key">
+<b>规则：先阳离子名 + 后阴离子名</b>。<br/>
+① 阳离子：直接用元素名（sodium, calcium, aluminum）。<br/>
+② 阴离子：元素名词根 + <b>-ide</b>（chloride, oxide, nitride, sulfide, phosphide）。<br/>
+③ 中文对照：氯化物、氧化物、氮化物、硫化物、磷化物。
+</div>
+
+<div class="box box-example">
+NaCl = sodium chloride 氯化钠<br/>
+CaO = calcium oxide 氧化钙<br/>
+Al₂O₃ = aluminum oxide 氧化铝<br/>
+Mg₃N₂ = magnesium nitride 氮化镁<br/>
+K₂S = potassium sulfide 硫化钾
+</div>
+
+<h3>3. 过渡金属：用罗马数字标氧化态</h3>
+<p>许多过渡金属可有多种氧化态（Fe²⁺/Fe³⁺、Cu⁺/Cu²⁺、Mn²⁺/⁴⁺/⁷⁺ 等），必须<b>在阳离子名后加罗马数字括号</b>表明电荷。</p>
+<div class="box box-example">
+FeCl₂ = iron(II) chloride 氯化亚铁<br/>
+FeCl₃ = iron(III) chloride 氯化铁<br/>
+CuO = copper(II) oxide<br/>
+Cu₂O = copper(I) oxide<br/>
+<b>反推：</b>iron(III) sulfate = Fe₂(SO₄)₃（Fe³⁺ 与 SO₄²⁻ 交叉）
+</div>
+
+<h3>4. 多原子离子 Polyatomic Ions（必背表！）</h3>
+<div class="box box-key">
+<b>常见多原子离子（大声念、反复写！）：</b>
+<table class="vocab">
+<thead><tr><th>离子</th><th>英文名</th><th>中文</th><th>电荷</th></tr></thead>
+<tbody>
+<tr><td>NH₄⁺</td><td>ammonium</td><td>铵根</td><td>+1</td></tr>
+<tr><td>OH⁻</td><td>hydroxide</td><td>氢氧根</td><td>−1</td></tr>
+<tr><td>NO₃⁻</td><td>nitrate</td><td>硝酸根</td><td>−1</td></tr>
+<tr><td>NO₂⁻</td><td>nitrite</td><td>亚硝酸根</td><td>−1</td></tr>
+<tr><td>SO₄²⁻</td><td>sulfate</td><td>硫酸根</td><td>−2</td></tr>
+<tr><td>SO₃²⁻</td><td>sulfite</td><td>亚硫酸根</td><td>−2</td></tr>
+<tr><td>CO₃²⁻</td><td>carbonate</td><td>碳酸根</td><td>−2</td></tr>
+<tr><td>HCO₃⁻</td><td>hydrogen carbonate / bicarbonate</td><td>碳酸氢根</td><td>−1</td></tr>
+<tr><td>PO₄³⁻</td><td>phosphate</td><td>磷酸根</td><td>−3</td></tr>
+<tr><td>PO₃³⁻</td><td>phosphite</td><td>亚磷酸根</td><td>−3</td></tr>
+<tr><td>ClO⁻</td><td>hypochlorite</td><td>次氯酸根</td><td>−1</td></tr>
+<tr><td>ClO₂⁻</td><td>chlorite</td><td>亚氯酸根</td><td>−1</td></tr>
+<tr><td>ClO₃⁻</td><td>chlorate</td><td>氯酸根</td><td>−1</td></tr>
+<tr><td>ClO₄⁻</td><td>perchlorate</td><td>高氯酸根</td><td>−1</td></tr>
+<tr><td>CN⁻</td><td>cyanide</td><td>氰根</td><td>−1</td></tr>
+<tr><td>MnO₄⁻</td><td>permanganate</td><td>高锰酸根</td><td>−1</td></tr>
+<tr><td>CrO₄²⁻</td><td>chromate</td><td>铬酸根</td><td>−2</td></tr>
+<tr><td>Cr₂O₇²⁻</td><td>dichromate</td><td>重铬酸根</td><td>−2</td></tr>
+<tr><td>C₂H₃O₂⁻ / CH₃COO⁻</td><td>acetate</td><td>乙酸根 / 醋酸根</td><td>−1</td></tr>
+</tbody>
+</table>
+</div>
+
+<h3>5. -ate / -ite / hypo- / per- 规律</h3>
+<div class="box box-note">
+同一元素的多个含氧酸根命名规律：<br/>
+<b>-ate</b>（酸根）比 <b>-ite</b>（亚酸根）多 <b>1 个 O</b>；<br/>
+<b>hypo-…-ite</b> 比 -ite 再少 1 个 O；<br/>
+<b>per-…-ate</b> 比 -ate 再多 1 个 O。<br/>
+氯的 4 个含氧酸根：<b>ClO⁻ 次氯 → ClO₂⁻ 亚氯 → ClO₃⁻ 氯 → ClO₄⁻ 高氯</b>，"次亚正高"。
+</div>
+
+<h3>6. 综合练习：命名/写式流程</h3>
+<div class="box box-example">
+<b>写化学式：</b>iron(III) sulfate<br/>
+<div class="step"><span class="no">1</span>iron(III) → Fe³⁺；sulfate → SO₄²⁻</div>
+<div class="step"><span class="no">2</span>十字交叉：Fe₂(SO₄)₃</div>
+<br/>
+<b>命名：</b>Ba(NO₃)₂<br/>
+<div class="step"><span class="no">1</span>阳离子 Ba²⁺（Group 2，只一种电荷，无需罗马数字）</div>
+<div class="step"><span class="no">2</span>阴离子 NO₃⁻ = nitrate</div>
+<div class="step"><span class="no">3</span>结果：barium nitrate 硝酸钡</div>
+</div>
+
+<div class="box box-warn">
+<b>易错点：</b>
+<ul style="margin:6px 0 0 20px">
+<li>多原子离子加下标必须<b>加括号</b>：Al(NO₃)₃ 不是 AlNO₃₃。</li>
+<li>Group 1/2/13 都只有一种电荷，<b>不用</b>加罗马数字。Ag⁺、Zn²⁺ 也几乎只有一种氧化态，一般不加。</li>
+<li>过渡金属 Fe、Cu、Cr、Mn、Sn、Pb 等必须用罗马数字。</li>
+<li>-ide 只用于单原子阴离子，也用于 OH⁻ (hydroxide)、CN⁻ (cyanide) 这两个"例外"。</li>
+</ul>
+</div>
+</section>
+
+<section id="s8-4">
+<h2 class="section">§8.4 Metallic Bonds and Properties of Metals 金属键与金属</h2>
+
+<h3>1. 电子海模型 electron sea model</h3>
+<p>金属原子的价电子容易脱离，形成正电中心（金属阳离子）+ <b>自由移动的电子"海"</b>。金属离子之间由这些自由电子"胶合"在一起，就是<span class="term">金属键</span>。</p>
+
+<h3>2. 金属通性（用电子海解释）</h3>
+<div class="box box-key">
+① <b>导电、导热</b>：自由电子承担电流/热流传递。<br/>
+② <b>延展性 malleable / 韧性 ductile</b>：外力使原子层滑移，电子海跟着调整，键不断裂，能锤薄拉丝。<br/>
+③ <b>金属光泽</b>：自由电子吸收后再释放各波长光。<br/>
+④ 熔点/硬度差异大：与金属键强度（电荷、原子半径）相关。W（钨）熔点 3422 ℃，Hg 常温液态。
+</div>
+
+<h3>3. 合金 alloy</h3>
+<div class="box box-note">
+<b>Substitutional alloy 置换合金：</b>不同金属原子大小相近，互相替代。如黄铜（Cu + Zn）、青铜（Cu + Sn）。<br/>
+<b>Interstitial alloy 间隙合金：</b>小原子挤进大原子间隙。如钢（Fe + 少量 C）—— 极少量 C 大大提高硬度。
+</div>
+</section>
+
+<section id="study-guide">
+<h2 class="section">📝 Study Guide 章节复习</h2>
+<div class="box box-note">
+<b>成键动机：</b>降低能量 / 达到八隅体。<br/>
+<b>三类键：</b>离子（金属 + 非金属）、共价（非金 + 非金）、金属（金 + 金）。<br/>
+<b>离子键：</b>Cation + Anion 静电吸引；晶格能大 → 高熔点、硬而脆；固不导电、熔或溶导电。<br/>
+<b>命名：</b>先阳后阴；-ide；过渡金属加罗马数字；<b>多原子离子必背表</b>；-ate / -ite / hypo- / per- 规律。<br/>
+<b>金属键：</b>电子海模型；延展、导电、光泽的统一解释；合金分置换/间隙。
+</div>
+</section>
+
+<section id="assessment">
+<h2 class="section">🧪 Chapter Assessment 章末测评（精选题）</h2>
+
+<ol class="practice">
+<li>下列哪个是离子化合物？<br/>
+a) H₂O；b) NaCl；c) CO₂；d) CH₄。
+<div class="ans">选 <b>b</b>。NaCl = 金属 + 非金属，是离子键。其余都是非金属之间的共价键。</div>
+</li>
+
+<li>Mg 与 O 结合生成什么化合物？写出化学式并解释形成过程。
+<div class="ans">Mg 失 2e⁻ → Mg²⁺；O 得 2e⁻ → O²⁻；1:1 结合成 <b>MgO</b>（氧化镁）。这是典型的金属 + 非金属 → 离子键，达到 [Ne] 稳定构型。</div>
+</li>
+
+<li>下列离子中，与 Ne 具有相同电子排布的一组是（　　）：<br/>
+a) Na⁺, Mg²⁺, F⁻；b) K⁺, Ca²⁺, Cl⁻；c) Li⁺, Be²⁺, H⁻；d) Rb⁺, Sr²⁺, Br⁻。
+<div class="ans">选 <b>a</b>。Ne 是 10 电子。Na⁺(11−1=10), Mg²⁺(12−2=10), F⁻(9+1=10)，都是 10 电子等电子体。</div>
+</li>
+
+<li>写出下列离子化合物的化学式：<br/>
+① sodium sulfide；② calcium phosphate；③ iron(III) oxide；④ ammonium nitrate；⑤ aluminum hydroxide。
+<div class="ans">
+① Na⁺ + S²⁻ → <b>Na₂S</b><br/>
+② Ca²⁺ + PO₄³⁻ → <b>Ca₃(PO₄)₂</b><br/>
+③ Fe³⁺ + O²⁻ → <b>Fe₂O₃</b><br/>
+④ NH₄⁺ + NO₃⁻ → <b>NH₄NO₃</b><br/>
+⑤ Al³⁺ + OH⁻ → <b>Al(OH)₃</b>
+</div>
+</li>
+
+<li>命名下列化合物：<br/>
+① K₂SO₄；② FeCl₃；③ Cu₂O；④ (NH₄)₂CO₃；⑤ Mg(NO₃)₂。
+<div class="ans">
+① potassium sulfate 硫酸钾<br/>
+② iron(III) chloride 氯化铁<br/>
+③ copper(I) oxide 氧化亚铜<br/>
+④ ammonium carbonate 碳酸铵<br/>
+⑤ magnesium nitrate 硝酸镁
+</div>
+</li>
+
+<li>比较 hypochlorite 和 perchlorate 两个离子的化学式与氯的氧化态。
+<div class="ans">hypochlorite = <b>ClO⁻</b>；perchlorate = <b>ClO₄⁻</b>。Cl 氧化态分别为 +1 和 +7。两者相差 3 个氧原子，"hypo-"最少 O、"per-"最多 O。</div>
+</li>
+
+<li>解释为什么 NaCl 固态不导电，熔融或溶于水后能导电。
+<div class="ans">导电需要"能自由移动的带电粒子"。固态 NaCl 中 Na⁺、Cl⁻ 被锁在晶格里不能移动，所以不导电；<b>熔融</b>破坏晶格，离子可自由运动 → 导电；<b>溶于水</b>时 Na⁺、Cl⁻ 被水分子分开并<b>水合</b>，也能自由移动 → 导电。</div>
+</li>
+
+<li>为什么 Fe 和 C 组成的<b>钢</b>比纯铁更硬？
+<div class="ans">钢是<b>间隙合金</b>——小的 C 原子挤进 Fe 原子间隙，"钉"住了 Fe 原子层，使层间滑动更困难，宏观表现为更硬（塑性下降、强度上升）。</div>
+</li>
+
+<li>MgO 和 NaCl 都是离子晶体，为何 MgO 熔点（2852 ℃）远高于 NaCl（801 ℃）？
+<div class="ans">晶格能取决于电荷积和离子半径。MgO 是 <b>+2/−2</b>，NaCl 是 <b>+1/−1</b>，MgO 静电作用大约是 NaCl 的 4 倍；且 Mg²⁺、O²⁻ 半径也比 Na⁺、Cl⁻ 小 → MgO 晶格能远大 → 熔点更高。</div>
+</li>
+
+<li>下列哪一项<b>不属于</b>金属通性？<br/>
+a) 良好导电；b) 延展性；c) 液态时才导电；d) 有金属光泽。
+<div class="ans">选 <b>c</b>。金属固态就能导电（自由电子）。液态才导电是<b>离子化合物</b>的特点。</div>
+</li>
+
+<li>已知 Ba(OH)₂ 是碱，请写出 Ba²⁺ 与 OH⁻ 化学式的推导过程。
+<div class="ans">Ba²⁺ 电荷 +2，OH⁻ 电荷 −1；十字交叉：Ba 下标 1、OH 下标 2 → <b>Ba(OH)₂</b>。多原子离子的下标要加括号。</div>
+</li>
+
+<li>下列反应中 Ca 失去几个电子？$\text{Ca} + \text{Cl}_2 \to \text{CaCl}_2$
+<div class="ans">Ca 变成 Ca²⁺ 需失 <b>2 个电子</b>。2 个 Cl 各得 1 个，共 2 个，转移守恒。</div>
+</li>
+</ol>
+</section>
+
+<section id="cheatsheet">
+<h2 class="section">⚡ 一页知识卡</h2>
+
+<div class="callout-topic">
+<h3>写化学式 5 步法</h3>
+<p>① 写出阳离子（含电荷） + 阴离子（含电荷）<br/>
+② <b>十字交叉</b>：正电荷数写成阴离子下标，阴电荷数写成阳离子下标<br/>
+③ <b>化简</b>为最简整数比<br/>
+④ 多原子离子有下标时<b>加括号</b><br/>
+⑤ 检查<b>总电荷 = 0</b></p>
+</div>
+
+<div class="box box-key">
+<b>必背 · 常见多原子离子（口诀式）</b><br/>
++1：<b>铵</b> NH₄⁺<br/>
+−1：<b>氢氧、硝酸、亚硝、氯酸、次氯、亚氯、高氯、氰、乙酸、高锰、碳酸氢</b>（OH⁻ NO₃⁻ NO₂⁻ ClO₃⁻ ClO⁻ ClO₂⁻ ClO₄⁻ CN⁻ CH₃COO⁻ MnO₄⁻ HCO₃⁻）<br/>
+−2：<b>硫酸、亚硫、碳酸、铬酸、重铬</b>（SO₄²⁻ SO₃²⁻ CO₃²⁻ CrO₄²⁻ Cr₂O₇²⁻）<br/>
+−3：<b>磷酸、亚磷</b>（PO₄³⁻ PO₃³⁻）
+</div>
+
+<div class="box box-note">
+<b>命名骨架</b><br/>
+"阳离子（罗马数字）+ 阴离子"<br/>
+单原子阴离子：元素名词根 + <b>-ide</b>（chloride, oxide…）<br/>
+含氧酸根：-<b>ate</b> / -<b>ite</b>（多/少一个 O）<br/>
+"<b>hypo</b>-...-ite" &lt; -ite &lt; -ate &lt; "<b>per</b>-...-ate"（O 数递增）
+</div>
+
+<div class="box box-warn">
+<b>易错三点：</b>
+① 主族 Group 1/2/13 → 电荷固定，无需罗马数字。<br/>
+② 过渡金属 Fe/Cu/Cr/Mn/Sn/Pb → 一定加罗马数字（Ag、Zn 例外）。<br/>
+③ 化学式先化简（如 Mg₂O₂ → MgO），除非跟"分子式"（第 9 章）比。
+</div>
+</section>
+
+<hr class="soft"/>
+<p class="small" style="text-align:center;color:#888">© 中文自学手册 · 与《Chemistry — Matter and Change》第 8 章配套</p>
+</main>
+</div>
+<script src="theme.js?v=20260905"></script>
+</body>
+</html>
