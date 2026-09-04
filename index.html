@@ -107,10 +107,6 @@
     .stop:nth-child(5n)::before { border-color: #779419; color: #779419; }
     .stop:nth-child(5n):hover::before, .stop:nth-child(5n):focus-visible::before { background: var(--lime); }
     .stop:hover { position: relative; z-index: 1; background: #eef2ff; transform: translateY(-3px); }
-    .stop.is-current { position: relative; z-index: 1; background: var(--night); color: var(--paper); }
-    .stop.is-current::before { border: 3px solid var(--paper); background: var(--lime); box-shadow: 0 0 0 2px var(--lime); }
-    .stop.is-current .stop-number, .stop.is-current small { color: var(--lime); }
-    .stop.is-current strong { color: var(--paper); }
     .stop-number { color: var(--blue); font: 9px var(--mono); letter-spacing: .04em; }
     .stop strong { display: block; margin: 8px 0 3px; font-size: 13px; line-height: 1.32; letter-spacing: -.03em; }
     .stop small { color: var(--quiet); font: 9px/1.35 var(--mono); }
@@ -211,8 +207,8 @@
     </main>
   </div>
 
-  <section class="shell now-strip" aria-label="当前学习进度">
-    <span class="now-label">NOW IN LAB</span><p>化学导论 <span>· 从“什么是化学”开始建立你的观察方法。</span></p><a class="jump" href="chemistry/Chapter01.html">继续学习 →</a>
+  <section class="shell now-strip" aria-label="化学课程入口">
+    <span class="now-label">OPEN COURSE</span><p>化学导论 <span>· 从“什么是化学”开始建立你的观察方法。</span></p><a class="jump" href="chemistry/Chapter01.html">从第 1 章开始 →</a>
   </section>
 
   <main class="shell subject-zone">
@@ -230,12 +226,12 @@
           <a class="stop" href="chemistry/Chapter08.html"><span class="stop-number">08 / 离子</span><strong>离子化合物</strong><small>IONIC COMPOUNDS</small></a>
           <a class="stop" href="chemistry/Chapter09.html"><span class="stop-number">09 / 共价键</span><strong>共价键</strong><small>COVALENT BONDING</small></a>
           <a class="stop" href="chemistry/Chapter10.html"><span class="stop-number">10 / 反应</span><strong>化学反应</strong><small>REACTIONS</small></a>
-          <a class="stop is-current" href="chemistry/Chapter11.html" aria-current="page"><span class="stop-number">11 / 正在学习</span><strong>摩尔</strong><small>THE MOLE</small></a>
+          <a class="stop" href="chemistry/Chapter11.html"><span class="stop-number">11 / 计数</span><strong>摩尔</strong><small>THE MOLE</small></a>
           <a class="stop" href="chemistry/Chapter12.html"><span class="stop-number">12 / 配平</span><strong>化学计量</strong><small>STOICHIOMETRY</small></a>
           <a class="stop" href="chemistry/Chapter13.html"><span class="stop-number">13 / 变化</span><strong>物质的三态</strong><small>STATES OF MATTER</small></a>
         </div>
       </div>
-      <p class="route-tip"><span>你正在学习：CH 11 · 摩尔</span><span>13 / 13 STATIONS · 点击直接打开</span></p>
+      <p class="route-tip"><span>按章节顺序探索化学</span><span>13 / 13 STATIONS · 点击直接打开</span></p>
     </section>
 
     <section class="launches" id="subjects" aria-labelledby="subjects-title">
